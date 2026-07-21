@@ -1,0 +1,1 @@
+Lee `AGENTS.md` antes de trabajar en este proyecto y respeta sus invariantes, en particular: datos de negocio solo en `src/data/`, `content/` y tokens de `global.css`; el catálogo se regenera con `npm run generar` desde `../agas-context` (solo lectura) y sus salidas no se editan a mano; código sin comentarios; build y tests en verde antes de dar por terminado cualquier cambio.
