@@ -1,0 +1,35 @@
+---
+interface Props {
+  promedio: number;
+  cantidad?: number;
+  class?: string;
+}
+
+const { promedio, cantidad, class: className = '' } = Astro.props;
+const llenas = Math.round(promedio);
+---
+
+<span class:list={['inline-flex items-center gap-1', className]}>
+  <span aria-hidden="true" class="flex gap-0.5 text-acento">
+    {
+      Array.from({ length: 5 }).map((_, indice) => (
+        <svg
+          viewBox="0 0 24 24"
+          fill={indice < llenas ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="h-4 w-4"
+        >
+          <path d="M12 2.5 14.9 8.6 21.6 9.4 16.8 14 18 20.6 12 17.4 6 20.6 7.2 14 2.4 9.4 9.1 8.6Z" />
+        </svg>
+      ))
+    }
+  </span>
+  <span class="font-texto text-sm font-bold text-tinta">{promedio.toFixed(1)}</span>
+  {
+    cantidad !== undefined && (
+      <span class="font-texto text-sm text-tinta/60">({cantidad})</span>
+    )
+  }
+  <span class="sr-only">{promedio.toFixed(1)} de 5 estrellas</span>
+</span>

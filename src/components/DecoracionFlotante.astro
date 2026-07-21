@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<svg
+  class:list={['pointer-events-none select-none opacity-70', className]}
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  fill="none"
+  aria-hidden="true"
+>
+  <circle cx="45" cy="50" r="30" fill="var(--color-primario)" opacity="0.5" />
+  <circle cx="100" cy="35" r="26" fill="var(--color-acento)" opacity="0.45" />
+  <circle cx="150" cy="60" r="22" fill="var(--color-destacado)" opacity="0.5" />
+  <path d="M45 80 L45 130" stroke="currentColor" stroke-width="1" opacity="0.3" />
+  <path d="M100 61 L100 120" stroke="currentColor" stroke-width="1" opacity="0.3" />
+  <path d="M150 82 L150 125" stroke="currentColor" stroke-width="1" opacity="0.3" />
+</svg>

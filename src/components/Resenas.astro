@@ -1,0 +1,46 @@
+---
+import Estrellas from './Estrellas.astro';
+import { resenas } from '../lib/resenas';
+
+const { mercadolibre, promedioGeneral, totalReviews, destacadas } = resenas;
+---
+
+<section class="mx-auto max-w-6xl px-4 py-14" aria-labelledby="resenas-titulo">
+  <h2 id="resenas-titulo" class="text-center font-titulos text-3xl font-extrabold text-tinta md:text-4xl">
+    Lo que dicen nuestros compradores
+  </h2>
+  <p class="mx-auto mt-3 max-w-2xl text-center font-texto text-tinta/70">
+    {promedioGeneral.toFixed(1)} de 5 estrellas con {totalReviews} reseñas de compra verificada en Mercado Libre.
+  </p>
+
+  <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      destacadas.map((resena) => (
+        <figure class="flex flex-col gap-3 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-black/5">
+          <Estrellas promedio={resena.estrellas} />
+          <blockquote class="font-texto text-sm text-tinta/80">“{resena.texto}”</blockquote>
+          <figcaption class="mt-auto">
+            <a
+              href={`/productos/${resena.productoSlug}/`}
+              class="font-titulos text-sm font-bold text-primario-oscuro hover:underline"
+            >
+              {resena.productoTitulo}
+            </a>
+            <p class="font-texto text-xs text-tinta/50">Compra verificada en Mercado Libre</p>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <div class="mt-10 flex justify-center">
+    <a
+      href={mercadolibre.url}
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center justify-center gap-2 rounded-full bg-primario px-6 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-primario-oscuro"
+    >
+      Ver nuestra tienda en Mercado Libre
+    </a>
+  </div>
+</section>

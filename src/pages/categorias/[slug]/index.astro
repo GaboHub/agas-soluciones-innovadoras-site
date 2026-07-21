@@ -1,0 +1,85 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import { site, getCategoria, getOtrasCategorias } from '../../../lib/site';
+import { getProductosDeCategoria } from '../../../lib/productos';
+import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
+import { buildOrganization } from '../../../lib/seo';
+
+export const getStaticPaths = (() =>
+  site.categorias.map((categoria) => ({
+    params: { slug: categoria.slug },
+  }))) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+
+const categoria = getCategoria(slug);
+if (!categoria) throw new Error(`Categoría no encontrada: ${slug}`);
+
+const pagina = await getEntry('paginas', slug);
+if (!pagina) throw new Error(`Falta la página de categoría: ${slug}`);
+const { Content } = await render(pagina);
+
+const productos = await getProductosDeCategoria(slug);
+const otrasCategorias = getOtrasCategorias(slug);
+
+const imagenCategoria = resolveImagen(productos[0].data.imagenes[0]);
+
+const title = `${categoria.nombre} | ${site.nombre}`;
+const description = `${categoria.resumen} Precios referenciales y compra directa en Mercado Libre, con despacho a todo Chile.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl)];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/categorias/${slug}/`}
+  ogImage={imagenCategoria}
+  jsonLd={jsonLd}
+>
+  <section class="mx-auto max-w-4xl px-4 py-12">
+    <div class="contenido-md">
+      <Content />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-12">
+    <h2 class="font-titulos text-2xl font-extrabold text-tinta">
+      {productos.length} productos de {categoria.nombre}
+    </h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        productos.map((producto) => (
+          <ProductCard
+            slug={producto.data.slug}
+            titulo={producto.data.titulo}
+            categoriaNombre={categoria.nombre}
+            precioReferencial={producto.data.precioReferencial}
+            imagen={resolveImagen(producto.data.imagenes[0])}
+            reviews={producto.data.reviews}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <h2 class="font-titulos text-2xl font-extrabold text-tinta">Otras categorías</h2>
+    <div class="mt-4 flex flex-wrap gap-3">
+      {
+        otrasCategorias.map((otra) => (
+          <a
+            href={`/categorias/${otra.slug}/`}
+            class="rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
+          >
+            {otra.emoji} {otra.nombre}
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

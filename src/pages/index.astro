@@ -1,0 +1,184 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import BadgeMercadoLibre from '../components/BadgeMercadoLibre.astro';
+import Resenas from '../components/Resenas.astro';
+import Faq from '../components/Faq.astro';
+import DecoracionFlotante from '../components/DecoracionFlotante.astro';
+import { site } from '../lib/site';
+import { faqsGlobales } from '../lib/faqs';
+import { getProductosDeCategoria, getProductosDestacados } from '../lib/productos';
+import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../lib/images';
+import { buildOrganization, buildWebSite } from '../lib/seo';
+
+const inicio = await getEntry('paginas', 'inicio');
+if (!inicio) throw new Error('Falta la página inicio');
+const { Content } = await render(inicio);
+
+const lockupBlanco = resolveImagen('agas-lockup-blanco.svg');
+const destacados = await getProductosDestacados();
+const categoriasConImagen = await Promise.all(
+  site.categorias.map(async (categoria) => {
+    const productos = await getProductosDeCategoria(categoria.slug);
+    return { categoria, imagen: resolveImagen(productos[0].data.imagenes[0]) };
+  }),
+);
+
+const faqsTeaser = faqsGlobales.slice(0, 3);
+
+const title = `${site.nombre} — ${site.tagline}`;
+const description = site.descripcion;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
+---
+
+<BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
+  <section class="relative overflow-hidden bg-gradient-to-b from-primario to-primario-oscuro px-4 py-16 text-center text-white md:py-24">
+    <DecoracionFlotante class="absolute -top-6 left-1/2 h-40 w-64 -translate-x-1/2 opacity-30 md:h-56 md:w-96" />
+    <div class="relative mx-auto flex max-w-3xl flex-col items-center gap-6">
+      <Image src={lockupBlanco} alt={`Logo de ${site.nombre}`} width={360} height={96} class="h-16 w-auto md:h-20" priority />
+      <h1 class="font-titulos text-3xl font-extrabold leading-tight md:text-5xl">
+        {site.tagline}
+      </h1>
+      <p class="font-texto text-lg text-white/90 md:text-xl">{site.claim}</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a
+          href="/productos/"
+          class="rounded-full bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105"
+        >
+          Ver catálogo
+        </a>
+        <a
+          href={site.mercadolibre.tienda}
+          target="_blank"
+          rel="noopener"
+          class="rounded-full border-2 border-white/70 px-7 py-3 font-texto text-base font-bold text-white transition-colors hover:bg-white/10"
+        >
+          {site.ctaHeader}
+        </a>
+      </div>
+      <BadgeMercadoLibre />
+      <p class="font-texto text-sm font-bold text-white/90">
+        <span aria-hidden="true">🚚</span> {site.envio}
+      </p>
+    </div>
+  </section>
+
+  <section id="categorias" aria-labelledby="categorias-titulo" class="px-4 py-14">
+    <div class="mx-auto max-w-6xl">
+      <h2 id="categorias-titulo" class="text-center font-titulos text-3xl font-extrabold text-tinta">
+        Explora por categoría
+      </h2>
+      <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
+        Accesorios para tus consolas y tu celular, listos para despacho a todo Chile.
+      </p>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          categoriasConImagen.map(({ categoria, imagen }) => (
+            <a
+              href={`/categorias/${categoria.slug}/`}
+              class="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div class="flex items-center justify-center bg-white p-4">
+                <Image
+                  src={imagen}
+                  alt={`Accesorios de ${categoria.nombre}`}
+                  width={480}
+                  height={480}
+                  class="h-40 w-auto object-contain sm:h-48"
+                />
+              </div>
+              <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
+                <p class="font-titulos text-lg font-extrabold text-tinta">
+                  <span aria-hidden="true">{categoria.emoji}</span> {categoria.nombre}
+                </p>
+                <p class="font-texto text-sm text-tinta/80">{categoria.resumen}</p>
+                <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+                  Ver {categoria.productos.length} productos →
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="destacados-titulo" class="bg-white px-4 py-14">
+    <div class="mx-auto max-w-6xl">
+      <h2 id="destacados-titulo" class="text-center font-titulos text-3xl font-extrabold text-tinta">
+        Los favoritos de nuestros compradores
+      </h2>
+      <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
+        Los productos con más reseñas reales en Mercado Libre.
+      </p>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          destacados.map((producto) => (
+            <ProductCard
+              slug={producto.data.slug}
+              titulo={producto.data.titulo}
+              categoriaNombre={site.categorias.find((c) => c.slug === producto.data.categoria)?.nombre ?? ''}
+              precioReferencial={producto.data.precioReferencial}
+              imagen={resolveImagen(producto.data.imagenes[0])}
+              reviews={producto.data.reviews}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-12">
+    <div class="contenido-md">
+      <Content />
+    </div>
+  </section>
+
+  <Resenas />
+
+  <section class="px-4 py-14">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-3 rounded-3xl bg-primario-claro px-6 py-10 text-center">
+      <h2 class="font-titulos text-2xl font-extrabold text-tinta md:text-3xl">¿No sabes cuál elegir?</h2>
+      <p class="font-texto text-tinta/80">
+        Nuestras guías te ayudan a identificar tu modelo y elegir el accesorio exacto.
+      </p>
+      <a
+        href="/guias/"
+        class="rounded-full bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105"
+      >
+        Ver todas las guías
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-white px-4 py-2">
+    <Faq items={faqsTeaser} titulo="Preguntas frecuentes" />
+    <div class="mx-auto max-w-4xl pb-10">
+      <a href="/preguntas-frecuentes/" class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline">
+        Ver todas las preguntas frecuentes →
+      </a>
+    </div>
+  </section>
+
+  <section class="px-4 py-14">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-3xl bg-primario px-6 py-10 text-center text-white">
+      <h2 class="font-titulos text-2xl font-extrabold md:text-3xl">¿Listo para equipar tu setup? 🎮</h2>
+      <p class="font-texto text-white/90">
+        Encuentra todo nuestro catálogo con precios vigentes y despacho a todo Chile.
+      </p>
+      <a
+        href={site.mercadolibre.tienda}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105"
+      >
+        {site.ctaHeader}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

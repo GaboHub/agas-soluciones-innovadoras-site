@@ -1,0 +1,73 @@
+---
+import Estrellas from './Estrellas.astro';
+import { formatearFecha } from '../lib/formato';
+
+interface Props {
+  reviews: {
+    promedio: number;
+    cantidad: number;
+    distribucion: Record<string, number>;
+    comentarios: {
+      estrellas: number;
+      titulo: string;
+      texto: string;
+      fecha: string;
+    }[];
+  };
+}
+
+const { reviews } = Astro.props;
+const comentariosConTexto = reviews.comentarios.filter((comentario) => comentario.texto.trim().length > 0);
+const niveles = ['5', '4', '3', '2', '1'];
+const maximo = Math.max(...niveles.map((nivel) => reviews.distribucion[nivel] ?? 0), 1);
+---
+
+<section aria-labelledby="reviews-titulo" class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 md:p-8">
+  <h2 id="reviews-titulo" class="font-titulos text-2xl font-extrabold text-tinta">
+    Opiniones de compradores
+  </h2>
+
+  <div class="mt-5 grid gap-8 md:grid-cols-[auto_1fr]">
+    <div class="flex flex-col items-start gap-2">
+      <p class="font-titulos text-5xl font-extrabold text-tinta">{reviews.promedio.toFixed(1)}</p>
+      <Estrellas promedio={reviews.promedio} />
+      <p class="font-texto text-sm text-tinta/70">
+        {reviews.cantidad} {reviews.cantidad === 1 ? 'calificación' : 'calificaciones'} en Mercado Libre
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-1.5">
+      {
+        niveles.map((nivel) => {
+          const cantidad = reviews.distribucion[nivel] ?? 0;
+          const ancho = Math.round((cantidad / maximo) * 100);
+          return (
+            <div class="flex items-center gap-3">
+              <span class="w-10 shrink-0 font-texto text-sm text-tinta/70">{nivel} ★</span>
+              <div class="h-2.5 flex-1 overflow-hidden rounded-full bg-primario-claro">
+                <div class="h-full rounded-full bg-acento" style={`width: ${ancho}%`} />
+              </div>
+              <span class="w-8 shrink-0 text-right font-texto text-sm text-tinta/70">{cantidad}</span>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  {
+    comentariosConTexto.length > 0 && (
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {comentariosConTexto.map((comentario) => (
+          <figure class="flex flex-col gap-2 rounded-2xl bg-fondo p-5">
+            <Estrellas promedio={comentario.estrellas} />
+            <blockquote class="font-texto text-sm text-tinta/80">“{comentario.texto}”</blockquote>
+            <figcaption class="mt-auto font-texto text-xs text-tinta/50">
+              Compra verificada en Mercado Libre · {formatearFecha(comentario.fecha)}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    )
+  }
+</section>

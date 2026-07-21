@@ -1,0 +1,246 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FichaProducto, { type GrupoFicha } from '../../../components/FichaProducto.tsx';
+import Estrellas from '../../../components/Estrellas.astro';
+import ReviewsProducto from '../../../components/ReviewsProducto.astro';
+import Faq from '../../../components/Faq.astro';
+import { site, getCategoria } from '../../../lib/site';
+import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
+import { fotosDesdeRutas } from '../../../lib/galeria';
+import { buildOrganization, buildProduct, buildFaqPage } from '../../../lib/seo';
+import { formatearPrecioCLP, leyendaPrecio } from '../../../lib/formato';
+import { getTextoProducto } from '../../../lib/textos';
+import { getGuiasPorProducto } from '../../../lib/guias';
+
+export const getStaticPaths = (async () => {
+  const productos = await getCollection('productos');
+  return productos.map((producto) => ({
+    params: { slug: producto.data.slug },
+    props: { producto },
+  }));
+}) satisfies GetStaticPaths;
+
+const { producto } = Astro.props;
+const { data } = producto;
+
+const categoria = getCategoria(data.categoria);
+if (!categoria) throw new Error(`Categoría no encontrada: ${data.categoria}`);
+
+const precioBaseTexto = formatearPrecioCLP(data.precioReferencial);
+
+let gruposFicha: GrupoFicha[] = [];
+let etiquetaGrupo = 'Diseño';
+let etiquetaOpcion = 'Variante';
+if (data.grupos && data.grupos.length > 0) {
+  etiquetaOpcion = 'Color';
+  gruposFicha = await Promise.all(
+    data.grupos.map(async (grupo) => ({
+      nombre: grupo.diseno,
+      opciones: await Promise.all(
+        grupo.colores.map(async (color) => ({
+          nombre: color.color,
+          link: color.link,
+          precioTexto: precioBaseTexto,
+          fotos: await fotosDesdeRutas(color.imagenes, `${data.titulo} (${grupo.diseno}, ${color.color})`),
+        })),
+      ),
+    })),
+  );
+} else if (data.miembros && data.miembros.length > 0) {
+  etiquetaOpcion = 'Opción';
+  gruposFicha = [
+    {
+      nombre: data.titulo,
+      opciones: await Promise.all(
+        data.miembros.map(async (miembro) => ({
+          nombre: miembro.atributos.color ?? miembro.titulo,
+          link: miembro.link,
+          precioTexto: formatearPrecioCLP(miembro.precio),
+          fotos: await fotosDesdeRutas(miembro.imagenes, miembro.titulo),
+        })),
+      ),
+    },
+  ];
+} else if (data.variantes && data.variantes.length > 0) {
+  etiquetaOpcion = data.variantes[0].atributo;
+  gruposFicha = [
+    {
+      nombre: data.titulo,
+      opciones: await Promise.all(
+        data.variantes.map(async (variante) => ({
+          nombre: variante.nombre,
+          link: variante.link,
+          precioTexto: precioBaseTexto,
+          fotos: await fotosDesdeRutas(variante.imagenes, `${data.titulo} (${variante.nombre})`),
+        })),
+      ),
+    },
+  ];
+} else {
+  gruposFicha = [
+    {
+      nombre: data.titulo,
+      opciones: [
+        {
+          nombre: data.titulo,
+          link: data.permalink,
+          precioTexto: precioBaseTexto,
+          fotos: await fotosDesdeRutas(data.imagenes, data.titulo),
+        },
+      ],
+    },
+  ];
+}
+
+const imagenPrincipal = resolveImagen(data.imagenes[0]);
+
+const textoOverride = getTextoProducto(data.slug);
+const descripcionVisible = textoOverride?.descripcion ?? data.resumen;
+const guiasRelacionadas = await getGuiasPorProducto(data.slug);
+
+const title = `${data.titulo} | ${site.nombre}`;
+const description =
+  textoOverride?.metaDescription ??
+  `${data.resumen.slice(0, 150).trim()}… Precio referencial ${formatearPrecioCLP(data.precioReferencial)}. Compra por Mercado Libre con despacho a todo Chile.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const imagenesJsonLd = await Promise.all(
+  data.imagenes.slice(0, 4).map((ruta) => optimizedAbsoluteUrl(resolveImagen(ruta), 800)),
+);
+const jsonLd: object[] = [
+  buildOrganization(logoUrl),
+  buildProduct({ ...data, resumen: descripcionVisible }, imagenesJsonLd),
+];
+if (data.faqs && data.faqs.length > 0) {
+  jsonLd.push(buildFaqPage(data.faqs));
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/productos/${data.slug}/`}
+  ogImage={imagenPrincipal}
+  jsonLd={jsonLd}
+>
+  <nav aria-label="Ruta de navegación" class="mx-auto max-w-6xl px-4 pt-6">
+    <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
+      <li><a href="/" class="hover:text-primario hover:underline">Inicio</a></li>
+      <li aria-hidden="true">›</li>
+      <li>
+        <a href={`/categorias/${categoria.slug}/`} class="hover:text-primario hover:underline">
+          {categoria.nombre}
+        </a>
+      </li>
+      <li aria-hidden="true">›</li>
+      <li aria-current="page" class="text-tinta">{data.titulo}</li>
+    </ol>
+  </nav>
+
+  <section class="mx-auto max-w-6xl px-4 py-8">
+    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">{data.titulo}</h1>
+    <div class="mt-2 flex flex-wrap items-center gap-3">
+      {
+        data.reviews && data.reviews.cantidad > 0 && (
+          <Estrellas promedio={data.reviews.promedio} cantidad={data.reviews.cantidad} />
+        )
+      }
+      <span class="rounded-full bg-primario-claro px-3 py-1 font-texto text-xs font-bold text-primario-oscuro">
+        {categoria.emoji} {categoria.nombre}
+      </span>
+    </div>
+
+    <div class="mt-8">
+      <FichaProducto
+        client:load
+        grupos={gruposFicha}
+        etiquetaGrupo={etiquetaGrupo}
+        etiquetaOpcion={etiquetaOpcion}
+        leyenda={leyendaPrecio(data.fechaPrecio)}
+        resumen={descripcionVisible}
+        envio={site.envio}
+        textoCtaSecundario={site.ctaHeader}
+        linkCtaSecundario={site.mercadolibre.tienda}
+      />
+    </div>
+  </section>
+
+  {
+    data.caracteristicas && data.caracteristicas.length > 0 && (
+      <section class="mx-auto max-w-6xl px-4 pb-8">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 md:p-8">
+          <h2 class="font-titulos text-2xl font-extrabold text-tinta">Características</h2>
+          <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
+            {data.caracteristicas.map((item) => (
+              <li class="flex items-start gap-2 font-texto text-tinta">
+                <span aria-hidden="true" class="text-acento-oscuro">✔</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    data.incluye && data.incluye.length > 0 && (
+      <section class="mx-auto max-w-6xl px-4 pb-8">
+        <div class="rounded-3xl bg-primario-claro p-6 md:p-8">
+          <h2 class="font-titulos text-2xl font-extrabold text-tinta">Qué incluye</h2>
+          <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
+            {data.incluye.map((item) => (
+              <li class="flex items-start gap-2 font-texto text-tinta">
+                <span aria-hidden="true" class="text-primario">📦</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    data.reviews && data.reviews.cantidad > 0 && (
+      <section class="mx-auto max-w-6xl px-4 pb-8">
+        <ReviewsProducto reviews={data.reviews} />
+      </section>
+    )
+  }
+
+  {data.faqs && data.faqs.length > 0 && <Faq items={data.faqs} titulo="Preguntas sobre este producto" />}
+
+  {
+    guiasRelacionadas.length > 0 && (
+      <section class="mx-auto max-w-6xl px-4 pb-8">
+        <div class="rounded-3xl bg-primario-claro p-6 md:p-8">
+          <h2 class="font-titulos text-2xl font-extrabold text-tinta">Guías que te pueden servir</h2>
+          <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
+            {guiasRelacionadas.map((guia) => (
+              <li>
+                <a
+                  href={`/guias/${guia.data.slug}/`}
+                  class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
+                >
+                  {guia.data.emoji} {guia.data.titulo} →
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <a
+      href={`/categorias/${categoria.slug}/`}
+      class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
+    >
+      ← Ver más accesorios de {categoria.nombre}
+    </a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,68 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BuscadorProductos, { type ProductoBuscable } from '../../components/BuscadorProductos.tsx';
+import { site } from '../../lib/site';
+import { getProductos, atributosDeProducto } from '../../lib/productos';
+import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization } from '../../lib/seo';
+import { formatearPrecioCLP } from '../../lib/formato';
+
+const productos = await getProductos();
+
+const buscables: ProductoBuscable[] = await Promise.all(
+  productos.map(async (producto) => {
+    const origen = resolveImagen(producto.data.imagenes[0]);
+    const imagen = await getImage({ src: origen, width: 480 });
+    return {
+      slug: producto.data.slug,
+      url: `/productos/${producto.data.slug}/`,
+      titulo: producto.data.titulo,
+      categoriaNombre: site.categorias.find((c) => c.slug === producto.data.categoria)?.nombre ?? '',
+      precioTexto: formatearPrecioCLP(producto.data.precioReferencial),
+      promedio: producto.data.reviews?.promedio ?? null,
+      cantidad: producto.data.reviews?.cantidad ?? null,
+      atributos: atributosDeProducto(producto),
+      imagen: {
+        src: imagen.src,
+        width: imagen.attributes.width as number,
+        height: imagen.attributes.height as number,
+      },
+    };
+  }),
+);
+
+const title = `Catálogo de productos | ${site.nombre}`;
+const description = `Catálogo completo de ${site.nombre}: ${site.categorias.map((categoria) => categoria.resumen.toLowerCase().replace(/\.$/, '')).join('; ')}. ${site.claim}.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl)];
+---
+
+<BaseLayout title={title} description={description} path="/productos/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h1 class="text-center font-titulos text-3xl font-extrabold text-tinta md:text-4xl">
+      Catálogo de productos
+    </h1>
+    <p class="mx-auto mt-3 max-w-2xl text-center font-texto text-tinta/70">
+      {productos.length} accesorios con precio referencial y enlace directo a su publicación en Mercado Libre.
+    </p>
+
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      {
+        site.categorias.map((categoria) => (
+          <a
+            href={`/categorias/${categoria.slug}/`}
+            class="rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
+          >
+            {categoria.emoji} {categoria.nombre}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-10">
+      <BuscadorProductos client:load productos={buscables} />
+    </div>
+  </section>
+</BaseLayout>

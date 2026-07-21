@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../lib/site';
+import { resolveImagen } from '../lib/images';
+
+const lockupBlanco = resolveImagen('agas-lockup-blanco.svg');
+const anio = new Date().getFullYear();
+---
+
+<footer class="mt-16 border-t border-primario-claro bg-primario-oscuro text-white">
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <Image src={lockupBlanco} alt={`Logo de ${site.nombre}`} width={210} height={56} class="h-12 w-auto" />
+        <p class="mt-3 text-sm text-white/90">{site.claim}</p>
+        <p class="mt-4 text-sm text-white/90">{site.footer}</p>
+      </div>
+      <div class="text-sm">
+        <p class="font-titulos text-base font-bold">Catálogo</p>
+        <ul class="mt-2 flex list-none flex-col gap-1 p-0">
+          <li><a href="/productos/" class="hover:underline">Todos los productos</a></li>
+          {
+            site.categorias.map((categoria) => (
+              <li>
+                <a href={`/categorias/${categoria.slug}/`} class="hover:underline">
+                  {categoria.nombre}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="text-sm">
+        <p class="font-titulos text-base font-bold">Compra y contacto</p>
+        <ul class="mt-2 flex list-none flex-col gap-1 p-0">
+          <li>
+            <a href={site.mercadolibre.tienda} target="_blank" rel="noopener" class="hover:underline">
+              Tienda en Mercado Libre
+            </a>
+          </li>
+          <li>
+            <a href={site.mercadolibre.paginaOficial} target="_blank" rel="noopener" class="hover:underline">
+              Página oficial en Mercado Libre
+            </a>
+          </li>
+          <li><a href="/guias/" class="hover:underline">Guías</a></li>
+          <li><a href="/preguntas-frecuentes/" class="hover:underline">Preguntas frecuentes</a></li>
+          <li><a href="/contacto/" class="hover:underline">Contacto</a></li>
+          <li><a href="/terminos-y-condiciones/" class="hover:underline">Términos y condiciones</a></li>
+        </ul>
+        <p class="mt-3 text-white/80">{site.ubicacion}</p>
+        <p class="mt-1 text-white/80">{site.cobertura}</p>
+      </div>
+    </div>
+    <p class="mt-8 border-t border-white/20 pt-6 text-center text-xs text-white/80">
+      © {anio} {site.razonSocial}. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
