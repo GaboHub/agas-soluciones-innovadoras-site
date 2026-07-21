@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agassoluciones.cl/sitemap-index.xml
