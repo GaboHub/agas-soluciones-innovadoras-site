@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../lib/site';
+import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization } from '../../lib/seo';
+
+const pagina = await getEntry('paginas', 'terminos-y-condiciones');
+if (!pagina) throw new Error('Falta la página términos y condiciones');
+const { Content } = await render(pagina);
+
+const title = `Términos y condiciones | ${site.nombre}`;
+const description = `Términos y condiciones de ${site.nombre}: las compras se realizan por Mercado Libre, con su compra protegida, sus políticas de devolución y la garantía legal chilena.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl)];
+---
+
+<BaseLayout title={title} description={description} path="/terminos-y-condiciones/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-3xl px-4 py-12">
+    <div class="contenido-md">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

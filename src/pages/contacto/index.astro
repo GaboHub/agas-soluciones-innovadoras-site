@@ -1,0 +1,51 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../lib/site';
+import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization } from '../../lib/seo';
+
+const pagina = await getEntry('paginas', 'contacto');
+if (!pagina) throw new Error('Falta la página contacto');
+const { Content } = await render(pagina);
+
+const title = `Contacto | ${site.nombre}`;
+const description = `Contáctanos por la mensajería de Mercado Libre. Operamos desde ${site.ubicacion} y despachamos a todo Chile vía Mercado Envíos.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl)];
+---
+
+<BaseLayout title={title} description={description} path="/contacto/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-3xl px-4 py-12">
+    <div class="contenido-md">
+      <Content />
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <a
+        href={site.mercadolibre.tienda}
+        target="_blank"
+        rel="noopener"
+        class="flex items-center justify-center gap-2 rounded-2xl bg-primario px-6 py-4 text-center font-texto text-lg font-bold text-white shadow-md transition-transform hover:scale-105"
+      >
+        🛒 Nuestra tienda en Mercado Libre
+      </a>
+      <a
+        href={site.mercadolibre.paginaOficial}
+        target="_blank"
+        rel="noopener"
+        class="flex items-center justify-center gap-2 rounded-2xl border-2 border-primario px-6 py-4 text-center font-texto text-lg font-bold text-primario transition-colors hover:bg-primario-claro"
+      >
+        ⭐ Página oficial en Mercado Libre
+      </a>
+    </div>
+
+    <div class="mt-10 rounded-3xl bg-primario-claro p-6">
+      <h2 class="font-titulos text-xl font-extrabold text-primario-oscuro">📍 Ubicación y cobertura</h2>
+      <p class="mt-2 font-texto text-tinta">{site.ubicacion}</p>
+      <p class="mt-1 font-texto text-tinta/80">{site.cobertura}</p>
+      <p class="mt-1 font-texto font-bold text-tinta">🚚 {site.envio}</p>
+    </div>
+  </section>
+</BaseLayout>

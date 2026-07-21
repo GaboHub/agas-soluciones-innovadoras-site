@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/Faq.astro';
+import { site } from '../../lib/site';
+import { faqsGlobales } from '../../lib/faqs';
+import { getProductos } from '../../lib/productos';
+import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization, buildFaqPage } from '../../lib/seo';
+
+const productos = await getProductos();
+const productosConFaqs = productos.filter((producto) => (producto.data.faqs?.length ?? 0) > 0);
+
+const title = `Preguntas frecuentes | ${site.nombre}`;
+const description = `Resuelve tus dudas sobre cómo comprar en ${site.nombre} por Mercado Libre: envíos a todo Chile, devoluciones, garantía y compatibilidad de accesorios.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];
+---
+
+<BaseLayout title={title} description={description} path="/preguntas-frecuentes/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-4xl px-4 pt-12">
+    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Preguntas frecuentes</h1>
+    <p class="mt-3 font-texto text-tinta/70">
+      Las dudas más comunes sobre comprar en {site.nombre} a través de Mercado Libre.
+    </p>
+  </section>
+
+  <Faq items={faqsGlobales} titulo="Sobre la compra y los envíos" />
+
+  <section class="mx-auto max-w-4xl px-4 pb-16">
+    <h2 class="font-titulos text-2xl font-extrabold text-tinta">Preguntas por producto</h2>
+    <p class="mt-2 font-texto text-tinta/70">
+      Cada ficha de producto tiene sus propias preguntas y respuestas sobre compatibilidad, contenido del pack y uso.
+    </p>
+    <ul class="mt-4 grid list-none gap-2 p-0 sm:grid-cols-2">
+      {
+        productosConFaqs.map((producto) => (
+          <li>
+            <a
+              href={`/productos/${producto.data.slug}/`}
+              class="font-texto text-sm font-bold text-acento-oscuro hover:text-primario hover:underline"
+            >
+              {producto.data.titulo} →
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
