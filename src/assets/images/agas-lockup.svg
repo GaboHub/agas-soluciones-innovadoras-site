@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 112">
+  <g transform="translate(6 8) scale(0.92)">
+    <rect x="4" y="4" width="88" height="88" rx="20" fill="#1B3FC4"/>
+    <path d="M26 74 L46 26 L66 74" stroke="#FFFFFF" stroke-width="11" stroke-linecap="butt" stroke-linejoin="bevel" fill="none"/>
+    <path d="M37 59 L55 59" stroke="#F07E12" stroke-width="11" stroke-linecap="butt" fill="none"/>
+  </g>
+  <g transform="translate(122 12)" stroke="#1B3FC4" stroke-width="12" fill="none" stroke-linecap="butt" stroke-linejoin="bevel">
+    <path d="M2 66 L24 6 L46 66"/>
+    <path d="M12 47 L36 47" stroke="#F07E12"/>
+    <path d="M104 14 L96 6 H68 L60 14 V58 L68 66 H96 L104 58 V38 H84"/>
+    <path d="M122 66 L144 6 L166 66"/>
+    <path d="M132 47 L156 47"/>
+    <path d="M224 13 L217 6 H188 L180 14 V27 L188 35 H216 L224 43 V58 L216 66 H187 L180 59"/>
+  </g>
+  <text x="123" y="103" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" letter-spacing="2.4" fill="#41506B" font-weight="600">SOLUCIONES INNOVADORAS</text>
+</svg>

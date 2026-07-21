@@ -1,0 +1,45 @@
+import raw from '../data/site.json';
+
+export interface Categoria {
+  slug: string;
+  nombre: string;
+  emoji: string;
+  resumen: string;
+  productos: string[];
+}
+
+export interface SiteData {
+  nombre: string;
+  razonSocial: string;
+  dominio: string;
+  tagline: string;
+  claim: string;
+  descripcion: string;
+  ubicacion: string;
+  cobertura: string;
+  envio: string;
+  direccion: {
+    localidad: string;
+    region: string;
+    pais: string;
+  };
+  mercadolibre: {
+    tienda: string;
+    paginaOficial: string;
+  };
+  ctaHeader: string;
+  footer: string;
+  categorias: Categoria[];
+}
+
+export const site: SiteData = raw as SiteData;
+
+export const siteUrl = new URL(`https://${site.dominio}`);
+
+export function getCategoria(slug: string): Categoria | undefined {
+  return site.categorias.find((categoria) => categoria.slug === slug);
+}
+
+export function getOtrasCategorias(slug: string): Categoria[] {
+  return site.categorias.filter((categoria) => categoria.slug !== slug);
+}

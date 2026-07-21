@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/manrope/800.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@theme {
+  --color-primario: #1b3fc4;
+  --color-primario-oscuro: #122b8a;
+  --color-primario-claro: #e6ebfa;
+  --color-acento: #f07e12;
+  --color-acento-oscuro: #b45309;
+  --color-destacado: #41506b;
+  --color-destacado-oscuro: #2e3a50;
+  --color-tinta: #101828;
+  --color-fondo: #f5f7fb;
+
+  --font-titulos: 'Manrope', system-ui, sans-serif;
+  --font-texto: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-texto);
+  color: var(--color-tinta);
+  background-color: var(--color-fondo);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-titulos);
+}
+
+.contenido-md h1 {
+  font-family: var(--font-titulos);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+  color: var(--color-tinta);
+}
+
+.contenido-md h2 {
+  font-family: var(--font-titulos);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primario-oscuro);
+}
+
+.contenido-md h3 {
+  font-family: var(--font-titulos);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-tinta);
+}
+
+.contenido-md p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.contenido-md ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.contenido-md li {
+  line-height: 1.6;
+}
+
+.contenido-md strong {
+  color: var(--color-tinta);
+  font-weight: 700;
+}
+
+.contenido-md a {
+  color: var(--color-acento);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contenido-md a:hover {
+  color: var(--color-primario-oscuro);
+}
+
+.contenido-md a:focus-visible {
+  outline: 2px solid var(--color-primario-oscuro);
+  outline-offset: 2px;
+}
+
+.contenido-md ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.contenido-md table {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.contenido-md th,
+.contenido-md td {
+  border: 1px solid var(--color-primario-claro);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+.contenido-md th {
+  background-color: var(--color-primario-claro);
+  color: var(--color-primario-oscuro);
+  font-family: var(--font-titulos);
+}
