@@ -98,22 +98,26 @@ consistencia entre ambos) y los conteos exactos de `tests/unit/`.
 
 ## Runbook: deploy y dominio
 
-1. **Deploy en Cloudflare Pages**: crea un proyecto apuntando al
-   repositorio. Ajustes:
+1. **Deploy en Cloudflare (Workers & Pages)**: en el dashboard actual,
+   "Create application" → conectar con GitHub → seleccionar este
+   repositorio (no usar la opción de subir estático a mano, para que cada
+   push dispare build y deploy automáticos). Ajustes:
 
    | Ajuste                  | Valor           |
    | :---------------------- | :-------------- |
    | Root directory          | `/`             |
    | Build command           | `npm run build` |
-   | Build output directory  | `dist`          |
-   | Framework preset        | Astro           |
+   | Deploy command          | `npx wrangler deploy` (dejar el default) |
+   | Framework preset        | Astro (si aparece la opción) |
    | Variable `NODE_VERSION` | `22.12.0` (o la del `.nvmrc`) |
 
    El sitio es 100% estático (Astro sin adapter): no hay SSR ni funciones.
-   Cada push a la rama de producción dispara build y publicación
-   automáticos; las Pull Requests generan *preview deployments*.
-   Alternativa sin integración Git: `npm run build && npx wrangler pages
-   deploy dist --project-name agas-site`.
+   `wrangler.jsonc` en la raíz declara `assets.directory: "./dist"`, así
+   que `wrangler deploy` sabe qué publicar sin necesidad de un Worker
+   propiamente tal. Cada push a la rama de producción dispara build y
+   publicación automáticos; las Pull Requests generan *preview
+   deployments*. Alternativa manual sin integración Git: `npm run build
+   && npx wrangler deploy`.
 
 2. **Dominio `.cl`**: registra `agassoluciones.cl` en NIC Chile y apunta
    sus nameservers a Cloudflare (zona del dominio en la misma cuenta que el
