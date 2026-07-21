@@ -1,0 +1,32 @@
+{
+  "global": [
+    {
+      "pregunta": "¿Cómo compro los productos?",
+      "respuesta": "Toda la venta se hace a través de Mercado Libre. En cada producto del sitio encontrarás el enlace directo a su publicación; ahí compras con tu cuenta de Mercado Libre como en cualquier otra compra. Nuestra tienda completa está en http://perfil.mercadolibre.cl/AGAS_SOLUCIONES_INNOVADORAS."
+    },
+    {
+      "pregunta": "¿Hacen envíos a todo Chile?",
+      "respuesta": "Sí, despachamos a todo Chile a través de Mercado Envíos, y todos nuestros productos tienen despacho el mismo día. Cada pedido se empaca con protección reforzada para que llegue en perfectas condiciones."
+    },
+    {
+      "pregunta": "¿Cuánto demora en llegar mi pedido?",
+      "respuesta": "Todos nuestros productos se despachan el mismo día a través de Mercado Envíos. El plazo de entrega exacto para tu dirección te lo muestra Mercado Libre en la publicación antes de comprar."
+    },
+    {
+      "pregunta": "¿Qué pasa si mi pedido llega dañado?",
+      "respuesta": "Contáctanos por la mensajería interna de Mercado Libre apenas lo recibas y lo solucionaremos de inmediato."
+    },
+    {
+      "pregunta": "¿Tienen devoluciones y garantía?",
+      "respuesta": "Sí. Al comprar por Mercado Libre aplican las políticas de compra protegida de la plataforma, además de la garantía legal que cubre cualquier falla del producto."
+    },
+    {
+      "pregunta": "¿Los precios del sitio son los finales?",
+      "respuesta": "Los precios que ves acá son referenciales e indican la fecha en que se registraron. El precio vigente, junto con promociones y cuotas, está siempre en la publicación de Mercado Libre de cada producto."
+    },
+    {
+      "pregunta": "¿Cómo sé si un accesorio es compatible con mi equipo?",
+      "respuesta": "Cada accesorio indica el modelo exacto con el que funciona: la Nintendo Switch 1 tiene pantalla de 6.2\", la Switch OLED de 7\" y la Switch 2 de 7.9\", por lo que sus láminas y estuches no son intercambiables. Las fundas y cargadores para controles PS5 son exclusivos para PS5. Si tienes dudas, pregúntanos en la publicación de Mercado Libre antes de comprar."
+    }
+  ]
+}

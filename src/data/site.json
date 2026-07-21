@@ -1,0 +1,68 @@
+{
+  "nombre": "AGAS Soluciones Innovadoras",
+  "razonSocial": "Agas Soluciones Innovadoras SpA",
+  "dominio": "agassoluciones.cl",
+  "tagline": "Soluciones innovadoras en accesorios tech",
+  "claim": "Compra seguro por Mercado Libre",
+  "descripcion": "Tienda online chilena de accesorios de tecnología (gaming, audio y más) que vende por Mercado Libre con reputación verde y despacho a todo Chile.",
+  "ubicacion": "Macul, Región Metropolitana",
+  "cobertura": "Despacho a todo Chile vía Mercado Envíos",
+  "envio": "Despacho el mismo día vía Mercado Envíos",
+  "direccion": {
+    "localidad": "Macul",
+    "region": "Región Metropolitana",
+    "pais": "CL"
+  },
+  "mercadolibre": {
+    "tienda": "http://perfil.mercadolibre.cl/AGAS_SOLUCIONES_INNOVADORAS",
+    "paginaOficial": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
+  },
+  "ctaHeader": "Ver tienda en Mercado Libre",
+  "footer": "Compra 100% protegida a través de Mercado Libre. Encuentra todo nuestro catálogo en nuestra tienda oficial.",
+  "categorias": [
+    {
+      "slug": "nintendo-switch",
+      "nombre": "Nintendo Switch",
+      "emoji": "🎮",
+      "resumen": "Láminas, estuches y kits de protección para Nintendo Switch, Switch OLED y Switch 2.",
+      "productos": [
+        "lamina-vidrio-nintendo-switch",
+        "pack-2-laminas-vidrio-nintendo-switch",
+        "kit-estuche-vidrio-nintendo-switch",
+        "lamina-vidrio-switch-oled",
+        "pack-2-laminas-vidrio-switch-oled",
+        "kit-estuche-vidrio-switch-oled",
+        "lamina-vidrio-nintendo-switch-2",
+        "pack-2-laminas-vidrio-switch-2",
+        "pack-3-laminas-vidrio-switch-2",
+        "set-9en1-nintendo-switch-2",
+        "estuche-rigido-vidrio-switch-2",
+        "kit-5en1-nintendo-switch-2",
+        "estuche-goma-rigido-switch-2",
+        "kit-estuche-eva-switch-2"
+      ]
+    },
+    {
+      "slug": "playstation-5",
+      "nombre": "PlayStation",
+      "emoji": "🕹️",
+      "resumen": "Fundas, grips y cargadores para controles de PlayStation 5.",
+      "productos": [
+        "fundas-silicona-grips-control-ps5",
+        "cargador-dual-controles-ps5",
+        "kit-funda-silicona-grips-control-ps5",
+        "pack-4-grips-joystick",
+        "estuche-rigido-control-ps5",
+        "kit-estuche-funda-acrilica-control-ps5",
+        "kit-funda-acrilica-grips-control-ps5"
+      ]
+    },
+    {
+      "slug": "audio",
+      "nombre": "Audio",
+      "emoji": "🎧",
+      "resumen": "Audífonos y manos libres USB-C para tu celular.",
+      "productos": ["audifonos-usb-c-manos-libres"]
+    }
+  ]
+}
