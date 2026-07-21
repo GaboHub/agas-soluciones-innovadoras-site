@@ -1,0 +1,42 @@
+{
+  "name": "agas-site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "generar": "node scripts/generar-catalogo.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/inter": "^5.2.7",
+    "@fontsource/manrope": "^5.2.7",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^7.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.61.1",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.35.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}
