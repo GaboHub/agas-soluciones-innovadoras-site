@@ -1,0 +1,75 @@
+{
+  "mercadolibre": {
+    "nivel": "5_green",
+    "transacciones": 251,
+    "url": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
+  },
+  "promedioGeneral": 4.36,
+  "totalReviews": 185,
+  "destacadas": [
+    {
+      "productoSlug": "audifonos-usb-c-manos-libres",
+      "productoTitulo": "Audífonos Manos Libres Tipo C para Celular",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Buen sonido para escuchar música y excelente para uso como manos libres. Produco liviano, se ajusta muy bien los oidos. Lo bueno tambien es que se puede volver a guardar en la cajita para cuando no se estén utilizando. Excelente relación precio calidad. Lo recomiendo 100%.",
+      "fecha": "2026-06-22"
+    },
+    {
+      "productoSlug": "pack-2-laminas-vidrio-switch-oled",
+      "productoTitulo": "Pack 2 Lámina Vidrio Templado Switch OLED",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Buenísima. Quedo perfecta en la consola. Solo precaución al colocarla ya que es muy justa en el tamaño, debe cuadrar perfecto con la pantalla. Lo recomiendo.",
+      "fecha": "2024-07-27"
+    },
+    {
+      "productoSlug": "kit-estuche-vidrio-nintendo-switch",
+      "productoTitulo": "Kit Estuche Goma Rígido + Vidrio Switch 1 Rojo",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Excelente tamaño, cae perfecta la consola, es rígido esto quiere decir que en su traslado sera más seguro en caso que se les caiga.",
+      "fecha": "2026-03-07"
+    },
+    {
+      "productoSlug": "kit-funda-silicona-grips-control-ps5",
+      "productoTitulo": "Kit Funda Control PS5 Silicona + 4 Grips Análogos",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "La funda queda perfecta con el control de ps5. Los grips me ayudaron a evitar que se despegara el grip original del control.",
+      "fecha": "2026-05-11"
+    },
+    {
+      "productoSlug": "kit-5en1-nintendo-switch-2",
+      "productoTitulo": "Kit 5en1 Switch 2 Estuche Grip Case Vidrio",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "El producto es de buena calidad, la descripción corresponde. El envío fue rápido.",
+      "fecha": "2026-02-14"
+    },
+    {
+      "productoSlug": "estuche-rigido-vidrio-switch-2",
+      "productoTitulo": "Estuche Rígido Switch 2 + Lámina Vidrio Negro",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Es practico y cumple la función de protección para la consola.",
+      "fecha": "2026-06-05"
+    },
+    {
+      "productoSlug": "kit-funda-acrilica-grips-control-ps5",
+      "productoTitulo": "Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "El producto cumple con su descripción, buen material y cómodo.",
+      "fecha": "2026-06-09"
+    },
+    {
+      "productoSlug": "lamina-vidrio-nintendo-switch",
+      "productoTitulo": "Lámina Protectora Vidrio Templado Nintendo Switch 1",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "La instale y quedó perfecta.",
+      "fecha": "2024-07-06"
+    }
+  ]
+}
