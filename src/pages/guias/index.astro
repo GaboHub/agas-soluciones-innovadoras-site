@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../lib/site';
+import { getGuias } from '../../lib/guias';
+import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization } from '../../lib/seo';
+
+const guias = await getGuias();
+
+const title = `Guías de compra y uso | ${site.nombre}`;
+const description = 'Aprende a elegir el accesorio correcto para tu consola y sácale el máximo partido a tu compra.';
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl)];
+---
+
+<BaseLayout title={title} description={description} path="/guias/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-4xl px-4 py-12 text-center">
+    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Guías de compra y uso</h1>
+    <p class="mx-auto mt-3 max-w-2xl font-texto text-tinta/70">{description}</p>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 pb-16">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {
+        guias.map((guia) => (
+          <a
+            href={`/guias/${guia.data.slug}/`}
+            class="group flex flex-col gap-2 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-lg"
+          >
+            <span aria-hidden="true" class="text-3xl">
+              {guia.data.emoji}
+            </span>
+            <p class="font-titulos text-lg font-extrabold text-tinta">{guia.data.titulo}</p>
+            <p class="font-texto text-sm text-tinta/70">{guia.data.descripcion}</p>
+            <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+              Leer guía →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

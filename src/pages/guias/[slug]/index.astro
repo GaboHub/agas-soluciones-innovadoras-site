@@ -1,0 +1,74 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import { site, siteUrl } from '../../../lib/site';
+import { getProductosPorSlugs } from '../../../lib/productos';
+import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
+import { buildOrganization, buildArticle } from '../../../lib/seo';
+
+export const getStaticPaths = (async () => {
+  const guias = await getCollection('guias');
+  return guias.map((guia) => ({
+    params: { slug: guia.data.slug },
+    props: { guia },
+  }));
+}) satisfies GetStaticPaths;
+
+const { guia } = Astro.props;
+const { data } = guia;
+const { Content } = await render(guia);
+
+const productosRelacionados = await getProductosPorSlugs(data.productosRelacionados);
+
+const title = `${data.titulo} | ${site.nombre}`;
+const path = `/guias/${data.slug}/`;
+const canonicalUrl = new URL(path, siteUrl).toString();
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const organization = buildOrganization(logoUrl);
+const jsonLd = [organization, buildArticle(data.titulo, data.descripcion, organization, canonicalUrl)];
+---
+
+<BaseLayout title={title} description={data.descripcion} path={path} jsonLd={jsonLd}>
+  <nav aria-label="Ruta de navegación" class="mx-auto max-w-4xl px-4 pt-6">
+    <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
+      <li><a href="/" class="hover:text-primario hover:underline">Inicio</a></li>
+      <li aria-hidden="true">›</li>
+      <li>
+        <a href="/guias/" class="hover:text-primario hover:underline">Guías</a>
+      </li>
+      <li aria-hidden="true">›</li>
+      <li aria-current="page" class="text-tinta">{data.titulo}</li>
+    </ol>
+  </nav>
+
+  <section class="mx-auto max-w-4xl px-4 py-8">
+    <span aria-hidden="true" class="text-4xl">{data.emoji}</span>
+    <h1 class="mt-2 font-titulos text-3xl font-extrabold text-tinta md:text-4xl">{data.titulo}</h1>
+    <div class="contenido-md mt-6">
+      <Content />
+    </div>
+  </section>
+
+  {
+    productosRelacionados.length > 0 && (
+      <section class="mx-auto max-w-6xl px-4 pb-16">
+        <h2 class="font-titulos text-2xl font-extrabold text-tinta">Productos de esta guía</h2>
+        <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {productosRelacionados.map((producto) => (
+            <ProductCard
+              slug={producto.data.slug}
+              titulo={producto.data.titulo}
+              categoriaNombre={site.categorias.find((c) => c.slug === producto.data.categoria)?.nombre ?? ''}
+              precioReferencial={producto.data.precioReferencial}
+              imagen={resolveImagen(producto.data.imagenes[0])}
+              reviews={producto.data.reviews}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
