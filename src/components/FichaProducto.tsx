@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import GalleryLightbox, { type FotoGaleria } from './GalleryLightbox';
 
 export interface OpcionFicha {
@@ -103,6 +103,10 @@ export default function FichaProducto({
   const grupoActivo = grupos[indiceGrupo];
   const indiceOpcionActiva = Math.min(indiceOpcion, grupoActivo.opciones.length - 1);
   const opcionActiva = grupoActivo.opciones[indiceOpcionActiva];
+
+  useEffect(() => {
+    document.getElementById('burbuja-mercadolibre')?.setAttribute('href', opcionActiva.link);
+  }, [opcionActiva.link]);
 
   function elegirGrupo(indice: number) {
     setIndiceGrupo(indice);

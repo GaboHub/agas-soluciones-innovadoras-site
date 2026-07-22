@@ -9,6 +9,7 @@ import Faq from '../../../components/Faq.astro';
 import { site, getCategoria } from '../../../lib/site';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
 import { fotosDesdeRutas } from '../../../lib/galeria';
+import { construirGruposFicha, linkInicial } from '../../../lib/ficha';
 import { buildOrganization, buildProduct, buildFaqPage } from '../../../lib/seo';
 import { formatearPrecioCLP, leyendaPrecio } from '../../../lib/formato';
 import { getTextoProducto } from '../../../lib/textos';
@@ -28,71 +29,21 @@ const { data } = producto;
 const categoria = getCategoria(data.categoria);
 if (!categoria) throw new Error(`Categoría no encontrada: ${data.categoria}`);
 
-const precioBaseTexto = formatearPrecioCLP(data.precioReferencial);
+const { gruposFicha: gruposBase, etiquetaGrupo, etiquetaOpcion } = construirGruposFicha(data);
 
-let gruposFicha: GrupoFicha[] = [];
-let etiquetaGrupo = 'Diseño';
-let etiquetaOpcion = 'Variante';
-if (data.grupos && data.grupos.length > 0) {
-  etiquetaOpcion = 'Color';
-  gruposFicha = await Promise.all(
-    data.grupos.map(async (grupo) => ({
-      nombre: grupo.diseno,
-      opciones: await Promise.all(
-        grupo.colores.map(async (color) => ({
-          nombre: color.color,
-          link: color.link,
-          precioTexto: precioBaseTexto,
-          fotos: await fotosDesdeRutas(color.imagenes, `${data.titulo} (${grupo.diseno}, ${color.color})`),
-        })),
-      ),
-    })),
-  );
-} else if (data.miembros && data.miembros.length > 0) {
-  etiquetaOpcion = 'Opción';
-  gruposFicha = [
-    {
-      nombre: data.titulo,
-      opciones: await Promise.all(
-        data.miembros.map(async (miembro) => ({
-          nombre: miembro.atributos.color ?? miembro.titulo,
-          link: miembro.link,
-          precioTexto: formatearPrecioCLP(miembro.precio),
-          fotos: await fotosDesdeRutas(miembro.imagenes, miembro.titulo),
-        })),
-      ),
-    },
-  ];
-} else if (data.variantes && data.variantes.length > 0) {
-  etiquetaOpcion = data.variantes[0].atributo;
-  gruposFicha = [
-    {
-      nombre: data.titulo,
-      opciones: await Promise.all(
-        data.variantes.map(async (variante) => ({
-          nombre: variante.nombre,
-          link: variante.link,
-          precioTexto: precioBaseTexto,
-          fotos: await fotosDesdeRutas(variante.imagenes, `${data.titulo} (${variante.nombre})`),
-        })),
-      ),
-    },
-  ];
-} else {
-  gruposFicha = [
-    {
-      nombre: data.titulo,
-      opciones: [
-        {
-          nombre: data.titulo,
-          link: data.permalink,
-          precioTexto: precioBaseTexto,
-          fotos: await fotosDesdeRutas(data.imagenes, data.titulo),
-        },
-      ],
-    },
-  ];
-}
+const gruposFicha: GrupoFicha[] = await Promise.all(
+  gruposBase.map(async (grupo) => ({
+    nombre: grupo.nombre,
+    opciones: await Promise.all(
+      grupo.opciones.map(async (opcion) => ({
+        nombre: opcion.nombre,
+        link: opcion.link,
+        precioTexto: opcion.precioTexto,
+        fotos: await fotosDesdeRutas(opcion.rutasImagenes, opcion.altFotos),
+      })),
+    ),
+  })),
+);
 
 const imagenPrincipal = resolveImagen(data.imagenes[0]);
 
@@ -124,6 +75,7 @@ if (data.faqs && data.faqs.length > 0) {
   path={`/productos/${data.slug}/`}
   ogImage={imagenPrincipal}
   jsonLd={jsonLd}
+  mercadoLibre={{ href: linkInicial(gruposBase), etiqueta: site.ctaBurbujaProducto }}
 >
   <nav aria-label="Ruta de navegación" class="mx-auto max-w-6xl px-4 pt-6">
     <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">

@@ -28,6 +28,7 @@ export interface SiteData {
     paginaOficial: string;
   };
   ctaHeader: string;
+  ctaBurbujaProducto: string;
   footer: string;
   categorias: Categoria[];
 }
