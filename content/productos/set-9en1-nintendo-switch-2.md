@@ -19,15 +19,31 @@ imagenes:
   - productos/set-9en1-nintendo-switch-2/negro/01.webp
   - productos/set-9en1-nintendo-switch-2/negro/02.webp
   - productos/set-9en1-nintendo-switch-2/negro/03.webp
+  - productos/set-9en1-nintendo-switch-2/negro/04.webp
+  - productos/set-9en1-nintendo-switch-2/negro/05.webp
+  - productos/set-9en1-nintendo-switch-2/negro/06.webp
+  - productos/set-9en1-nintendo-switch-2/negro/07.webp
   - productos/set-9en1-nintendo-switch-2/celeste/01.webp
   - productos/set-9en1-nintendo-switch-2/celeste/02.webp
   - productos/set-9en1-nintendo-switch-2/celeste/03.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/04.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/05.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/06.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/07.webp
   - productos/set-9en1-nintendo-switch-2/rojo/01.webp
   - productos/set-9en1-nintendo-switch-2/rojo/02.webp
   - productos/set-9en1-nintendo-switch-2/rojo/03.webp
+  - productos/set-9en1-nintendo-switch-2/rojo/04.webp
+  - productos/set-9en1-nintendo-switch-2/rojo/05.webp
+  - productos/set-9en1-nintendo-switch-2/rojo/06.webp
+  - productos/set-9en1-nintendo-switch-2/rojo/07.webp
   - productos/set-9en1-nintendo-switch-2/azul/01.webp
   - productos/set-9en1-nintendo-switch-2/azul/02.webp
   - productos/set-9en1-nintendo-switch-2/azul/03.webp
+  - productos/set-9en1-nintendo-switch-2/azul/04.webp
+  - productos/set-9en1-nintendo-switch-2/azul/05.webp
+  - productos/set-9en1-nintendo-switch-2/azul/06.webp
+  - productos/set-9en1-nintendo-switch-2/azul/07.webp
 caracteristicas:
   - >-
     Pantalla segura: El vidrio templado incluido ofrece máxima transparencia y
@@ -101,6 +117,10 @@ variantes:
       - productos/set-9en1-nintendo-switch-2/negro/01.webp
       - productos/set-9en1-nintendo-switch-2/negro/02.webp
       - productos/set-9en1-nintendo-switch-2/negro/03.webp
+      - productos/set-9en1-nintendo-switch-2/negro/04.webp
+      - productos/set-9en1-nintendo-switch-2/negro/05.webp
+      - productos/set-9en1-nintendo-switch-2/negro/06.webp
+      - productos/set-9en1-nintendo-switch-2/negro/07.webp
   - nombre: Celeste
     atributo: Color
     link: >-
@@ -109,6 +129,10 @@ variantes:
       - productos/set-9en1-nintendo-switch-2/celeste/01.webp
       - productos/set-9en1-nintendo-switch-2/celeste/02.webp
       - productos/set-9en1-nintendo-switch-2/celeste/03.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/04.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/05.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/06.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/07.webp
   - nombre: Rojo
     atributo: Color
     link: >-
@@ -117,6 +141,10 @@ variantes:
       - productos/set-9en1-nintendo-switch-2/rojo/01.webp
       - productos/set-9en1-nintendo-switch-2/rojo/02.webp
       - productos/set-9en1-nintendo-switch-2/rojo/03.webp
+      - productos/set-9en1-nintendo-switch-2/rojo/04.webp
+      - productos/set-9en1-nintendo-switch-2/rojo/05.webp
+      - productos/set-9en1-nintendo-switch-2/rojo/06.webp
+      - productos/set-9en1-nintendo-switch-2/rojo/07.webp
   - nombre: Azul
     atributo: Color
     link: >-
@@ -125,6 +153,10 @@ variantes:
       - productos/set-9en1-nintendo-switch-2/azul/01.webp
       - productos/set-9en1-nintendo-switch-2/azul/02.webp
       - productos/set-9en1-nintendo-switch-2/azul/03.webp
+      - productos/set-9en1-nintendo-switch-2/azul/04.webp
+      - productos/set-9en1-nintendo-switch-2/azul/05.webp
+      - productos/set-9en1-nintendo-switch-2/azul/06.webp
+      - productos/set-9en1-nintendo-switch-2/azul/07.webp
 ---
 
 Protege tu inversión y lleva tu experiencia de juego a cualquier lugar con este kit de protección completo 9 en 1, diseñado exclusivamente para la nueva Nintendo Switch 2. Este combo ofrece una solución integral de seguridad gracias a su estuche de transporte fabricado en poliéster trenzado de alta calidad, que brinda una resistencia superior contra caídas, aplastamiento y salpicaduras de líquidos. Además de la portabilidad, este set blinda tu consola por completo: incluye una carcasa trasera de acrílico transparente para evitar rayones durante el uso, vidrio templado para la pantalla y protectores dedicados para los Joy-Con, asegurando que tu dispositivo se mantenga como nuevo por mucho más tiempo.

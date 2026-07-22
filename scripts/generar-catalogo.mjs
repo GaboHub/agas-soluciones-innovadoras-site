@@ -21,9 +21,9 @@ const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 
 const SITE_URL = 'https://agassoluciones.cl';
 
-const LIMITE_IMAGENES_SIMPLE = 6;
-const LIMITE_IMAGENES_VARIANTE = 3;
-const LIMITE_IMAGENES_MIEMBRO = 5;
+const LIMITE_IMAGENES_SIMPLE = 7;
+const LIMITE_IMAGENES_VARIANTE = 7;
+const LIMITE_IMAGENES_MIEMBRO = 7;
 const LADO_MAYOR_MAXIMO = 800;
 const CALIDAD_WEBP = 80;
 

@@ -18,108 +18,178 @@ imagenes:
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/01.webp
   - >-
@@ -127,11 +197,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/01.webp
   - >-
@@ -139,11 +217,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/01.webp
   - >-
@@ -151,11 +237,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/01.webp
   - >-
@@ -163,47 +257,79 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/01.webp
   - >-
@@ -211,11 +337,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/01.webp
   - >-
@@ -223,11 +357,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/01.webp
   - >-
@@ -235,11 +377,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/01.webp
   - >-
@@ -247,41 +397,69 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-green/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/01.webp
   - >-
@@ -289,11 +467,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/01.webp
   - >-
@@ -301,11 +487,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/01.webp
   - >-
@@ -313,11 +507,19 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/05.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/01.webp
   - >-
@@ -325,71 +527,119 @@ imagenes:
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/03.webp
   - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/05.webp
+  - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/01.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/02.webp
   - >-
     productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/03.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/04.webp
+  - >-
+    productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-green/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/01.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/02.webp
   - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/05.webp
 caracteristicas:
   - >-
     Compatibilidad exclusiva: Diseñada milimétricamente para encajar únicamente
@@ -483,6 +733,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-blanco/05.webp
   - nombre: Camo Urbano / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -491,6 +745,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-gris/05.webp
   - nombre: Camo Urbano / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -499,6 +755,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-negro/05.webp
   - nombre: Camo Urbano / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -507,6 +765,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-azul/05.webp
   - nombre: rojo camo / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -515,6 +775,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-blanco/05.webp
   - nombre: Camo Urbano / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -523,6 +785,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rojo/05.webp
   - nombre: rojo camo / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -531,6 +795,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-gris/05.webp
   - nombre: rojo camo / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -539,6 +805,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-negro/05.webp
   - nombre: rojo camo / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -547,6 +815,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-azul/05.webp
   - nombre: rojo camo / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -555,6 +825,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rojo/05.webp
   - nombre: Blanco camo / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -566,6 +838,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-blanco/05.webp
   - nombre: Blanco camo / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -574,6 +850,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-gris/05.webp
   - nombre: Blanco camo / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -582,6 +860,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-negro/05.webp
   - nombre: Blanco camo / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -590,6 +870,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-azul/05.webp
   - nombre: Blanco camo / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -598,6 +880,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rojo/05.webp
   - nombre: Gris oscuro / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -609,6 +893,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-blanco/05.webp
   - nombre: Gris oscuro / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -617,6 +905,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-gris/05.webp
   - nombre: Gris oscuro / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -625,6 +915,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-negro/05.webp
   - nombre: Gris oscuro / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -633,6 +925,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-azul/05.webp
   - nombre: Gris oscuro / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -641,6 +935,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rojo/05.webp
   - nombre: Camo Urbano / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -652,6 +948,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-rosado/05.webp
   - nombre: Camo Urbano / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -663,6 +963,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-morado/05.webp
   - nombre: rojo camo / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -671,6 +975,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-rosado/05.webp
   - nombre: rojo camo / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -679,6 +985,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-morado/05.webp
   - nombre: Blanco camo / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -690,6 +998,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-rosado/05.webp
   - nombre: Blanco camo / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -701,6 +1013,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-morado/05.webp
   - nombre: Gris oscuro / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -712,6 +1028,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-rosado/05.webp
   - nombre: Gris oscuro / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -723,6 +1043,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-morado/05.webp
   - nombre: Morado Camo / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -734,6 +1058,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-blanco/05.webp
   - nombre: Morado Camo / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -742,6 +1070,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-gris/05.webp
   - nombre: Morado Camo / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -750,6 +1080,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-negro/05.webp
   - nombre: Morado Camo / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -758,6 +1090,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-azul/05.webp
   - nombre: Morado Camo / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -766,6 +1100,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-rojo/05.webp
   - nombre: Morado Camo / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -777,6 +1113,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-rosado/05.webp
   - nombre: Morado Camo / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -788,6 +1128,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-morado/05.webp
   - nombre: Camo urbano claro / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -799,6 +1143,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-blanco/05.webp
   - nombre: Camo urbano claro / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -810,6 +1158,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-gris/05.webp
   - nombre: Camo urbano claro / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -821,6 +1173,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-negro/05.webp
   - nombre: Camo urbano claro / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -832,6 +1188,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-azul/05.webp
   - nombre: Camo urbano claro / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -843,6 +1203,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rojo/05.webp
   - nombre: Camo urbano claro / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -854,6 +1218,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-rosado/05.webp
   - nombre: Camo urbano claro / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -865,6 +1233,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-morado/05.webp
   - nombre: Camo urbano claro / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -876,6 +1248,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-amarillo/05.webp
   - nombre: Camo urbano claro / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -887,6 +1263,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-claro-green/05.webp
   - nombre: Blanco camo / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -898,6 +1278,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/blanco-camo-amarillo/05.webp
   - nombre: Blanco camo / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -906,6 +1290,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-camo-green/05.webp
   - nombre: Gris oscuro / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -917,6 +1303,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-amarillo/05.webp
   - nombre: Gris oscuro / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -925,6 +1315,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/gris-oscuro-green/05.webp
   - nombre: Morado Camo / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -936,6 +1328,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/morado-camo-amarillo/05.webp
   - nombre: Morado Camo / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -944,6 +1340,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/morado-camo-green/05.webp
   - nombre: rojo camo / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -955,6 +1353,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rojo-camo-amarillo/05.webp
   - nombre: rojo camo / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -963,6 +1365,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/rojo-camo-green/05.webp
   - nombre: Camo Urbano / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -974,6 +1378,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-urbano-amarillo/05.webp
   - nombre: Camo Urbano / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -982,6 +1390,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-urbano-green/05.webp
   - nombre: Rayos Amarillo/Negro / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -993,6 +1403,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-negro/05.webp
   - nombre: Rayos Amarillo/Negro / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -1004,6 +1418,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-gris/05.webp
   - nombre: Rayos Amarillo/Negro / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -1015,6 +1433,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-blanco/05.webp
   - nombre: Rayos Amarillo/Negro / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -1026,6 +1448,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-azul/05.webp
   - nombre: Rayos Amarillo/Negro / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1037,6 +1463,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rojo/05.webp
   - nombre: Rayos Amarillo/Negro / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -1048,6 +1478,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-morado/05.webp
   - nombre: Rayos Amarillo/Negro / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -1059,6 +1493,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-rosado/05.webp
   - nombre: Rayos Amarillo/Negro / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1070,6 +1508,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-amarillo/05.webp
   - nombre: Rayos Amarillo/Negro / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -1081,6 +1523,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/rayos-amarillo-negro-green/05.webp
   - nombre: Azul / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -1089,6 +1535,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-negro/05.webp
   - nombre: Azul / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -1097,6 +1545,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-gris/05.webp
   - nombre: Azul / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -1105,6 +1555,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-azul/05.webp
   - nombre: Azul / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1113,6 +1565,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-rojo/05.webp
   - nombre: Azul / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -1121,6 +1575,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-morado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-morado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-morado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-morado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-morado/05.webp
   - nombre: Azul / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -1129,6 +1585,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-rosado/05.webp
   - nombre: Azul / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1137,6 +1595,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-amarillo/05.webp
   - nombre: Azul / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -1145,6 +1605,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-green/05.webp
   - nombre: Camo Azul y Verde / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -1156,6 +1618,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-negro/05.webp
   - nombre: Camo Azul y Verde / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -1167,6 +1633,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-gris/05.webp
   - nombre: Camo Azul y Verde / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -1178,6 +1648,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-blanco/05.webp
   - nombre: Camo Azul y Verde / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -1189,6 +1663,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-azul/05.webp
   - nombre: Camo Azul y Verde / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1200,6 +1678,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rojo/05.webp
   - nombre: Camo Azul y Verde / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -1211,6 +1693,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-morado/05.webp
   - nombre: Camo Azul y Verde / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -1222,6 +1708,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-rosado/05.webp
   - nombre: Camo Azul y Verde / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1233,6 +1723,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-amarillo/05.webp
   - nombre: Camo Azul y Verde / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -1244,6 +1738,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/05.webp
   - nombre: Camo Verde / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1255,6 +1753,10 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/02.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/03.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/04.webp
+      - >-
+        productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/05.webp
   - nombre: Camo Verde / Azul
     atributo: Color / Nombre del diseño
     link: >-
@@ -1263,6 +1765,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/05.webp
   - nombre: Camo Verde / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -1271,6 +1775,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/05.webp
   - nombre: Camo Verde / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -1279,6 +1785,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/05.webp
   - nombre: Camo Verde / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -1287,6 +1795,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/05.webp
   - nombre: Camo Verde / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -1295,6 +1805,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/05.webp
   - nombre: Camo Verde / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1303,6 +1815,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/05.webp
   - nombre: Camo Verde / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -1311,6 +1825,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/05.webp
   - nombre: Camo Verde / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -1319,6 +1835,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/camo-verde-green/05.webp
   - nombre: Blanco / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1327,6 +1845,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-amarillo/05.webp
   - nombre: Blanco / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -1335,6 +1855,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-blanco/05.webp
   - nombre: Blanco / Gris
     atributo: Color / Nombre del diseño
     link: >-
@@ -1343,6 +1865,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-gris/05.webp
   - nombre: Blanco / Morado
     atributo: Color / Nombre del diseño
     link: >-
@@ -1351,6 +1875,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-morado/05.webp
   - nombre: Blanco / Negro
     atributo: Color / Nombre del diseño
     link: >-
@@ -1359,6 +1885,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-negro/05.webp
   - nombre: Blanco / Rojo
     atributo: Color / Nombre del diseño
     link: >-
@@ -1367,6 +1895,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-rojo/05.webp
   - nombre: Blanco / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
@@ -1375,6 +1905,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-rosado/05.webp
   - nombre: Blanco / Green
     atributo: Color / Nombre del diseño
     link: >-
@@ -1383,6 +1915,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-green/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-green/05.webp
   - nombre: Azul / Blanco
     atributo: Color / Nombre del diseño
     link: >-
@@ -1391,6 +1925,8 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/01.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/02.webp
       - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/05.webp
 ---
 
 Renueva y blinda tu mando DualSense con nuestro Kit de Protección y Personalización diseñado exclusivamente para PlayStation 5. Este set completo no solo cambia la estética de tu control al instante, sino que está fabricado en silicona de alta calidad que absorbe impactos, previene rayones y protege contra el polvo y el sudor de las manos. Al mejorar la ergonomía y el agarre, podrás disfrutar de largas sesiones de juego con mayor comodidad y precisión, evitando que el control se resbale en los momentos más intensos de la partida.

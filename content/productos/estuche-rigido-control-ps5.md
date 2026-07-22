@@ -21,6 +21,7 @@ imagenes:
   - productos/estuche-rigido-control-ps5/04.webp
   - productos/estuche-rigido-control-ps5/05.webp
   - productos/estuche-rigido-control-ps5/06.webp
+  - productos/estuche-rigido-control-ps5/07.webp
 caracteristicas:
   - >-
     Diseño a medida PS5: Moldeado exclusivo con la silueta exacta del DualSense

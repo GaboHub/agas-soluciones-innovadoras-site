@@ -9,6 +9,21 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- Guía "Cómo colocar los grips en las palancas de tu control"
+  (`content/guias/como-colocar-grips-control.md`), enlazada desde las
+  fichas de los 5 productos con grips relacionados.
+- Hook de pre-commit (`.githooks/pre-commit`) que corre `npm test` antes de
+  cada commit y lo bloquea si falla; se activa automáticamente con `npm
+  install` vía el script `prepare` (`core.hooksPath`).
+
+### Cambiado
+
+- El generador de catálogo (`npm run generar`) sube el máximo de imágenes
+  por producto, variante y miembro de familia a 7 (antes 6/3/5
+  respectivamente); el límite sigue siendo un tope, no un mínimo.
+
 ### Corregido
 
 - El enlace a la tienda de Mercado Libre (`site.mercadolibre.tienda`) usa

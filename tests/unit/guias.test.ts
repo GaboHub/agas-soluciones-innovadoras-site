@@ -27,19 +27,20 @@ const SLUGS_ESPERADOS = [
   'diferencias-nintendo-switch-oled-switch-2',
   'como-instalar-lamina-vidrio-sin-burbujas',
   'como-proteger-tu-control-ps5',
+  'como-colocar-grips-control',
 ];
 
 describe('colección de guías', () => {
-  it('hay exactamente 4 guías', () => {
-    expect(guias.length).toBe(4);
+  it('hay exactamente 5 guías', () => {
+    expect(guias.length).toBe(5);
   });
 
-  it('los 4 slugs esperados existen', () => {
+  it('los 5 slugs esperados existen', () => {
     const slugs = guias.map(({ data }) => data.slug);
     for (const slugEsperado of SLUGS_ESPERADOS) {
       expect(slugs).toContain(slugEsperado);
     }
-    expect(new Set(slugs).size).toBe(4);
+    expect(new Set(slugs).size).toBe(5);
   });
 
   it.each(guias)('$archivo tiene los campos requeridos', ({ data }) => {

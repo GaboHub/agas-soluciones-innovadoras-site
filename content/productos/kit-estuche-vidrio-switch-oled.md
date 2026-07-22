@@ -18,9 +18,15 @@ imagenes:
   - productos/kit-estuche-vidrio-switch-oled/verde/01.webp
   - productos/kit-estuche-vidrio-switch-oled/verde/02.webp
   - productos/kit-estuche-vidrio-switch-oled/verde/03.webp
+  - productos/kit-estuche-vidrio-switch-oled/verde/04.webp
+  - productos/kit-estuche-vidrio-switch-oled/verde/05.webp
+  - productos/kit-estuche-vidrio-switch-oled/verde/06.webp
   - productos/kit-estuche-vidrio-switch-oled/rojo/01.webp
   - productos/kit-estuche-vidrio-switch-oled/rojo/02.webp
   - productos/kit-estuche-vidrio-switch-oled/rojo/03.webp
+  - productos/kit-estuche-vidrio-switch-oled/rojo/04.webp
+  - productos/kit-estuche-vidrio-switch-oled/rojo/05.webp
+  - productos/kit-estuche-vidrio-switch-oled/rojo/06.webp
 caracteristicas:
   - >-
     Compatibilidad exclusiva: Diseñado con las medidas exactas para alojar de
@@ -89,6 +95,9 @@ variantes:
       - productos/kit-estuche-vidrio-switch-oled/verde/01.webp
       - productos/kit-estuche-vidrio-switch-oled/verde/02.webp
       - productos/kit-estuche-vidrio-switch-oled/verde/03.webp
+      - productos/kit-estuche-vidrio-switch-oled/verde/04.webp
+      - productos/kit-estuche-vidrio-switch-oled/verde/05.webp
+      - productos/kit-estuche-vidrio-switch-oled/verde/06.webp
   - nombre: Rojo
     atributo: Color
     link: >-
@@ -97,6 +106,9 @@ variantes:
       - productos/kit-estuche-vidrio-switch-oled/rojo/01.webp
       - productos/kit-estuche-vidrio-switch-oled/rojo/02.webp
       - productos/kit-estuche-vidrio-switch-oled/rojo/03.webp
+      - productos/kit-estuche-vidrio-switch-oled/rojo/04.webp
+      - productos/kit-estuche-vidrio-switch-oled/rojo/05.webp
+      - productos/kit-estuche-vidrio-switch-oled/rojo/06.webp
 ---
 
 Protege tu consola modelo OLED con estilo y seguridad máxima gracias a este estuche rígido temático inspirado en personajes icónicos de los videojuegos. Fabricado en material EVA resistente a impactos, este accesorio combina una estética clásica con una funcionalidad moderna, incluyendo una solapa frontal con velcro y cremalleras a color. Es la solución definitiva para transportar tu dispositivo sin riesgos, ya que el kit incluye además un vidrio templado de alta dureza diseñado específicamente para blindar la pantalla de tu OLED contra rayones y golpes accidentales.

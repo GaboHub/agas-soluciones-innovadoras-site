@@ -21,6 +21,7 @@ imagenes:
   - productos/estuche-rigido-vidrio-switch-2/04.webp
   - productos/estuche-rigido-vidrio-switch-2/05.webp
   - productos/estuche-rigido-vidrio-switch-2/06.webp
+  - productos/estuche-rigido-vidrio-switch-2/07.webp
 caracteristicas:
   - >-
     Estuche rígido de alta calidad para Nintendo Switch 2 con diseño portable

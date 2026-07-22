@@ -20,6 +20,8 @@ imagenes:
   - productos/cargador-dual-controles-ps5/MLC4027738488/03.webp
   - productos/cargador-dual-controles-ps5/MLC4027738488/04.webp
   - productos/cargador-dual-controles-ps5/MLC4027738488/05.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738488/06.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738488/07.webp
 caracteristicas:
   - >-
     Carga simultánea inteligente: Capacidad para cargar hasta dos controles de
@@ -82,6 +84,8 @@ miembros:
       - productos/cargador-dual-controles-ps5/MLC4027738488/03.webp
       - productos/cargador-dual-controles-ps5/MLC4027738488/04.webp
       - productos/cargador-dual-controles-ps5/MLC4027738488/05.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/06.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/07.webp
     atributos:
       color: Negro
       diseno: Negro
@@ -95,6 +99,8 @@ miembros:
       - productos/cargador-dual-controles-ps5/MLC4027738490/03.webp
       - productos/cargador-dual-controles-ps5/MLC4027738490/04.webp
       - productos/cargador-dual-controles-ps5/MLC4027738490/05.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738490/06.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738490/07.webp
     atributos:
       color: Blanco
       diseno: Blanco

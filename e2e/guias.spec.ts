@@ -6,11 +6,11 @@ async function extraerJsonLd(page: import('@playwright/test').Page) {
 }
 
 test.describe('guías de compra y uso', () => {
-  test('/guias/ lista las 4 guías', async ({ page }) => {
+  test('/guias/ lista las 5 guías', async ({ page }) => {
     await page.goto('/guias/');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Guías de compra y uso');
     const tarjetas = page.getByRole('main').locator('a[href^="/guias/"]');
-    await expect(tarjetas).toHaveCount(4);
+    await expect(tarjetas).toHaveCount(5);
   });
 
   test('una guía renderiza h1, JSON-LD Article y al menos un link a producto relacionado', async ({ page }) => {
