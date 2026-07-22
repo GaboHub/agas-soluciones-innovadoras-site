@@ -115,6 +115,21 @@ Si se agrega o quita un producto del catálogo, hay que actualizar el
 arreglo `productos` de su categoría en `site.json` (los tests validan la
 consistencia entre ambos) y los conteos exactos de `tests/unit/`.
 
+## Versionado y releases
+
+El proyecto usa [SemVer](https://semver.org/lang/es/) con changelog en
+`CHANGELOG.md` (formato [Keep a Changelog](https://keepachangelog.com/es/1.1.0/)).
+El flujo es manual:
+
+1. Cada cambio notable se anota en la sección `[Unreleased]` del changelog
+   dentro del mismo commit que lo introduce.
+2. Para cortar una versión: mover lo de `[Unreleased]` a una sección
+   `[X.Y.Z] - fecha` (actualizando los links de comparación al final),
+   `git add CHANGELOG.md` y correr `npm run release:patch|minor|major`
+   según el cambio (fix → patch, feature → minor, breaking → major). El
+   script bumpea `package.json`, incluye lo staged y crea commit + tag `vX.Y.Z`.
+3. Publicar con `git push --follow-tags`.
+
 ## Runbook: deploy y dominio
 
 1. **Deploy en Cloudflare (Workers & Pages)**: en el dashboard actual,

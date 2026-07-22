@@ -14,6 +14,10 @@ Sitio web de AGAS Soluciones Innovadoras (agassoluciones.cl): vitrina estática 
 - El código no lleva comentarios de ningún tipo; única excepción, directivas funcionales (`// @ts-check`, `@ts-expect-error`, shebangs). La documentación va en Markdown.
 - Tras cualquier cambio, `npm run build`, `npm run test:unit` y `npm run test:e2e` deben quedar en verde. Tras tocar el script generador, además `npm run generar` seguido de `npm run build`.
 
+## Versionado
+
+SemVer manual con `CHANGELOG.md` (Keep a Changelog). Todo cambio notable se anota en `[Unreleased]` en el mismo commit que lo introduce. Los releases se cortan según el flujo de `README.md`, sección "Versionado y releases" (`npm run release:patch|minor|major` + `git push --follow-tags`), solo cuando el usuario lo pida.
+
 ## Refresco del catálogo
 
 El flujo de actualización está documentado en `README.md`, sección "Refresco del catálogo": regenerar `../agas-context` → `npm run generar` → `npm run build`. Sin trabajo manual intermedio.
