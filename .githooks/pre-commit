@@ -1,0 +1,9 @@
+#!/bin/sh
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT" || exit 1
+npm test
+if [ $? -ne 0 ]; then
+  echo "Tests en rojo: commit bloqueado. Corrige y reintenta (o usa --no-verify solo si sabes lo que haces)."
+  exit 1
+fi
+exit 0

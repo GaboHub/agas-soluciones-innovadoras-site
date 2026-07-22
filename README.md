@@ -86,6 +86,13 @@ editan a mano.
 | `npm test`           | Ambas suites                                                |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
 
+Un hook de pre-commit (`.githooks/pre-commit`) corre `npm test` antes de cada
+commit y lo bloquea si algo falla. Se activa solo al correr `npm install`
+(script `prepare` que configura `git config core.hooksPath .githooks`); en
+una emergencia se puede saltar con `git commit --no-verify`. En un clon
+nuevo, correr además `npx playwright install` una vez, o el e2e del hook
+fallará por falta de navegadores.
+
 ## Refresco del catálogo
 
 `npm run generar` ejecuta `scripts/generar-catalogo.mjs`, que lee el barrido de publicaciones de Mercado Libre desde `../agas-context` (configurable con la variable de entorno `AGAS_CONTEXT_DIR`) y regenera desde cero:
