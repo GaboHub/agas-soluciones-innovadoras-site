@@ -27,6 +27,16 @@ hardcodeados.
   y JSON-LD (`Organization`, `Product` con `Offer`, `FAQPage`, `WebSite`).
 - **Reseñas reales de Mercado Libre** (`src/data/resenas.json`) y FAQs
   transversales (`src/data/faqs.json`).
+- **Guías de compra y uso** (`content/guias/`): contenido editorial escrito
+  a mano para SEO, enlazado desde las fichas de producto relacionadas
+  (`productosRelacionados` en su frontmatter) y listado en `llms.txt`.
+- **Descripciones propias por producto** (`src/data/textos-productos.json`):
+  overrides manuales de descripción y meta description por slug, por sobre
+  el texto que trae el barrido de Mercado Libre.
+- **Burbuja flotante de Mercado Libre** (`BurbujaMercadoLibre`, Astro puro
+  sin JS): en todas las páginas lleva a la tienda; en la ficha de producto
+  apunta siempre al mismo destino que el CTA "Ver en Mercado Libre",
+  sincronizada con la variante activa.
 - **Tests**: Vitest (`tests/unit/`) valida catálogo, imágenes, reseñas,
   FAQs y SEO; Playwright (`e2e/`) cubre navegación, buscador, ficha de
   producto, familias, SEO y responsive en desktop y mobile.
@@ -36,15 +46,19 @@ hardcodeados.
 ```text
 agas_site/
 ├── content/
+│   ├── guias/                  Guías de compra y uso (manuales, no generadas)
 │   ├── paginas/                Inicio, categorías, contacto, términos
-│   └── productos/              23 fichas de producto (generadas por el script)
+│   └── productos/              Fichas de producto (generadas por el script)
 ├── src/
 │   ├── pages/                  /, /productos/, /productos/[slug]/, /categorias/[slug]/,
-│   │                           /preguntas-frecuentes/, /contacto/, /terminos-y-condiciones/, 404
+│   │                           /guias/, /guias/[slug]/, /preguntas-frecuentes/, /contacto/,
+│   │                           /terminos-y-condiciones/, 404
 │   ├── components/             Componentes Astro + islands React (buscador, galería, selector)
-│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD)
-│   ├── lib/                    site, seo, images, galeria, productos, formato, faqs, resenas
-│   ├── data/                   site.json, faqs.json, catalogo.json, resenas.json
+│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD) y burbuja de Mercado Libre
+│   ├── lib/                    site, seo, images, galeria, productos, ficha, formato, faqs,
+│   │                           resenas, guias, textos
+│   ├── data/                   site.json, faqs.json, catalogo.json, resenas.json,
+│   │                           textos-productos.json
 │   ├── assets/images/          Logos SVG + imágenes de producto (productos/<slug>/*.webp)
 │   └── styles/global.css       Tokens de marca (colores y fuentes) con Tailwind 4 `@theme`
 ├── scripts/
@@ -83,11 +97,16 @@ editan a mano.
 
 El script es idempotente: borra y vuelve a crear todo lo que produce. El flujo completo de actualización es: regenerar `agas-context/` → `npm run generar` → `npm run build`.
 
+Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json` son contenido editorial manual y sobreviven intactos a cada regeneración (las guías solo se *leen* para listarlas en `llms.txt`). Requisito de entrada: que `../agas-context` exista con el barrido de publicaciones; sin él, `npm run generar` falla y el resto del sitio sigue construyendo con lo último generado y commiteado.
+
 ## Datos manuales vs generados
 
 - **Manuales**: `src/data/site.json` (identidad, categorías y su orden de
   productos, enlaces de Mercado Libre), `src/data/faqs.json` (FAQs
-  transversales), `content/paginas/*.md`, tokens de `global.css`, logos.
+  transversales), `content/paginas/*.md`, `content/guias/*.md` (guías de
+  compra/uso: se escribieron una vez y solo cambian editando su markdown),
+  `src/data/textos-productos.json` (descripciones y meta descriptions
+  propias por slug), tokens de `global.css`, logos.
 - **Generados** (no editar a mano; corregir en `agas-context` y regenerar):
   `content/productos/*.md`, `src/assets/images/productos/`,
   `src/data/catalogo.json`, `src/data/resenas.json`, `public/llms.txt`.
