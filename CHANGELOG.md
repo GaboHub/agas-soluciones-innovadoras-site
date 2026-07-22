@@ -13,6 +13,9 @@ del README.
 
 - El enlace a la tienda de Mercado Libre (`site.mercadolibre.tienda`) usa
   `https` en vez de `http`.
+- La reputación del home excluye las reseñas de publicaciones de catálogo
+  de Mercado Libre (compartidas entre todos los vendedores de esa página
+  de producto): solo cuenta reseñas de publicaciones propias de AGAS.
 
 ## [1.0.0] - 2026-07-22
 

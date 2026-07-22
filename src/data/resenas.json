@@ -4,25 +4,9 @@
     "transacciones": 251,
     "url": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
   },
-  "promedioGeneral": 4.36,
-  "totalReviews": 185,
+  "promedioGeneral": 4.78,
+  "totalReviews": 26,
   "destacadas": [
-    {
-      "productoSlug": "audifonos-usb-c-manos-libres",
-      "productoTitulo": "Audífonos Manos Libres Tipo C para Celular",
-      "estrellas": 5,
-      "titulo": "Excelente",
-      "texto": "Buen sonido para escuchar música y excelente para uso como manos libres. Produco liviano, se ajusta muy bien los oidos. Lo bueno tambien es que se puede volver a guardar en la cajita para cuando no se estén utilizando. Excelente relación precio calidad. Lo recomiendo 100%.",
-      "fecha": "2026-06-22"
-    },
-    {
-      "productoSlug": "pack-2-laminas-vidrio-switch-oled",
-      "productoTitulo": "Pack 2 Lámina Vidrio Templado Switch OLED",
-      "estrellas": 5,
-      "titulo": "Excelente",
-      "texto": "Buenísima. Quedo perfecta en la consola. Solo precaución al colocarla ya que es muy justa en el tamaño, debe cuadrar perfecto con la pantalla. Lo recomiendo.",
-      "fecha": "2024-07-27"
-    },
     {
       "productoSlug": "kit-estuche-vidrio-nintendo-switch",
       "productoTitulo": "Kit Estuche Goma Rígido + Vidrio Switch 1 Rojo",
@@ -64,12 +48,12 @@
       "fecha": "2026-06-09"
     },
     {
-      "productoSlug": "lamina-vidrio-nintendo-switch",
-      "productoTitulo": "Lámina Protectora Vidrio Templado Nintendo Switch 1",
+      "productoSlug": "set-9en1-nintendo-switch-2",
+      "productoTitulo": "Set Switch 2 Estuche Mica Fundas Grips Carcasa (9 en 1)",
       "estrellas": 5,
       "titulo": "Excelente",
-      "texto": "La instale y quedó perfecta.",
-      "fecha": "2024-07-06"
+      "texto": "Excelente calidad.",
+      "fecha": "2026-04-23"
     }
   ]
 }

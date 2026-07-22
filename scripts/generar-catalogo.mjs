@@ -652,6 +652,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
   const datos = parsePublicacionIndividual(texto);
   const categoria = asignarCategoria(config.titulo);
   const tipo = datos.variantesFilas.length > 0 ? 'variantes' : 'simple';
+  const { esCatalogo } = parseMetaCatalogo(texto);
 
   const base = {
     titulo: config.titulo,
@@ -666,6 +667,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
     incluye: datos.incluye,
     faqs: datos.faqs,
     reviews: datos.reviews,
+    reviewsEsCatalogo: esCatalogo,
     cuerpoMarkdown: datos.cuerpoMarkdown,
   };
 
@@ -868,6 +870,7 @@ function construirCatalogoJson(productos, empresa, fechaPrecio) {
 function construirResenasJson(productos, empresa) {
   const todasConComentarios = [];
   for (const producto of productos) {
+    if (producto.reviewsEsCatalogo) continue;
     if (!producto.reviews?.comentarios?.length) continue;
     for (const comentario of producto.reviews.comentarios) {
       if (comentario.estrellas >= 4) {
@@ -894,7 +897,7 @@ function construirResenasJson(productos, empresa) {
     if (destacadas.length >= 8) break;
   }
 
-  const conReviews = productos.filter((producto) => producto.reviews);
+  const conReviews = productos.filter((producto) => producto.reviews && !producto.reviewsEsCatalogo);
   const totalReviews = conReviews.reduce((suma, producto) => suma + producto.reviews.cantidad, 0);
   const sumaPonderada = conReviews.reduce((suma, producto) => suma + producto.reviews.promedio * producto.reviews.cantidad, 0);
   const promedioGeneral = totalReviews > 0 ? Number((sumaPonderada / totalReviews).toFixed(2)) : 0;
