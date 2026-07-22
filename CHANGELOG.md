@@ -9,6 +9,11 @@ del README.
 
 ## [Unreleased]
 
+### Corregido
+
+- El enlace a la tienda de Mercado Libre (`site.mercadolibre.tienda`) usa
+  `https` en vez de `http`.
+
 ## [1.0.0] - 2026-07-22
 
 Primera versión estable del sitio en producción (agassoluciones.cl).

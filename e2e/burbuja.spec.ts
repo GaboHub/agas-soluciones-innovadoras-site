@@ -49,6 +49,7 @@ test.describe('burbuja flotante de Mercado Libre', () => {
     expect(caja).not.toBeNull();
     expect(caja!.x + caja!.width).toBeLessThanOrEqual(viewport!.width);
     expect(caja!.y + caja!.height).toBeLessThanOrEqual(viewport!.height);
+    expect(caja!.x).toBeGreaterThan(viewport!.width / 2);
     expect(caja!.y).toBeGreaterThan(viewport!.height / 2);
   });
 });
