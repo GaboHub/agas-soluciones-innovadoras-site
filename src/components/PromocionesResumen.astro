@@ -21,12 +21,7 @@ const hayPromos = cupones.length + campanas.length > 0;
       <p class="mt-2 font-texto text-sm font-bold text-tinta">{promociones.aclaracion}</p>
       <ul class="mt-5 grid list-none gap-3 p-0 sm:grid-cols-2">
         {cupones.map((cupon) => (
-          <li
-            data-promo
-            data-promo-desde={cupon.desde}
-            data-promo-hasta={cupon.hasta}
-            class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4"
-          >
+          <li data-promo class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4">
             <p class="font-texto font-bold text-tinta">
               {cupon.nombre} — {cupon.porcentaje}%
             </p>
@@ -34,12 +29,7 @@ const hayPromos = cupones.length + campanas.length > 0;
           </li>
         ))}
         {campanas.map((campana) => (
-          <li
-            data-promo
-            data-promo-desde={campana.desde}
-            data-promo-hasta={campana.hasta}
-            class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4"
-          >
+          <li data-promo class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4">
             <div>
               <p class="font-texto font-bold text-tinta">{campana.nombre}</p>
               <p class="mt-1 font-texto text-xs font-bold text-tinta/60">
@@ -60,13 +50,3 @@ const hayPromos = cupones.length + campanas.length > 0;
     </section>
   )
 }
-
-<script>
-  import { filtrarPromosVencidas } from '../lib/promoFiltro';
-
-  const bloque = document.getElementById('promociones-resumen');
-  if (bloque) {
-    filtrarPromosVencidas(bloque);
-    if (bloque.querySelectorAll('[data-promo]').length === 0) bloque.hidden = true;
-  }
-</script>

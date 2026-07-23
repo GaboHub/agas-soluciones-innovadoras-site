@@ -143,10 +143,17 @@ cada producto: es un dato curado a mano, nunca se genera ni se deriva de
   `estado: candidate|started|pending` que trae esa sección no garantiza que
   el descuento esté realmente aplicado sobre el precio de la publicación
   (ver el ADR para el detalle de la verificación que llevó a esta regla).
-- Las promociones vencidas desaparecen solas del sitio, sin necesidad de
-  redeploy: el filtrado de vigencia corre también en el cliente. Lo que sí
-  requiere una actualización manual del JSON (y su redeploy) es dar de alta
-  una campaña o cupón nuevo cuando arranca en Mercado Libre.
+- Las promociones vencidas desaparecen en el **siguiente redeploy**: el
+  filtrado de vigencia corre solo en build
+  (`docs/adr/0002-filtrado-promos-solo-en-build.md`), así que hay que
+  redesplegar al día siguiente del vencimiento de cada promo para que deje
+  de mostrarse. Flujo de mantención: al vencer una promo, actualizar
+  `src/data/promociones.json` si corresponde (por ejemplo dar de alta una
+  campaña o cupón nuevo), correr `npm run generar` para refrescar
+  `public/llms.txt`, y hacer commit + push (el push a `main` dispara el
+  deploy en Cloudflare Pages); alternativamente, disparar un redeploy
+  manual desde el dashboard de Cloudflare Pages si no hay cambios que
+  commitear.
 
 ## Versionado y releases
 

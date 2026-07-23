@@ -16,12 +16,7 @@ interface Props {
 const { nombre, porcentaje, condicion, estado, desde, hasta, href } = Astro.props;
 ---
 
-<article
-  data-promo
-  data-promo-desde={desde}
-  data-promo-hasta={hasta}
-  class="flex flex-col gap-3 rounded-3xl bg-primario-claro p-6"
->
+<article data-promo class="flex flex-col gap-3 rounded-3xl bg-primario-claro p-6">
   <div class="flex items-start justify-between gap-3">
     <h3 class="font-titulos text-lg font-extrabold text-tinta">{nombre}</h3>
     <BadgeEstadoPromocion estado={estado} />

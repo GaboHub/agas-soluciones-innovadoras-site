@@ -9,9 +9,11 @@ const productosDir = path.resolve(dirname, '../../content/productos');
 const siteJsonPath = path.resolve(dirname, '../../src/data/site.json');
 const catalogoJsonPath = path.resolve(dirname, '../../src/data/catalogo.json');
 const llmsTxtPath = path.resolve(dirname, '../../public/llms.txt');
+const promocionesJsonPath = path.resolve(dirname, '../../src/data/promociones.json');
 
 const site = JSON.parse(readFileSync(siteJsonPath, 'utf-8'));
 const catalogo = JSON.parse(readFileSync(catalogoJsonPath, 'utf-8'));
+const promociones = JSON.parse(readFileSync(promocionesJsonPath, 'utf-8'));
 
 const archivos = readdirSync(productosDir).filter((archivo) => archivo.endsWith('.md'));
 
@@ -128,6 +130,72 @@ describe('consistencia site.json vs colección de productos', () => {
     const llms = readFileSync(llmsTxtPath, 'utf-8');
     expect(llms).toContain('## Promociones');
     expect(llms).toContain('https://agassoluciones.cl/promociones/');
+  });
+
+  describe('sincronía entre llms.txt y promociones.json', () => {
+    const llms = readFileSync(llmsTxtPath, 'utf-8');
+    const seccionPromociones = llms.split('## Promociones')[1] ?? '';
+
+    const cuponesEnLlms = [...seccionPromociones.matchAll(/^- Cupón: (.+) — (\d+)% \(vigente del (\d{4}-\d{2}-\d{2}) al (\d{4}-\d{2}-\d{2})\)$/gm)].map(
+      ([, nombre, porcentaje, desde, hasta]) => ({
+        nombre,
+        porcentaje: Number(porcentaje),
+        desde,
+        hasta,
+      }),
+    );
+
+    const campanasEnLlms = [...seccionPromociones.matchAll(/^- Campaña: (.+) \(vigente del (\d{4}-\d{2}-\d{2}) al (\d{4}-\d{2}-\d{2})\)$/gm)].map(
+      ([, nombre, desde, hasta]) => ({ nombre, desde, hasta }),
+    );
+
+    function hoyEnChile(): string {
+      return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
+    }
+
+    it('cada cupón listado en llms.txt existe en promociones.json con los mismos datos', () => {
+      for (const cuponLlms of cuponesEnLlms) {
+        const cuponJson = promociones.cupones.find((cupon: { nombre: string }) => cupon.nombre === cuponLlms.nombre);
+        expect(cuponJson, `no existe en promociones.json un cupón llamado "${cuponLlms.nombre}"`).toBeDefined();
+        expect(cuponJson.porcentaje).toBe(cuponLlms.porcentaje);
+        expect(cuponJson.desde).toBe(cuponLlms.desde);
+        expect(cuponJson.hasta).toBe(cuponLlms.hasta);
+      }
+    });
+
+    it('cada campaña listada en llms.txt existe en promociones.json con los mismos datos', () => {
+      for (const campanaLlms of campanasEnLlms) {
+        const campanaJson = promociones.campanas.find(
+          (campana: { nombre: string }) => campana.nombre === campanaLlms.nombre,
+        );
+        expect(campanaJson, `no existe en promociones.json una campaña llamada "${campanaLlms.nombre}"`).toBeDefined();
+        expect(campanaJson.desde).toBe(campanaLlms.desde);
+        expect(campanaJson.hasta).toBe(campanaLlms.hasta);
+      }
+    });
+
+    it('cada cupón no expirado de promociones.json aparece listado en llms.txt', () => {
+      const hoy = hoyEnChile();
+      const nombresEnLlms = new Set(cuponesEnLlms.map((cupon) => cupon.nombre));
+      for (const cupon of promociones.cupones as { nombre: string; hasta: string }[]) {
+        if (cupon.hasta < hoy) continue;
+        expect(nombresEnLlms.has(cupon.nombre), `falta regenerar llms.txt: no lista el cupón "${cupon.nombre}"`).toBe(
+          true,
+        );
+      }
+    });
+
+    it('cada campaña no expirada de promociones.json aparece listada en llms.txt', () => {
+      const hoy = hoyEnChile();
+      const nombresEnLlms = new Set(campanasEnLlms.map((campana) => campana.nombre));
+      for (const campana of promociones.campanas as { nombre: string; hasta: string }[]) {
+        if (campana.hasta < hoy) continue;
+        expect(
+          nombresEnLlms.has(campana.nombre),
+          `falta regenerar llms.txt: no lista la campaña "${campana.nombre}"`,
+        ).toBe(true);
+      }
+    });
   });
 });
 

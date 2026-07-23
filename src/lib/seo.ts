@@ -1,5 +1,6 @@
 import { site } from './site';
 import type { FaqItem } from './faqs';
+import type { Campana } from './promociones';
 
 export interface OrganizationJsonLd {
   '@context': 'https://schema.org';
@@ -59,6 +60,20 @@ export interface WebSiteJsonLd {
   name: string;
   url: string;
   description: string;
+}
+
+export interface SaleEventJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'SaleEvent';
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode';
+  location: {
+    '@type': 'VirtualLocation';
+    url: string;
+  };
 }
 
 export interface ArticleJsonLd {
@@ -142,6 +157,22 @@ export function buildFaqPage(faqs: FaqItem[]): FaqPageJsonLd {
         text: faq.respuesta,
       },
     })),
+  };
+}
+
+export function buildSaleEvent(campana: Campana): SaleEventJsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SaleEvent',
+    name: campana.nombre,
+    description: campana.descripcion,
+    startDate: campana.desde,
+    endDate: campana.hasta,
+    eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    location: {
+      '@type': 'VirtualLocation',
+      url: site.mercadolibre.tienda,
+    },
   };
 }
 

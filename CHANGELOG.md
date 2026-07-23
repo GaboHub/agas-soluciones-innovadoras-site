@@ -24,6 +24,11 @@ del README.
   `/promociones/`.
 - Sección `## Promociones` en `public/llms.txt`, generada desde
   `src/data/promociones.json`.
+- JSON-LD `SaleEvent` por cada campaña publicable en `/promociones/`
+  (`buildSaleEvent` en `src/lib/seo.ts`).
+- `lastmod` en todas las URLs del sitemap (fecha de build).
+- Test de sincronía entre `public/llms.txt` y `src/data/promociones.json`
+  en `tests/unit/contenido.test.ts`.
 
 ### Cambiado
 
@@ -33,7 +38,17 @@ del README.
 - Invariante de promociones: el sitio ahora publica promociones y cupones
   curados a mano desde `src/data/promociones.json` (antes nunca se
   mostraban), con ventana de vigencia explícita y filtrado por fecha en
-  build y en cliente (ver `docs/adr/0001-promociones-curadas.md`).
+  build; las promos vencidas requieren un redeploy periódico para dejar
+  de mostrarse (ver `docs/adr/0001-promociones-curadas.md` y
+  `docs/adr/0002-filtrado-promos-solo-en-build.md`).
+- Meta description de `/promociones/` acortada a menos de 150 caracteres.
+
+### Eliminado
+
+- Filtrado de vigencia de promociones en cliente (`src/lib/promoFiltro.ts`
+  y los `<script>` que lo invocaban en `/promociones/` y en
+  `PromocionesResumen.astro`): la vigencia se filtra solo en build (ver
+  `docs/adr/0002-filtrado-promos-solo-en-build.md`).
 
 ### Corregido
 

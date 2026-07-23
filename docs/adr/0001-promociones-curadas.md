@@ -2,7 +2,7 @@
 
 ## Estado
 
-Aceptada, 2026-07-23.
+Aceptada (2026-07-23) — enmendada por ADR 0002 en lo relativo al filtrado en cliente.
 
 ## Contexto
 

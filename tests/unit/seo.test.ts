@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { buildOrganization, buildProduct, buildWebSite, buildFaqPage } from '../../src/lib/seo';
+import { buildOrganization, buildProduct, buildWebSite, buildFaqPage, buildSaleEvent } from '../../src/lib/seo';
 import type { FaqItem } from '../../src/lib/faqs';
+import type { Campana } from '../../src/lib/promociones';
 
 const logoUrl = 'https://agassoluciones.cl/_astro/logo.png';
 
@@ -96,6 +97,40 @@ describe('buildFaqPage', () => {
     const serializado = JSON.stringify(faqPage);
     expect(serializado).not.toContain('undefined');
     expect(JSON.parse(serializado)).toStrictEqual(faqPage);
+  });
+});
+
+describe('buildSaleEvent', () => {
+  const campana: Campana = {
+    id: 'campana-de-prueba',
+    nombre: 'Campaña de prueba',
+    descripcion: 'Descripción de la campaña de prueba.',
+    desde: '2026-07-01',
+    hasta: '2026-07-31',
+  };
+  const saleEvent = buildSaleEvent(campana);
+
+  it('mapea nombre, descripción y fechas de vigencia de la campaña', () => {
+    expect(saleEvent['@type']).toBe('SaleEvent');
+    expect(saleEvent.name).toBe(campana.nombre);
+    expect(saleEvent.description).toBe(campana.descripcion);
+    expect(saleEvent.startDate).toBe(campana.desde);
+    expect(saleEvent.endDate).toBe(campana.hasta);
+    expect(saleEvent.eventAttendanceMode).toBe('https://schema.org/OnlineEventAttendanceMode');
+    expect(saleEvent.location['@type']).toBe('VirtualLocation');
+    expect(saleEvent.location.url).toContain('mercadolibre.cl');
+  });
+
+  it('no incluye precios ni ofertas', () => {
+    const serializado = JSON.stringify(saleEvent);
+    expect(serializado).not.toContain('offers');
+    expect(serializado).not.toContain('price');
+  });
+
+  it('es serializable y re-parseable sin undefined', () => {
+    const serializado = JSON.stringify(saleEvent);
+    expect(serializado).not.toContain('undefined');
+    expect(JSON.parse(serializado)).toStrictEqual(saleEvent);
   });
 });
 

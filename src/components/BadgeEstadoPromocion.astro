@@ -9,9 +9,6 @@ const { estado } = Astro.props;
 const texto = estado === 'proxima' ? 'Próximamente' : 'Vigente';
 ---
 
-<span
-  data-promo-badge
-  class="inline-flex shrink-0 items-center rounded-full bg-destacado/15 px-3 py-1 font-texto text-xs font-bold text-destacado-oscuro"
->
+<span class="inline-flex shrink-0 items-center rounded-full bg-destacado/15 px-3 py-1 font-texto text-xs font-bold text-destacado-oscuro">
   {texto}
 </span>
