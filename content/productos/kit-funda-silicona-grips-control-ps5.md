@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM
 precioReferencial: 8590
-fechaPrecio: '2026-07-21'
+fechaPrecio: '2026-07-22'
 resumen: >-
   Renueva y blinda tu mando DualSense con nuestro Kit de Protección y
   Personalización diseñado exclusivamente para PlayStation 5.  Este set completo

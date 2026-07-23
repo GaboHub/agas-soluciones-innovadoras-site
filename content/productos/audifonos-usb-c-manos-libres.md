@@ -7,7 +7,7 @@ emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-4160547282-audifonos-manos-libres-tipo-c-para-celular-color-blanco-generica-_JM
 precioReferencial: 4190
-fechaPrecio: '2026-07-21'
+fechaPrecio: '2026-07-22'
 resumen: >-
   En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos
   Premiun y ¡escápate de la rutina por un rato!  Vas a poder disfrutar de la
@@ -21,14 +21,14 @@ imagenes:
   - productos/audifonos-usb-c-manos-libres/05.webp
   - productos/audifonos-usb-c-manos-libres/06.webp
 reviews:
-  promedio: 4.2
-  cantidad: 139
+  promedio: 4.3
+  cantidad: 140
   distribucion:
     '1': 13
     '2': 4
     '3': 14
     '4': 13
-    '5': 95
+    '5': 96
   comentarios:
     - estrellas: 4
       titulo: Muy bueno
