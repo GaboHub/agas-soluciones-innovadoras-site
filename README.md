@@ -110,10 +110,12 @@ Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json
 
 - **Manuales**: `src/data/site.json` (identidad, categorías y su orden de
   productos, enlaces de Mercado Libre), `src/data/faqs.json` (FAQs
-  transversales), `content/paginas/*.md`, `content/guias/*.md` (guías de
-  compra/uso: se escribieron una vez y solo cambian editando su markdown),
-  `src/data/textos-productos.json` (descripciones y meta descriptions
-  propias por slug), tokens de `global.css`, logos.
+  transversales), `src/data/promociones.json` (cupones y campañas curados a
+  mano, ver "Mantención de promociones"), `content/paginas/*.md`,
+  `content/guias/*.md` (guías de compra/uso: se escribieron una vez y solo
+  cambian editando su markdown), `src/data/textos-productos.json`
+  (descripciones y meta descriptions propias por slug), tokens de
+  `global.css`, logos.
 - **Generados** (no editar a mano; corregir en `agas-context` y regenerar):
   `content/productos/*.md`, `src/assets/images/productos/`,
   `src/data/catalogo.json`, `src/data/resenas.json`, `public/llms.txt`.
@@ -121,6 +123,30 @@ Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json
 Si se agrega o quita un producto del catálogo, hay que actualizar el
 arreglo `productos` de su categoría en `site.json` (los tests validan la
 consistencia entre ambos) y los conteos exactos de `tests/unit/`.
+
+## Mantención de promociones
+
+`src/data/promociones.json` es la única fuente de las promociones y cupones
+que se publican, tanto en `/promociones/` como en el bloque de la ficha de
+cada producto: es un dato curado a mano, nunca se genera ni se deriva de
+`../agas-context` (ver `docs/adr/0001-promociones-curadas.md`).
+
+- Cada cupón o campaña declara `desde` y `hasta` en formato `YYYY-MM-DD`,
+  ambos **inclusivos**: la promo se muestra desde las 00:00 de `desde` hasta
+  las 23:59 de `hasta` en horario de Chile. Mercado Libre suele cerrar sus
+  campañas a la 01:00 del día siguiente al que uno esperaría; si eso pasa,
+  conviene bajar `hasta` en un día para no anunciar un beneficio que ya no
+  está disponible.
+- El barrido de `../agas-context` (sección `### Promociones y cupones` de
+  cada `publicacion.md`) sirve solo como **referencia** para enterarse de
+  qué campañas existen: nunca como fuente automática. El campo
+  `estado: candidate|started|pending` que trae esa sección no garantiza que
+  el descuento esté realmente aplicado sobre el precio de la publicación
+  (ver el ADR para el detalle de la verificación que llevó a esta regla).
+- Las promociones vencidas desaparecen solas del sitio, sin necesidad de
+  redeploy: el filtrado de vigencia corre también en el cliente. Lo que sí
+  requiere una actualización manual del JSON (y su redeploy) es dar de alta
+  una campaña o cupón nuevo cuando arranca en Mercado Libre.
 
 ## Versionado y releases
 
@@ -181,9 +207,10 @@ El flujo es manual:
   claro por contraste AA), `destacado` (gris azulado: etiquetas), `tinta`
   (texto) y `fondo` (superficie). Retematizar el sitio es editar los
   valores de `@theme` y las fuentes en `global.css`.
-- El sitio nunca muestra stock ni promociones: los precios son
-  referenciales con su fecha, y el precio vigente vive en la publicación de
-  Mercado Libre de cada producto.
+- El sitio nunca muestra stock: los precios son referenciales con su fecha,
+  y el precio vigente vive en la publicación de Mercado Libre de cada
+  producto. Las promociones y cupones sí se publican, pero solo desde
+  `src/data/promociones.json` (ver "Mantención de promociones" más arriba).
 - Las familias de productos (fundas PS5 por diseño/color, cargador dual por
   color) se agrupan en una sola ficha con selector; cada combinación enlaza
   a su propia publicación de Mercado Libre.

@@ -926,7 +926,34 @@ function leerGuias() {
     .sort((a, b) => a.titulo.localeCompare(b.titulo));
 }
 
-function construirLlmsTxt(productos, empresa, fechaPrecio, guias) {
+function leerPromociones() {
+  const promocionesPath = path.join(DATA_DIR, 'promociones.json');
+  if (!existsSync(promocionesPath)) return null;
+  return JSON.parse(readFileSync(promocionesPath, 'utf8'));
+}
+
+function construirSeccionPromociones(promociones) {
+  if (!promociones) return [];
+  const hoy = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
+  const cuponesVigentes = (promociones.cupones ?? []).filter((cupon) => cupon.hasta >= hoy);
+  const campanasVigentes = (promociones.campanas ?? []).filter((campana) => campana.hasta >= hoy);
+
+  const lineas = [];
+  lineas.push('## Promociones');
+  lineas.push('');
+  lineas.push(`Cupones y campañas vigentes en la tienda: ${SITE_URL}/promociones/`);
+  lineas.push('');
+  for (const cupon of cuponesVigentes) {
+    lineas.push(`- Cupón: ${cupon.nombre} — ${cupon.porcentaje}% (vigente del ${cupon.desde} al ${cupon.hasta})`);
+  }
+  for (const campana of campanasVigentes) {
+    lineas.push(`- Campaña: ${campana.nombre} (vigente del ${campana.desde} al ${campana.hasta})`);
+  }
+  lineas.push('');
+  return lineas;
+}
+
+function construirLlmsTxt(productos, empresa, fechaPrecio, guias, promociones) {
   const lineas = [];
   lineas.push('# AGAS Soluciones Innovadoras');
   lineas.push('');
@@ -955,6 +982,7 @@ function construirLlmsTxt(productos, empresa, fechaPrecio, guias) {
     }
     lineas.push('');
   }
+  lineas.push(...construirSeccionPromociones(promociones));
   return lineas.join('\n');
 }
 
@@ -1032,7 +1060,12 @@ async function main() {
 
   mkdirSync(PUBLIC_DIR, { recursive: true });
   const guias = leerGuias();
-  writeFileSync(path.join(PUBLIC_DIR, 'llms.txt'), construirLlmsTxt(productos, empresa, fechaPrecio, guias), 'utf8');
+  const promociones = leerPromociones();
+  writeFileSync(
+    path.join(PUBLIC_DIR, 'llms.txt'),
+    construirLlmsTxt(productos, empresa, fechaPrecio, guias, promociones),
+    'utf8',
+  );
 
   console.log(`\nListo: ${productos.length} productos generados.`);
 }

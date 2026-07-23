@@ -123,6 +123,12 @@ describe('consistencia site.json vs colección de productos', () => {
     expect(llms).toContain('## Guías');
     expect(llms).toContain('https://agassoluciones.cl/guias/');
   });
+
+  it('llms.txt incluye la sección de Promociones', () => {
+    const llms = readFileSync(llmsTxtPath, 'utf-8');
+    expect(llms).toContain('## Promociones');
+    expect(llms).toContain('https://agassoluciones.cl/promociones/');
+  });
 });
 
 describe('qué incluye extraído de las descripciones', () => {

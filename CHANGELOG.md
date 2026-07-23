@@ -17,12 +17,23 @@ del README.
 - Hook de pre-commit (`.githooks/pre-commit`) que corre `npm test` antes de
   cada commit y lo bloquea si falla; se activa automáticamente con `npm
   install` vía el script `prepare` (`core.hooksPath`).
+- Página `/promociones/` con los cupones y campañas vigentes de la tienda
+  de Mercado Libre, y su enlace en el header y el footer.
+- Bloque de promociones a nivel tienda en la ficha de cada producto
+  (`src/components/PromocionesResumen.astro`), con enlace a
+  `/promociones/`.
+- Sección `## Promociones` en `public/llms.txt`, generada desde
+  `src/data/promociones.json`.
 
 ### Cambiado
 
 - El generador de catálogo (`npm run generar`) sube el máximo de imágenes
   por producto, variante y miembro de familia a 7 (antes 6/3/5
   respectivamente); el límite sigue siendo un tope, no un mínimo.
+- Invariante de promociones: el sitio ahora publica promociones y cupones
+  curados a mano desde `src/data/promociones.json` (antes nunca se
+  mostraban), con ventana de vigencia explícita y filtrado por fecha en
+  build y en cliente (ver `docs/adr/0001-promociones-curadas.md`).
 
 ### Corregido
 

@@ -1,0 +1,66 @@
+{
+  "aclaracion": "Los descuentos y cupones se aplican comprando directamente en nuestras publicaciones de Mercado Libre.",
+  "cupones": [
+    {
+      "id": "nuevos-seguidores",
+      "nombre": "Cupón nuevo seguidor",
+      "porcentaje": 5,
+      "condicion": "Sigue nuestra tienda en Mercado Libre por primera vez y recibe un 5% de descuento para tu primera compra.",
+      "desde": "2026-07-21",
+      "hasta": "2026-08-20"
+    },
+    {
+      "id": "seguidores",
+      "nombre": "Cupón seguidores",
+      "porcentaje": 5,
+      "condicion": "Si ya sigues nuestra tienda en Mercado Libre, tienes un 5% de descuento disponible para usar en tu próxima compra.",
+      "desde": "2026-07-21",
+      "hasta": "2026-08-20"
+    }
+  ],
+  "campanas": [
+    {
+      "id": "oferta-julio-agosto",
+      "nombre": "Oferta vigente julio–agosto",
+      "descripcion": "Descuentos activos en una selección de productos de nuestra tienda de Mercado Libre durante todo el período.",
+      "desde": "2026-07-13",
+      "hasta": "2026-08-12"
+    },
+    {
+      "id": "dia-de-la-ninez-2026",
+      "nombre": "Día de la Niñez 2026",
+      "descripcion": "Ofertas especiales pensadas para regalos del Día de la Niñez en accesorios para consolas y equipos.",
+      "desde": "2026-07-20",
+      "hasta": "2026-08-08"
+    },
+    {
+      "id": "black-week-julio-2026",
+      "nombre": "Black Week de julio",
+      "descripcion": "Descuentos por tiempo limitado durante la Black Week de julio en productos seleccionados.",
+      "desde": "2026-07-27",
+      "hasta": "2026-08-02"
+    }
+  ],
+  "faqs": [
+    {
+      "pregunta": "¿Cómo obtengo el cupón de nuevo seguidor?",
+      "respuesta": "Entra a nuestra tienda en Mercado Libre y síguela. Si es la primera vez que la sigues, Mercado Libre te habilita un cupón de 5% para tu primera compra."
+    },
+    {
+      "pregunta": "¿Dónde se aplica el descuento del cupón o de una campaña?",
+      "respuesta": "Siempre directamente en la publicación de Mercado Libre al momento de pagar, nunca en este sitio. Este sitio solo te avisa qué cupones y campañas están vigentes."
+    },
+    {
+      "pregunta": "¿Puedo usar un cupón y una oferta de campaña al mismo tiempo?",
+      "respuesta": "Depende de las reglas de cada cupón y campaña, que puede variar. Revisa siempre lo que te muestre Mercado Libre en el detalle de la publicación y en el checkout antes de pagar para confirmar qué se aplica a tu compra."
+    },
+    {
+      "pregunta": "¿Qué pasa cuando termina una campaña o cupón?",
+      "respuesta": "Deja de mostrarse en el sitio automáticamente apenas vence su fecha de vigencia, y el beneficio deja de estar disponible en Mercado Libre."
+    },
+    {
+      "pregunta": "¿Por qué el sitio no muestra el precio ya con el descuento aplicado?",
+      "respuesta": "Los precios que ves acá son referenciales a una fecha de registro, y no siempre reflejan si un descuento está aplicado en ese momento. El precio final, con cualquier cupón o campaña vigente, siempre lo confirma Mercado Libre en la publicación antes de comprar."
+    }
+  ]
+}

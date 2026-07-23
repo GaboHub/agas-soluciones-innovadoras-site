@@ -5,6 +5,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FichaProducto, { type GrupoFicha } from '../../../components/FichaProducto.tsx';
 import Estrellas from '../../../components/Estrellas.astro';
 import ReviewsProducto from '../../../components/ReviewsProducto.astro';
+import PromocionesResumen from '../../../components/PromocionesResumen.astro';
 import Faq from '../../../components/Faq.astro';
 import { site, getCategoria } from '../../../lib/site';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
@@ -117,6 +118,10 @@ if (data.faqs && data.faqs.length > 0) {
         linkCtaSecundario={site.mercadolibre.tienda}
       />
     </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-8">
+    <PromocionesResumen />
   </section>
 
   {

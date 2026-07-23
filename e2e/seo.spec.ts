@@ -8,6 +8,7 @@ const paginas = [
   { path: '/productos/lamina-vidrio-nintendo-switch/', esProducto: true, tieneFaqJsonLd: true },
   { path: '/preguntas-frecuentes/', esProducto: false, tieneFaqJsonLd: true },
   { path: '/contacto/', esProducto: false, tieneFaqJsonLd: false },
+  { path: '/promociones/', esProducto: false, tieneFaqJsonLd: true },
 ];
 
 async function extraerJsonLd(page: import('@playwright/test').Page) {

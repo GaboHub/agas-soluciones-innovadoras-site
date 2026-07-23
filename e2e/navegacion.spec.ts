@@ -19,6 +19,16 @@ test.describe('navegación principal', () => {
     ).toHaveAttribute('href', '/guias/');
   });
 
+  test('el nav de escritorio incluye el enlace a Promociones', async ({ page, isMobile }) => {
+    test.skip(Boolean(isMobile), 'el nav de escritorio no se muestra en mobile');
+    await page.goto('/');
+    await expect(
+      page
+        .getByRole('navigation', { name: 'Navegación principal' })
+        .getByRole('link', { name: 'Promociones', exact: true }),
+    ).toHaveAttribute('href', '/promociones/');
+  });
+
   test('desde la home se llega al catálogo y a un producto', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('link', { name: 'Ver catálogo', exact: true }).click();

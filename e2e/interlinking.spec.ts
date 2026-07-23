@@ -46,5 +46,6 @@ test.describe('interlinking', () => {
     await expect(footer.locator('a[href="/categorias/nintendo-switch/"]')).toBeVisible();
     await expect(footer.locator('a[href="/terminos-y-condiciones/"]')).toBeVisible();
     await expect(footer.locator('a[href="/preguntas-frecuentes/"]')).toBeVisible();
+    await expect(footer.locator('a[href="/promociones/"]')).toBeVisible();
   });
 });

@@ -1,0 +1,42 @@
+---
+import { formatearFecha } from '../lib/formato';
+import type { EstadoPromocion } from '../lib/promociones';
+import BadgeEstadoPromocion from './BadgeEstadoPromocion.astro';
+
+interface Props {
+  nombre: string;
+  porcentaje: number;
+  condicion: string;
+  estado: EstadoPromocion;
+  desde: string;
+  hasta: string;
+  href: string;
+}
+
+const { nombre, porcentaje, condicion, estado, desde, hasta, href } = Astro.props;
+---
+
+<article
+  data-promo
+  data-promo-desde={desde}
+  data-promo-hasta={hasta}
+  class="flex flex-col gap-3 rounded-3xl bg-primario-claro p-6"
+>
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="font-titulos text-lg font-extrabold text-tinta">{nombre}</h3>
+    <BadgeEstadoPromocion estado={estado} />
+  </div>
+  <p class="font-titulos text-3xl font-extrabold text-primario">{porcentaje}%</p>
+  <p class="font-texto text-sm text-tinta/70">{condicion}</p>
+  <p class="font-texto text-xs font-bold text-tinta/70">
+    {formatearFecha(desde)} – {formatearFecha(hasta)}
+  </p>
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener"
+    class="mt-auto inline-flex items-center justify-center rounded-full bg-primario px-5 py-2.5 text-center font-texto text-sm font-bold text-white transition-transform hover:scale-105"
+  >
+    Seguir la tienda en Mercado Libre
+  </a>
+</article>

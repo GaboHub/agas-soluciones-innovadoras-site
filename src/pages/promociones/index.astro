@@ -1,0 +1,109 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/Faq.astro';
+import TarjetaCupon from '../../components/TarjetaCupon.astro';
+import TarjetaPromocion from '../../components/TarjetaPromocion.astro';
+import { site } from '../../lib/site';
+import { promociones, getCuponesPublicables, getCampanasPublicables } from '../../lib/promociones';
+import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
+import { buildOrganization, buildFaqPage } from '../../lib/seo';
+
+const pagina = await getEntry('paginas', 'promociones');
+if (!pagina) throw new Error('Falta la página promociones');
+const { Content } = await render(pagina);
+
+const cupones = getCuponesPublicables();
+const campanas = getCampanasPublicables();
+
+const title = `Promociones y cupones | ${site.nombre}`;
+const description = `Cupones y campañas vigentes en la tienda de ${site.nombre} en Mercado Libre: síguela para desbloquearlos y aplícalos directamente en la publicación.`;
+
+const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
+const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs)];
+---
+
+<BaseLayout title={title} description={description} path="/promociones/" jsonLd={jsonLd}>
+  <section class="mx-auto max-w-4xl px-4 pt-12">
+    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Promociones y cupones</h1>
+    <div class="contenido-md mt-3">
+      <Content />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-6">
+    <p class="rounded-2xl bg-destacado/10 px-5 py-4 font-texto text-sm font-bold text-tinta">
+      {promociones.aclaracion}
+    </p>
+  </section>
+
+  {
+    cupones.length > 0 && (
+      <section id="cupones" data-promo-seccion class="mx-auto max-w-4xl px-4 py-6">
+        <h2 class="font-titulos text-2xl font-extrabold text-tinta">Cupones</h2>
+        <div class="mt-4 grid gap-5 sm:grid-cols-2">
+          {cupones.map((cupon) => (
+            <TarjetaCupon
+              nombre={cupon.nombre}
+              porcentaje={cupon.porcentaje}
+              condicion={cupon.condicion}
+              estado={cupon.estado}
+              desde={cupon.desde}
+              hasta={cupon.hasta}
+              href={site.mercadolibre.paginaOficial}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    campanas.length > 0 && (
+      <section id="campanas" data-promo-seccion class="mx-auto max-w-4xl px-4 py-6">
+        <h2 class="font-titulos text-2xl font-extrabold text-tinta">Campañas</h2>
+        <div class="mt-4 grid gap-5 sm:grid-cols-2">
+          {campanas.map((campana) => (
+            <TarjetaPromocion
+              nombre={campana.nombre}
+              descripcion={campana.descripcion}
+              estado={campana.estado}
+              desde={campana.desde}
+              hasta={campana.hasta}
+              href={site.mercadolibre.tienda}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <div id="promo-fallback" hidden={cupones.length + campanas.length > 0} class="mx-auto max-w-4xl px-4 py-10 text-center">
+    <p class="font-texto text-lg font-bold text-tinta">En este momento no tenemos promociones activas.</p>
+    <a
+      href={site.mercadolibre.tienda}
+      target="_blank"
+      rel="noopener"
+      class="mt-4 inline-flex items-center justify-center rounded-full bg-primario px-6 py-3 font-texto text-sm font-bold text-white transition-transform hover:scale-105"
+    >
+      Ver nuestra tienda en Mercado Libre
+    </a>
+  </div>
+
+  <Faq items={promociones.faqs} titulo="Preguntas sobre promociones" />
+</BaseLayout>
+
+<script>
+  import { filtrarPromosVencidas } from '../../lib/promoFiltro';
+
+  filtrarPromosVencidas(document);
+
+  document.querySelectorAll<HTMLElement>('[data-promo-seccion]').forEach((seccion) => {
+    if (seccion.querySelectorAll('[data-promo]').length === 0) seccion.hidden = true;
+  });
+
+  if (document.querySelectorAll('[data-promo]').length === 0) {
+    const fallback = document.getElementById('promo-fallback');
+    if (fallback) fallback.hidden = false;
+  }
+</script>
