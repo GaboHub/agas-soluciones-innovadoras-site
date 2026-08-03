@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1859283513-kit-estuche-rigido-funda-acrilico-grips-para-control-ps5-negro-transparente-_JM
 precioReferencial: 16990
-fechaPrecio: '2026-07-22'
+fechaPrecio: '2026-08-03'
 resumen: >-
   Protege y personaliza al máximo tu mando con este completo kit diseñado
   exclusivamente para el control de PS5.  Este set es la opción perfecta para

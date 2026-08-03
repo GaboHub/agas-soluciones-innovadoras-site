@@ -41,7 +41,7 @@ const CATEGORIAS = {
   audio: {
     nombre: 'Audio',
     emoji: '🎧',
-    resumen: 'Audífonos y manos libres USB-C para tu celular.',
+    resumen: 'Audífonos con cable USB-C y Bluetooth TWS inalámbricos para tu celular.',
   },
   otros: {
     nombre: 'Otros accesorios',
@@ -80,6 +80,7 @@ const SLUG_MAP = [
   { prefijo: 'MLC1858910757', slug: 'kit-funda-acrilica-grips-control-ps5', titulo: 'Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente' },
   { prefijo: 'MLC2035097907', slug: 'audifonos-usb-c-blanco', titulo: 'Audífonos USB Tipo C Manos Libres Blanco' },
   { prefijo: 'MLC4160547282', slug: 'audifonos-usb-c-manos-libres', titulo: 'Audífonos Manos Libres Tipo C para Celular' },
+  { prefijo: 'familia-audifonos-bluetooth-tws-ultrapods-pro-in', slug: 'audifonos-bluetooth-tws', titulo: 'Audífonos Bluetooth TWS Ultrapods Pro' },
 ];
 
 const SLUG_FUNDAS_PS5 = 'fundas-silicona-grips-control-ps5';

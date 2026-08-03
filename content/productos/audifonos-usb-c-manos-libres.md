@@ -7,7 +7,7 @@ emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-4160547282-audifonos-manos-libres-tipo-c-para-celular-color-blanco-generica-_JM
 precioReferencial: 4190
-fechaPrecio: '2026-07-22'
+fechaPrecio: '2026-08-03'
 resumen: >-
   En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos
   Premiun y ¡escápate de la rutina por un rato!  Vas a poder disfrutar de la
@@ -21,14 +21,14 @@ imagenes:
   - productos/audifonos-usb-c-manos-libres/05.webp
   - productos/audifonos-usb-c-manos-libres/06.webp
 reviews:
-  promedio: 4.3
-  cantidad: 140
+  promedio: 4.2
+  cantidad: 135
   distribucion:
-    '1': 13
-    '2': 4
-    '3': 14
+    '1': 12
+    '2': 3
+    '3': 16
     '4': 13
-    '5': 96
+    '5': 91
   comentarios:
     - estrellas: 4
       titulo: Muy bueno
@@ -65,10 +65,18 @@ reviews:
         se puede volver a guardar en la cajita para cuando no se estén
         utilizando. Excelente relación precio calidad. Lo recomiendo 100%.
       fecha: '2026-06-22'
+    - estrellas: 4
+      titulo: Muy bueno
+      texto: Se ven bien.
+      fecha: '2026-07-28'
     - estrellas: 5
       titulo: Excelente
       texto: Súper.
       fecha: '2026-06-18'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Buen producto.
+      fecha: '2026-07-24'
     - estrellas: 5
       titulo: Excelente
       texto: Buenísima calidad.
@@ -81,10 +89,6 @@ reviews:
       titulo: Excelente
       texto: 'Materiales: plasticos. Sonido: excelente sonido 10/10.'
       fecha: '2026-05-02'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: 'Son excelentes por el precio, pero muy delgados.'
-      fecha: '2026-03-24'
     - estrellas: 5
       titulo: Excelente
       texto: Muy buen sonido.
@@ -109,6 +113,10 @@ reviews:
       titulo: Excelente
       texto: Se escuchan súper bien.
       fecha: '2026-01-14'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Buenísimos y de buena calidad.
+      fecha: '2026-07-22'
     - estrellas: 4
       titulo: Muy bueno
       texto: Buen sonido.
@@ -121,12 +129,6 @@ reviews:
       titulo: Muy bueno
       texto: Están bien.
       fecha: '2026-06-22'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Buenos, compré dos y uno venia con el micro dañado. Para el precio,
-        estan bien.
-      fecha: '2026-06-20'
     - estrellas: 5
       titulo: Excelente
       texto: 'Aislamiento: bueno. Sonido: bueno. Recomiendo.'
@@ -175,10 +177,6 @@ reviews:
       fecha: '2026-04-04'
     - estrellas: 5
       titulo: Excelente
-      texto: 'Materiales: plastico. Aislamiento: buen sonido. Recomendable.'
-      fecha: '2026-03-25'
-    - estrellas: 5
-      titulo: Excelente
       texto: Justo lo que buscaba. Los tengo hace un mes y siguen perfecto.
       fecha: '2026-03-18'
     - estrellas: 4
@@ -205,10 +203,6 @@ reviews:
       titulo: Excelente
       texto: Precio calidad.
       fecha: '2026-02-13'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Que lo recomiendo.
-      fecha: '2026-02-10'
     - estrellas: 5
       titulo: Excelente
       texto: 'Buen sonido , buen producto.'
@@ -248,10 +242,6 @@ reviews:
       fecha: '2025-12-22'
     - estrellas: 5
       titulo: Excelente
-      texto: Buena relación precio calidad.
-      fecha: '2025-12-21'
-    - estrellas: 5
-      titulo: Excelente
       texto: ''
       fecha: '2025-12-19'
     - estrellas: 5
@@ -275,6 +265,18 @@ reviews:
         Malisima calidad. Al primer uso, un pequeñisimo tiron y se rompio! al
         volver a unirlo ya no sonaba igual.
       fecha: '2026-05-08'
+    - estrellas: 1
+      titulo: Muy malo
+      texto: 'Aislamiento: no tiene. Sonido: deficiente. Solo funcionaron una semana.'
+      fecha: '2026-08-03'
+    - estrellas: 3
+      titulo: Bueno
+      texto: Cumplen su fin.
+      fecha: '2026-07-29'
+    - estrellas: 3
+      titulo: Bueno
+      texto: 'Aislamiento: bueno. Materiales: regular.'
+      fecha: '2026-07-24'
     - estrellas: 1
       titulo: Muy malo
       texto: Empiezan a fallar al poco de usarlos.
@@ -304,20 +306,12 @@ reviews:
       fecha: '2026-02-26'
     - estrellas: 1
       titulo: Muy malo
-      texto: J.
-      fecha: '2026-02-26'
-    - estrellas: 1
-      titulo: Muy malo
       texto: Malísimo uno se escucha el otro no.
       fecha: '2026-01-20'
     - estrellas: 3
       titulo: Bueno
       texto: Nl don muy cómodos en los oídos a veces se caen.
       fecha: '2026-01-04'
-    - estrellas: 2
-      titulo: Malo
-      texto: Mal producto.
-      fecha: '2025-12-09'
     - estrellas: 1
       titulo: Muy malo
       texto: 'Malo, no se acopló al telefono.'

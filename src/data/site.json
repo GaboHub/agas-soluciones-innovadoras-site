@@ -62,8 +62,8 @@
       "slug": "audio",
       "nombre": "Audio",
       "emoji": "🎧",
-      "resumen": "Audífonos y manos libres USB-C para tu celular.",
-      "productos": ["audifonos-usb-c-manos-libres"]
+      "resumen": "Audífonos con cable USB-C y Bluetooth TWS inalámbricos para tu celular.",
+      "productos": ["audifonos-usb-c-manos-libres", "audifonos-bluetooth-tws"]
     }
   ]
 }

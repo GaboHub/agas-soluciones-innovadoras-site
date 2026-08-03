@@ -35,6 +35,18 @@ del README.
   un `<title>` más corto que el título editorial sin tocar el H1.
 - Guard en `e2e/seo.spec.ts` que verifica que la meta description de cada
   página muestreada mida 160 caracteres o menos.
+- Test de sincronía en `tests/unit/textos-productos.test.ts`: toda cifra
+  `N.N★` en la copy curada de `src/data/textos-productos.json` debe
+  coincidir con `reviews.promedio` de ese slug en `src/data/catalogo.json`,
+  para que un refresco del barrido no deje valoraciones obsoletas
+  publicadas en silencio.
+- Catálogo regenerado con el barrido de Mercado Libre del 2026-08-03: nuevo
+  producto "Audífonos Bluetooth TWS Ultrapods Pro" (slug
+  `audifonos-bluetooth-tws`, familia de 4 colores: Azul, Negro, Rosa y
+  Blanco) en la categoría audio; el catálogo pasa de 22 a 23 productos
+  (`python3 -c "import json; print(len(json.load(open('src/data/catalogo.json'))['productos']))"`
+  → `23`); imágenes y precios referenciales de los productos del barrido
+  refrescados.
 
 ### Cambiado
 
@@ -53,6 +65,17 @@ del README.
   "Cómo proteger tu control de PS5" acortadas a 155 caracteres o menos.
 - `<title>` de las 5 guías de `content/guias/` acortado con `metaTitulo`
   (el título editorial y el H1 no cambian).
+- `tests/unit/resenas.test.ts`: el barrido del 2026-08-03 marca
+  `pack-3-laminas-vidrio-switch-2` como publicación de catálogo compartido
+  de Mercado Libre (`grep -n "Catálogo" ../agas-context/publicaciones/MLC1880083137*/publicacion.md`
+  → `Catálogo: Sí`), así que su review sale del agregado de `resenas.json`
+  igual que las otras publicaciones de catálogo ya excluidas; se agrega el
+  slug a `SLUGS_REVIEWS_CATALOGO_ML` en el test.
+- Descripción de la categoría `audio` (`CATEGORIAS` en
+  `scripts/generar-catalogo.mjs` y `src/data/site.json`), de "Audífonos y
+  manos libres USB-C para tu celular." a "Audífonos con cable USB-C y
+  Bluetooth TWS inalámbricos para tu celular.", para cubrir el producto
+  Bluetooth TWS nuevo.
 
 ### Eliminado
 
@@ -68,6 +91,9 @@ del README.
 - La reputación del home excluye las reseñas de publicaciones de catálogo
   de Mercado Libre (compartidas entre todos los vendedores de esa página
   de producto): solo cuenta reseñas de publicaciones propias de AGAS.
+- La meta description de `pack-2-laminas-vidrio-switch-oled` decía `4.9★`
+  cuando el barrido del 2026-08-03 baja el promedio a `4.8` (17 reviews);
+  ahora coincide con el JSON-LD `aggregateRating` de su propia ficha.
 
 ## [1.0.0] - 2026-07-22
 

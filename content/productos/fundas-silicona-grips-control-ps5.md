@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3885532976-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-urbano-negro-_JM
 precioReferencial: 12490
-fechaPrecio: '2026-07-22'
+fechaPrecio: '2026-08-03'
 resumen: >-
   Protege y personaliza al máximo tu experiencia de juego con este exclusivo kit
   de protección para controles de PlayStation 5.  Fabricado en silicona de alta

@@ -12,6 +12,7 @@ const SLUGS_REVIEWS_CATALOGO_ML = new Set([
   'pack-2-laminas-vidrio-switch-oled',
   'lamina-vidrio-nintendo-switch',
   'lamina-vidrio-nintendo-switch-2',
+  'pack-3-laminas-vidrio-switch-2',
 ]);
 
 describe('resenas.json contenido', () => {

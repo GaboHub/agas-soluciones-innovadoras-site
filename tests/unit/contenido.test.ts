@@ -83,16 +83,16 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('hay exactamente 22 productos, sin duplicados', () => {
-    expect(slugsDeContenido.length).toBe(22);
-    expect(new Set(slugsDeContenido).size).toBe(22);
-    expect(slugsDeclarados.length).toBe(22);
-    expect(new Set(slugsDeclarados).size).toBe(22);
+  it('hay exactamente 23 productos, sin duplicados', () => {
+    expect(slugsDeContenido.length).toBe(23);
+    expect(new Set(slugsDeContenido).size).toBe(23);
+    expect(slugsDeclarados.length).toBe(23);
+    expect(new Set(slugsDeclarados).size).toBe(23);
   });
 
-  it('la categoría audio tiene exactamente 1 producto y no incluye el duplicado colapsado', () => {
+  it('la categoría audio tiene exactamente 2 productos y no incluye el duplicado colapsado', () => {
     const audio = site.categorias.find((categoria: { slug: string }) => categoria.slug === 'audio');
-    expect(audio.productos).toEqual(['audifonos-usb-c-manos-libres']);
+    expect(audio.productos).toEqual(['audifonos-usb-c-manos-libres', 'audifonos-bluetooth-tws']);
     expect(slugsDeContenido).not.toContain('audifonos-usb-c-blanco');
   });
 
@@ -105,18 +105,18 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('catalogo.json tiene los mismos 22 productos', () => {
-    expect(catalogo.productos.length).toBe(22);
+  it('catalogo.json tiene los mismos 23 productos', () => {
+    expect(catalogo.productos.length).toBe(23);
     const slugsCatalogo = catalogo.productos.map((producto: { slug: string }) => producto.slug);
     expect(new Set(slugsCatalogo)).toEqual(new Set(slugsDeContenido));
   });
 
-  it('llms.txt lista los mismos 22 productos y no el duplicado colapsado', () => {
+  it('llms.txt lista los mismos 23 productos y no el duplicado colapsado', () => {
     const llms = readFileSync(llmsTxtPath, 'utf-8');
     const lineasCatalogo = llms
       .split('\n')
       .filter((linea) => linea.startsWith('- ') && linea.includes(' — ML: '));
-    expect(lineasCatalogo.length).toBe(22);
+    expect(lineasCatalogo.length).toBe(23);
     expect(llms).not.toContain('audifonos-usb-c-blanco');
   });
 

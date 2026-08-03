@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3572542490-pack-2-lamina-vidrio-templado-para-nintendo-switch-oled-_JM
 precioReferencial: 10500
-fechaPrecio: '2026-07-22'
+fechaPrecio: '2026-08-03'
 resumen: >-
   Asegura el doble de protección para tu consola con nuestro Pack de 2 Láminas
   de Vidrio Templado Premium, diseñadas específicamente con corte láser 1:1 para
@@ -82,10 +82,10 @@ faqs:
       algún inconveniente, contáctanos por la mensajería interna y lo
       solucionaremos de inmediato.
 reviews:
-  promedio: 4.9
-  cantidad: 16
+  promedio: 4.8
+  cantidad: 17
   distribucion:
-    '4': 2
+    '4': 3
     '5': 14
   comentarios:
     - estrellas: 5

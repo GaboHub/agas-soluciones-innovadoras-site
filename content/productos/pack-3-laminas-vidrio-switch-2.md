@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1880083137-pack-x3-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM
 precioReferencial: 16990
-fechaPrecio: '2026-07-22'
+fechaPrecio: '2026-08-03'
 resumen: >-
   Protege la pantalla de tu nueva consola con nuestro pack de 3 láminas
   protectoras de vidrio templado premium, diseñadas exclusivamente para la
@@ -62,6 +62,12 @@ faqs:
       Todos nuestros productos se envían con protección reforzada. Si llegaras a
       tener algún inconveniente con el transporte, contáctanos directamente por
       la mensajería de la compra y lo solucionaremos de inmediato.
+reviews:
+  promedio: 5
+  cantidad: 1
+  distribucion:
+    '5': 1
+  comentarios: []
 ---
 
 Protege la pantalla de tu nueva consola con nuestro pack de 3 láminas protectoras de vidrio templado premium, diseñadas exclusivamente para la Nintendo Switch 2. Estas micas cuentan con un recubrimiento oleofóbico que resiste las manchas de huellas dactilares y protege eficazmente contra rayones, manteniendo la claridad visual intacta. Como cada lámina incluye su propio empaque individual y kit de instalación, es la opción ideal para guardar de repuesto o para regalar a otros jugadores que buscan la máxima protección.
