@@ -184,6 +184,7 @@ El flujo es manual:
    | Deploy command          | `npx wrangler deploy` (dejar el default) |
    | Framework preset        | Astro (si aparece la opción) |
    | Variable `NODE_VERSION` | `22.12.0` (o la del `.nvmrc`) |
+   | Variable `PUBLIC_GA4_ID` | Measurement ID de GA4; sin ella el build no emite analítica (ver `docs/analitica.md`) |
 
    El sitio es 100% estático (Astro sin adapter): no hay SSR ni funciones.
    `wrangler.jsonc` en la raíz declara `assets.directory: "./dist"`, así

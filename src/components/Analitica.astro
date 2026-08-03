@@ -1,0 +1,34 @@
+---
+interface Props {
+  ga4Id: string;
+}
+
+const { ga4Id } = Astro.props;
+---
+
+<script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+<script define:vars={{ ga4Id }} is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', ga4Id);
+</script>
+<script>
+  import { destinoSaliente } from '../lib/analitica';
+  import { site } from '../lib/site';
+
+  document.addEventListener('click', (evento) => {
+    const objetivo = evento.target;
+    if (!(objetivo instanceof Element)) return;
+    const enlace = objetivo.closest('a[href]');
+    if (!enlace) return;
+    const href = new URL(enlace.getAttribute('href') ?? '', location.href).toString();
+    const destino = destinoSaliente(href, site.analitica.dominiosSalientes);
+    if (destino && window.gtag) {
+      window.gtag('event', 'clic_saliente', { destino, pagina: location.pathname });
+    }
+  });
+</script>

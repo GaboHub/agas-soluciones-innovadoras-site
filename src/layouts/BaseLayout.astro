@@ -4,6 +4,7 @@ import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BurbujaMercadoLibre from '../components/BurbujaMercadoLibre.astro';
+import Analitica from '../components/Analitica.astro';
 import { site, siteUrl } from '../lib/site';
 import { resolveLogo, ogFormat } from '../lib/images';
 import '../styles/global.css';
@@ -38,6 +39,8 @@ const imagenSocialOptimizada = await getImage({
 
 const canonicalUrl = new URL(path, siteUrl).toString();
 const ogImageUrl = new URL(imagenSocialOptimizada.src, siteUrl).toString();
+const ga4Id = import.meta.env.PUBLIC_GA4_ID;
+const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
 ---
 
 <!doctype html>
@@ -73,6 +76,7 @@ const ogImageUrl = new URL(imagenSocialOptimizada.src, siteUrl).toString();
         <script type="application/ld+json" set:html={JSON.stringify(entrada)} is:inline />
       ))
     }
+    {analiticaActiva && <Analitica ga4Id={ga4Id as string} />}
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />

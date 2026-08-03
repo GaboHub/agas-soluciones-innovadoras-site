@@ -11,6 +11,10 @@ del README.
 
 ### Agregado
 
+- Medición con Google Analytics 4: pageviews en todas las páginas y evento
+  `clic_saliente` al hacer click en cualquier link hacia Mercado Libre,
+  condicionado a `PUBLIC_GA4_ID` en build de producción (ver guía de lectura
+  en `docs/analitica.md`).
 - Guía "Cómo colocar los grips en las palancas de tu control"
   (`content/guias/como-colocar-grips-control.md`), enlazada desde las
   fichas de los 5 productos con grips relacionados.

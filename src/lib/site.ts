@@ -27,6 +27,9 @@ export interface SiteData {
     tienda: string;
     paginaOficial: string;
   };
+  analitica: {
+    dominiosSalientes: string[];
+  };
   ctaHeader: string;
   ctaBurbujaProducto: string;
   footer: string;

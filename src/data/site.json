@@ -17,6 +17,9 @@
     "tienda": "https://perfil.mercadolibre.cl/AGAS_SOLUCIONES_INNOVADORAS",
     "paginaOficial": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
   },
+  "analitica": {
+    "dominiosSalientes": ["mercadolibre.cl"]
+  },
   "ctaHeader": "Ver tienda en Mercado Libre",
   "ctaBurbujaProducto": "Ver esta publicación en Mercado Libre",
   "footer": "Compra 100% protegida a través de Mercado Libre. Encuentra todo nuestro catálogo en nuestra tienda oficial.",
