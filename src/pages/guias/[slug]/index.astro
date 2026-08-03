@@ -22,7 +22,7 @@ const { Content } = await render(guia);
 
 const productosRelacionados = await getProductosPorSlugs(data.productosRelacionados);
 
-const title = `${data.titulo} | ${site.nombre}`;
+const title = `${data.metaTitulo ?? data.titulo} | ${site.nombre}`;
 const path = `/guias/${data.slug}/`;
 const canonicalUrl = new URL(path, siteUrl).toString();
 

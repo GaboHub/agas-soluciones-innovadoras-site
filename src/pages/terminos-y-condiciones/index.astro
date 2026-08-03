@@ -10,7 +10,7 @@ if (!pagina) throw new Error('Falta la página términos y condiciones');
 const { Content } = await render(pagina);
 
 const title = `Términos y condiciones | ${site.nombre}`;
-const description = `Términos y condiciones de ${site.nombre}: las compras se realizan por Mercado Libre, con su compra protegida, sus políticas de devolución y la garantía legal chilena.`;
+const description = `Términos y condiciones de ${site.nombre}: compras por Mercado Libre, compra protegida, devoluciones y garantía legal chilena.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl)];

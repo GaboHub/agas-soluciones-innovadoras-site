@@ -29,6 +29,12 @@ del README.
 - `lastmod` en todas las URLs del sitemap (fecha de build).
 - Test de sincronía entre `public/llms.txt` y `src/data/promociones.json`
   en `tests/unit/contenido.test.ts`.
+- JSON-LD `BreadcrumbList` en las fichas de producto (`buildBreadcrumbList`
+  en `src/lib/seo.ts`), con los mismos nombres que la miga visible.
+- Campo opcional `metaTitulo` en la colección `guias`, usado para componer
+  un `<title>` más corto que el título editorial sin tocar el H1.
+- Guard en `e2e/seo.spec.ts` que verifica que la meta description de cada
+  página muestreada mida 160 caracteres o menos.
 
 ### Cambiado
 
@@ -42,6 +48,11 @@ del README.
   de mostrarse (ver `docs/adr/0001-promociones-curadas.md` y
   `docs/adr/0002-filtrado-promos-solo-en-build.md`).
 - Meta description de `/promociones/` acortada a menos de 150 caracteres.
+- Meta descriptions de `/productos/`, `/terminos-y-condiciones/`,
+  `/categorias/nintendo-switch/`, `/preguntas-frecuentes/` y de la guía
+  "Cómo proteger tu control de PS5" acortadas a 155 caracteres o menos.
+- `<title>` de las 5 guías de `content/guias/` acortado con `metaTitulo`
+  (el título editorial y el H1 no cambian).
 
 ### Eliminado
 

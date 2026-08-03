@@ -1,7 +1,8 @@
 ---
 titulo: "Cómo proteger tu control de PS5: fundas, grips, estuches y carga"
 slug: como-proteger-tu-control-ps5
-descripcion: "Guía de accesorios para el control DualSense de PS5 — fundas de silicona, carcasas acrílicas, grips, estuches rígidos y cargador dual — y cómo se combinan entre sí."
+descripcion: "Guía de accesorios DualSense PS5: fundas de silicona, carcasas, grips, estuches y cargador dual, y cómo combinarlos."
+metaTitulo: "Cómo proteger tu control de PS5"
 emoji: 🕹️
 productosRelacionados: [kit-funda-silicona-grips-control-ps5, fundas-silicona-grips-control-ps5, kit-funda-acrilica-grips-control-ps5, kit-estuche-funda-acrilica-control-ps5, pack-4-grips-joystick, estuche-rigido-control-ps5, cargador-dual-controles-ps5]
 ---

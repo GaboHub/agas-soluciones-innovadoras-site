@@ -2,6 +2,7 @@
 titulo: "Switch 1, Switch OLED y Switch 2: diferencias al elegir accesorios"
 slug: diferencias-nintendo-switch-oled-switch-2
 descripcion: "En qué se diferencian la Nintendo Switch 1, la OLED y la Switch 2 a la hora de comprar láminas, estuches y kits de protección compatibles."
+metaTitulo: "Switch, OLED y Switch 2: qué accesorio va"
 emoji: 🎮
 productosRelacionados: [lamina-vidrio-nintendo-switch, kit-estuche-vidrio-nintendo-switch, lamina-vidrio-switch-oled, kit-estuche-vidrio-switch-oled, lamina-vidrio-nintendo-switch-2, set-9en1-nintendo-switch-2, kit-5en1-nintendo-switch-2, estuche-goma-rigido-switch-2, kit-estuche-eva-switch-2, estuche-rigido-vidrio-switch-2]
 ---

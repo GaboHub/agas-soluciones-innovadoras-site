@@ -11,7 +11,7 @@ import { site, getCategoria } from '../../../lib/site';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
 import { fotosDesdeRutas } from '../../../lib/galeria';
 import { construirGruposFicha, linkInicial } from '../../../lib/ficha';
-import { buildOrganization, buildProduct, buildFaqPage } from '../../../lib/seo';
+import { buildOrganization, buildProduct, buildFaqPage, buildBreadcrumbList } from '../../../lib/seo';
 import { formatearPrecioCLP, leyendaPrecio } from '../../../lib/formato';
 import { getTextoProducto } from '../../../lib/textos';
 import { getGuiasPorProducto } from '../../../lib/guias';
@@ -64,6 +64,7 @@ const imagenesJsonLd = await Promise.all(
 const jsonLd: object[] = [
   buildOrganization(logoUrl),
   buildProduct({ ...data, resumen: descripcionVisible }, imagenesJsonLd),
+  buildBreadcrumbList(categoria, data.titulo),
 ];
 if (data.faqs && data.faqs.length > 0) {
   jsonLd.push(buildFaqPage(data.faqs));

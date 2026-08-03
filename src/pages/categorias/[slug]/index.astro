@@ -28,7 +28,7 @@ const otrasCategorias = getOtrasCategorias(slug);
 const imagenCategoria = resolveImagen(productos[0].data.imagenes[0]);
 
 const title = `${categoria.nombre} | ${site.nombre}`;
-const description = `${categoria.resumen} Precios referenciales y compra directa en Mercado Libre, con despacho a todo Chile.`;
+const description = `${categoria.resumen} Precio referencial y compra en Mercado Libre, despacho a todo Chile.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl)];

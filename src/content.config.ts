@@ -93,6 +93,7 @@ const guias = defineCollection({
     titulo: z.string(),
     slug: z.string(),
     descripcion: z.string(),
+    metaTitulo: z.string().optional(),
     emoji: z.string(),
     productosRelacionados: z.array(z.string()),
   }),

@@ -76,6 +76,17 @@ export interface SaleEventJsonLd {
   };
 }
 
+export interface BreadcrumbListJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'BreadcrumbList';
+  itemListElement: {
+    '@type': 'ListItem';
+    position: number;
+    name: string;
+    item?: string;
+  }[];
+}
+
 export interface ArticleJsonLd {
   '@context': 'https://schema.org';
   '@type': 'Article';
@@ -143,6 +154,23 @@ export function buildProduct(producto: ProductoSeo, imageUrls: string[]): Produc
     };
   }
   return base;
+}
+
+export function buildBreadcrumbList(categoria: { nombre: string; slug: string }, productoTitulo: string): BreadcrumbListJsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: categoria.nombre,
+        item: `${SITE_URL}/categorias/${categoria.slug}/`,
+      },
+      { '@type': 'ListItem', position: 3, name: productoTitulo },
+    ],
+  };
 }
 
 export function buildFaqPage(faqs: FaqItem[]): FaqPageJsonLd {

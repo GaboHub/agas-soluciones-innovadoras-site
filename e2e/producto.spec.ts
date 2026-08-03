@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
 import promociones from '../src/data/promociones.json' with { type: 'json' };
 
+async function extraerJsonLd(page: import('@playwright/test').Page) {
+  const bloques = await page.locator('script[type="application/ld+json"]').allTextContents();
+  return bloques.map((bloque) => JSON.parse(bloque));
+}
+
 function hoyEnChile(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
 }
@@ -133,5 +138,27 @@ test.describe('página de producto', () => {
     await page.getByRole('button', { name: 'Blanco', exact: true }).click();
     await expect(cta).not.toHaveAttribute('href', hrefInicial ?? '');
     await expect(cta).toHaveAttribute('href', /^https:\/\/articulo\.mercadolibre\.cl\/MLC-/);
+  });
+
+  test('la ficha emite un JSON-LD BreadcrumbList que coincide con la miga visible', async ({ page }) => {
+    await page.goto('/productos/lamina-vidrio-nintendo-switch/');
+    const nav = page.locator('nav[aria-label="Ruta de navegación"]');
+    const textosVisibles = (await nav.locator('li').allTextContents()).filter((texto) => texto !== '›');
+
+    const bloquesJsonLd = await extraerJsonLd(page);
+    const breadcrumb = bloquesJsonLd.find((entrada) => entrada['@type'] === 'BreadcrumbList');
+    expect(breadcrumb).toBeDefined();
+    expect(breadcrumb.itemListElement).toHaveLength(textosVisibles.length);
+
+    breadcrumb.itemListElement.forEach(
+      (entrada: { '@type': string; position: number; name: string; item?: string }, indice: number) => {
+        expect(entrada['@type']).toBe('ListItem');
+        expect(entrada.position).toBe(indice + 1);
+        expect(entrada.name).toBe(textosVisibles[indice]);
+      },
+    );
+
+    expect(breadcrumb.itemListElement[0].item).toBe('https://agassoluciones.cl/');
+    expect(breadcrumb.itemListElement[breadcrumb.itemListElement.length - 1].item).toBeUndefined();
   });
 });

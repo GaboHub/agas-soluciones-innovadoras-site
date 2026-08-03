@@ -33,7 +33,7 @@ const buscables: ProductoBuscable[] = await Promise.all(
 );
 
 const title = `Catálogo de productos | ${site.nombre}`;
-const description = `Catálogo completo de ${site.nombre}: ${site.categorias.map((categoria) => categoria.resumen.toLowerCase().replace(/\.$/, '')).join('; ')}. ${site.claim}.`;
+const description = `Catálogo de accesorios ${site.nombre} para ${site.categorias.map((categoria) => categoria.nombre).join(', ')}: precio referencial y compra directa en Mercado Libre.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl)];

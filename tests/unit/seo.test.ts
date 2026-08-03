@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { buildOrganization, buildProduct, buildWebSite, buildFaqPage, buildSaleEvent } from '../../src/lib/seo';
+import {
+  buildOrganization,
+  buildProduct,
+  buildWebSite,
+  buildFaqPage,
+  buildSaleEvent,
+  buildBreadcrumbList,
+} from '../../src/lib/seo';
 import type { FaqItem } from '../../src/lib/faqs';
 import type { Campana } from '../../src/lib/promociones';
 
@@ -131,6 +138,40 @@ describe('buildSaleEvent', () => {
     const serializado = JSON.stringify(saleEvent);
     expect(serializado).not.toContain('undefined');
     expect(JSON.parse(serializado)).toStrictEqual(saleEvent);
+  });
+});
+
+describe('buildBreadcrumbList', () => {
+  const categoria = { nombre: 'Nintendo Switch', slug: 'nintendo-switch' };
+  const breadcrumb = buildBreadcrumbList(categoria, 'Producto de prueba');
+
+  it('genera un itemListElement con posiciones 1..3 y el último ítem sin item', () => {
+    expect(breadcrumb['@type']).toBe('BreadcrumbList');
+    expect(breadcrumb.itemListElement).toHaveLength(3);
+    breadcrumb.itemListElement.forEach((entrada, indice) => {
+      expect(entrada['@type']).toBe('ListItem');
+      expect(entrada.position).toBe(indice + 1);
+    });
+    expect(breadcrumb.itemListElement[0]).toEqual({
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://agassoluciones.cl/',
+    });
+    expect(breadcrumb.itemListElement[1]).toEqual({
+      '@type': 'ListItem',
+      position: 2,
+      name: categoria.nombre,
+      item: 'https://agassoluciones.cl/categorias/nintendo-switch/',
+    });
+    expect(breadcrumb.itemListElement[2].name).toBe('Producto de prueba');
+    expect(breadcrumb.itemListElement[2].item).toBeUndefined();
+  });
+
+  it('es serializable y re-parseable sin undefined', () => {
+    const serializado = JSON.stringify(breadcrumb);
+    expect(serializado).not.toContain('undefined');
+    expect(JSON.parse(serializado)).toStrictEqual(breadcrumb);
   });
 });
 

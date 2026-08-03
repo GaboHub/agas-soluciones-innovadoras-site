@@ -11,7 +11,7 @@ const productos = await getProductos();
 const productosConFaqs = productos.filter((producto) => (producto.data.faqs?.length ?? 0) > 0);
 
 const title = `Preguntas frecuentes | ${site.nombre}`;
-const description = `Resuelve tus dudas sobre cómo comprar en ${site.nombre} por Mercado Libre: envíos a todo Chile, devoluciones, garantía y compatibilidad de accesorios.`;
+const description = `Resuelve tus dudas sobre comprar en ${site.nombre} por Mercado Libre: envíos, devoluciones, garantía y compatibilidad de accesorios.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];

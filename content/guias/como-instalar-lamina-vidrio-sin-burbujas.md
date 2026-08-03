@@ -2,6 +2,7 @@
 titulo: "Cómo instalar una lámina de vidrio templado sin burbujas"
 slug: como-instalar-lamina-vidrio-sin-burbujas
 descripcion: "Paso a paso para instalar la lámina de vidrio templado de tu Nintendo Switch usando el kit incluido, sin burbujas ni polvo atrapado."
+metaTitulo: "Instalar lámina de vidrio sin burbujas"
 emoji: ✨
 productosRelacionados: [lamina-vidrio-nintendo-switch, pack-2-laminas-vidrio-nintendo-switch, lamina-vidrio-switch-oled, pack-2-laminas-vidrio-switch-oled, lamina-vidrio-nintendo-switch-2, pack-2-laminas-vidrio-switch-2, pack-3-laminas-vidrio-switch-2]
 ---

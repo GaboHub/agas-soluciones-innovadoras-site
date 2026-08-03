@@ -28,6 +28,7 @@ test.describe('SEO', () => {
 
       const description = await page.locator('meta[name="description"]').getAttribute('content');
       expect(description).toBeTruthy();
+      expect(description!.length).toBeLessThanOrEqual(160);
 
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
       expect(canonical).toMatch(/^https:\/\/agassoluciones\.cl\//);
