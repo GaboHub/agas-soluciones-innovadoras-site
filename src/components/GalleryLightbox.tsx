@@ -58,6 +58,7 @@ export default function GalleryLightbox({ fotos }: Props) {
           width={fotoPrincipal.fullWidth}
           height={fotoPrincipal.fullHeight}
           alt={fotoPrincipal.alt}
+          fetchPriority="high"
           className="h-full w-full object-contain"
         />
       </button>

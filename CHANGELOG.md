@@ -11,6 +11,20 @@ del README.
 
 ### Agregado
 
+- `public/_headers` con caché `immutable` de un año para los assets
+  hasheados de `/_astro/*`, para que Cloudflare Workers deje de
+  revalidarlos en cada visita repetida.
+- `fetchpriority="high"` en la foto principal de la galería de cada ficha
+  de producto (`src/components/GalleryLightbox.tsx`), para adelantar la
+  descarga del recurso LCP.
+- `public/apple-touch-icon.png` (180×180, generado con sharp a partir de
+  `public/logo.png`) referenciado como `apple-touch-icon` en el `<head>`
+  (`src/layouts/BaseLayout.astro`), en reemplazo del logo de 512×512 que
+  se usaba antes para ese propósito.
+- `<link rel="preconnect">` a `https://www.googletagmanager.com` en
+  `src/components/Analitica.astro`, emitido solo cuando la analítica está
+  activa (build de producción con `PUBLIC_GA4_ID`), para adelantar la
+  conexión antes de que llegue `gtag.js`.
 - Medición con Google Analytics 4: pageviews en todas las páginas y evento
   `clic_saliente` al hacer click en cualquier link hacia Mercado Libre,
   condicionado a `PUBLIC_GA4_ID` en build de producción (ver guía de lectura
@@ -54,6 +68,13 @@ del README.
 
 ### Cambiado
 
+- El listener de `clic_saliente` (`src/components/Analitica.astro`) importa
+  solo `analitica` con import nombrado directo de `src/data/site.json`, en
+  vez del módulo accessor `lib/site` que arrastraba el objeto `site`
+  completo al script inline de cada página: 2717 B → 481 B por página
+  (medido extrayendo el `<script type="module">` que contiene
+  `clic_saliente` de `dist/index.html` en un build con `PUBLIC_GA4_ID`
+  seteado y contando `len(script.encode('utf-8'))`).
 - El generador de catálogo (`npm run generar`) sube el máximo de imágenes
   por producto, variante y miembro de familia a 7 (antes 6/3/5
   respectivamente); el límite sigue siendo un tope, no un mínimo.

@@ -79,6 +79,14 @@ test.describe('página de producto', () => {
     expect(cajaPrecio!.x).toBeGreaterThan(cajaGaleria!.x + cajaGaleria!.width - 1);
   });
 
+  test('la foto principal de la galería carga con prioridad alta', async ({ page }) => {
+    await page.goto('/productos/lamina-vidrio-nintendo-switch/');
+    const principal = page.getByRole('button', { name: /Ampliar foto/ });
+    await expect(principal.locator('img')).toHaveAttribute('fetchpriority', 'high');
+    const miniaturas = page.getByRole('button', { name: /Ver como foto principal/ });
+    await expect(miniaturas.first().locator('img')).not.toHaveAttribute('fetchpriority', 'high');
+  });
+
   test('la galería cambia la foto principal desde las miniaturas', async ({ page }) => {
     await page.goto('/productos/lamina-vidrio-nintendo-switch/');
     await esperarHidratacion(page);

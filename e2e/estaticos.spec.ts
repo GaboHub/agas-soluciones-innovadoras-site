@@ -30,6 +30,11 @@ test.describe('archivos estáticos', () => {
     expect(response.status()).toBe(200);
   });
 
+  test('apple-touch-icon.png responde 200', async ({ request }) => {
+    const response = await request.get('/apple-touch-icon.png');
+    expect(response.status()).toBe(200);
+  });
+
   test('sitemap-index.xml responde 200', async ({ request }) => {
     const response = await request.get('/sitemap-index.xml');
     expect(response.status()).toBe(200);

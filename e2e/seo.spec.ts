@@ -23,6 +23,9 @@ test.describe('SEO', () => {
 
       await expect(page.locator('html')).toHaveAttribute('lang', 'es-CL');
 
+      const appleTouchIcon = await page.locator('link[rel="apple-touch-icon"]').getAttribute('href');
+      expect(appleTouchIcon).toBe('/apple-touch-icon.png');
+
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
 

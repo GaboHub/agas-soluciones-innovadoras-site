@@ -65,7 +65,8 @@ agas_site/
 │   └── generar-catalogo.mjs    Regenera el catálogo desde ../agas-context
 ├── e2e/                        Pruebas Playwright (projects desktop/mobile)
 ├── tests/unit/                 Pruebas Vitest
-└── public/                     robots.txt, llms.txt, favicon.svg, logo.png
+└── public/                     robots.txt, llms.txt, favicon.svg, logo.png,
+                                apple-touch-icon.png, _headers
 ```
 
 Las colecciones de contenido cargan directamente desde `./content/`
@@ -189,7 +190,10 @@ El flujo es manual:
    El sitio es 100% estático (Astro sin adapter): no hay SSR ni funciones.
    `wrangler.jsonc` en la raíz declara `assets.directory: "./dist"`, así
    que `wrangler deploy` sabe qué publicar sin necesidad de un Worker
-   propiamente tal. Cada push a la rama de producción dispara build y
+   propiamente tal. `public/_headers` se copia a `dist/_headers` en el
+   build y fija `Cache-Control: public, max-age=31536000, immutable` para
+   los assets hasheados de `/_astro/*` en Workers static assets; el efecto
+   real se confirma post-deploy con `curl -I` sobre un asset de `/_astro/`. Cada push a la rama de producción dispara build y
    publicación automáticos; las Pull Requests generan *preview
    deployments*. Alternativa manual sin integración Git: `npm run build
    && npx wrangler deploy`.
