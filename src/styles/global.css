@@ -1,24 +1,24 @@
 @import 'tailwindcss';
 
-@import '@fontsource/manrope/700.css';
-@import '@fontsource/manrope/800.css';
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
 
 @theme {
-  --color-primario: #1b3fc4;
-  --color-primario-oscuro: #122b8a;
-  --color-primario-claro: #e6ebfa;
-  --color-acento: #f07e12;
-  --color-acento-oscuro: #b45309;
-  --color-destacado: #41506b;
-  --color-destacado-oscuro: #2e3a50;
-  --color-tinta: #101828;
-  --color-fondo: #f5f7fb;
+  --color-primario: #0e3a43;
+  --color-primario-oscuro: #082830;
+  --color-primario-claro: #dce9e7;
+  --color-acento: #0f7a8a;
+  --color-acento-oscuro: #0a5560;
+  --color-destacado: #7fe8c3;
+  --color-destacado-oscuro: #0b6b4f;
+  --color-tinta: #10262e;
+  --color-fondo: #f2f4f3;
   --color-meli-tinta: #2d3277;
 
-  --font-titulos: 'Manrope', system-ui, sans-serif;
+  --font-titulos: 'Sora', system-ui, sans-serif;
   --font-texto: 'Inter', system-ui, sans-serif;
 }
 
@@ -42,7 +42,7 @@ h4 {
 
 .contenido-md h1 {
   font-family: var(--font-titulos);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
   color: var(--color-tinta);
@@ -50,7 +50,7 @@ h4 {
 
 .contenido-md h2 {
   font-family: var(--font-titulos);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -130,4 +130,13 @@ h4 {
   background-color: var(--color-primario-claro);
   color: var(--color-primario-oscuro);
   font-family: var(--font-titulos);
+}
+
+@keyframes flotar {
+  from {
+    translate: 0 -4px;
+  }
+  to {
+    translate: 0 4px;
+  }
 }

@@ -51,6 +51,9 @@ const anio = new Date().getFullYear();
         </ul>
         <p class="mt-3 text-white/80">{site.ubicacion}</p>
         <p class="mt-1 text-white/80">{site.cobertura}</p>
+        <p class="mt-4 text-white/80">
+          {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="font-semibold text-destacado hover:underline">{site.contacto.email}</a>
+        </p>
       </div>
     </div>
     <p class="mt-8 border-t border-white/20 pt-6 text-center text-xs text-white/80">

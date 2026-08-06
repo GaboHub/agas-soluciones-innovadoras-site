@@ -16,7 +16,7 @@ const { href, etiqueta } = Astro.props;
   rel="noopener"
   aria-label={etiqueta}
   title={etiqueta}
-  class="fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meli-tinta"
+  class="fixed right-5 bottom-5 z-50 hidden h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meli-tinta active:translate-y-[2px] md:flex"
 >
   <span aria-hidden="true" class="h-full w-full [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
     <Fragment set:html={isotipo} />

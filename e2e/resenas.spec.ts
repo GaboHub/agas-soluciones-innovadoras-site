@@ -1,12 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('prueba social de Mercado Libre', () => {
-  test('la home muestra el badge de reputación con enlace a Mercado Libre', async ({ page }) => {
+  test('la home muestra el sello de reputación verde en el hero', async ({ page }) => {
     await page.goto('/');
-    const badge = page.getByRole('link', { name: /Reputación verde en Mercado Libre/ });
-    await expect(badge).toBeVisible();
-    await expect(badge).toHaveAttribute('href', /mercadolibre\.cl/);
-    await expect(badge).toHaveAttribute('target', '_blank');
+    await expect(page.getByText('Reputación verde', { exact: true })).toBeVisible();
   });
 
   test('la home muestra reseñas destacadas con enlace a su producto', async ({ page }) => {

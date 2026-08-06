@@ -10,4 +10,4 @@ Todo nuestro contacto con clientes se hace por la mensajería interna de Mercado
 - ¿Tienes dudas antes de comprar? Haz tu pregunta directamente en la publicación del producto en Mercado Libre.
 - ¿Ya compraste? Escríbenos por la mensajería de tu compra y te respondemos a la brevedad.
 
-Operamos desde Macul, Región Metropolitana, y despachamos a todo Chile vía Mercado Envíos.
+Operamos desde Santiago, Región Metropolitana, y despachamos a todo Chile vía Mercado Envíos.

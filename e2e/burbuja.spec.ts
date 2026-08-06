@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
 
 test.describe('burbuja flotante de Mercado Libre', () => {
+  test.skip(({ isMobile }) => Boolean(isMobile), 'la burbuja es solo de escritorio');
+
   test('en la home apunta a la tienda en pestaña nueva', async ({ page }) => {
     await page.goto('/');
-    const burbuja = page.locator('body > a.fixed');
+    const burbuja = page.locator('#burbuja-mercadolibre');
     await expect(burbuja).toBeVisible();
     await expect(burbuja).toHaveAttribute('aria-label', 'Ver tienda en Mercado Libre');
     await expect(burbuja).toHaveAttribute('target', '_blank');
@@ -42,7 +44,7 @@ test.describe('burbuja flotante de Mercado Libre', () => {
 
   test('queda fija en la esquina inferior derecha del viewport', async ({ page }) => {
     await page.goto('/');
-    const burbuja = page.locator('body > a.fixed');
+    const burbuja = page.locator('#burbuja-mercadolibre');
     const viewport = page.viewportSize();
     const caja = await burbuja.boundingBox();
     expect(viewport).not.toBeNull();

@@ -1,0 +1,19 @@
+---
+import { site } from '../lib/site';
+---
+
+<nav
+  id="barra-mercadolibre"
+  aria-label="Ir a la tienda en Mercado Libre"
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-primario-claro bg-white/96 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
+>
+  <a
+    href={site.mercadolibre.tienda}
+    target="_blank"
+    rel="noopener"
+    class="flex min-h-[44px] items-center justify-center gap-2 px-4 py-3 font-texto text-base font-bold text-primario active:translate-y-[2px]"
+  >
+    {site.ctaHeader}
+    <span aria-hidden="true" class="text-acento">→</span>
+  </a>
+</nav>

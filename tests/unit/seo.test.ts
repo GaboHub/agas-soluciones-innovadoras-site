@@ -22,7 +22,7 @@ describe('buildOrganization', () => {
     expect(organization.url).toBe('https://agassoluciones.cl');
     expect(organization.logo).toBe(logoUrl);
     expect(organization.address['@type']).toBe('PostalAddress');
-    expect(organization.address.addressLocality).toBe('Macul');
+    expect(organization.address.addressLocality).toBe('Santiago');
     expect(organization.address.addressRegion).toBeTruthy();
     expect(organization.address.addressCountry).toBe('CL');
     expect(organization.sameAs).toHaveLength(2);

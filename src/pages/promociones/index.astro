@@ -25,7 +25,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
 
 <BaseLayout title={title} description={description} path="/promociones/" jsonLd={jsonLd}>
   <section class="mx-auto max-w-4xl px-4 pt-12">
-    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Promociones y cupones</h1>
+    <h1 class="font-titulos text-3xl font-bold text-tinta md:text-4xl">Promociones y cupones</h1>
     <div class="contenido-md mt-3">
       <Content />
     </div>
@@ -40,7 +40,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
   {
     cupones.length > 0 && (
       <section id="cupones" class="mx-auto max-w-4xl px-4 py-6">
-        <h2 class="font-titulos text-2xl font-extrabold text-tinta">Cupones</h2>
+        <h2 class="font-titulos text-2xl font-bold text-tinta">Cupones</h2>
         <div class="mt-4 grid gap-5 sm:grid-cols-2">
           {cupones.map((cupon) => (
             <TarjetaCupon
@@ -61,7 +61,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
   {
     campanas.length > 0 && (
       <section id="campanas" class="mx-auto max-w-4xl px-4 py-6">
-        <h2 class="font-titulos text-2xl font-extrabold text-tinta">Campañas</h2>
+        <h2 class="font-titulos text-2xl font-bold text-tinta">Campañas</h2>
         <div class="mt-4 grid gap-5 sm:grid-cols-2">
           {campanas.map((campana) => (
             <TarjetaPromocion
@@ -86,7 +86,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
           href={site.mercadolibre.tienda}
           target="_blank"
           rel="noopener"
-          class="mt-4 inline-flex items-center justify-center rounded-full bg-primario px-6 py-3 font-texto text-sm font-bold text-white transition-transform hover:scale-105"
+          class="mt-4 inline-flex items-center justify-center rounded-xl bg-primario px-6 py-3 font-texto text-sm font-bold text-white transition-transform hover:scale-105 active:translate-y-[2px]"
         >
           Ver nuestra tienda en Mercado Libre
         </a>

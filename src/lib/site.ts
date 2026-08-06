@@ -33,6 +33,18 @@ export interface SiteData {
   ctaHeader: string;
   ctaBurbujaProducto: string;
   footer: string;
+  contacto: {
+    email: string;
+    ventasVolumen: string;
+  };
+  sellosConfianza: string[];
+  hero: {
+    titulo: string;
+    acentuada: string;
+    bajada: string;
+    chip: string;
+    leyendaConstelacion: string;
+  };
   categorias: Categoria[];
 }
 

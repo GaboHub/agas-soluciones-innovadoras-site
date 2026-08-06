@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="rounded-full bg-primario px-4 py-2 font-texto font-bold text-white shadow-sm transition-transform hover:scale-105"
+        class="rounded-xl bg-primario px-4 py-2 font-texto font-bold text-white shadow-sm transition-transform hover:scale-105 active:translate-y-[2px]"
       >
         {site.ctaHeader}
       </a>
@@ -49,7 +49,7 @@ const currentPath = Astro.url.pathname;
 
     <details class="relative md:hidden" id="menu-movil">
       <summary
-        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full bg-primario-claro text-tinta [&::-webkit-details-marker]:hidden"
+        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full bg-primario-claro text-tinta transition-transform active:translate-y-[2px] [&::-webkit-details-marker]:hidden"
         aria-label="Abrir menú de navegación"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="h-6 w-6">
@@ -73,7 +73,7 @@ const currentPath = Astro.url.pathname;
           href={site.mercadolibre.tienda}
           target="_blank"
           rel="noopener"
-          class="mt-1 rounded-xl bg-primario px-3 py-2 text-center font-texto font-bold text-white"
+          class="mt-1 rounded-xl bg-primario px-3 py-2 text-center font-texto font-bold text-white active:translate-y-[2px]"
         >
           {site.ctaHeader}
         </a>

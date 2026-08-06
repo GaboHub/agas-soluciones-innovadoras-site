@@ -4,7 +4,7 @@ test.describe('navegación principal', () => {
   test('la home carga con h1 y logo de la marca', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1 })).toContainText(
-      'Soluciones innovadoras en accesorios tech',
+      'Soluciones innovadoras para tu mundo tech',
     );
     await expect(
       page.locator('header').getByRole('link', { name: /AGAS Soluciones Innovadoras — Inicio/ }),

@@ -3,10 +3,10 @@ import { getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
-import BadgeMercadoLibre from '../components/BadgeMercadoLibre.astro';
 import Resenas from '../components/Resenas.astro';
 import Faq from '../components/Faq.astro';
-import DecoracionFlotante from '../components/DecoracionFlotante.astro';
+import ConstelacionMarca from '../components/ConstelacionMarca.astro';
+import GlifoCategoria from '../components/GlifoCategoria.astro';
 import { site } from '../lib/site';
 import { faqsGlobales } from '../lib/faqs';
 import { getProductosDeCategoria, getProductosDestacados } from '../lib/productos';
@@ -17,7 +17,6 @@ const inicio = await getEntry('paginas', 'inicio');
 if (!inicio) throw new Error('Falta la página inicio');
 const { Content } = await render(inicio);
 
-const lockupBlanco = resolveImagen('agas-lockup-blanco.svg');
 const destacados = await getProductosDestacados();
 const categoriasConImagen = await Promise.all(
   site.categorias.map(async (categoria) => {
@@ -33,43 +32,76 @@ const description = site.descripcion;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
+
+const [heroAntes, heroDespues] = site.hero.titulo.split(site.hero.acentuada);
+
+const sellosIconos = [
+  'M5 13l4 4L19 7',
+  'M3 7h10v9H3zM13 10h4l3 3v3h-7v-6ZM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z',
+  'M12 21s-6-5.5-6-10.5A6 6 0 0 1 18 10.5C18 15.5 12 21 12 21ZM12 8a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z',
+];
 ---
 
 <BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
-  <section class="relative overflow-hidden bg-gradient-to-b from-primario to-primario-oscuro px-4 py-16 text-center text-white md:py-24">
-    <DecoracionFlotante class="absolute -top-6 left-1/2 h-40 w-64 -translate-x-1/2 opacity-30 md:h-56 md:w-96" />
-    <div class="relative mx-auto flex max-w-3xl flex-col items-center gap-6">
-      <Image src={lockupBlanco} alt={`Logo de ${site.nombre}`} width={360} height={96} class="h-16 w-auto md:h-20" priority />
-      <h1 class="font-titulos text-3xl font-extrabold leading-tight md:text-5xl">
-        {site.tagline}
-      </h1>
-      <p class="font-texto text-lg text-white/90 md:text-xl">{site.claim}</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <a
-          href="/productos/"
-          class="rounded-full bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105"
-        >
-          Ver catálogo
-        </a>
-        <a
-          href={site.mercadolibre.tienda}
-          target="_blank"
-          rel="noopener"
-          class="rounded-full border-2 border-white/70 px-7 py-3 font-texto text-base font-bold text-white transition-colors hover:bg-white/10"
-        >
-          {site.ctaHeader}
-        </a>
+  <section
+    class="relative overflow-hidden px-4 py-16 text-white md:py-24"
+    style="background: radial-gradient(120% 60% at 85% 0%, rgba(15,122,138,0.35), transparent 60%), radial-gradient(100% 60% at 10% 100%, rgba(127,232,195,0.12), transparent 60%), linear-gradient(170deg, var(--color-primario), var(--color-primario-oscuro));"
+  >
+    <div class="relative mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
+      <div class="flex flex-col items-center gap-6 text-center md:items-start md:text-left">
+        <span class="rounded-full border border-destacado px-4 py-1.5 font-texto text-sm font-bold text-destacado">
+          {site.hero.chip}
+        </span>
+        <h1 class="font-titulos text-3xl font-bold leading-tight md:text-5xl">
+          {heroAntes}<span class="text-destacado">{site.hero.acentuada}</span>{heroDespues}
+        </h1>
+        <p class="max-w-xl font-texto text-lg text-white/82 md:text-xl">{site.hero.bajada}</p>
+        <div class="flex flex-wrap justify-center gap-3 md:justify-start">
+          <a
+            href="/productos/"
+            class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
+          >
+            Ver catálogo
+          </a>
+          <a
+            href={site.mercadolibre.tienda}
+            target="_blank"
+            rel="noopener"
+            class="rounded-xl border-2 border-white/45 px-7 py-3 font-texto text-base font-bold text-white transition-colors hover:bg-white/10 active:translate-y-[2px]"
+          >
+            {site.ctaHeader}
+          </a>
+        </div>
+        <ul class="flex flex-col gap-2 p-0 font-texto text-sm font-bold text-white/90 sm:flex-row sm:flex-wrap sm:justify-center md:justify-start">
+          {
+            site.sellosConfianza.map((sello, indice) => (
+              <li class="flex items-center gap-2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 shrink-0 text-destacado"
+                  aria-hidden="true"
+                >
+                  <path d={sellosIconos[indice]} />
+                </svg>
+                {sello}
+              </li>
+            ))
+          }
+        </ul>
       </div>
-      <BadgeMercadoLibre />
-      <p class="font-texto text-sm font-bold text-white/90">
-        <span aria-hidden="true">🚚</span> {site.envio}
-      </p>
+
+      <ConstelacionMarca class="justify-self-center" leyenda={site.hero.leyendaConstelacion} />
     </div>
   </section>
 
   <section id="categorias" aria-labelledby="categorias-titulo" class="px-4 py-14">
     <div class="mx-auto max-w-6xl">
-      <h2 id="categorias-titulo" class="text-center font-titulos text-3xl font-extrabold text-tinta">
+      <h2 id="categorias-titulo" class="text-center font-titulos text-3xl font-bold text-tinta">
         Explora por categoría
       </h2>
       <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
@@ -93,9 +125,12 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
                 />
               </div>
               <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
-                <p class="font-titulos text-lg font-extrabold text-tinta">
-                  <span aria-hidden="true">{categoria.emoji}</span> {categoria.nombre}
-                </p>
+                <div class="flex items-center gap-3">
+                  <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[26%] bg-primario-claro text-primario">
+                    <GlifoCategoria slug={categoria.slug} class="h-8 w-8" />
+                  </span>
+                  <p class="font-titulos text-lg font-bold text-tinta">{categoria.nombre}</p>
+                </div>
                 <p class="font-texto text-sm text-tinta/80">{categoria.resumen}</p>
                 <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
                   Ver {categoria.productos.length} productos →
@@ -110,7 +145,7 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
 
   <section aria-labelledby="destacados-titulo" class="bg-white px-4 py-14">
     <div class="mx-auto max-w-6xl">
-      <h2 id="destacados-titulo" class="text-center font-titulos text-3xl font-extrabold text-tinta">
+      <h2 id="destacados-titulo" class="text-center font-titulos text-3xl font-bold text-tinta">
         Los favoritos de nuestros compradores
       </h2>
       <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
@@ -143,13 +178,13 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
 
   <section class="px-4 py-14">
     <div class="mx-auto flex max-w-3xl flex-col items-center gap-3 rounded-3xl bg-primario-claro px-6 py-10 text-center">
-      <h2 class="font-titulos text-2xl font-extrabold text-tinta md:text-3xl">¿No sabes cuál elegir?</h2>
+      <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">¿No sabes cuál elegir?</h2>
       <p class="font-texto text-tinta/80">
         Nuestras guías te ayudan a identificar tu modelo y elegir el accesorio exacto.
       </p>
       <a
         href="/guias/"
-        class="rounded-full bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105"
+        class="rounded-xl bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
       >
         Ver todas las guías
       </a>
@@ -167,7 +202,7 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
 
   <section class="px-4 py-14">
     <div class="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-3xl bg-primario px-6 py-10 text-center text-white">
-      <h2 class="font-titulos text-2xl font-extrabold md:text-3xl">¿Listo para equipar tu setup? 🎮</h2>
+      <h2 class="font-titulos text-2xl font-bold md:text-3xl">¿Listo para equipar tu setup? 🎮</h2>
       <p class="font-texto text-white/90">
         Encuentra todo nuestro catálogo con precios vigentes y despacho a todo Chile.
       </p>
@@ -175,7 +210,7 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="rounded-full bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105"
+        class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
       >
         {site.ctaHeader}
       </a>

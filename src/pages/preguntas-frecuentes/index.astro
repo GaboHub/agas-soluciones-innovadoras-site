@@ -19,7 +19,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];
 
 <BaseLayout title={title} description={description} path="/preguntas-frecuentes/" jsonLd={jsonLd}>
   <section class="mx-auto max-w-4xl px-4 pt-12">
-    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Preguntas frecuentes</h1>
+    <h1 class="font-titulos text-3xl font-bold text-tinta md:text-4xl">Preguntas frecuentes</h1>
     <p class="mt-3 font-texto text-tinta/70">
       Las dudas más comunes sobre comprar en {site.nombre} a través de Mercado Libre.
     </p>
@@ -28,7 +28,7 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];
   <Faq items={faqsGlobales} titulo="Sobre la compra y los envíos" />
 
   <section class="mx-auto max-w-4xl px-4 pb-16">
-    <h2 class="font-titulos text-2xl font-extrabold text-tinta">Preguntas por producto</h2>
+    <h2 class="font-titulos text-2xl font-bold text-tinta">Preguntas por producto</h2>
     <p class="mt-2 font-texto text-tinta/70">
       Cada ficha de producto tiene sus propias preguntas y respuestas sobre compatibilidad, contenido del pack y uso.
     </p>

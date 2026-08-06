@@ -51,7 +51,7 @@ export default function GalleryLightbox({ fotos }: Props) {
         type="button"
         onClick={() => setIndiceLightbox(Math.min(indicePrincipal, fotos.length - 1))}
         aria-label={`Ampliar foto: ${fotoPrincipal.alt}`}
-        className="aspect-square w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg"
+        className="aspect-square w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg active:translate-y-[2px]"
       >
         <img
           src={fotoPrincipal.fullSrc}
@@ -72,7 +72,7 @@ export default function GalleryLightbox({ fotos }: Props) {
               onClick={() => setIndicePrincipal(indice)}
               aria-label={`Ver como foto principal: ${foto.alt}`}
               aria-pressed={indice === indicePrincipal}
-              className={`aspect-square overflow-hidden rounded-xl bg-white transition-shadow ${
+              className={`aspect-square overflow-hidden rounded-xl bg-white transition-shadow active:translate-y-[2px] ${
                 indice === indicePrincipal
                   ? 'ring-2 ring-primario'
                   : 'ring-1 ring-black/5 hover:ring-2 hover:ring-primario/40'
@@ -103,7 +103,7 @@ export default function GalleryLightbox({ fotos }: Props) {
               type="button"
               onClick={cerrar}
               aria-label="Cerrar foto ampliada"
-              className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-tinta/70 text-white"
+              className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-tinta/70 text-white active:translate-y-[2px]"
             >
               ✕
             </button>
@@ -119,7 +119,7 @@ export default function GalleryLightbox({ fotos }: Props) {
                 type="button"
                 onClick={anterior}
                 aria-label="Foto anterior"
-                className="rounded-full bg-primario-claro px-4 py-2 font-bold text-tinta"
+                className="rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
               >
                 ← Anterior
               </button>
@@ -127,7 +127,7 @@ export default function GalleryLightbox({ fotos }: Props) {
                 type="button"
                 onClick={siguiente}
                 aria-label="Foto siguiente"
-                className="rounded-full bg-primario-claro px-4 py-2 font-bold text-tinta"
+                className="rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
               >
                 Siguiente →
               </button>

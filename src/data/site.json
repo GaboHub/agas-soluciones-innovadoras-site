@@ -5,11 +5,11 @@
   "tagline": "Soluciones innovadoras en accesorios tech",
   "claim": "Compra seguro por Mercado Libre",
   "descripcion": "Tienda online chilena de accesorios de tecnología (gaming, audio y más) que vende por Mercado Libre con reputación verde y despacho a todo Chile.",
-  "ubicacion": "Macul, Región Metropolitana",
+  "ubicacion": "Santiago, Región Metropolitana",
   "cobertura": "Despacho a todo Chile vía Mercado Envíos",
   "envio": "Despacho el mismo día vía Mercado Envíos",
   "direccion": {
-    "localidad": "Macul",
+    "localidad": "Santiago",
     "region": "Región Metropolitana",
     "pais": "CL"
   },
@@ -23,6 +23,18 @@
   "ctaHeader": "Ver tienda en Mercado Libre",
   "ctaBurbujaProducto": "Ver esta publicación en Mercado Libre",
   "footer": "Compra 100% protegida a través de Mercado Libre. Encuentra todo nuestro catálogo en nuestra tienda oficial.",
+  "contacto": {
+    "email": "agassolucionesinnovadoras@gmail.com",
+    "ventasVolumen": "¿Necesitas cantidades mayores, fuera de Mercado Libre? Escríbenos a"
+  },
+  "sellosConfianza": ["Reputación verde", "Despacho el mismo día", "Desde Santiago a todo Chile"],
+  "hero": {
+    "titulo": "Soluciones innovadoras para tu mundo tech",
+    "acentuada": "innovadoras",
+    "bajada": "Seleccionamos con criterio los accesorios que cuidan tus consolas, tu música y tu día a día. Compra protegida por Mercado Libre y despacho el mismo día a todo Chile.",
+    "chip": "Compra 100% protegida por Mercado Libre",
+    "leyendaConstelacion": "Gaming · Audio · Compra protegida"
+  },
   "categorias": [
     {
       "slug": "nintendo-switch",

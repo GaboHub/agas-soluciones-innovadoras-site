@@ -23,13 +23,13 @@ const maximo = Math.max(...niveles.map((nivel) => reviews.distribucion[nivel] ??
 ---
 
 <section aria-labelledby="reviews-titulo" class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 md:p-8">
-  <h2 id="reviews-titulo" class="font-titulos text-2xl font-extrabold text-tinta">
+  <h2 id="reviews-titulo" class="font-titulos text-2xl font-bold text-tinta">
     Opiniones de compradores
   </h2>
 
   <div class="mt-5 grid gap-8 md:grid-cols-[auto_1fr]">
     <div class="flex flex-col items-start gap-2">
-      <p class="font-titulos text-5xl font-extrabold text-tinta">{reviews.promedio.toFixed(1)}</p>
+      <p class="font-titulos text-5xl font-bold text-tinta">{reviews.promedio.toFixed(1)}</p>
       <Estrellas promedio={reviews.promedio} />
       <p class="font-texto text-sm text-tinta/70">
         {reviews.cantidad} {reviews.cantidad === 1 ? 'calificación' : 'calificaciones'} en Mercado Libre

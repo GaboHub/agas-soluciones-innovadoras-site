@@ -9,7 +9,7 @@ AGAS Soluciones Innovadoras es una tienda online chilena de accesorios de tecnol
 
 Vendemos el 100% de nuestro catálogo a través de Mercado Libre, con reputación verde de vendedor, cientos de ventas concretadas y sin calificaciones negativas. Eso significa que compras con la protección completa de la plataforma: pago seguro, seguimiento del envío y devoluciones cubiertas.
 
-Despachamos desde Macul, Región Metropolitana, a todo Chile vía Mercado Envíos, con empaque reforzado para que tus accesorios lleguen impecables.
+Despachamos desde Santiago, Región Metropolitana, a todo Chile vía Mercado Envíos, con empaque reforzado para que tus accesorios lleguen impecables.
 
 ## 🛡️ Por qué comprarnos
 

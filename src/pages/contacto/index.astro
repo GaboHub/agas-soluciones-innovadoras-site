@@ -27,7 +27,7 @@ const jsonLd = [buildOrganization(logoUrl)];
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="flex items-center justify-center gap-2 rounded-2xl bg-primario px-6 py-4 text-center font-texto text-lg font-bold text-white shadow-md transition-transform hover:scale-105"
+        class="flex items-center justify-center gap-2 rounded-2xl bg-primario px-6 py-4 text-center font-texto text-lg font-bold text-white shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
       >
         🛒 Nuestra tienda en Mercado Libre
       </a>
@@ -35,17 +35,24 @@ const jsonLd = [buildOrganization(logoUrl)];
         href={site.mercadolibre.paginaOficial}
         target="_blank"
         rel="noopener"
-        class="flex items-center justify-center gap-2 rounded-2xl border-2 border-primario px-6 py-4 text-center font-texto text-lg font-bold text-primario transition-colors hover:bg-primario-claro"
+        class="flex items-center justify-center gap-2 rounded-2xl border-2 border-primario px-6 py-4 text-center font-texto text-lg font-bold text-primario transition-colors hover:bg-primario-claro active:translate-y-[2px]"
       >
         ⭐ Página oficial en Mercado Libre
       </a>
     </div>
 
     <div class="mt-10 rounded-3xl bg-primario-claro p-6">
-      <h2 class="font-titulos text-xl font-extrabold text-primario-oscuro">📍 Ubicación y cobertura</h2>
+      <h2 class="font-titulos text-xl font-bold text-primario-oscuro">📍 Ubicación y cobertura</h2>
       <p class="mt-2 font-texto text-tinta">{site.ubicacion}</p>
       <p class="mt-1 font-texto text-tinta/80">{site.cobertura}</p>
       <p class="mt-1 font-texto font-bold text-tinta">🚚 {site.envio}</p>
+    </div>
+
+    <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
+      <h2 class="font-titulos text-xl font-bold text-tinta">Ventas por volumen</h2>
+      <p class="mt-2 font-texto text-tinta/80">
+        {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="font-semibold text-acento-oscuro hover:underline">{site.contacto.email}</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

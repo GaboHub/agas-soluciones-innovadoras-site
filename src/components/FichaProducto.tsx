@@ -73,7 +73,7 @@ function Selector({
             type="button"
             onClick={() => onElegir(indice)}
             aria-pressed={indice === indiceActivo}
-            className={`rounded-full px-4 py-1.5 font-texto text-sm font-bold transition-colors ${
+            className={`rounded-full px-4 py-1.5 font-texto text-sm font-bold transition-colors active:translate-y-[2px] ${
               indice === indiceActivo
                 ? 'bg-primario text-white'
                 : 'bg-primario-claro text-primario-oscuro hover:bg-primario/20'
@@ -137,7 +137,7 @@ export default function FichaProducto({
         )}
 
         <div>
-          <p className="font-titulos text-3xl font-extrabold text-primario md:text-4xl">{opcionActiva.precioTexto}</p>
+          <p className="font-titulos text-3xl font-bold text-primario md:text-4xl">{opcionActiva.precioTexto}</p>
           <p className="mt-1 font-texto text-sm text-tinta/70">{leyenda}</p>
         </div>
 
@@ -147,7 +147,7 @@ export default function FichaProducto({
             target="_blank"
             rel="noopener"
             data-cta="ver-en-mercado-libre"
-            className="inline-flex items-center justify-center rounded-full bg-primario px-8 py-3.5 text-center font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-primario-oscuro"
+            className="inline-flex items-center justify-center rounded-xl bg-primario px-8 py-3.5 text-center font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
           >
             Ver en Mercado Libre
           </a>
@@ -155,7 +155,7 @@ export default function FichaProducto({
             href={linkCtaSecundario}
             target="_blank"
             rel="noopener"
-            className="inline-flex items-center justify-center rounded-full border-2 border-primario px-8 py-3 text-center font-texto text-base font-bold text-primario transition-colors hover:bg-primario-claro"
+            className="inline-flex items-center justify-center rounded-xl border-2 border-primario px-8 py-3 text-center font-texto text-base font-bold text-primario transition-colors hover:bg-primario-claro active:translate-y-[2px]"
           >
             {textoCtaSecundario}
           </a>

@@ -16,7 +16,7 @@ const jsonLd = [buildOrganization(logoUrl)];
 
 <BaseLayout title={title} description={description} path="/guias/" jsonLd={jsonLd}>
   <section class="mx-auto max-w-4xl px-4 py-12 text-center">
-    <h1 class="font-titulos text-3xl font-extrabold text-tinta md:text-4xl">Guías de compra y uso</h1>
+    <h1 class="font-titulos text-3xl font-bold text-tinta md:text-4xl">Guías de compra y uso</h1>
     <p class="mx-auto mt-3 max-w-2xl font-texto text-tinta/70">{description}</p>
   </section>
 
@@ -31,7 +31,7 @@ const jsonLd = [buildOrganization(logoUrl)];
             <span aria-hidden="true" class="text-3xl">
               {guia.data.emoji}
             </span>
-            <p class="font-titulos text-lg font-extrabold text-tinta">{guia.data.titulo}</p>
+            <p class="font-titulos text-lg font-bold text-tinta">{guia.data.titulo}</p>
             <p class="font-texto text-sm text-tinta/70">{guia.data.descripcion}</p>
             <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
               Leer guía →

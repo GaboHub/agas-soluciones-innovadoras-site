@@ -33,10 +33,10 @@ const { slug, titulo, categoriaNombre, precioReferencial, imagen, reviews } = As
     />
   </div>
   <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
-    <p class="font-texto text-xs font-bold tracking-wide text-destacado uppercase">{categoriaNombre}</p>
-    <p class="font-titulos text-base font-extrabold text-tinta">{titulo}</p>
+    <p class="font-texto text-xs font-bold tracking-wide text-destacado-oscuro uppercase">{categoriaNombre}</p>
+    <p class="font-titulos text-base font-bold text-tinta">{titulo}</p>
     {reviews && reviews.cantidad > 0 && <Estrellas promedio={reviews.promedio} cantidad={reviews.cantidad} />}
-    <p class="mt-auto pt-2 font-titulos text-lg font-extrabold text-primario">
+    <p class="mt-auto pt-2 font-titulos text-lg font-bold text-primario">
       {formatearPrecioCLP(precioReferencial)}
       <span class="block font-texto text-xs font-normal text-tinta/60">Precio referencial</span>
     </p>

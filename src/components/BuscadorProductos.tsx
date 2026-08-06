@@ -110,12 +110,12 @@ export default function BuscadorProductos({ productos }: Props) {
 
       {resultados.length === 0 ? (
         <div className="mx-auto flex max-w-md flex-col items-center gap-3 py-10 text-center">
-          <p className="font-titulos text-xl font-extrabold text-tinta">No encontramos productos para tu búsqueda</p>
+          <p className="font-titulos text-xl font-bold text-tinta">No encontramos productos para tu búsqueda</p>
           <p className="font-texto text-tinta/70">Prueba con otra palabra o revisa el catálogo completo.</p>
           <button
             type="button"
             onClick={() => setConsulta('')}
-            className="rounded-full bg-primario px-6 py-2.5 font-texto font-bold text-white transition-colors hover:bg-primario-oscuro"
+            className="rounded-xl bg-primario px-6 py-2.5 font-texto font-bold text-white transition-colors hover:bg-primario-oscuro active:translate-y-[2px]"
           >
             Ver catálogo completo
           </button>
@@ -139,14 +139,14 @@ export default function BuscadorProductos({ productos }: Props) {
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
-                  <p className="font-texto text-xs font-bold tracking-wide text-destacado uppercase">
+                  <p className="font-texto text-xs font-bold tracking-wide text-destacado-oscuro uppercase">
                     {producto.categoriaNombre}
                   </p>
-                  <p className="font-titulos text-base font-extrabold text-tinta">{producto.titulo}</p>
+                  <p className="font-titulos text-base font-bold text-tinta">{producto.titulo}</p>
                   {producto.promedio !== null && producto.cantidad !== null && (
                     <Estrellitas promedio={producto.promedio} cantidad={producto.cantidad} />
                   )}
-                  <p className="mt-auto pt-2 font-titulos text-lg font-extrabold text-primario">
+                  <p className="mt-auto pt-2 font-titulos text-lg font-bold text-primario">
                     {producto.precioTexto}
                     <span className="block font-texto text-xs font-normal text-tinta/60">Precio referencial</span>
                   </p>

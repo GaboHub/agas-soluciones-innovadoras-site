@@ -20,7 +20,8 @@ hardcodeados.
   galería con lightbox (`GalleryLightbox`) y selector de variantes, diseños
   y miembros de familia con deep-link a Mercado Libre por opción.
 - **Tailwind CSS 4** con tokens de marca centralizados (`@theme` en
-  `global.css`): azul y naranja del logo AGAS, cambiables en un solo lugar.
+  `global.css`): la paleta y las tipografías de la identidad AGAS,
+  cambiables en un solo lugar.
 - **Content Collections** de Astro cargando markdown desde `./content/`
   (páginas y fichas de producto con frontmatter tipado y validado con Zod).
 - **SEO resuelto**: `BaseLayout` genera meta tags, Open Graph, Twitter Card
@@ -33,10 +34,12 @@ hardcodeados.
 - **Descripciones propias por producto** (`src/data/textos-productos.json`):
   overrides manuales de descripción y meta description por slug, por sobre
   el texto que trae el barrido de Mercado Libre.
-- **Burbuja flotante de Mercado Libre** (`BurbujaMercadoLibre`, Astro puro
-  sin JS): en todas las páginas lleva a la tienda; en la ficha de producto
-  apunta siempre al mismo destino que el CTA "Ver en Mercado Libre",
-  sincronizada con la variante activa.
+- **Salto permanente a Mercado Libre** (Astro puro sin JS): en escritorio,
+  la burbuja flotante (`BurbujaMercadoLibre`, `hidden md:flex`), que en
+  todas las páginas lleva a la tienda y en la ficha de producto apunta
+  siempre al mismo destino que el CTA "Ver en Mercado Libre", sincronizada
+  con la variante activa; en móvil, la barra fija inferior
+  (`BarraMercadoLibre`, `md:hidden`) hacia la tienda.
 - **Tests**: Vitest (`tests/unit/`) valida catálogo, imágenes, reseñas,
   FAQs y SEO; Playwright (`e2e/`) cubre navegación, buscador, ficha de
   producto, familias, SEO y responsive en desktop y mobile.
@@ -54,7 +57,7 @@ agas_site/
 │   │                           /guias/, /guias/[slug]/, /preguntas-frecuentes/, /contacto/,
 │   │                           /terminos-y-condiciones/, 404
 │   ├── components/             Componentes Astro + islands React (buscador, galería, selector)
-│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD) y burbuja de Mercado Libre
+│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD), burbuja (escritorio) y barra (móvil) de Mercado Libre
 │   ├── lib/                    site, seo, images, galeria, productos, ficha, formato, faqs,
 │   │                           resenas, guias, textos
 │   ├── data/                   site.json, faqs.json, catalogo.json, resenas.json,
@@ -214,11 +217,14 @@ El flujo es manual:
 - `trailingSlash: 'always'` en `astro.config.mjs` es coherente con el
   servido de Cloudflare Pages (`/productos/` → `/productos/index.html`).
 - Los tokens de color de `global.css` son de **rol**, no de color literal:
-  `primario` (azul AGAS: marca, headers, CTAs), `acento` (naranja AGAS:
-  estrellas y detalles; su variante `-oscuro` se usa para texto sobre fondo
-  claro por contraste AA), `destacado` (gris azulado: etiquetas), `tinta`
-  (texto) y `fondo` (superficie). Retematizar el sitio es editar los
-  valores de `@theme` y las fuentes en `global.css`.
+  `primario` (marca, headers, CTAs), `acento` (estrellas y detalles; su
+  variante `-oscuro` se usa para texto sobre fondo claro por contraste AA),
+  `destacado` (etiquetas y realces; sobre fondo claro se usa
+  `destacado-oscuro`, también por AA), `tinta` (texto) y `fondo`
+  (superficie). Retematizar el sitio es editar los valores de `@theme` y
+  las fuentes en `global.css`; los valores vigentes de la identidad y su
+  racional están en
+  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`.
 - El sitio nunca muestra stock: los precios son referenciales con su fecha,
   y el precio vigente vive en la publicación de Mercado Libre de cada
   producto. Las promociones y cupones sí se publican, pero solo desde

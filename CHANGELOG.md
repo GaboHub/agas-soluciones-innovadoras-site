@@ -11,6 +11,27 @@ del README.
 
 ### Agregado
 
+- `ConstelacionMarca.astro`: pieza gráfica del hero del home, un rombo de
+  cuatro baldosas (marca, gamepad, audífonos, escudo) con la esquina
+  `rounded-[26%]` de la firma AGAS, coloreada solo con tokens vía
+  `currentColor` y flotando con el keyframe `flotar` nuevo de `global.css`
+  bajo `motion-safe` (ver `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
+- `GlifoCategoria.astro`: glifos SVG por slug que reemplazan el emoji en las
+  tarjetas de categoría del home.
+- `BarraMercadoLibre.astro`: barra fija inferior, solo móvil (`md:hidden`),
+  con el CTA a la tienda de Mercado Libre; montada en `BaseLayout` junto a
+  la burbuja, que pasa a ser solo de escritorio. El evento `clic_saliente`
+  la cubre sin cambios, porque el listener de `Analitica.astro` engancha por
+  `href` hacia Mercado Libre y no por componente.
+- Contacto de ventas por volumen fuera de Mercado Libre
+  (`contacto.email` y `contacto.ventasVolumen` en `src/data/site.json`),
+  publicado como `mailto:` en el footer y en un bloque propio de
+  `/contacto/`.
+- Copy del hero y sellos de confianza como dato de negocio
+  (`hero` y `sellosConfianza` en `src/data/site.json`, tipados en
+  `src/lib/site.ts`).
+- Specs e2e `e2e/barra-ml.spec.ts` (barra móvil) y `e2e/ventas-volumen.spec.ts`
+  (bloque de ventas por volumen en footer y `/contacto/`).
 - Evento GA4 `busqueda` en el buscador de `/productos/`
   (`crearMedidorBusqueda` en `src/lib/analitica.ts`, conectado desde
   `src/components/BuscadorProductos.tsx`): emite `termino` (consulta
@@ -76,6 +97,46 @@ del README.
 
 ### Cambiado
 
+- Identidad visual completa del sitio ("serena e innovadora"): la paleta de
+  `@theme` pasa de azul/naranja a petróleo, cian y menta sobre fondo casi
+  neutro, y los titulares de Manrope 700/800 a Sora 600/700 (Inter sigue
+  como texto de cuerpo). Valores vigentes con
+  `grep -n -- "--color-\|--font-" src/styles/global.css`; los anteriores,
+  con `git show 400df19:src/styles/global.css`. Los roles de los tokens no
+  cambian, solo sus valores. Racional y decisiones del dueño del sitio en
+  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`.
+- Los SVG de marca (`src/assets/images/agas-lockup.svg`,
+  `agas-lockup-blanco.svg`, `public/favicon.svg`) se recolorean con la
+  paleta nueva; el único cambio de geometría es el radio de la baldosa,
+  `rx` de 20 a 24. El lockup blanco además invierte la baldosa: fondo
+  blanco con el trazo en petróleo, en vez de fondo de color con el trazo
+  blanco. Los rasters (`logo.png`, `apple-touch-icon.png` y los de
+  `marca/mercadolibre/`) siguen en la paleta anterior hasta que se
+  regeneren.
+- Hero del home reconstruido: chip, título con palabra acentuada, bajada y
+  sellos de confianza salen de `site.hero` y `site.sellosConfianza`, con
+  `ConstelacionMarca` en lugar del lockup grande y la decoración flotante.
+  El `<h1>` pasa de "Soluciones innovadoras en accesorios tech" al título
+  del hero (`grep -n '"titulo"' src/data/site.json`).
+- La reputación verde deja de ser un badge enlazado a Mercado Libre en el
+  home y pasa a ser un sello de texto del hero, sin enlace; el home
+  conserva sus enlaces salientes en los CTA, el header, el footer y la
+  burbuja o la barra según el dispositivo.
+- La burbuja flotante de Mercado Libre es solo de escritorio
+  (`hidden md:flex` en `BurbujaMercadoLibre.astro`); en móvil su rol lo
+  cumple la barra fija inferior.
+- Barrido de identidad en todo el sitio: `font-extrabold` → `font-bold`
+  (`global.css` importa solo Sora 600 y 700, así que los titulares topan en
+  700: `grep -n "fontsource/sora" src/styles/global.css`;
+  `grep -rn "font-extrabold" src/ | wc -l` → `0`), `text-destacado` sobre
+  fondo claro → `text-destacado-oscuro` por contraste AA, y botones de
+  acción de `rounded-full` a `rounded-xl` con `active:translate-y-[2px]`
+  (chips, badges y pills conservan la forma de píldora).
+- La ubicación pública del sitio pasa de Macul a Santiago, Región
+  Metropolitana (`ubicacion` y `direccion.localidad` en
+  `src/data/site.json`, `content/paginas/inicio.md`,
+  `content/paginas/contacto.md`); afecta el texto visible y el
+  `addressLocality` del JSON-LD `Organization`.
 - El listener de `clic_saliente` (`src/components/Analitica.astro`) importa
   solo `analitica` con import nombrado directo de `src/data/site.json`, en
   vez del módulo accessor `lib/site` que arrastraba el objeto `site`
@@ -112,6 +173,11 @@ del README.
 
 ### Eliminado
 
+- `src/components/DecoracionFlotante.astro` y
+  `src/components/BadgeMercadoLibre.astro`: código muerto tras el hero
+  nuevo (`grep -rn "DecoracionFlotante\|BadgeMercadoLibre" src/ e2e/ tests/
+  | wc -l` → `0`).
+- Dependencia `@fontsource/manrope`, reemplazada por `@fontsource/sora`.
 - Filtrado de vigencia de promociones en cliente (`src/lib/promoFiltro.ts`
   y los `<script>` que lo invocaban en `/promociones/` y en
   `PromocionesResumen.astro`): la vigencia se filtra solo en build (ver
