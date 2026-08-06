@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { crearMedidorBusqueda } from '../lib/analitica';
 
 export interface ProductoBuscable {
   slug: string;
@@ -73,6 +74,14 @@ export default function BuscadorProductos({ productos }: Props) {
       : indexados
           .filter(({ texto }) => terminos.every((termino) => texto.includes(termino)))
           .map(({ producto }) => producto);
+
+  const medidorRef = useRef(crearMedidorBusqueda());
+
+  useEffect(() => {
+    const medidor = medidorRef.current;
+    medidor.programar(consulta, resultados.length, location.pathname);
+    return () => medidor.cancelar();
+  }, [consulta, resultados.length]);
 
   return (
     <div className="flex flex-col gap-6">

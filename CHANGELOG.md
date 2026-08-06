@@ -11,6 +11,14 @@ del README.
 
 ### Agregado
 
+- Evento GA4 `busqueda` en el buscador de `/productos/`
+  (`crearMedidorBusqueda` en `src/lib/analitica.ts`, conectado desde
+  `src/components/BuscadorProductos.tsx`): emite `termino` (consulta
+  normalizada a minúsculas, sin tildes y con espacios colapsados),
+  `resultados` (productos del catálogo que matchean) y `pagina` 1,5 s
+  después de la última tecla, sin re-emitir si el término normalizado
+  coincide con el último emitido; condicionado a `PUBLIC_GA4_ID` en build
+  de producción como el resto de la analítica (ver `docs/analitica.md`).
 - `public/_headers` con caché `immutable` de un año para los assets
   hasheados de `/_astro/*`, para que Cloudflare Workers deje de
   revalidarlos en cada visita repetida.
