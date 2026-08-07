@@ -55,6 +55,14 @@ del README.
   después de la última tecla, sin re-emitir si el término normalizado
   coincide con el último emitido; condicionado a `PUBLIC_GA4_ID` en build
   de producción como el resto de la analítica (ver `docs/analitica.md`).
+- Evento GA4 `clic_contacto`: mide los clicks al correo de ventas por volumen
+  en el footer global y en `/contacto/`
+  (`grep -rn "mailto:" src/components/Footer.astro src/pages/contacto/index.astro`).
+  El listener delegado de `src/components/Analitica.astro` evalúa
+  `destinoContacto` de `src/lib/analitica.ts` cuando el href no es saliente y
+  emite `destino` (el correo, sin la query del `mailto:`) y `pagina`; reutiliza
+  las dimensiones ya registradas, así que no necesita configuración nueva en
+  GA4 (ver `docs/analitica.md`).
 - `public/_headers` con caché `immutable` de un año para los assets
   hasheados de `/_astro/*`, para que Cloudflare Workers deje de
   revalidarlos en cada visita repetida.

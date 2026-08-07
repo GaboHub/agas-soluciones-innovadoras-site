@@ -2,7 +2,7 @@
 
 El sitio mide con Google Analytics 4 (GA4). La carga de GA4 vive en
 `src/components/Analitica.astro` (snippet de gtag.js, inicialización con `define:vars`
-y listener delegado de clicks salientes); `src/layouts/BaseLayout.astro` solo resuelve
+y listener delegado de clicks salientes y de contacto); `src/layouts/BaseLayout.astro` solo resuelve
 `PUBLIC_GA4_ID` y renderiza ese componente condicionalmente en builds de producción con
 la variable definida (configurada en Cloudflare Pages). Sin esa variable —dev local,
 tests, previews sin configurar— el sitio no carga ningún beacon.
@@ -14,13 +14,27 @@ analítica esté apagada; lo que la neutraliza no es la condición de render sin
 `typeof window.gtag === 'function'` del medidor: sin `gtag` cargado calcula el término y
 no emite nada.
 
-Se registran tres señales:
+Se registran cuatro señales:
 
 - `page_view`: automático en cada página.
 - `clic_saliente`: click en cualquier link hacia los dominios configurados en
   `src/data/site.json` → `analitica.dominiosSalientes` (hoy: `mercadolibre.cl` y sus
   subdominios). Parámetros: `destino` (URL de la publicación en ML) y `pagina` (path de
   la página del sitio donde ocurrió el click).
+- `clic_contacto`: click en cualquier enlace `mailto:`; hoy, el correo de ventas por
+  volumen que renderizan el footer global y `/contacto/`
+  (`grep -rn "mailto:" src/components/Footer.astro src/pages/contacto/index.astro`).
+  Lo pidió el dueño el 2026-08-06 para ver la demanda mayorista que no pasa por Mercado
+  Libre. Parámetros: `destino` (el correo, sin la query del `mailto:` — un `?subject=`
+  no viaja) y `pagina` (path donde ocurrió el click). Reutiliza `destino` en vez de
+  estrenar una dimensión `canal`: `destino` y `pagina` ya están registradas (verificable
+  en **Administrar → Visualización de datos → Definiciones personalizadas**), así que el
+  evento no necesita configuración nueva en GA4. Dos consecuencias de esa reutilización:
+  como las dos superficies leen el mismo `contacto.email` de `src/data/site.json`,
+  `destino` es constante mientras haya un solo correo y lo que discrimina es `pagina`;
+  y como `clic_saliente` también usa `destino` —con URLs de ML—, toda exploración sobre
+  la dimensión `Destino` tiene que filtrar por evento o mezcla correos y URLs en la
+  misma tabla.
 - `busqueda`: consulta escrita en el buscador de productos. Parámetros: `termino` (la
   consulta normalizada —minúsculas, sin tildes y con espacios colapsados—, de modo que
   `Mando`, `mando` y `mando ` cuentan como el mismo término), `resultados` (cantidad de
@@ -112,6 +126,18 @@ agrupar por publicación de ML.
 
 Para verlo como conversión en los informes estándar: **Administrar → Eventos → marcar
 `clic_saliente` como evento clave**.
+
+## Cuántos contactos de ventas por volumen genera el sitio
+
+`clic_contacto` cuenta las intenciones de contacto mayorista fuera de Mercado Libre.
+
+En GA4: **Explorar → exploración libre**, dimensión `Pagina` y métrica "Número de
+eventos", **filtrado al evento `clic_contacto`** —sin ese filtro la dimensión `Destino`
+mezcla correos con URLs de ML, ver arriba—. Así se separa el footer global, presente en
+todas las páginas, del bloque propio de `/contacto/`.
+
+Mide intención, no resultado: el click abre el cliente de correo del visitante, y si el
+mensaje llega a enviarse ocurre fuera del sitio y GA4 no lo ve.
 
 ## Tráfico que llega desde asistentes de IA
 

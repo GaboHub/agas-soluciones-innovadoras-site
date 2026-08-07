@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { destinoSaliente } from '../../src/lib/analitica';
+import { destinoContacto, destinoSaliente } from '../../src/lib/analitica';
 
 const dominios = ['mercadolibre.cl'];
 
@@ -42,5 +42,39 @@ describe('destinoSaliente', () => {
 
   it('devuelve null para un href malformado', () => {
     expect(destinoSaliente('::::no-es-una-url::::', dominios)).toBeNull();
+  });
+});
+
+describe('destinoContacto', () => {
+  it('devuelve el correo de un mailto simple', () => {
+    expect(destinoContacto('mailto:agassolucionesinnovadoras@gmail.com')).toBe(
+      'agassolucionesinnovadoras@gmail.com',
+    );
+  });
+
+  it('devuelve el correo de un mailto con query subject', () => {
+    expect(
+      destinoContacto('mailto:agassolucionesinnovadoras@gmail.com?subject=Hola%20Mundo'),
+    ).toBe('agassolucionesinnovadoras@gmail.com');
+  });
+
+  it('devuelve null para una URL http', () => {
+    expect(destinoContacto('http://mercadolibre.cl')).toBeNull();
+  });
+
+  it('devuelve null para una URL https', () => {
+    expect(destinoContacto('https://mercadolibre.cl')).toBeNull();
+  });
+
+  it('devuelve null para un tel:', () => {
+    expect(destinoContacto('tel:+56912345678')).toBeNull();
+  });
+
+  it('devuelve null para un href malformado', () => {
+    expect(destinoContacto('::::no-es-una-url::::')).toBeNull();
+  });
+
+  it('devuelve null para un mailto vacío', () => {
+    expect(destinoContacto('mailto:')).toBeNull();
   });
 });

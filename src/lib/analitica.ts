@@ -17,6 +17,18 @@ export function destinoSaliente(href: string, dominios: string[]): string | null
   return coincide ? href : null;
 }
 
+export function destinoContacto(href: string): string | null {
+  let url: URL;
+  try {
+    url = new URL(href);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'mailto:') return null;
+  const correo = url.pathname;
+  return correo === '' ? null : correo;
+}
+
 export function normalizarTermino(consulta: string): string {
   return consulta
     .toLowerCase()
