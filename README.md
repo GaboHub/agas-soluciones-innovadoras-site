@@ -34,12 +34,12 @@ hardcodeados.
 - **Descripciones propias por producto** (`src/data/textos-productos.json`):
   overrides manuales de descripción y meta description por slug, por sobre
   el texto que trae el barrido de Mercado Libre.
-- **Salto permanente a Mercado Libre** (Astro puro sin JS): en escritorio,
-  la burbuja flotante (`BurbujaMercadoLibre`, `hidden md:flex`), que en
+- **Salto permanente a Mercado Libre** (Astro puro sin JS): la burbuja
+  flotante (`BurbujaMercadoLibre`), visible en todos los viewports, que en
   todas las páginas lleva a la tienda y en la ficha de producto apunta
   siempre al mismo destino que el CTA "Ver en Mercado Libre", sincronizada
-  con la variante activa; en móvil, la barra fija inferior
-  (`BarraMercadoLibre`, `md:hidden`) hacia la tienda.
+  con la variante activa (ver
+  `docs/adr/0004-burbuja-mercado-libre-en-todos-los-viewports.md`).
 - **Tests**: Vitest (`tests/unit/`) valida catálogo, imágenes, reseñas,
   FAQs y SEO; Playwright (`e2e/`) cubre navegación, buscador, ficha de
   producto, familias, SEO y responsive en desktop y mobile.
@@ -57,7 +57,7 @@ agas_site/
 │   │                           /guias/, /guias/[slug]/, /preguntas-frecuentes/, /contacto/,
 │   │                           /terminos-y-condiciones/, 404
 │   ├── components/             Componentes Astro + islands React (buscador, galería, selector)
-│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD), burbuja (escritorio) y barra (móvil) de Mercado Libre
+│   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD) y burbuja flotante de Mercado Libre
 │   ├── lib/                    site, seo, images, galeria, productos, ficha, formato, faqs,
 │   │                           resenas, guias, textos
 │   ├── data/                   site.json, faqs.json, catalogo.json, resenas.json,

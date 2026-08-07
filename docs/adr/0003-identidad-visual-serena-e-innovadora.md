@@ -2,7 +2,8 @@
 
 ## Estado
 
-Aceptada, 2026-08-06.
+Aceptada, 2026-08-06. Anulada parcialmente por el
+[ADR 0004](0004-burbuja-mercado-libre-en-todos-los-viewports.md).
 
 ## Contexto
 

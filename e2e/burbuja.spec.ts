@@ -2,8 +2,6 @@ import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
 
 test.describe('burbuja flotante de Mercado Libre', () => {
-  test.skip(({ isMobile }) => Boolean(isMobile), 'la burbuja es solo de escritorio');
-
   test('en la home apunta a la tienda en pestaña nueva', async ({ page }) => {
     await page.goto('/');
     const burbuja = page.locator('#burbuja-mercadolibre');

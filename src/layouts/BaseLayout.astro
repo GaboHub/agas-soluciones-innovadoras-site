@@ -4,7 +4,6 @@ import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BurbujaMercadoLibre from '../components/BurbujaMercadoLibre.astro';
-import BarraMercadoLibre from '../components/BarraMercadoLibre.astro';
 import Analitica from '../components/Analitica.astro';
 import { site, siteUrl } from '../lib/site';
 import { resolveLogo, ogFormat } from '../lib/images';
@@ -79,13 +78,12 @@ const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
     }
     {analiticaActiva && <Analitica ga4Id={ga4Id as string} />}
   </head>
-  <body class="flex min-h-screen flex-col pb-[calc(64px+env(safe-area-inset-bottom))] md:pb-0">
+  <body class="flex min-h-screen flex-col">
     <Header />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
     <BurbujaMercadoLibre href={mercadoLibre.href} etiqueta={mercadoLibre.etiqueta} />
-    <BarraMercadoLibre />
   </body>
 </html>

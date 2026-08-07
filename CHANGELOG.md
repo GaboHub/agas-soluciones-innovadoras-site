@@ -18,11 +18,6 @@ del README.
   bajo `motion-safe` (ver `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
 - `GlifoCategoria.astro`: glifos SVG por slug que reemplazan el emoji en las
   tarjetas de categoría del home.
-- `BarraMercadoLibre.astro`: barra fija inferior, solo móvil (`md:hidden`),
-  con el CTA a la tienda de Mercado Libre; montada en `BaseLayout` junto a
-  la burbuja, que pasa a ser solo de escritorio. El evento `clic_saliente`
-  la cubre sin cambios, porque el listener de `Analitica.astro` engancha por
-  `href` hacia Mercado Libre y no por componente.
 - Contacto de ventas por volumen fuera de Mercado Libre
   (`contacto.email` y `contacto.ventasVolumen` en `src/data/site.json`),
   publicado como `mailto:` en el footer y en un bloque propio de
@@ -30,8 +25,8 @@ del README.
 - Copy del hero y sellos de confianza como dato de negocio
   (`hero` y `sellosConfianza` en `src/data/site.json`, tipados en
   `src/lib/site.ts`).
-- Specs e2e `e2e/barra-ml.spec.ts` (barra móvil) y `e2e/ventas-volumen.spec.ts`
-  (bloque de ventas por volumen en footer y `/contacto/`).
+- Spec e2e `e2e/ventas-volumen.spec.ts` (bloque de ventas por volumen en
+  footer y `/contacto/`).
 - Evento GA4 `busqueda` en el buscador de `/productos/`
   (`crearMedidorBusqueda` en `src/lib/analitica.ts`, conectado desde
   `src/components/BuscadorProductos.tsx`): emite `termino` (consulta
@@ -121,10 +116,7 @@ del README.
 - La reputación verde deja de ser un badge enlazado a Mercado Libre en el
   home y pasa a ser un sello de texto del hero, sin enlace; el home
   conserva sus enlaces salientes en los CTA, el header, el footer y la
-  burbuja o la barra según el dispositivo.
-- La burbuja flotante de Mercado Libre es solo de escritorio
-  (`hidden md:flex` en `BurbujaMercadoLibre.astro`); en móvil su rol lo
-  cumple la barra fija inferior.
+  burbuja flotante.
 - Barrido de identidad en todo el sitio: `font-extrabold` → `font-bold`
   (`global.css` importa solo Sora 600 y 700, así que los titulares topan en
   700: `grep -n "fontsource/sora" src/styles/global.css`;
