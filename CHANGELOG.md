@@ -16,6 +16,26 @@ del README.
   `rounded-[26%]` de la firma AGAS, coloreada solo con tokens vía
   `currentColor` y flotando con el keyframe `flotar` nuevo de `global.css`
   bajo `motion-safe` (ver `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
+  La rejilla va rotada 45°, así que lleva margen vertical explícito
+  (`grep -n "my-\[3.1rem\]" src/components/ConstelacionMarca.astro`) para
+  que su huella visual no invada la leyenda de abajo.
+- Spec e2e `e2e/constelacion.spec.ts`: mide el área de intersección entre la
+  leyenda del hero y cada una de las cuatro baldosas de la constelación y
+  exige `0` en los dos projects de Playwright, desktop y mobile.
+- `scripts/generar-marca-ml.mjs`: genera con sharp los tres assets de marca
+  para Mercado Libre (`marca/mercadolibre/logo.png` 1000×1000,
+  `banner-escritorio.png` 3840×200, `banner-movil.png` 1440×320) y regenera
+  los rasters del sitio (`public/logo.png`, `public/apple-touch-icon.png`,
+  `src/assets/images/logo.png`). Toma los textos de los banners de
+  `src/data/site.json` (`hero.chip` y `envio`), aborta si la fuente Sora no
+  llega a aplicarse en el render y produce salidas byte a byte idénticas
+  entre corridas. `node scripts/generar-marca-ml.mjs` imprime las
+  dimensiones de las seis salidas.
+- `marca/fuentes/` con `Sora-SemiBold.ttf` e `Inter-Regular.ttf`
+  —convertidos desde `node_modules/@fontsource/{sora,inter}` para que sharp
+  pueda componer los banners— y sus licencias SIL OFL 1.1 al lado
+  (`OFL-Sora.txt`, `OFL-Inter.txt`). Como el resto de `marca/`, no entra al
+  build.
 - `GlifoCategoria.astro`: glifos SVG por slug que reemplazan el emoji en las
   tarjetas de categoría del home.
 - Contacto de ventas por volumen fuera de Mercado Libre
@@ -41,10 +61,11 @@ del README.
 - `fetchpriority="high"` en la foto principal de la galería de cada ficha
   de producto (`src/components/GalleryLightbox.tsx`), para adelantar la
   descarga del recurso LCP.
-- `public/apple-touch-icon.png` (180×180, generado con sharp a partir de
-  `public/logo.png`) referenciado como `apple-touch-icon` en el `<head>`
-  (`src/layouts/BaseLayout.astro`), en reemplazo del logo de 512×512 que
-  se usaba antes para ese propósito.
+- `public/apple-touch-icon.png` (180×180) referenciado como
+  `apple-touch-icon` en el `<head>` (`src/layouts/BaseLayout.astro`), en
+  reemplazo del logo de 512×512 que se usaba antes para ese propósito; lo
+  produce `scripts/generar-marca-ml.mjs` rasterizando el SVG del isotipo
+  directo a 180 px, sin pasar por `public/logo.png`.
 - `<link rel="preconnect">` a `https://www.googletagmanager.com` en
   `src/components/Analitica.astro`, emitido solo cuando la analítica está
   activa (build de producción con `PUBLIC_GA4_ID`), para adelantar la
@@ -92,22 +113,39 @@ del README.
 
 ### Cambiado
 
-- Identidad visual completa del sitio ("serena e innovadora"): la paleta de
-  `@theme` pasa de azul/naranja a petróleo, cian y menta sobre fondo casi
-  neutro, y los titulares de Manrope 700/800 a Sora 600/700 (Inter sigue
-  como texto de cuerpo). Valores vigentes con
-  `grep -n -- "--color-\|--font-" src/styles/global.css`; los anteriores,
-  con `git show 400df19:src/styles/global.css`. Los roles de los tokens no
-  cambian, solo sus valores. Racional y decisiones del dueño del sitio en
-  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`.
+- Identidad visual completa del sitio ("serena e innovadora", paleta
+  «Acero y cobre»): la paleta de `@theme` pasa de azul/naranja a acero,
+  cobre y arena sobre fondo cálido casi neutro, y los titulares de Manrope
+  700/800 a Sora 600/700 (Inter sigue como texto de cuerpo). Valores
+  vigentes con `grep -n -- "--color-\|--font-" src/styles/global.css`; los
+  anteriores, con `git show 400df19:src/styles/global.css`. Los roles de los
+  tokens no cambian, solo sus valores, y todos los pares de tokens siguen
+  cumpliendo AA. Racional, alternativas descartadas y decisiones del dueño
+  del sitio en `docs/adr/0003-identidad-visual-serena-e-innovadora.md` y
+  `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`.
 - Los SVG de marca (`src/assets/images/agas-lockup.svg`,
   `agas-lockup-blanco.svg`, `public/favicon.svg`) se recolorean con la
-  paleta nueva; el único cambio de geometría es el radio de la baldosa,
-  `rx` de 20 a 24. El lockup blanco además invierte la baldosa: fondo
-  blanco con el trazo en petróleo, en vez de fondo de color con el trazo
-  blanco. Los rasters (`logo.png`, `apple-touch-icon.png` y los de
-  `marca/mercadolibre/`) siguen en la paleta anterior hasta que se
-  regeneren.
+  paleta nueva y unifican en cobre el travesaño de la "A": `#9E5220` sobre
+  superficies claras y `#C8813F` sobre oscuras. El único cambio de geometría
+  es el radio de la baldosa, `rx` de 20 a 24. El lockup blanco además
+  invierte la baldosa: fondo blanco con el trazo en acero, en vez de fondo
+  de color con el trazo blanco. La bajada "SOLUCIONES INNOVADORAS" de los
+  lockups es la única parte que conserva sus grises anteriores (desviación
+  registrada en el ADR 0005).
+- Los rasters de marca pasan a la paleta nueva y dejan de hacerse a mano:
+  `public/logo.png`, `public/apple-touch-icon.png`,
+  `src/assets/images/logo.png` y los tres de `marca/mercadolibre/` salen de
+  `node scripts/generar-marca-ml.mjs`. Cierra el pendiente que el ADR 0003
+  había dejado abierto, con el que el sitio convivía con dos paletas en sus
+  PNG.
+- El fondo del hero del home deja de llevar colores literales: sus dos
+  resplandores radiales pasan de `rgba()` decimal a
+  `color-mix(in srgb, var(--color-acento) 35%, transparent)` y
+  `color-mix(in srgb, var(--color-destacado) 12%, transparent)`. Con eso el
+  sitio queda sin ningún color literal fuera de `global.css` y de los assets
+  de marca:
+  `grep -rnE "rgba?\(|hsla?\(|#[0-9a-fA-F]{3,8}\b" src/ --include="*.astro" --include="*.tsx" --include="*.ts" --include="*.css" | grep -v "src/styles/global.css" | wc -l`
+  → `0`.
 - Hero del home reconstruido: chip, título con palabra acentuada, bajada y
   sellos de confianza salen de `site.hero` y `site.sellosConfianza`, con
   `ConstelacionMarca` en lugar del lockup grande y la decoración flotante.

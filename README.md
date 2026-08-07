@@ -65,7 +65,10 @@ agas_site/
 │   ├── assets/images/          Logos SVG + imágenes de producto (productos/<slug>/*.webp)
 │   └── styles/global.css       Tokens de marca (colores y fuentes) con Tailwind 4 `@theme`
 ├── scripts/
-│   └── generar-catalogo.mjs    Regenera el catálogo desde ../agas-context
+│   ├── generar-catalogo.mjs    Regenera el catálogo desde ../agas-context
+│   └── generar-marca-ml.mjs    Regenera los assets de marca y los rasters del sitio
+├── marca/                      Fuera del build: assets de marca para Mercado Libre
+│                               y los TTF con que el script compone los banners
 ├── e2e/                        Pruebas Playwright (projects desktop/mobile)
 ├── tests/unit/                 Pruebas Vitest
 └── public/                     robots.txt, llms.txt, favicon.svg, logo.png,
@@ -89,6 +92,7 @@ editan a mano.
 | `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile)    |
 | `npm test`           | Ambas suites                                                |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
+| `node scripts/generar-marca-ml.mjs` | Regenera los assets de marca de Mercado Libre y los rasters del sitio (ver `marca/mercadolibre/README.md`) |
 
 Un hook de pre-commit (`.githooks/pre-commit`) corre `npm test` antes de cada
 commit y lo bloquea si algo falla. Se activa solo al correr `npm install`
@@ -222,9 +226,24 @@ El flujo es manual:
   `destacado` (etiquetas y realces; sobre fondo claro se usa
   `destacado-oscuro`, también por AA), `tinta` (texto) y `fondo`
   (superficie). Retematizar el sitio es editar los valores de `@theme` y
-  las fuentes en `global.css`; los valores vigentes de la identidad y su
-  racional están en
-  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`.
+  las fuentes en `global.css`; los valores vigentes son los de la paleta
+  «Acero y cobre» y su racional está en
+  `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`
+  (la identidad que la enmarca, en
+  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
+- Los colores literales viven solo en `global.css` y en los assets de marca
+  (los SVG de `src/assets/images/` y `public/`, más
+  `scripts/generar-marca-ml.mjs`). Un barrido de color se hace por hex **y**
+  por notación decimal `rgb`/`rgba`/`hsl`: un `rgba()` dentro de un atributo
+  `style` ya se escapó una vez de un grep que solo miraba hexes. Un chequeo
+  de contraste, además de los pares de tokens, tiene que componer las
+  utilidades con opacidad (`text-tinta/NN`, `text-white/NN`) contra su
+  superficie; ver
+  `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`.
+- Los rasters de marca (`public/logo.png`, `public/apple-touch-icon.png`,
+  `src/assets/images/logo.png` y los de `marca/mercadolibre/`) son
+  generados: se regeneran con `node scripts/generar-marca-ml.mjs` y no se
+  editan a mano.
 - El sitio nunca muestra stock: los precios son referenciales con su fecha,
   y el precio vigente vive en la publicación de Mercado Libre de cada
   producto. Las promociones y cupones sí se publican, pero solo desde

@@ -15,8 +15,9 @@ const baldosas = [
 ---
 
 <div class:list={['flex flex-col items-center gap-6', className]} aria-hidden="true">
-  <div class="grid rotate-45 grid-cols-2 grid-rows-2 gap-4">
+  <div class="grid rotate-45 grid-cols-2 grid-rows-2 gap-4 my-[3.1rem] md:mt-[3.6rem] md:mb-[4.2rem]">
     <div
+      data-testid="constelacion-baldosa"
       class="motion-safe:animate-[flotar_6s_ease-in-out_infinite_alternate] flex h-24 w-24 items-center justify-center rounded-[26%] bg-white shadow-lg md:h-28 md:w-28"
       style={`animation-delay: ${baldosas[0].delay}`}
     >
@@ -36,6 +37,7 @@ const baldosas = [
     </div>
 
     <div
+      data-testid="constelacion-baldosa"
       class="motion-safe:animate-[flotar_6s_ease-in-out_infinite_alternate] flex h-24 w-24 items-center justify-center rounded-[26%] bg-white/7 md:h-28 md:w-28"
       style={`animation-delay: ${baldosas[1].delay}`}
     >
@@ -56,6 +58,7 @@ const baldosas = [
     </div>
 
     <div
+      data-testid="constelacion-baldosa"
       class="motion-safe:animate-[flotar_6s_ease-in-out_infinite_alternate] flex h-24 w-24 items-center justify-center rounded-[26%] bg-white/7 md:h-28 md:w-28"
       style={`animation-delay: ${baldosas[2].delay}`}
     >
@@ -76,6 +79,7 @@ const baldosas = [
     </div>
 
     <div
+      data-testid="constelacion-baldosa"
       class="motion-safe:animate-[flotar_6s_ease-in-out_infinite_alternate] flex h-24 w-24 items-center justify-center rounded-[26%] bg-white/7 md:h-28 md:w-28"
       style={`animation-delay: ${baldosas[3].delay}`}
     >
@@ -95,5 +99,10 @@ const baldosas = [
     </div>
   </div>
 
-  <p class="font-texto text-xs font-bold uppercase tracking-[0.2em] text-white/60">{leyenda}</p>
+  <p
+    data-testid="constelacion-leyenda"
+    class="font-texto text-xs font-bold uppercase tracking-[0.2em] text-white/60"
+  >
+    {leyenda}
+  </p>
 </div>

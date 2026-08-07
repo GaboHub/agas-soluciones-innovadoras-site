@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 112">
   <g transform="translate(6 8) scale(0.92)">
     <rect x="4" y="4" width="88" height="88" rx="24" fill="#FFFFFF"/>
-    <path d="M26 74 L46 26 L66 74" stroke="#0E3A43" stroke-width="11" stroke-linecap="butt" stroke-linejoin="bevel" fill="none"/>
-    <path d="M37 59 L55 59" stroke="#0F7A8A" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <path d="M26 74 L46 26 L66 74" stroke="#24455C" stroke-width="11" stroke-linecap="butt" stroke-linejoin="bevel" fill="none"/>
+    <path d="M37 59 L55 59" stroke="#9E5220" stroke-width="11" stroke-linecap="butt" fill="none"/>
   </g>
   <g transform="translate(122 12)" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="butt" stroke-linejoin="bevel">
     <path d="M2 66 L24 6 L46 66"/>
-    <path d="M12 47 L36 47" stroke="#7FE8C3"/>
+    <path d="M12 47 L36 47" stroke="#C8813F"/>
     <path d="M104 14 L96 6 H68 L60 14 V58 L68 66 H96 L104 58 V38 H84"/>
     <path d="M122 66 L144 6 L166 66"/>
     <path d="M132 47 L156 47"/>

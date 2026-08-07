@@ -3,7 +3,8 @@
 ## Estado
 
 Aceptada, 2026-08-06. Anulada parcialmente por el
-[ADR 0004](0004-burbuja-mercado-libre-en-todos-los-viewports.md).
+[ADR 0004](0004-burbuja-mercado-libre-en-todos-los-viewports.md) y por el
+[ADR 0005](0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md).
 
 ## Contexto
 

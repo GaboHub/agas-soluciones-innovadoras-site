@@ -7,15 +7,15 @@
 @import '@fontsource/inter/700.css';
 
 @theme {
-  --color-primario: #0e3a43;
-  --color-primario-oscuro: #082830;
-  --color-primario-claro: #dce9e7;
-  --color-acento: #0f7a8a;
-  --color-acento-oscuro: #0a5560;
-  --color-destacado: #7fe8c3;
-  --color-destacado-oscuro: #0b6b4f;
-  --color-tinta: #10262e;
-  --color-fondo: #f2f4f3;
+  --color-primario: #24455c;
+  --color-primario-oscuro: #16303f;
+  --color-primario-claro: #dce6ed;
+  --color-acento: #9e5220;
+  --color-acento-oscuro: #8a4517;
+  --color-destacado: #e9c49a;
+  --color-destacado-oscuro: #7a5220;
+  --color-tinta: #14232e;
+  --color-fondo: #f5f3f0;
   --color-meli-tinta: #2d3277;
 
   --font-titulos: 'Sora', system-ui, sans-serif;
