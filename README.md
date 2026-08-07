@@ -240,6 +240,15 @@ El flujo es manual:
   utilidades con opacidad (`text-tinta/NN`, `text-white/NN`) contra su
   superficie; ver
   `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`.
+- Los hex de los assets de marca replican valores de `@theme`, incluida la
+  bajada "SOLUCIONES INNOVADORAS" de los lockups (`primario` sobre
+  superficies claras, `primario-claro` sobre oscuras: ver
+  `docs/adr/0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md`). Ningún
+  asset inventa un color propio; la única excepción aprobada es el cobre
+  claro `#C8813F` del travesaño sobre oscuro (ADR 0005). El barrido
+  `grep -oh "#[0-9A-Fa-f]\{6\}" public/favicon.svg src/assets/images/agas-lockup*.svg scripts/generar-marca-ml.mjs | tr 'a-f' 'A-F' | sort -u`
+  lista los valores en uso; el `#000000` que aparece es del arnés con que el
+  script mide anchos de texto, no de un asset.
 - Los rasters de marca (`public/logo.png`, `public/apple-touch-icon.png`,
   `src/assets/images/logo.png` y los de `marca/mercadolibre/`) son
   generados: se regeneran con `node scripts/generar-marca-ml.mjs` y no se

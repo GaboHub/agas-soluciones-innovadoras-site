@@ -45,7 +45,7 @@ const PALETA = {
   acento: '#9E5220',
   cobreClaro: '#C8813F',
   blanco: '#FFFFFF',
-  arenaTexto: '#B9C9CF',
+  bajadaClara: '#DCE6ED',
 };
 
 const FUENTE_SORA_SEMIBOLD = 'Sora SemiBold';
@@ -147,7 +147,7 @@ function svgLockupCompletoFondoOscuro() {
     crossStroke: PALETA.acento,
   })}</g>
   ${svgWordmark({ mainStroke: PALETA.blanco, crossStroke: PALETA.cobreClaro })}
-  <text x="122" y="100" font-family="${FUENTE_INTER}" font-size="16" letter-spacing="3" fill="${PALETA.arenaTexto}">SOLUCIONES INNOVADORAS</text>`;
+  <text x="122" y="100" font-family="${FUENTE_INTER}" font-size="16" letter-spacing="3" fill="${PALETA.bajadaClara}">SOLUCIONES INNOVADORAS</text>`;
 }
 
 function svgFondoDegradado(ancho, alto) {

@@ -4,8 +4,9 @@ Imágenes listas para subir a la página oficial de Mercado Libre
 (https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras), generadas a
 partir del logo y de la paleta «Acero y cobre» del sitio: acero `#24455C`
 (baldosa y degradado), cobre `#9E5220` (travesaño sobre claro y resplandor),
-cobre claro `#C8813F` (travesaño sobre oscuro), con Sora para los titulares e
-Inter para el texto de apoyo.
+cobre claro `#C8813F` (travesaño sobre oscuro) y acero claro `#DCE6ED`
+(bajada "SOLUCIONES INNOVADORAS"), con Sora para los titulares e Inter para el
+texto de apoyo.
 
 | Archivo | Uso en ML | Mínimo exigido | Tamaño real |
 | :--- | :--- | :--- | :--- |

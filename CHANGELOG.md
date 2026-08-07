@@ -137,9 +137,20 @@ del README.
   superficies claras y `#C8813F` sobre oscuras. El único cambio de geometría
   es el radio de la baldosa, `rx` de 20 a 24. El lockup blanco además
   invierte la baldosa: fondo blanco con el trazo en acero, en vez de fondo
-  de color con el trazo blanco. La bajada "SOLUCIONES INNOVADORAS" de los
-  lockups es la única parte que conserva sus grises anteriores (desviación
-  registrada en el ADR 0005).
+  de color con el trazo blanco.
+- La bajada "SOLUCIONES INNOVADORAS" de los lockups deja de tener color
+  propio y se deriva de los tokens: `primario` `#24455C` sobre superficies
+  claras (`src/assets/images/agas-lockup.svg`) y `primario-claro` `#DCE6ED`
+  sobre oscuras (`agas-lockup-blanco.svg` y la constante `bajadaClara`
+  —antes `arenaTexto`— de `scripts/generar-marca-ml.mjs`, con la que se
+  regeneran los dos banners de Mercado Libre, los únicos rasters que dibujan
+  la bajada). Reemplaza los tres grises heredados de la
+  etapa petróleo que el ADR 0005 había dejado como desviación registrada
+  (`grep -rn "4E5E63\|9BB6BC\|B9C9CF\|arenaTexto" src/ scripts/ | wc -l` →
+  `0`) y sube el contraste en las tres superficies: 6.11 → 9.11:1 en el
+  header, 6.42 → 10.85:1 en el footer y 5.92 → 7.97:1 en el peor extremo del
+  degradado de los banners. Comandos de medición y racional en
+  `docs/adr/0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md`.
 - Los rasters de marca pasan a la paleta nueva y dejan de hacerse a mano:
   `public/logo.png`, `public/apple-touch-icon.png`,
   `src/assets/images/logo.png` y los tres de `marca/mercadolibre/` salen de

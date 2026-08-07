@@ -3,7 +3,8 @@
 ## Estado
 
 Aceptada, 2026-08-06. Anula parcialmente al
-[ADR 0003](0003-identidad-visual-serena-e-innovadora.md).
+[ADR 0003](0003-identidad-visual-serena-e-innovadora.md). Anulada parcialmente
+por el [ADR 0006](0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md).
 
 ## Contexto
 
