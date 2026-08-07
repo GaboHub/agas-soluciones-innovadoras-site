@@ -172,10 +172,13 @@ El flujo es manual:
 1. Cada cambio notable se anota en la sección `[Unreleased]` del changelog
    dentro del mismo commit que lo introduce.
 2. Para cortar una versión: mover lo de `[Unreleased]` a una sección
-   `[X.Y.Z] - fecha` (actualizando los links de comparación al final),
-   `git add CHANGELOG.md` y correr `npm run release:patch|minor|major`
-   según el cambio (fix → patch, feature → minor, breaking → major). El
-   script bumpea `package.json`, incluye lo staged y crea commit + tag `vX.Y.Z`.
+   `[X.Y.Z] - fecha` (actualizando los links de comparación al final) y
+   **commitear ese cambio antes de release**: `npm version` aborta con
+   "Git working directory not clean" si queda algo sin commitear, incluso
+   staged. Con el árbol limpio, correr
+   `npm run release:patch|minor|major` según el cambio (fix → patch,
+   feature → minor, breaking → major); el script bumpea `package.json` y
+   crea commit `chore(release): vX.Y.Z` + tag `vX.Y.Z`.
 3. Publicar con `git push --follow-tags`.
 
 ## Runbook: deploy y dominio

@@ -9,6 +9,11 @@ del README.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-06
+
+Identidad «Acero y cobre» con los assets de marca generados por script,
+medición GA4 ampliada y mejoras de carga.
+
 ### Agregado
 
 - `ConstelacionMarca.astro`: pieza gráfica del hero del home, un rombo de
@@ -270,5 +275,6 @@ Primera versión estable del sitio en producción (agassoluciones.cl).
   (e2e desktop y mobile).
 - Deploy en Cloudflare (Workers & Pages) con Wrangler y assets estáticos.
 
-[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/releases/tag/v1.0.0
