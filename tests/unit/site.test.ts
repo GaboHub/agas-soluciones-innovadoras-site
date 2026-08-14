@@ -33,7 +33,7 @@ describe('site.json', () => {
   });
 
   it('tiene el hero con título, palabra acentuada contenida en el título y bajada', () => {
-    expect(site.hero.titulo).toBe('Soluciones innovadoras para tu mundo tech');
+    expect(site.hero.titulo).toBe('Soluciones innovadoras para tu día a día');
     expect(site.hero.titulo).toContain(site.hero.acentuada);
     expect(site.hero.bajada.length).toBeGreaterThan(0);
   });

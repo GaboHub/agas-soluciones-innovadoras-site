@@ -2,9 +2,9 @@
   "nombre": "AGAS Soluciones Innovadoras",
   "razonSocial": "Agas Soluciones Innovadoras SpA",
   "dominio": "agassoluciones.cl",
-  "tagline": "Soluciones innovadoras en accesorios tech",
+  "tagline": "Productos elegidos con criterio para tu día a día",
   "claim": "Compra seguro por Mercado Libre",
-  "descripcion": "Tienda online chilena de accesorios de tecnología (gaming, audio y más) que vende por Mercado Libre con reputación verde y despacho a todo Chile.",
+  "descripcion": "Tienda chilena que elige con criterio productos para tu día a día —hoy gaming y audio— y vende por Mercado Libre con reputación verde y despacho a todo Chile.",
   "ubicacion": "Santiago, Región Metropolitana",
   "cobertura": "Despacho a todo Chile vía Mercado Envíos",
   "envio": "Despacho el mismo día vía Mercado Envíos",
@@ -29,9 +29,9 @@
   },
   "sellosConfianza": ["Reputación verde", "Despacho el mismo día", "Desde Santiago a todo Chile"],
   "hero": {
-    "titulo": "Soluciones innovadoras para tu mundo tech",
+    "titulo": "Soluciones innovadoras para tu día a día",
     "acentuada": "innovadoras",
-    "bajada": "Seleccionamos con criterio los accesorios que cuidan tus consolas, tu música y tu día a día. Compra protegida por Mercado Libre y despacho el mismo día a todo Chile.",
+    "bajada": "Seleccionamos con criterio productos que resuelven de verdad: hoy, los que cuidan tus consolas y tu música. Compra protegida por Mercado Libre y despacho el mismo día a todo Chile.",
     "chip": "Compra 100% protegida por Mercado Libre",
     "leyendaConstelacion": "Gaming · Audio · Compra protegida"
   },

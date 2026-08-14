@@ -37,6 +37,33 @@ del README.
   entra al build.
 - `marca/redes/README.md`: qué es cada archivo, dónde se usa, el orden de
   publicación 1→6 del carrusel y cómo se regenera todo.
+- `marca/redes/primera-publicacion/`: paquete de la primera publicación de
+  Instagram, con las seis láminas del carrusel tal como salieron al aire, el
+  caption listo para pegar (`texto-del-post.txt`) y su README. Es una copia
+  **instantánea**, no una copia viva: registra lo publicado el 2026-08-14 y no
+  se actualiza cuando se regeneran las láminas canónicas de `marca/redes/`.
+
+### Cambiado
+
+- El copy de identidad deja de describir a AGAS por su rubro y pasa a
+  describir cómo elige, con lo tech como catálogo de hoy: `tagline`
+  ("Productos elegidos con criterio para tu día a día"), `descripcion`,
+  `hero.titulo` ("Soluciones innovadoras para tu día a día") y `hero.bajada`
+  en `src/data/site.json`, la frase de cabecera de `public/llms.txt`
+  —sincronizada en el string de `construirLlmsTxt()` de
+  `scripts/generar-catalogo.mjs`, no en el archivo generado—, el resumen de la
+  categoría de descarte `otros` del mismo script y el párrafo "Quiénes somos"
+  de `content/paginas/inicio.md`. La `descripcion` es la meta description del
+  home, que `e2e/seo.spec.ts` acota a 160 caracteres
+  (`grep -n "toBeLessThanOrEqual(160)" e2e/seo.spec.ts`), y por eso quedó en
+  158 (`node -e "console.log(require('./src/data/site.json').descripcion.length)"`).
+  Sin ninguna alusión a expansión futura del giro, según el ADR 0003. Racional
+  en `docs/adr/0008-copy-de-identidad-agnostico-de-categoria.md`.
+- Regenerados los siete PNG de `marca/redes/`
+  (`node scripts/generar-marca-redes.mjs`): las láminas del carrusel hornean
+  `hero.titulo` y `hero.bajada`, así que un cambio de copy obliga a
+  regenerarlos y a **republicarlos**. Como los assets y el copy nuevo salen en
+  esta misma versión, los archivos entran al repo ya con el texto vigente.
 
 ## [1.1.0] - 2026-08-06
 

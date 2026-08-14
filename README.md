@@ -1,8 +1,9 @@
 # agassoluciones.cl — catálogo AGAS Soluciones Innovadoras
 
-Sitio estático de catálogo de **AGAS Soluciones Innovadoras**, ecommerce
-chileno de accesorios de tecnología (Nintendo Switch, PlayStation 5 y audio
-USB-C) que vende a través de Mercado Libre. El sitio es una vitrina: no hay
+Sitio estático de catálogo de **AGAS Soluciones Innovadoras**, tienda chilena
+que elige con criterio productos para el día a día y los vende a través de
+Mercado Libre; hoy el catálogo es accesorios de tecnología (Nintendo Switch,
+PlayStation 5 y audio USB-C). El sitio es una vitrina: no hay
 carrito ni checkout; cada producto enlaza a su publicación en Mercado Libre
 ("Ver en Mercado Libre") y a la tienda oficial.
 

@@ -46,7 +46,7 @@ const CATEGORIAS = {
   otros: {
     nombre: 'Otros accesorios',
     emoji: '🔌',
-    resumen: 'Otros accesorios de tecnología de nuestra tienda.',
+    resumen: 'Otros productos de nuestra tienda.',
   },
 };
 
@@ -959,7 +959,7 @@ function construirLlmsTxt(productos, empresa, fechaPrecio, guias, promociones) {
   lineas.push('# AGAS Soluciones Innovadoras');
   lineas.push('');
   lineas.push(
-    'Tienda online chilena de accesorios de tecnología (gaming, audio y más) que vende por Mercado Libre, con reputación verde y despacho a todo Chile.',
+    'Tienda chilena que elige con criterio productos para tu día a día —hoy gaming y audio— y vende por Mercado Libre, con reputación verde y despacho a todo Chile.',
   );
   lineas.push('');
   lineas.push(`Tienda en Mercado Libre: ${empresa.tiendaUrl}`);

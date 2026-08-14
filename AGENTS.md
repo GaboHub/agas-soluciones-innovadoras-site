@@ -2,7 +2,7 @@
 
 ## Qué es este proyecto
 
-Sitio web de AGAS Soluciones Innovadoras (agassoluciones.cl): vitrina estática del catálogo de un ecommerce chileno de accesorios de tecnología que vende por Mercado Libre (Astro + Tailwind 4 + islas React + Vitest + Playwright, deploy en Cloudflare Pages). No hay carrito ni checkout: cada producto deriva con su CTA "Ver en Mercado Libre" al permalink de la publicación.
+Sitio web de AGAS Soluciones Innovadoras (agassoluciones.cl): vitrina estática del catálogo de un ecommerce chileno que vende por Mercado Libre —hoy, accesorios de tecnología— (Astro + Tailwind 4 + islas React + Vitest + Playwright, deploy en Cloudflare Pages). No hay carrito ni checkout: cada producto deriva con su CTA "Ver en Mercado Libre" al permalink de la publicación.
 
 ## Invariantes
 

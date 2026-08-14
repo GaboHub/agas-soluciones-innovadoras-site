@@ -25,6 +25,11 @@ categorías → compra segura), la barra de progreso del pie marca la posición 
 cada una, y las baldosas decorativas cruzan los cortes entre láminas para que la
 decoración se lea continua al deslizar. Publicadas en otro orden, se nota.
 
+`primera-publicacion/` guarda el paquete de la primera publicación de Instagram:
+una copia instantánea de las seis láminas tal como salieron al aire más el
+caption listo para pegar (ver su propio `README.md`); esa carpeta no se
+regenera con el script.
+
 ## Cómo se regeneran
 
 ```sh
