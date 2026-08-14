@@ -9,6 +9,11 @@ del README.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-08-14
+
+Assets de marca para redes sociales generados por script, con el paquete de la
+primera publicación de Instagram, y copy de identidad agnóstico de categoría.
+
 ### Agregado
 
 - `scripts/generar-marca-redes.mjs`: genera con sharp los siete assets de
@@ -331,6 +336,7 @@ Primera versión estable del sitio en producción (agassoluciones.cl).
   (e2e desktop y mobile).
 - Deploy en Cloudflare (Workers & Pages) con Wrangler y assets estáticos.
 
-[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/releases/tag/v1.0.0
