@@ -9,6 +9,33 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- Enlace al Instagram oficial de la marca, como dato de negocio
+  (`redes.instagram` en `src/data/site.json`, tipado en `src/lib/site.ts`):
+  publicado en la columna «Compra y contacto» del footer global
+  (`src/components/Footer.astro`) y como botón secundario a ancho completo en
+  `/contacto/` (`src/pages/contacto/index.astro`). Las dos superficies leen el
+  mismo dato
+  (`grep -rn "redes.instagram" src/components/Footer.astro src/pages/contacto/index.astro`),
+  y `e2e/interlinking.spec.ts` verifica el `href` de ambas contra
+  `site.redes.instagram`.
+- Evento GA4 `clic_red_social`: mide los clicks hacia redes sociales con
+  parámetros `destino` (la URL de la red) y `pagina`. El listener delegado de
+  `src/components/Analitica.astro` evalúa la lista nueva
+  `analitica.dominiosRedes` de `src/data/site.json` (hoy `instagram.com` y sus
+  subdominios) reutilizando `destinoSaliente` de `src/lib/analitica.ts`, y
+  corta en el primer match, así que un click emite a lo más uno de
+  `clic_saliente`, `clic_red_social` o `clic_contacto`
+  (`grep -n "clic_saliente\|clic_red_social\|clic_contacto" src/components/Analitica.astro`).
+  Instagram va en una lista aparte y no en `dominiosSalientes` a propósito:
+  `clic_saliente` es el evento clave de la conversión sitio→ML y sumarle los
+  clicks de redes contaminaría su numerador y las exploraciones por nombre de
+  evento. Las dos listas quedan disjuntas en el bundle publicado
+  (`grep -o "dominios\(Salientes\|Redes\)[^]]*]" dist/_astro/Analitica*.js`).
+  Reutiliza las dimensiones `destino` y `pagina` ya registradas, así que no
+  necesita configuración nueva en GA4 (ver `docs/analitica.md`).
+
 ## [1.2.0] - 2026-08-14
 
 Assets de marca para redes sociales generados por script, con el paquete de la

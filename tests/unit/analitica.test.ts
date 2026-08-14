@@ -43,6 +43,16 @@ describe('destinoSaliente', () => {
   it('devuelve null para un href malformado', () => {
     expect(destinoSaliente('::::no-es-una-url::::', dominios)).toBeNull();
   });
+
+  it('matchea el subdominio www.instagram.com cuando instagram.com está en la lista', () => {
+    expect(
+      destinoSaliente('https://www.instagram.com/agassoluciones.cl/', ['mercadolibre.cl', 'instagram.com']),
+    ).toBe('https://www.instagram.com/agassoluciones.cl/');
+  });
+
+  it('NO matchea instagram.com si no está en la lista de dominios salientes', () => {
+    expect(destinoSaliente('https://www.instagram.com/agassoluciones.cl/', ['mercadolibre.cl'])).toBeNull();
+  });
 });
 
 describe('destinoContacto', () => {

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import site from '../src/data/site.json' with { type: 'json' };
 
 test.describe('interlinking', () => {
   test('la home tiene exactamente 3 tarjetas de categoría', async ({ page }) => {
@@ -47,5 +48,20 @@ test.describe('interlinking', () => {
     await expect(footer.locator('a[href="/terminos-y-condiciones/"]')).toBeVisible();
     await expect(footer.locator('a[href="/preguntas-frecuentes/"]')).toBeVisible();
     await expect(footer.locator('a[href="/promociones/"]')).toBeVisible();
+  });
+
+  test('el footer enlaza el Instagram oficial', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer');
+    const instagram = footer.getByRole('link', { name: 'Instagram', exact: true });
+    await expect(instagram).toBeVisible();
+    await expect(instagram).toHaveAttribute('href', site.redes.instagram);
+  });
+
+  test('la página de contacto muestra el botón de Instagram', async ({ page }) => {
+    await page.goto('/contacto/');
+    const instagram = page.getByRole('link', { name: 'Síguenos en Instagram' });
+    await expect(instagram).toBeVisible();
+    await expect(instagram).toHaveAttribute('href', site.redes.instagram);
   });
 });

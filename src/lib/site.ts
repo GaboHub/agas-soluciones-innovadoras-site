@@ -29,6 +29,7 @@ export interface SiteData {
   };
   analitica: {
     dominiosSalientes: string[];
+    dominiosRedes: string[];
   };
   ctaHeader: string;
   ctaBurbujaProducto: string;
@@ -36,6 +37,9 @@ export interface SiteData {
   contacto: {
     email: string;
     ventasVolumen: string;
+  };
+  redes: {
+    instagram: string;
   };
   sellosConfianza: string[];
   hero: {

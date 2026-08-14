@@ -18,7 +18,8 @@
     "paginaOficial": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
   },
   "analitica": {
-    "dominiosSalientes": ["mercadolibre.cl"]
+    "dominiosSalientes": ["mercadolibre.cl"],
+    "dominiosRedes": ["instagram.com"]
   },
   "ctaHeader": "Ver tienda en Mercado Libre",
   "ctaBurbujaProducto": "Ver esta publicación en Mercado Libre",
@@ -26,6 +27,9 @@
   "contacto": {
     "email": "agassolucionesinnovadoras@gmail.com",
     "ventasVolumen": "¿Necesitas cantidades mayores, fuera de Mercado Libre? Escríbenos a"
+  },
+  "redes": {
+    "instagram": "https://www.instagram.com/agassoluciones.cl/"
   },
   "sellosConfianza": ["Reputación verde", "Despacho el mismo día", "Desde Santiago a todo Chile"],
   "hero": {

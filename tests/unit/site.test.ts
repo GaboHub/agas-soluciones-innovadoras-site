@@ -42,4 +42,17 @@ describe('site.json', () => {
     expect(site.hero.chip).toBe('Compra 100% protegida por Mercado Libre');
     expect(site.hero.leyendaConstelacion).toBe('Gaming · Audio · Compra protegida');
   });
+
+  it('tiene el Instagram oficial en redes', () => {
+    expect(site.redes.instagram).toBe('https://www.instagram.com/agassoluciones.cl/');
+  });
+
+  it('tiene mercadolibre.cl en dominiosSalientes y NO instagram.com, para no contaminar clic_saliente', () => {
+    expect(site.analitica.dominiosSalientes).toContain('mercadolibre.cl');
+    expect(site.analitica.dominiosSalientes).not.toContain('instagram.com');
+  });
+
+  it('tiene instagram.com en dominiosRedes', () => {
+    expect(site.analitica.dominiosRedes).toContain('instagram.com');
+  });
 });

@@ -32,6 +32,11 @@ const { ga4Id } = Astro.props;
       window.gtag('event', 'clic_saliente', { destino: destinoSalienteEncontrado, pagina: location.pathname });
       return;
     }
+    const destinoRedEncontrado = destinoSaliente(href, analitica.dominiosRedes);
+    if (destinoRedEncontrado && window.gtag) {
+      window.gtag('event', 'clic_red_social', { destino: destinoRedEncontrado, pagina: location.pathname });
+      return;
+    }
     const destinoContactoEncontrado = destinoContacto(href);
     if (destinoContactoEncontrado && window.gtag) {
       window.gtag('event', 'clic_contacto', { destino: destinoContactoEncontrado, pagina: location.pathname });
