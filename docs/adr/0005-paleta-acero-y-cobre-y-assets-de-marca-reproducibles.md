@@ -4,7 +4,8 @@
 
 Aceptada, 2026-08-06. Anula parcialmente al
 [ADR 0003](0003-identidad-visual-serena-e-innovadora.md). Anulada parcialmente
-por el [ADR 0006](0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md).
+por el [ADR 0006](0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md) y por el
+[ADR 0007](0007-assets-de-marca-para-redes-sociales-reproducibles.md).
 
 ## Contexto
 

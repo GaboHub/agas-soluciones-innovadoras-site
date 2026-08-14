@@ -66,9 +66,11 @@ agas_site/
 │   └── styles/global.css       Tokens de marca (colores y fuentes) con Tailwind 4 `@theme`
 ├── scripts/
 │   ├── generar-catalogo.mjs    Regenera el catálogo desde ../agas-context
-│   └── generar-marca-ml.mjs    Regenera los assets de marca y los rasters del sitio
+│   ├── generar-marca-ml.mjs    Regenera los assets de Mercado Libre y los rasters del sitio
+│   └── generar-marca-redes.mjs Regenera el avatar y el carrusel de redes sociales
 ├── marca/                      Fuera del build: assets de marca para Mercado Libre
-│                               y los TTF con que el script compone los banners
+│                               y para redes sociales, y los TTF con que los
+│                               scripts componen los textos
 ├── e2e/                        Pruebas Playwright (projects desktop/mobile)
 ├── tests/unit/                 Pruebas Vitest
 └── public/                     robots.txt, llms.txt, favicon.svg, logo.png,
@@ -93,6 +95,7 @@ editan a mano.
 | `npm test`           | Ambas suites                                                |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
 | `node scripts/generar-marca-ml.mjs` | Regenera los assets de marca de Mercado Libre y los rasters del sitio (ver `marca/mercadolibre/README.md`) |
+| `node scripts/generar-marca-redes.mjs` | Regenera los assets de marca para redes sociales: avatar y carrusel de presentación (ver `marca/redes/README.md`) |
 
 Un hook de pre-commit (`.githooks/pre-commit`) corre `npm test` antes de cada
 commit y lo bloquea si algo falla. Se activa solo al correr `npm install`
@@ -236,7 +239,8 @@ El flujo es manual:
   `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
 - Los colores literales viven solo en `global.css` y en los assets de marca
   (los SVG de `src/assets/images/` y `public/`, más
-  `scripts/generar-marca-ml.mjs`). Un barrido de color se hace por hex **y**
+  `scripts/generar-marca-ml.mjs` y `scripts/generar-marca-redes.mjs`). Un
+  barrido de color se hace por hex **y**
   por notación decimal `rgb`/`rgba`/`hsl`: un `rgba()` dentro de un atributo
   `style` ya se escapó una vez de un grep que solo miraba hexes. Un chequeo
   de contraste, además de los pares de tokens, tiene que componer las
@@ -249,13 +253,21 @@ El flujo es manual:
   `docs/adr/0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md`). Ningún
   asset inventa un color propio; la única excepción aprobada es el cobre
   claro `#C8813F` del travesaño sobre oscuro (ADR 0005). El barrido
-  `grep -oh "#[0-9A-Fa-f]\{6\}" public/favicon.svg src/assets/images/agas-lockup*.svg scripts/generar-marca-ml.mjs | tr 'a-f' 'A-F' | sort -u`
-  lista los valores en uso; el `#000000` que aparece es del arnés con que el
-  script mide anchos de texto, no de un asset.
-- Los rasters de marca (`public/logo.png`, `public/apple-touch-icon.png`,
-  `src/assets/images/logo.png` y los de `marca/mercadolibre/`) son
-  generados: se regeneran con `node scripts/generar-marca-ml.mjs` y no se
-  editan a mano.
+  `grep -oh "#[0-9A-Fa-f]\{6\}" public/favicon.svg src/assets/images/agas-lockup*.svg scripts/generar-marca-ml.mjs scripts/generar-marca-redes.mjs | tr 'a-f' 'A-F' | sort -u`
+  lista los valores en uso; el `#000000` que aparece es del arnés con que los
+  scripts miden anchos de texto, no de un asset. Sumar el script de redes
+  agrega un solo valor al barrido, `#E9C49A`, que es el token `destacado`:
+  los assets de redes no inventan colores propios y la excepción sigue
+  siendo una sola.
+- Los rasters de marca son generados por dos scripts y no se editan a mano:
+  `node scripts/generar-marca-ml.mjs` produce `public/logo.png`,
+  `public/apple-touch-icon.png`, `src/assets/images/logo.png` y los tres de
+  `marca/mercadolibre/`; `node scripts/generar-marca-redes.mjs` produce los
+  siete de `marca/redes/` (`avatar.png` y `carrusel-presentacion-1..6.png`).
+  Los del carrusel llevan horneados los conteos de productos por categoría,
+  así que un refresco del catálogo que los mueva obliga a regenerarlos **y a
+  republicarlos** en la red social (ver
+  `docs/adr/0007-assets-de-marca-para-redes-sociales-reproducibles.md`).
 - El sitio nunca muestra stock: los precios son referenciales con su fecha,
   y el precio vigente vive en la publicación de Mercado Libre de cada
   producto. Las promociones y cupones sí se publican, pero solo desde

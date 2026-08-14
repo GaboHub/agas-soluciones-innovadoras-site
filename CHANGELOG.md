@@ -9,6 +9,35 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- `scripts/generar-marca-redes.mjs`: genera con sharp los siete assets de
+  marca para redes sociales, el avatar de la foto de perfil
+  (`marca/redes/avatar.png` 1080×1080, monograma sobre el degradado acero,
+  sin la baldosa, porque el recorte circular de Instagram se come sus
+  esquinas) y el carrusel de presentación de seis láminas
+  (`carrusel-presentacion-1.png` … `-6.png`, 1080×1350 c/u). El carrusel se
+  arma como una sola tira de 6480×1350 y se rebana con `extract`, para que
+  las baldosas decorativas crucen los cortes y la decoración se lea continua
+  al deslizar. Toma los textos y los conteos por categoría de
+  `src/data/site.json` (`categorias[i].productos.length`), aborta si las
+  fuentes no llegan a aplicarse, si el catálogo deja de tener exactamente 3
+  categorías, si un texto no entra en la caja de contenido o si alguna
+  dimensión o peso no da, y produce salidas byte a byte idénticas entre
+  corridas (`md5sum marca/redes/*.png > /tmp/antes.txt && node scripts/generar-marca-redes.mjs && md5sum -c /tmp/antes.txt`).
+  `node scripts/generar-marca-redes.mjs` imprime las dimensiones de las siete
+  salidas. Racional y riesgos en
+  `docs/adr/0007-assets-de-marca-para-redes-sociales-reproducibles.md`.
+- `marca/fuentes/Sora-Bold.ttf` —convertida con fontTools desde
+  `node_modules/@fontsource/sora/files/sora-latin-700-normal.woff`, porque los
+  titulares del carrusel usan Sora 700 y en `marca/fuentes/` solo estaba la
+  SemiBold—, bajo la misma licencia SIL OFL 1.1 ya presente en
+  `OFL-Sora.txt`. `marca/fuentes/` pasa de dos TTF a tres
+  (`ls marca/fuentes/*.ttf | wc -l` → `3`). Como el resto de `marca/`, no
+  entra al build.
+- `marca/redes/README.md`: qué es cada archivo, dónde se usa, el orden de
+  publicación 1→6 del carrusel y cómo se regenera todo.
+
 ## [1.1.0] - 2026-08-06
 
 Identidad «Acero y cobre» con los assets de marca generados por script,
