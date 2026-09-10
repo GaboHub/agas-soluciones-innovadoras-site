@@ -6,39 +6,39 @@
       "nombre": "Cupón nuevo seguidor",
       "porcentaje": 5,
       "condicion": "Sigue nuestra tienda en Mercado Libre por primera vez y recibe un 5% de descuento para tu primera compra.",
-      "desde": "2026-07-21",
-      "hasta": "2026-08-20"
+      "desde": "2026-08-22",
+      "hasta": "2026-09-21"
     },
     {
       "id": "seguidores",
       "nombre": "Cupón seguidores",
       "porcentaje": 5,
       "condicion": "Si ya sigues nuestra tienda en Mercado Libre, tienes un 5% de descuento disponible para usar en tu próxima compra.",
-      "desde": "2026-07-21",
-      "hasta": "2026-08-20"
+      "desde": "2026-08-22",
+      "hasta": "2026-09-21"
     }
   ],
   "campanas": [
     {
-      "id": "oferta-julio-agosto",
-      "nombre": "Oferta vigente julio–agosto",
-      "descripcion": "Descuentos activos en una selección de productos de nuestra tienda de Mercado Libre durante todo el período.",
-      "desde": "2026-07-13",
-      "hasta": "2026-08-12"
+      "id": "oferta-agosto-septiembre",
+      "nombre": "Oferta vigente agosto–septiembre",
+      "descripcion": "Descuentos activos en todo nuestro catálogo de Mercado Libre durante el período.",
+      "desde": "2026-08-13",
+      "hasta": "2026-09-12"
     },
     {
-      "id": "dia-de-la-ninez-2026",
-      "nombre": "Día de la Niñez 2026",
-      "descripcion": "Ofertas especiales pensadas para regalos del Día de la Niñez en accesorios para consolas y equipos.",
-      "desde": "2026-07-20",
-      "hasta": "2026-08-08"
+      "id": "fiestas-patrias-2026",
+      "nombre": "Fiestas Patrias 2026",
+      "descripcion": "Ofertas especiales de Fiestas Patrias en productos seleccionados de nuestra tienda de Mercado Libre.",
+      "desde": "2026-09-10",
+      "hasta": "2026-09-20"
     },
     {
-      "id": "black-week-julio-2026",
-      "nombre": "Black Week de julio",
-      "descripcion": "Descuentos por tiempo limitado durante la Black Week de julio en productos seleccionados.",
-      "desde": "2026-07-27",
-      "hasta": "2026-08-02"
+      "id": "cyber-monday-2026",
+      "nombre": "Cyber Monday 2026",
+      "descripcion": "Descuentos de Cyber Monday por tiempo limitado en una selección de productos de nuestra tienda de Mercado Libre.",
+      "desde": "2026-10-05",
+      "hasta": "2026-10-11"
     }
   ],
   "faqs": [

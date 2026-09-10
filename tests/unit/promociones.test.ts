@@ -111,7 +111,7 @@ describe('getCuponesPublicables', () => {
   });
 
   it('incluye ambos cupones vigentes con estado vigente', () => {
-    const resultado = getCuponesPublicables('2026-07-25');
+    const resultado = getCuponesPublicables('2026-09-01');
     expect(resultado.map((item) => item.id)).toEqual(['nuevos-seguidores', 'seguidores']);
     expect(resultado.map((item) => item.estado)).toEqual(['vigente', 'vigente']);
   });
@@ -128,11 +128,11 @@ describe('getCampanasPublicables', () => {
   });
 
   it('las vigentes van antes que las próximas y respeta el orden por desde', () => {
-    const resultado = getCampanasPublicables('2026-07-21');
+    const resultado = getCampanasPublicables('2026-09-11');
     expect(resultado.map((item) => item.id)).toEqual([
-      'oferta-julio-agosto',
-      'dia-de-la-ninez-2026',
-      'black-week-julio-2026',
+      'oferta-agosto-septiembre',
+      'fiestas-patrias-2026',
+      'cyber-monday-2026',
     ]);
     expect(resultado.map((item) => item.estado)).toEqual(['vigente', 'vigente', 'proxima']);
   });
@@ -141,7 +141,7 @@ describe('getCampanasPublicables', () => {
     const hoy = '2020-01-01';
     const resultado = getCampanasPublicables(hoy);
     expect(resultado).toHaveLength(3);
-    expect(resultado.map((item) => item.desde)).toEqual(['2026-07-13', '2026-07-20', '2026-07-27']);
+    expect(resultado.map((item) => item.desde)).toEqual(['2026-08-13', '2026-09-10', '2026-10-05']);
     expect(resultado.map((item) => item.estado)).toEqual(['proxima', 'proxima', 'proxima']);
   });
 });
