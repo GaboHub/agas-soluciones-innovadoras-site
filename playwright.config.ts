@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const puerto = Number(process.env.E2E_PORT ?? 4321);
+const urlBase = `http://localhost:${puerto}`;
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -7,7 +10,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: urlBase,
     trace: 'on-first-retry',
   },
   projects: [
@@ -21,8 +24,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run build && npm run preview',
-    url: 'http://localhost:4321',
+    command: `npm run build && npm run preview -- --port ${puerto}`,
+    url: urlBase,
     reuseExistingServer: !process.env.CI,
     timeout: 180000,
   },
