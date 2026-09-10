@@ -3,7 +3,7 @@
 Sitio estático de catálogo de **AGAS Soluciones Innovadoras**, tienda chilena
 que elige con criterio productos para el día a día y los vende a través de
 Mercado Libre; hoy el catálogo es accesorios de tecnología (Nintendo Switch,
-PlayStation 5 y audio USB-C). El sitio es una vitrina: no hay
+PlayStation 5 y audio). El sitio es una vitrina: no hay
 carrito ni checkout; cada producto enlaza a su publicación en Mercado Libre
 ("Ver en Mercado Libre") y a la tienda oficial.
 
@@ -92,8 +92,9 @@ editan a mano.
 | `npm run build`      | Genera el sitio estático en `./dist/`                       |
 | `npm run preview`    | Sirve `dist/` tal como quedaría publicado                   |
 | `npm run test:unit`  | Pruebas unitarias (Vitest)                                  |
-| `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile)    |
+| `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile). Si el puerto 4321 está ocupado por otro proyecto, correr `E2E_PORT=4331 npm run test:e2e` (u otro puerto libre): con `reuseExistingServer` activo, reusar un servidor ajeno en 4321 probaría el sitio equivocado |
 | `npm test`           | Ambas suites                                                |
+| `npm run barrido`    | Descarga el barrido de Mercado Libre a `../agas-context` (ver skill `refresco-catalogo`) |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
 | `node scripts/generar-marca-ml.mjs` | Regenera los assets de marca de Mercado Libre y los rasters del sitio (ver `marca/mercadolibre/README.md`) |
 | `node scripts/generar-marca-redes.mjs` | Regenera los assets de marca para redes sociales: avatar y carrusel de presentación (ver `marca/redes/README.md`) |
@@ -107,14 +108,49 @@ fallará por falta de navegadores.
 
 ## Refresco del catálogo
 
-`npm run generar` ejecuta `scripts/generar-catalogo.mjs`, que lee el barrido de publicaciones de Mercado Libre desde `../agas-context` (configurable con la variable de entorno `AGAS_CONTEXT_DIR`) y regenera desde cero:
+El flujo completo de actualización es: `npm run barrido` → `npm run generar` →
+(si cambió algún conteo de productos por categoría, regenerar y republicar los
+assets de redes) → `npm run build` y las suites de test. Procedimiento
+detallado, con la tabla de advertencias del generador y las trampas
+conocidas, en la skill `.claude/skills/refresco-catalogo/SKILL.md`; racional
+completo en
+`docs/adr/0009-barrido-en-el-repo-poda-conservadora-y-filtro-de-publicaciones-cerradas.md`.
+
+**`npm run barrido`** ejecuta `scripts/exportar-contexto-ml.py` (Python 3,
+stdlib + `requests`), configurado por un `.env` en la raíz (copiar de
+`.env.example`). Lee el access token vigente y el listado de
+publicaciones/variantes/familias virtuales desde la base Postgres de la app
+`mi-app-ml` (contenedor Docker `pg-dev`), y descarga de la API de Mercado
+Libre detalle, descripción, promociones por ítem, reseñas e imágenes,
+escribiendo desde cero `../agas-context` (`empresa.md`, `indice.md`,
+`publicaciones/<carpeta>/publicacion.md` + imágenes). Es el único proceso con
+permiso de escritura sobre ese directorio: un dato mal capturado se corrige
+en este script, nunca editando el markdown exportado a mano. Poda las
+carpetas de `publicaciones/` que ya no aparecen en la corrida, pero solo en un
+barrido completo (nunca con `--only`) y solo si el listado de publicaciones no
+vino vacío y la corrida no tuvo errores; ante un fallo transitorio de la API
+prefiere dejar una carpeta obsoleta antes que arriesgar borrar una válida.
+Publicaciones eliminadas de la cuenta devuelven 403 en la API y no aparecen en
+el barrido aunque la base todavía las liste.
+
+**`npm run generar`** ejecuta `scripts/generar-catalogo.mjs`, que lee el
+barrido desde `../agas-context` (configurable con la variable de entorno
+`AGAS_CONTEXT_DIR`, la misma que lee el script de barrido) y regenera desde
+cero:
 
 - `content/productos/*.md`: una ficha por publicación lógica, con frontmatter estructurado (FAQs, reviews, variantes, grupos) y la descripción limpia como cuerpo.
 - `src/assets/images/productos/<slug>/`: imágenes convertidas a WebP (máximo 800 px de lado mayor).
 - `src/data/catalogo.json` y `src/data/resenas.json`: fuentes para listados, buscador y reseñas.
 - `public/llms.txt`: resumen del catálogo para agentes de IA.
 
-El script es idempotente: borra y vuelve a crear todo lo que produce. El flujo completo de actualización es: regenerar `agas-context/` → `npm run generar` → `npm run build`.
+El script es idempotente: borra y vuelve a crear todo lo que produce. Antes de
+resolver duplicados de catálogo o armar familias, descarta las publicaciones
+(y los miembros de familia) cuyo estado no es `active`, para que una
+publicación de catálogo cerrada nunca le gane a su gemela activa. Al agregar
+reseñas de los miembros no-catálogo de una familia genérica, deduplica por
+firma del bloque (promedio, cantidad, distribución y comentarios): Mercado
+Libre replica el mismo bloque de reseñas en varios miembros de una familia, y
+sumarlos sin deduplicar duplicaría el conteo real.
 
 Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json` son contenido editorial manual y sobreviven intactos a cada regeneración (las guías solo se *leen* para listarlas en `llms.txt`). Requisito de entrada: que `../agas-context` exista con el barrido de publicaciones; sin él, `npm run generar` falla y el resto del sitio sigue construyendo con lo último generado y commiteado.
 
@@ -128,7 +164,7 @@ Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json
   cambian editando su markdown), `src/data/textos-productos.json`
   (descripciones y meta descriptions propias por slug), tokens de
   `global.css`, logos.
-- **Generados** (no editar a mano; corregir en `agas-context` y regenerar):
+- **Generados** (no editar a mano; corregir en el script de barrido o en el generador y regenerar):
   `content/productos/*.md`, `src/assets/images/productos/`,
   `src/data/catalogo.json`, `src/data/resenas.json`, `public/llms.txt`.
 
@@ -145,16 +181,26 @@ cada producto: es un dato curado a mano, nunca se genera ni se deriva de
 
 - Cada cupón o campaña declara `desde` y `hasta` en formato `YYYY-MM-DD`,
   ambos **inclusivos**: la promo se muestra desde las 00:00 de `desde` hasta
-  las 23:59 de `hasta` en horario de Chile. Mercado Libre suele cerrar sus
-  campañas a la 01:00 del día siguiente al que uno esperaría; si eso pasa,
-  conviene bajar `hasta` en un día para no anunciar un beneficio que ya no
-  está disponible.
+  las 23:59 de `hasta` en horario de Chile. Mercado Libre cierra sus campañas
+  a las 03:59:59Z o 04:00:00Z, que es 00:59/01:00 del día siguiente en Chile:
+  `hasta` es el día anterior al `finish_date` en UTC de la campaña, para no
+  anunciar un beneficio que ya no está disponible.
 - El barrido de `../agas-context` (sección `### Promociones y cupones` de
   cada `publicacion.md`) sirve solo como **referencia** para enterarse de
   qué campañas existen: nunca como fuente automática. El campo
   `estado: candidate|started|pending` que trae esa sección no garantiza que
   el descuento esté realmente aplicado sobre el precio de la publicación
   (ver el ADR para el detalle de la verificación que llevó a esta regla).
+- Otra vía de referencia es consultar directamente la API de promociones de
+  Mercado Libre con el token vigente:
+  `GET /seller-promotions/users/{seller_id}?app_version=v2` (lista campañas
+  con `start_date`/`finish_date` en UTC),
+  `GET /seller-promotions/promotions/{id}?promotion_type=<TYPE>&app_version=v2`
+  (detalle, por ejemplo el `fixed_percentage` de un cupón) y
+  `GET /seller-promotions/promotions/{id}/items?promotion_type=<TYPE>&app_version=v2&limit=50`
+  (ítems de la promoción, paginado con `searchAfter`). Igual que el barrido,
+  es solo referencia; el snippet completo y qué tipos de promoción publicar
+  están en la skill `refresco-catalogo`.
 - Las promociones vencidas desaparecen en el **siguiente redeploy**: el
   filtrado de vigencia corre solo en build
   (`docs/adr/0002-filtrado-promos-solo-en-build.md`), así que hay que

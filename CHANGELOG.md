@@ -9,6 +9,93 @@ del README.
 
 ## [Unreleased]
 
+Refresco del catálogo desde un barrido nuevo de Mercado Libre del 2026-09-10
+(el anterior era del 2026-08-03), con el script de barrido movido a este
+repo y actualización de promociones. Racional en
+`docs/adr/0009-barrido-en-el-repo-poda-conservadora-y-filtro-de-publicaciones-cerradas.md`.
+
+### Agregado
+
+- `scripts/exportar-contexto-ml.py`: script de barrido de Mercado Libre,
+  movido a este repo desde `mi-app-ml/scripts/agas_context_export.py` (que
+  deja de usarse desde allá). Nuevo `npm run barrido`. Lee el access token
+  vigente y las publicaciones/variantes/familias virtuales desde la base
+  Postgres de la app `mi-app-ml` (contenedor Docker `pg-dev`) y descarga de la
+  API de Mercado Libre detalle, descripción, promociones por ítem, reseñas e
+  imágenes, escribiendo `../agas-context`. Configuración por `.env` (nuevo
+  `.env.example`, con `AGAS_ML_USER_ID`, `AGAS_CONTEXT_DIR` —la misma variable
+  que ya leía `generar-catalogo.mjs`—, `AGAS_PG_CONTAINER`, `AGAS_PG_USER`,
+  `AGAS_PG_DB`). Flags `--output`, `--only <MLC…>`, `--skip-images`,
+  `--force-images`, `--skip-videos`. Poda de carpetas obsoletas de
+  `publicaciones/` solo en barrido completo, y solo si el listado de la base
+  no vino vacío y la corrida no tuvo errores. `.gitignore` ignora
+  `__pycache__/`.
+- Familia nueva `audifonos-bluetooth-open-ear` («Audífonos Bluetooth Open Ear
+  Clip-On TWS», colores Negro, Violeta, Amarillo), incorporada al catálogo de
+  audio en `src/data/site.json` y con descripción propia en
+  `src/data/textos-productos.json`.
+- Skill `.claude/skills/refresco-catalogo/` con el flujo de actualización
+  completo desde Mercado Libre.
+- `docs/adr/0009-barrido-en-el-repo-poda-conservadora-y-filtro-de-publicaciones-cerradas.md`.
+
+### Cambiado
+
+- `scripts/generar-catalogo.mjs` descarta publicaciones cuyo estado no es
+  `active` (y miembros de familia no activos) ANTES de detectar duplicados de
+  catálogo, para que una publicación de catálogo cerrada no le gane a su
+  gemela activa. `audifonos-usb-c-manos-libres` pasa a apuntar a la
+  publicación activa MLC2035097907 en vez de a MLC4160547282, que cerró; el
+  producto deja de citar estrellas o cantidad de reseñas (la publicación
+  activa no es de catálogo y no tiene reseñas propias).
+- Dos publicaciones sueltas pasan a familias virtuales de 2 miembros:
+  `kit-estuche-funda-acrilica-control-ps5` (Transparente / Negro
+  semitransparente, sin reseñas en ninguno de los dos) y
+  `kit-funda-acrilica-grips-control-ps5` (Transparente / Negro). Nueva clave
+  `coloresMiembros` en `SLUG_MAP` para asignar el color por ML item id cuando
+  el título del miembro no termina en un nombre de color.
+- Las familias genéricas deduplican por firma del bloque (promedio, cantidad,
+  distribución y comentarios) las reseñas que Mercado Libre replica en todos
+  los miembros de una familia, antes de agregarlas: sumar daba el doble de
+  reseñas de las que existen (`kit-funda-acrilica-grips-control-ps5` queda
+  con 2 reseñas y promedio 5, no 4).
+- `src/data/site.json`: categoría audio con 3 productos y resumen «Audífonos
+  con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular.»,
+  alineado con la constante `CATEGORIAS` del generador.
+- `src/data/promociones.json`: cupones «Cupón nuevo seguidor» y «Cupón
+  seguidores» 5 % del 2026-08-22 al 2026-09-21; campañas «Oferta vigente
+  agosto–septiembre» (2026-08-13 a 2026-09-12), «Fiestas Patrias 2026»
+  (2026-09-10 a 2026-09-20) y «Cyber Monday 2026» (2026-10-05 a
+  2026-10-11); se retiraron las
+  campañas de julio–agosto, vencidas. Consulta de referencia y regla de
+  fechas documentadas en la skill `refresco-catalogo` y en el README.
+- Catálogo regenerado: 24 productos (`ls content/productos | wc -l` → 24;
+  antes 23, `git ls-tree -r --name-only v1.3.0 -- content/productos | wc -l`).
+  Familia de fundas PS5 con 11 diseños × 9 colores = 99 combinaciones
+  (`grep -c '^\s*- color:' content/productos/fundas-silicona-grips-control-ps5.md`
+  → 99; `grep -c '^\s*- diseno:' content/productos/fundas-silicona-grips-control-ps5.md`
+  → 11; antes 81,
+  `git show v1.3.0:content/productos/fundas-silicona-grips-control-ps5.md | grep -c '^\s*- color:'`),
+  lo que cruza el umbral de 10 diseños y la ficha pasa a `<select>` para el
+  diseño (comportamiento preexistente de `FichaProducto.tsx`;
+  `e2e/fundas.spec.ts` adaptado). `src/data/resenas.json`: 32 reseñas,
+  promedio 4.81
+  (`python3 -c "import json;r=json.load(open('src/data/resenas.json'));print(r['totalReviews'],r['promedioGeneral'])"`;
+  antes 26 y 4.78,
+  `git show v1.3.0:src/data/resenas.json | python3 -c "import json,sys;r=json.load(sys.stdin);print(r['totalReviews'],r['promedioGeneral'])"`).
+  Precios referenciales al 2026-09-10.
+- `marca/redes/carrusel-presentacion-5.png` regenerada con
+  `node scripts/generar-marca-redes.mjs` (conteo de audio 2→3; las otras seis
+  láminas quedaron idénticas). Pendiente republicarla en redes.
+- `playwright.config.ts`: el puerto de e2e sale de `E2E_PORT` (default 4321)
+  para `baseURL`, `webServer.url` y `npm run preview -- --port`, para que un
+  `astro dev` ajeno ocupando el 4321 no haga que la suite pruebe el sitio
+  equivocado con `reuseExistingServer` activo.
+
+### Corregido
+
+- `audifonos-usb-c-manos-libres` dejó de enlazar a una publicación cerrada de
+  Mercado Libre.
+
 ## [1.3.0] - 2026-08-14
 
 Enlace al Instagram oficial en el footer y en `/contacto/`, medido con un
