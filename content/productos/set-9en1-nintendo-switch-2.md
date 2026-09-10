@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM
 precioReferencial: 21990
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege tu inversión y lleva tu experiencia de juego a cualquier lugar con
   este kit de protección completo 9 en 1, diseñado exclusivamente para la nueva
@@ -100,14 +100,22 @@ faqs:
       juego.
 reviews:
   promedio: 5
-  cantidad: 2
+  cantidad: 4
   distribucion:
-    '5': 2
+    '5': 4
   comentarios:
+    - estrellas: 5
+      titulo: Excelente
+      texto: "Excelente, todo completo \U0001F601."
+      fecha: '2026-08-24'
     - estrellas: 5
       titulo: Excelente
       texto: Excelente calidad.
       fecha: '2026-04-23'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Exelente producto.
+      fecha: '2026-08-03'
 variantes:
   - nombre: Negro
     atributo: Color

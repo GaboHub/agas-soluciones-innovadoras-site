@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3885532976-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-urbano-negro-_JM
 precioReferencial: 12490
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege y personaliza al máximo tu experiencia de juego con este exclusivo kit
   de protección para controles de PlayStation 5.  Fabricado en silicona de alta
@@ -813,6 +813,172 @@ grupos:
           - productos/fundas-silicona-grips-control-ps5/MLC3892091412/03.webp
           - productos/fundas-silicona-grips-control-ps5/MLC3892091412/04.webp
           - productos/fundas-silicona-grips-control-ps5/MLC3892091412/05.webp
+  - diseno: Blanco Skulls
+    colores:
+      - color: Verde
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2177030499-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-verde-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030499/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030499/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030499/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030499/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030499/05.webp
+      - color: Morado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2177030493-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-morado-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030493/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030493/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030493/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030493/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030493/05.webp
+      - color: Blanco
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2176952875-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-blanco-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952875/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952875/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952875/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952875/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952875/05.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2176952881-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-amarillo-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952881/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952881/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952881/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952881/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952881/05.webp
+      - color: Gris
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2177030497-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-gris-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030497/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030497/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030497/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030497/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030497/05.webp
+      - color: Rosado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2177030495-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-rosado-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030495/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030495/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030495/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030495/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2177030495/05.webp
+      - color: Azul
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2176952883-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-azul-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952883/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952883/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952883/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952883/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952883/05.webp
+      - color: Negro
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2176952877-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-negro-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952877/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952877/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952877/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952877/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952877/05.webp
+      - color: Rojo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2176952873-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-blanco-skulls-rojo-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952873/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952873/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952873/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952873/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2176952873/05.webp
+  - diseno: Camo Verde
+    colores:
+      - color: Blanco
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185690113-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-blanco-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690113/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690113/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690113/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690113/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690113/05.webp
+      - color: Verde
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185677663-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-verde-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677663/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677663/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677663/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677663/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677663/05.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185690111-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-amarillo-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690111/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690111/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690111/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690111/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185690111/05.webp
+      - color: Rojo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185626093-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-rojo-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626093/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626093/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626093/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626093/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626093/05.webp
+      - color: Negro
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185677661-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-negro-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677661/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677661/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677661/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677661/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677661/05.webp
+      - color: Azul
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185626095-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-azul-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626095/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626095/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626095/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626095/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626095/05.webp
+      - color: Gris
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185677657-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-gris-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677657/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677657/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677657/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677657/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677657/05.webp
+      - color: Morado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185677659-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-morado-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677659/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677659/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677659/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677659/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185677659/05.webp
+      - color: Rosado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2185626091-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-verde-rosado-_JM
+        imagenes:
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626091/01.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626091/02.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626091/03.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626091/04.webp
+          - productos/fundas-silicona-grips-control-ps5/MLC2185626091/05.webp
 ---
 
 Protege y personaliza al máximo tu experiencia de juego con este exclusivo kit de protección para controles de PlayStation 5. Fabricado en silicona de alta calidad, este set incluye dos fundas con diseños únicos y cuatro grips de color para los joysticks, diseñados para mejorar el agarre y evitar el desgaste diario. Te invitamos a explorar detalladamente las fotografías de la publicación para visualizar cada variedad de funda y ver exactamente cómo luce combinada con los distintos colores de grips antes de hacer tu elección final.

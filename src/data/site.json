@@ -81,8 +81,8 @@
       "slug": "audio",
       "nombre": "Audio",
       "emoji": "🎧",
-      "resumen": "Audífonos con cable USB-C y Bluetooth TWS inalámbricos para tu celular.",
-      "productos": ["audifonos-usb-c-manos-libres", "audifonos-bluetooth-tws"]
+      "resumen": "Audífonos con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular.",
+      "productos": ["audifonos-usb-c-manos-libres", "audifonos-bluetooth-tws", "audifonos-bluetooth-open-ear"]
     }
   ]
 }

@@ -5,14 +5,14 @@ categoria: audio
 tipo: simple
 emoji: "\U0001F3A7"
 permalink: >-
-  https://articulo.mercadolibre.cl/MLC-4160547282-audifonos-manos-libres-tipo-c-para-celular-color-blanco-generica-_JM
+  https://articulo.mercadolibre.cl/MLC-2035097907-audifonos-usb-tipo-c-manos-libres-blanco-_JM
 precioReferencial: 4190
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
-  En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos
-  Premiun y ¡escápate de la rutina por un rato!  Vas a poder disfrutar de la
-  música que más te gusta y de tus podcasts favoritos cuando quieras y donde
-  quieras.
+  Optimiza tus llamadas y disfruta de tu musica favorita con estos audifonos
+  manos libres con conexión USB Tipo C universal.  Diseñados para ofrecer
+  comodidad y un sonido nítido, son la elección perfecta para tus actividades
+  diarias, clases virtuales o reuniones de teletrabajo.
 imagenes:
   - productos/audifonos-usb-c-manos-libres/01.webp
   - productos/audifonos-usb-c-manos-libres/02.webp
@@ -20,319 +20,53 @@ imagenes:
   - productos/audifonos-usb-c-manos-libres/04.webp
   - productos/audifonos-usb-c-manos-libres/05.webp
   - productos/audifonos-usb-c-manos-libres/06.webp
-reviews:
-  promedio: 4.2
-  cantidad: 135
-  distribucion:
-    '1': 12
-    '2': 3
-    '3': 16
-    '4': 13
-    '5': 91
-  comentarios:
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: >-
-        Buena calidad de audífonos, yo trato medianamente mal mis audífonos y
-        estos 0 problemas hasta que los pise sin querer pero funciono 7/10, la
-        valoración 7 es porque no son muy comodos.
-      fecha: '2025-07-31'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Sonido: claro. Materiales: plástico delgado. Son muy buenos para el
-        precio, el cable es un poco delgado por lo que da miedo que se rompa.
-      fecha: '2026-06-29'
-    - estrellas: 5
-      titulo: Excelente
-      texto: No son la gran cosa pero cumplen.
-      fecha: '2026-05-08'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Muy buenos, totalmente recomendados.'
-      fecha: '2026-03-28'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Excelente calidad de sonido, se escucha muy bien. El producto llegó en
-        perfecto estado.
-      fecha: '2026-03-07'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Buen sonido para escuchar música y excelente para uso como manos libres.
-        Produco liviano, se ajusta muy bien los oidos. Lo bueno tambien es que
-        se puede volver a guardar en la cajita para cuando no se estén
-        utilizando. Excelente relación precio calidad. Lo recomiendo 100%.
-      fecha: '2026-06-22'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: Se ven bien.
-      fecha: '2026-07-28'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Súper.
-      fecha: '2026-06-18'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buen producto.
-      fecha: '2026-07-24'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buenísima calidad.
-      fecha: '2026-07-02'
-    - estrellas: 5
-      titulo: Excelente
-      texto: "Excelente, funciona impecable \U0001F64C\U0001F3FC."
-      fecha: '2026-07-01'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Materiales: plasticos. Sonido: excelente sonido 10/10.'
-      fecha: '2026-05-02'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Muy buen sonido.
-      fecha: '2026-03-17'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Se nota que son de buen material.
-      fecha: '2026-03-12'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Tienen buen sonido. Espero que me duren.
-      fecha: '2026-03-11'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Muy buenos audífonos, conforme con la relación precio calidad.'
-      fecha: '2026-02-27'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buen sonido y calidad.
-      fecha: '2026-02-10'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Se escuchan súper bien.
-      fecha: '2026-01-14'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buenísimos y de buena calidad.
-      fecha: '2026-07-22'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: Buen sonido.
-      fecha: '2026-07-20'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Solo se escucha 1:c.'
-      fecha: '2026-07-19'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: Están bien.
-      fecha: '2026-06-22'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Aislamiento: bueno. Sonido: bueno. Recomiendo.'
-      fecha: '2026-06-13'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Muy buenos solo que no eran compatibles con mi equipo pero para menos
-        trámite los regale y sirvieron igual.
-      fecha: '2026-06-08'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buenos precio-calidad.
-      fecha: '2026-06-04'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Bien.
-      fecha: '2026-05-24'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Excelente.
-      fecha: '2026-05-22'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Cumple su función.
-      fecha: '2026-05-20'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Geniales.
-      fecha: '2026-05-19'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Materiales: plastico. Sonido: muy buen audio.'
-      fecha: '2026-05-05'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Bien precio calidad.
-      fecha: '2026-04-26'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buenos.
-      fecha: '2026-04-22'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Aislamiento: bien empaquetado.'
-      fecha: '2026-04-04'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Justo lo que buscaba. Los tengo hace un mes y siguen perfecto.
-      fecha: '2026-03-18'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: Buena calidad al precio.
-      fecha: '2026-03-10'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Súper buenos los audífonos!.
-      fecha: '2026-03-03'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Bbb.
-      fecha: '2026-02-26'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buena calidad.
-      fecha: '2026-02-25'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Aislamiento: media. Comodidad: no hacen daño, no incomodan. Sonido bajo.'
-      fecha: '2026-02-14'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Precio calidad.
-      fecha: '2026-02-13'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Buen sonido , buen producto.'
-      fecha: '2026-02-03'
-    - estrellas: 4
-      titulo: Muy bueno
-      texto: >-
-        Estaban buenos, pero el volumen no era muy alto, aunque tenia todo el
-        volumen del celu, me compré otros y me di cuenta de que eran estos
-        auriculares los del problema, pero me sirvieron un tiempo.
-      fecha: '2026-01-25'
-    - estrellas: 5
-      titulo: Excelente
-      texto: >-
-        Sencillos pero muy buenos a mi en lo personal me encantan este tipo de
-        audífonos.
-      fecha: '2026-01-12'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Buen producto.
-      fecha: '2026-01-10'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Muy bueno.
-      fecha: '2025-12-28'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Perfectos! los tengo de emergencia cuando no tengo los inalámbricos.
-      fecha: '2025-12-25'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Los mejores audifonos para poder llevarlos donde sea.
-      fecha: '2025-12-25'
-    - estrellas: 5
-      titulo: Excelente
-      texto: Suenan bien.
-      fecha: '2025-12-22'
-    - estrellas: 5
-      titulo: Excelente
-      texto: ''
-      fecha: '2025-12-19'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Buen producto, material y sonido acorde al precio.'
-      fecha: '2025-11-19'
-    - estrellas: 5
-      titulo: Excelente
-      texto: 'Son de muy buena calidad, el sonido impecable.'
-      fecha: '2025-03-30'
-    - estrellas: 3
-      titulo: Bueno
-      texto: >-
-        El celular motorola edge no lo reconoce como manos libres, ya que si
-        bien se escucha por los audifonos el microfono no funciona como manos
-        libres.
-      fecha: '2025-01-30'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: >-
-        Malisima calidad. Al primer uso, un pequeñisimo tiron y se rompio! al
-        volver a unirlo ya no sonaba igual.
-      fecha: '2026-05-08'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: 'Aislamiento: no tiene. Sonido: deficiente. Solo funcionaron una semana.'
-      fecha: '2026-08-03'
-    - estrellas: 3
-      titulo: Bueno
-      texto: Cumplen su fin.
-      fecha: '2026-07-29'
-    - estrellas: 3
-      titulo: Bueno
-      texto: 'Aislamiento: bueno. Materiales: regular.'
-      fecha: '2026-07-24'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: Empiezan a fallar al poco de usarlos.
-      fecha: '2026-07-02'
-    - estrellas: 3
-      titulo: Bueno
-      texto: >-
-        Buenos, se escucha bien, peor calidad pampoco al 100 por el precio está
-        bien.
-      fecha: '2026-05-16'
-    - estrellas: 3
-      titulo: Bueno
-      texto: >-
-        Me duró 2 meses ahora funciona 1 auricular. Pero funcionaba y cumplía
-        pero duró muy poco. No se escuchaba óptimo pero cumplía.
-      fecha: '2026-04-08'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: Calidad regular.
-      fecha: '2026-02-28'
-    - estrellas: 2
-      titulo: Malo
-      texto: >-
-        Los audífonos en si son relativamente buenos, pero cuando los conectas y
-        no tienes ningún audio se escucha como una interferencia molestosa,
-        incluso cuando escuchas una música baja igual se escucha esa frecuencia.
-      fecha: '2026-02-26'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: Malísimo uno se escucha el otro no.
-      fecha: '2026-01-20'
-    - estrellas: 3
-      titulo: Bueno
-      texto: Nl don muy cómodos en los oídos a veces se caen.
-      fecha: '2026-01-04'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: 'Malo, no se acopló al telefono.'
-      fecha: '2025-04-25'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: >-
-        Me parece mala calidad compre dos audífonos y uno me salio malo solo se
-        escucha un solo audifono.
-      fecha: '2025-04-18'
-    - estrellas: 3
-      titulo: Bueno
-      texto: Se hecharon a perder a la semans y media.
-      fecha: '2025-04-11'
-    - estrellas: 1
-      titulo: Muy malo
-      texto: No funciona el microfono.
-      fecha: '2025-03-18'
+  - productos/audifonos-usb-c-manos-libres/07.webp
+caracteristicas:
+  - 'Tipo de conexion: Entrada USB Tipo C universal.'
+  - >-
+    Compatibilidad: Dispositivo universal para equipos con puerto Tipo C (No
+    funcionan con teléfonos de la marca Apple iPhone debido a que la entrada es
+    distinta).
+  - >-
+    Micrófono integrado: Captura de voz clara y fluida, ideal para llamadas
+    telefónicas y aplicaciones de comunicación como Zoom.
+  - >-
+    Control de mandos completo: Botones integrados en el cable para contestar o
+    finalizar llamadas, subir o bajar el volumen, y cambiar de canciones
+    fácilmente.
+incluye:
+  - >-
+    un pequeño estuche de regalo que ayuda a guardar los audífonos de forma
+    ordenada cuando no se están usando
+faqs:
+  - pregunta: Son compatibles con cualquier teléfono?
+    respuesta: >-
+      Funcionan de manera universal con la gran mayoría de los dispositivos que
+      cuentan con puerto de entrada USB Tipo C. Es importante señalar que no son
+      compatibles con iPhones de la marca Apple por que la entrada de esos
+      dispositivos es distinta.
+  - pregunta: Puedo controlar las funciones de la musica desde el cable?
+    respuesta: >-
+      Si, los audífonos incorporan botones en el cable que te permiten subir o
+      bajar el volumen, cambiar de canción, y también contestar o terminar
+      llamadas de forma directa sin tocar tu dispositivo.
+  - pregunta: Sirven para usarse en el computador para teletrabajo?
+    respuesta: >-
+      Por supuesto. El micrófono integrado funciona perfectamente en
+      computadores y notebooks que tengan puerto USB Tipo C, permitiendo hablar
+      por teléfono o comunicarte en aplicaciones de reuniones virtuales como
+      Zoom.
+  - pregunta: Que viene incluido en el paquete?
+    respuesta: >-
+      Recibirás los audífonos manos libres con conexión USB Tipo C y un pequeño
+      estuche diseñado especialmente para guardarlos de forma ordenada,
+      protegiéndolos cuando no los estés utilizando.
 ---
 
-En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos Premiun y ¡escápate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.
+Optimiza tus llamadas y disfruta de tu musica favorita con estos audifonos manos libres con conexión USB Tipo C universal. Diseñados para ofrecer comodidad y un sonido nítido, son la elección perfecta para tus actividades diarias, clases virtuales o reuniones de teletrabajo. Su estructura ligera garantiza un ajuste cómodo, mientras que su estuche compacto te permite mantenerlos protegidos y libres de enredos en todo momento.
 
-El formato perfecto para ti
-Al ser in-ear, mejoran la calidad del audio y son de tamaño pequeño para poder insertarse en tu oreja. Son ideales para acompañarte a la hora de hacer ejercicio mientras te sumerges en el mejor sonido envolvente.
+- Tipo de conexion: Entrada USB Tipo C universal.
+- Compatibilidad: Dispositivo universal para equipos con puerto Tipo C (No funcionan con teléfonos de la marca Apple iPhone debido a que la entrada es distinta).
+- Micrófono integrado: Captura de voz clara y fluida, ideal para llamadas telefónicas y aplicaciones de comunicación como Zoom.
+- Control de mandos completo: Botones integrados en el cable para contestar o finalizar llamadas, subir o bajar el volumen, y cambiar de canciones fácilmente.
+- Almacenamiento organizado: Incluye un pequeño estuche de regalo que ayuda a guardar los audífonos de forma ordenada cuando no se están usando, evitando daños.

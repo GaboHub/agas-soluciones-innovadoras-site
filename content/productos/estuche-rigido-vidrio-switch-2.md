@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3384790604-estuche-rigido-para-nintendo-switch-2-lamina-mica-vidrio-negro-_JM
 precioReferencial: 19980
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Este estuche rígido para Nintendo Switch 2 ofrece una protección superior y un
   transporte seguro para tu consola en viajes, uso diario o guardado en casa. 
@@ -69,10 +69,10 @@ faqs:
       pantalla y evitar rayaduras, a diferencia de cremalleras metálicas.
 reviews:
   promedio: 4.7
-  cantidad: 6
+  cantidad: 7
   distribucion:
     '3': 1
-    '5': 5
+    '5': 6
   comentarios:
     - estrellas: 5
       titulo: Excelente

@@ -1,12 +1,20 @@
 {
   "mercadolibre": {
     "nivel": "5_green",
-    "transacciones": 279,
+    "transacciones": 375,
     "url": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
   },
-  "promedioGeneral": 4.78,
-  "totalReviews": 26,
+  "promedioGeneral": 4.81,
+  "totalReviews": 32,
   "destacadas": [
+    {
+      "productoSlug": "kit-funda-acrilica-grips-control-ps5",
+      "productoTitulo": "Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Perfecto cumple con su función incluye una paleta para poder desprender la carcasa protectora y se siente de muy buena calidad me gusto la comodidad que le da al mando y por el precio me parece espectacular.",
+      "fecha": "2026-09-03"
+    },
     {
       "productoSlug": "kit-estuche-vidrio-nintendo-switch",
       "productoTitulo": "Kit Estuche Goma Rígido + Vidrio Switch 1 Rojo",
@@ -40,20 +48,12 @@
       "fecha": "2026-06-05"
     },
     {
-      "productoSlug": "kit-funda-acrilica-grips-control-ps5",
-      "productoTitulo": "Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente",
-      "estrellas": 5,
-      "titulo": "Excelente",
-      "texto": "El producto cumple con su descripción, buen material y cómodo.",
-      "fecha": "2026-06-09"
-    },
-    {
       "productoSlug": "set-9en1-nintendo-switch-2",
       "productoTitulo": "Set Switch 2 Estuche Mica Fundas Grips Carcasa (9 en 1)",
       "estrellas": 5,
       "titulo": "Excelente",
-      "texto": "Excelente calidad.",
-      "fecha": "2026-04-23"
+      "texto": "Excelente, todo completo 😁.",
+      "fecha": "2026-08-24"
     }
   ]
 }

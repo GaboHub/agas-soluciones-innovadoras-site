@@ -2,13 +2,17 @@ import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
 
 test.describe('familia de fundas PS5', () => {
-  test('agrupa por diseño y muestra selectores de diseño y color', async ({ page }) => {
+  test('agrupa por diseño (select, por ser más de 10) y muestra selector de color', async ({ page }) => {
     await page.goto('/productos/fundas-silicona-grips-control-ps5/');
     await esperarHidratacion(page);
-    await expect(page.getByText('Diseño:', { exact: false })).toBeVisible();
+    const selectDiseno = page.getByLabel(/^Diseño:/);
+    await expect(selectDiseno).toBeVisible();
+    const nombresDiseno = await selectDiseno.locator('option').allTextContents();
+    expect(nombresDiseno.length).toBeGreaterThan(10);
+
     await expect(page.getByText('Color:', { exact: false })).toBeVisible();
-    const botonesDiseno = page.getByRole('button', { name: /Camo/ });
-    expect(await botonesDiseno.count()).toBeGreaterThanOrEqual(2);
+    const botonesColor = page.getByRole('button', { name: /Rojo|Azul|Verde|Amarillo|Blanco|Gris|Morado|Negro|Rosado/ });
+    expect(await botonesColor.count()).toBeGreaterThanOrEqual(2);
   });
 
   test('el link de Mercado Libre cambia según el color elegido', async ({ page }) => {
@@ -29,9 +33,9 @@ test.describe('familia de fundas PS5', () => {
     const cta = page.locator('[data-cta="ver-en-mercado-libre"]');
     const hrefInicial = await cta.getAttribute('href');
 
-    const botonDiseno = page.getByRole('button', { name: 'Camo Blanco', exact: true });
-    await botonDiseno.click();
-    await expect(botonDiseno).toHaveAttribute('aria-pressed', 'true');
+    const selectDiseno = page.getByLabel(/^Diseño:/);
+    await selectDiseno.selectOption({ label: 'Camo Blanco' });
+    await expect(page.getByText('Diseño:', { exact: false })).toContainText('Camo Blanco');
 
     await expect(cta).not.toHaveAttribute('href', hrefInicial ?? '');
     await expect(cta).toHaveAttribute('href', /^https:\/\/articulo\.mercadolibre\.cl\/MLC-/);

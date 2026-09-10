@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1880083137-pack-x3-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM
 precioReferencial: 16990
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege la pantalla de tu nueva consola con nuestro pack de 3 láminas
   protectoras de vidrio templado premium, diseñadas exclusivamente para la
@@ -20,6 +20,7 @@ imagenes:
   - productos/pack-3-laminas-vidrio-switch-2/03.webp
   - productos/pack-3-laminas-vidrio-switch-2/04.webp
   - productos/pack-3-laminas-vidrio-switch-2/05.webp
+  - productos/pack-3-laminas-vidrio-switch-2/06.webp
 caracteristicas:
   - >-
     Compatibilidad exclusiva: Diseñadas a medida únicamente para la consola
@@ -63,11 +64,94 @@ faqs:
       tener algún inconveniente con el transporte, contáctanos directamente por
       la mensajería de la compra y lo solucionaremos de inmediato.
 reviews:
-  promedio: 5
-  cantidad: 1
+  promedio: 4.9
+  cantidad: 26
   distribucion:
-    '5': 1
-  comentarios: []
+    '4': 2
+    '5': 24
+  comentarios:
+    - estrellas: 5
+      titulo: Excelente
+      texto: Cumple.
+      fecha: '2024-03-01'
+    - estrellas: 5
+      titulo: Excelente
+      texto: 'Buena calidad, encaja perfecto. Cumple su funcion.'
+      fecha: '2023-09-20'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Muy buen producto.
+      fecha: '2023-01-03'
+    - estrellas: 5
+      titulo: Excelente
+      texto: 'Excelente producto, cumplio con lo esperado y fácil de instalar.'
+      fecha: '2023-01-03'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Excelente producto.
+      fecha: '2023-01-03'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Excelente relación precio calidad!.
+      fecha: '2023-01-03'
+    - estrellas: 5
+      titulo: Excelente
+      texto: >-
+        Bien, no tengo mucho mas que decir, es una lamina de vidrio para
+        proteger una pantalla.
+      fecha: '2022-12-31'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Excelente viene todo para hacerlo uno mismo y de buena calidad.
+      fecha: '2022-12-29'
+    - estrellas: 5
+      titulo: Calidad
+      texto: 'Buen producto, excelente estado.'
+      fecha: '2022-12-23'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Protege a la perfección la pantalla de mi consola.
+      fecha: '2022-12-20'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Excelente producto.
+      fecha: '2022-12-15'
+    - estrellas: 5
+      titulo: Excelente
+      texto: >-
+        Excelente láminas de cristal templado para mí nintendo switch, mejor
+        relación calidad precio 100% recomendable.
+      fecha: '2022-11-30'
+    - estrellas: 5
+      titulo: Excelente
+      texto: >-
+        Excelente producto, bien empaquetado y fácil de instalar se agradece que
+        vengan en packs de 3.
+      fecha: '2022-11-18'
+    - estrellas: 5
+      titulo: baratas y buenas
+      texto: >-
+        Buenas baratas, faciles de aplicar y no distorsionan los colores u
+        imagenes de la consola, me encantaron.
+      fecha: '2022-11-03'
+    - estrellas: 5
+      titulo: Bue. Producto
+      texto: 'Todo bien, buen producto, cumple con lo que indica.'
+      fecha: '2022-10-18'
+    - estrellas: 5
+      titulo: Excelente
+      texto: 'Muy bueno,acorde con la foto, venía todo bien empaquetado.'
+      fecha: '2022-10-09'
+    - estrellas: 5
+      titulo: Muy buen producto
+      texto: 'Buen producto para mi consola, recomiendo el producto.'
+      fecha: '2022-10-09'
+    - estrellas: 5
+      titulo: Muy buena
+      texto: >-
+        Super bien producto, muy útil y necesario. Es bueno q vengan 3 xq
+        lprimera ya se partió (como es de vidrio es sensible a la presión ).
+      fecha: '2022-09-24'
 ---
 
 Protege la pantalla de tu nueva consola con nuestro pack de 3 láminas protectoras de vidrio templado premium, diseñadas exclusivamente para la Nintendo Switch 2. Estas micas cuentan con un recubrimiento oleofóbico que resiste las manchas de huellas dactilares y protege eficazmente contra rayones, manteniendo la claridad visual intacta. Como cada lámina incluye su propio empaque individual y kit de instalación, es la opción ideal para guardar de repuesto o para regalar a otros jugadores que buscan la máxima protección.

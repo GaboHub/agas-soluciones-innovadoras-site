@@ -83,16 +83,20 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('hay exactamente 23 productos, sin duplicados', () => {
-    expect(slugsDeContenido.length).toBe(23);
-    expect(new Set(slugsDeContenido).size).toBe(23);
-    expect(slugsDeclarados.length).toBe(23);
-    expect(new Set(slugsDeclarados).size).toBe(23);
+  it('hay exactamente 24 productos, sin duplicados', () => {
+    expect(slugsDeContenido.length).toBe(24);
+    expect(new Set(slugsDeContenido).size).toBe(24);
+    expect(slugsDeclarados.length).toBe(24);
+    expect(new Set(slugsDeclarados).size).toBe(24);
   });
 
-  it('la categoría audio tiene exactamente 2 productos y no incluye el duplicado colapsado', () => {
+  it('la categoría audio tiene exactamente 3 productos y no incluye el duplicado colapsado', () => {
     const audio = site.categorias.find((categoria: { slug: string }) => categoria.slug === 'audio');
-    expect(audio.productos).toEqual(['audifonos-usb-c-manos-libres', 'audifonos-bluetooth-tws']);
+    expect(audio.productos).toEqual([
+      'audifonos-usb-c-manos-libres',
+      'audifonos-bluetooth-tws',
+      'audifonos-bluetooth-open-ear',
+    ]);
     expect(slugsDeContenido).not.toContain('audifonos-usb-c-blanco');
   });
 
@@ -105,18 +109,18 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('catalogo.json tiene los mismos 23 productos', () => {
-    expect(catalogo.productos.length).toBe(23);
+  it('catalogo.json tiene los mismos 24 productos', () => {
+    expect(catalogo.productos.length).toBe(24);
     const slugsCatalogo = catalogo.productos.map((producto: { slug: string }) => producto.slug);
     expect(new Set(slugsCatalogo)).toEqual(new Set(slugsDeContenido));
   });
 
-  it('llms.txt lista los mismos 23 productos y no el duplicado colapsado', () => {
+  it('llms.txt lista los mismos 24 productos y no el duplicado colapsado', () => {
     const llms = readFileSync(llmsTxtPath, 'utf-8');
     const lineasCatalogo = llms
       .split('\n')
       .filter((linea) => linea.startsWith('- ') && linea.includes(' — ML: '));
-    expect(lineasCatalogo.length).toBe(23);
+    expect(lineasCatalogo.length).toBe(24);
     expect(llms).not.toContain('audifonos-usb-c-blanco');
   });
 
@@ -235,5 +239,54 @@ describe('deep-links de variantes', () => {
       expect(variante.link.startsWith(data.permalink)).toBe(true);
       expect(variante.link).toMatch(/\?variation=\d+$/);
     }
+  });
+});
+
+describe('barrido agas-context.nuevo: filtro de estado y familias remapeadas', () => {
+  it('audifonos-usb-c-manos-libres apunta a la publicación activa MLC-2035097907, no a la cerrada', () => {
+    const producto = productos.find(({ data }) => data.slug === 'audifonos-usb-c-manos-libres');
+    expect(producto).toBeDefined();
+    expect(producto?.data.permalink).toContain('MLC-2035097907');
+    expect(producto?.data.reviews).toBeUndefined();
+  });
+
+  it('kit-funda-acrilica-grips-control-ps5 es familia con 2 miembros Transparente/Negro y reviews agregadas', () => {
+    const producto = productos.find(({ data }) => data.slug === 'kit-funda-acrilica-grips-control-ps5');
+    expect(producto).toBeDefined();
+    expect(producto?.data.tipo).toBe('familia');
+    expect(producto?.data.miembros).toHaveLength(2);
+    expect(producto?.data.miembros.map((miembro: { atributos: { color: string } }) => miembro.atributos.color)).toEqual([
+      'Transparente',
+      'Negro',
+    ]);
+    expect(producto?.data.reviews).toBeDefined();
+    expect(producto?.data.reviews.cantidad).toBe(2);
+    expect(producto?.data.reviews.promedio).toBe(5);
+    const comentarios = producto?.data.reviews.comentarios as Array<{ fecha: string; texto: string }>;
+    expect(new Set(comentarios.map((c) => c.fecha + c.texto)).size).toBe(comentarios.length);
+  });
+
+  it('kit-estuche-funda-acrilica-control-ps5 es familia con 2 miembros Transparente/Negro semitransparente, sin reviews en ninguno de los dos', () => {
+    const producto = productos.find(({ data }) => data.slug === 'kit-estuche-funda-acrilica-control-ps5');
+    expect(producto).toBeDefined();
+    expect(producto?.data.tipo).toBe('familia');
+    expect(producto?.data.miembros).toHaveLength(2);
+    expect(producto?.data.miembros.map((miembro: { atributos: { color: string } }) => miembro.atributos.color)).toEqual([
+      'Transparente',
+      'Negro semitransparente',
+    ]);
+    expect(producto?.data.reviews).toBeUndefined();
+  });
+
+  it('audifonos-bluetooth-open-ear es familia con 3 miembros Negro/Violeta/Amarillo', () => {
+    const producto = productos.find(({ data }) => data.slug === 'audifonos-bluetooth-open-ear');
+    expect(producto).toBeDefined();
+    expect(producto?.data.tipo).toBe('familia');
+    expect(producto?.data.miembros).toHaveLength(3);
+    expect(producto?.data.miembros.map((miembro: { atributos: { color: string } }) => miembro.atributos.color)).toEqual([
+      'Negro',
+      'Violeta',
+      'Amarillo',
+    ]);
   });
 });

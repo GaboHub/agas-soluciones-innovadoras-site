@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM
 precioReferencial: 39990
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege tu inversión al máximo con este Kit 5 en 1 diseñado específicamente
   para la nueva Nintendo Switch 2.  Este set integral ofrece una solución
@@ -15,13 +15,6 @@ resumen: >-
   fundas para los controles y un Grip Case de TPU que permite cargar la consola
   en el dock sin necesidad de retirarlo.
 imagenes:
-  - productos/kit-5en1-nintendo-switch-2/negro/01.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/02.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/03.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/04.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/05.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/06.webp
-  - productos/kit-5en1-nintendo-switch-2/negro/07.webp
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/01.webp
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/02.webp
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/03.webp
@@ -29,6 +22,13 @@ imagenes:
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/05.webp
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/06.webp
   - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/07.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/01.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/02.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/03.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/04.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/05.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/06.webp
+  - productos/kit-5en1-nintendo-switch-2/negro/07.webp
 caracteristicas:
   - Kit de protección total 5 en 1 exclusivo para Nintendo Switch 2.
   - >-
@@ -100,18 +100,6 @@ reviews:
         trabajo remoto cumple bien.
       fecha: '2026-03-05'
 variantes:
-  - nombre: Negro
-    atributo: Color
-    link: >-
-      https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM?variation=188922595432
-    imagenes:
-      - productos/kit-5en1-nintendo-switch-2/negro/01.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/02.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/03.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/04.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/05.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/06.webp
-      - productos/kit-5en1-nintendo-switch-2/negro/07.webp
   - nombre: Azul y Rojo
     atributo: Color
     link: >-
@@ -124,6 +112,18 @@ variantes:
       - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/05.webp
       - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/06.webp
       - productos/kit-5en1-nintendo-switch-2/azul-y-rojo/07.webp
+  - nombre: Negro
+    atributo: Color
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM?variation=188922595432
+    imagenes:
+      - productos/kit-5en1-nintendo-switch-2/negro/01.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/02.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/03.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/04.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/05.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/06.webp
+      - productos/kit-5en1-nintendo-switch-2/negro/07.webp
 ---
 
 Protege tu inversión al máximo con este Kit 5 en 1 diseñado específicamente para la nueva Nintendo Switch 2. Este set integral ofrece una solución completa de seguridad y ergonomía, combinando un vidrio templado de dureza 9H, fundas para los controles y un Grip Case de TPU que permite cargar la consola en el dock sin necesidad de retirarlo. Su principal ventaja es el diseño inteligente del estuche de transporte, fabricado en EVA rígido con las dimensiones exactas para guardar la consola con el Grip Case instalado, garantizando protección contra golpes y caídas sin sacrificar la comodidad de uso.

@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
 
 test.describe('buscador del catálogo', () => {
-  test('muestra los 23 productos sin búsqueda', async ({ page }) => {
+  test('muestra los 24 productos sin búsqueda', async ({ page }) => {
     await page.goto('/productos/');
     await esperarHidratacion(page);
-    await expect(page.locator('main li a[href^="/productos/"]')).toHaveCount(23);
+    await expect(page.locator('main li a[href^="/productos/"]')).toHaveCount(24);
   });
 
   test('buscar "oled" filtra solo los productos OLED', async ({ page }) => {
@@ -15,7 +15,7 @@ test.describe('buscador del catálogo', () => {
     const tarjetas = page.locator('main li a[href^="/productos/"]');
     await expect
       .poll(async () => tarjetas.count())
-      .toBeLessThan(23);
+      .toBeLessThan(24);
     const cantidad = await tarjetas.count();
     expect(cantidad).toBeGreaterThanOrEqual(1);
     for (let indice = 0; indice < cantidad; indice += 1) {
@@ -49,6 +49,6 @@ test.describe('buscador del catálogo', () => {
     await page.getByPlaceholder(/Busca por producto/).fill('zzz-no-existe');
     await expect(page.getByText('No encontramos productos para tu búsqueda')).toBeVisible();
     await page.getByRole('button', { name: 'Ver catálogo completo' }).click();
-    await expect(page.locator('main li a[href^="/productos/"]')).toHaveCount(23);
+    await expect(page.locator('main li a[href^="/productos/"]')).toHaveCount(24);
   });
 });

@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM
 precioReferencial: 8590
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Renueva y blinda tu mando DualSense con nuestro Kit de Protección y
   Personalización diseñado exclusivamente para PlayStation 5.  Este set completo
@@ -759,12 +759,12 @@ imagenes:
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/04.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/05.webp
   - productos/kit-funda-silicona-grips-control-ps5/blanco-green/06.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/01.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/02.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/03.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/04.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/05.webp
-  - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/06.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/01.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/02.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/03.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/04.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/05.webp
+  - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/06.webp
 caracteristicas:
   - >-
     Compatibilidad exclusiva: Diseñada milimétricamente para encajar únicamente
@@ -814,9 +814,9 @@ faqs:
       grips); el control no está incluido.
 reviews:
   promedio: 5
-  cantidad: 7
+  cantidad: 8
   distribucion:
-    '5': 7
+    '5': 8
   comentarios:
     - estrellas: 5
       titulo: Excelente
@@ -838,6 +838,10 @@ reviews:
         La funda queda perfecta con el control de ps5. Los grips me ayudaron a
         evitar que se despegara el grip original del control.
       fecha: '2026-05-11'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Bueno.
+      fecha: '2026-09-08'
     - estrellas: 5
       titulo: Excelente
       texto: Perfecto para cuidar los mandos 100% recomendados.
@@ -2184,17 +2188,17 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/blanco-green/06.webp
-  - nombre: Azul / Blanco
+  - nombre: Blanco / Azul
     atributo: Color / Nombre del diseño
     link: >-
-      https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=204483007031
+      https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=205959874029
     imagenes:
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/01.webp
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/02.webp
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/03.webp
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/04.webp
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/05.webp
-      - productos/kit-funda-silicona-grips-control-ps5/azul-blanco/06.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/01.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/02.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/03.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/04.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/05.webp
+      - productos/kit-funda-silicona-grips-control-ps5/blanco-azul/06.webp
 ---
 
 Renueva y blinda tu mando DualSense con nuestro Kit de Protección y Personalización diseñado exclusivamente para PlayStation 5. Este set completo no solo cambia la estética de tu control al instante, sino que está fabricado en silicona de alta calidad que absorbe impactos, previene rayones y protege contra el polvo y el sudor de las manos. Al mejorar la ergonomía y el agarre, podrás disfrutar de largas sesiones de juego con mayor comodidad y precisión, evitando que el control se resbale en los momentos más intensos de la partida.

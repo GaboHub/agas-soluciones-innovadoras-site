@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3543433272-pack-x2-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM
 precioReferencial: 11980
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Asegura el doble de protección para tu consola con nuestro Pack de 2 Láminas
   de Vidrio Templado Premium, diseñadas específicamente con corte láser 1:1 para
@@ -20,6 +20,7 @@ imagenes:
   - productos/pack-2-laminas-vidrio-switch-2/03.webp
   - productos/pack-2-laminas-vidrio-switch-2/04.webp
   - productos/pack-2-laminas-vidrio-switch-2/05.webp
+  - productos/pack-2-laminas-vidrio-switch-2/06.webp
 caracteristicas:
   - >-
     Pack de Respaldo Inteligente (2 Unidades): No te quedes desprotegido ni un

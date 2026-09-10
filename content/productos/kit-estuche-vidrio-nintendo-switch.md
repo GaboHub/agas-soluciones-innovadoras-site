@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1794079105-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-1-rojo-_JM
 precioReferencial: 14990
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege tu consola con estilo y seguridad máxima gracias a este estuche rígido
   temático inspirado en personajes icónicos de los videojuegos.  Fabricado en
@@ -82,9 +82,9 @@ faqs:
       una funda de tela simple.
 reviews:
   promedio: 5
-  cantidad: 3
+  cantidad: 4
   distribucion:
-    '5': 3
+    '5': 4
   comentarios:
     - estrellas: 5
       titulo: Excelente
@@ -92,6 +92,10 @@ reviews:
         Excelente tamaño, cae perfecta la consola, es rígido esto quiere decir
         que en su traslado sera más seguro en caso que se les caiga.
       fecha: '2026-03-07'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Maravilloso.
+      fecha: '2026-08-31'
     - estrellas: 5
       titulo: Excelente
       texto: Excelente producto.

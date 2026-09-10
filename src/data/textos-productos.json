@@ -17,7 +17,7 @@
   },
   "pack-2-laminas-vidrio-switch-oled": {
     "descripcion": "El favorito de nuestros clientes: dos láminas de vidrio templado para la pantalla de 7 pulgadas de la Switch OLED, cada una sellada en su caja con kit de limpieza independiente. Instalas una sin burbujas gracias a los stickers guía y dejas la otra de respaldo. Dureza 9H, capa antihuellas y alta transparencia que no altera los colores del panel OLED.",
-    "metaDescription": "Pack 2 láminas de vidrio templado Switch OLED, 4.8★ en Mercado Libre. Repuesto sellado, kit de instalación y despacho el mismo día."
+    "metaDescription": "Pack 2 láminas de vidrio templado Switch OLED, 4.9★ en Mercado Libre. Repuesto sellado, kit de instalación y despacho el mismo día."
   },
   "kit-estuche-vidrio-switch-oled": {
     "descripcion": "Estuche rígido de EVA con diseño temático retro, moldeado a las medidas exactas de la Nintendo Switch OLED, con solapa de velcro y cremalleras a color. Además del estuche recibes una lámina de vidrio templado con kit de limpieza e instalación, para que la pantalla de 7 pulgadas viaje protegida por dentro y por fuera. Disponible en rojo y verde.",
@@ -76,19 +76,23 @@
     "metaDescription": "Estuche rígido anti golpes para control PS5 con moldeado 3D exacto del DualSense. Compra con despacho el mismo día."
   },
   "kit-estuche-funda-acrilica-control-ps5": {
-    "descripcion": "Protección de punta a punta para tu DualSense: estuche rígido para transportarlo, carcasa de acrílico transparente que lo blinda sin tapar su diseño y cuatro grips de silicona para los análogos. El acrílico está fabricado con las medidas exactas del control de PS5, por lo que no calza en mandos de PS4 ni PS3.",
+    "descripcion": "Protección de punta a punta para tu DualSense: estuche rígido para transportarlo, carcasa de acrílico transparente que lo blinda sin tapar su diseño y cuatro grips de silicona para los análogos. El acrílico está fabricado con las medidas exactas del control de PS5, por lo que no calza en mandos de PS4 ni PS3. Carcasa disponible en transparente o negro semitransparente.",
     "metaDescription": "Kit para control PS5: estuche rígido + carcasa acrílica transparente + 4 grips. Protección completa con despacho el mismo día."
   },
   "kit-funda-acrilica-grips-control-ps5": {
-    "descripcion": "Carcasa de acrílico transparente de alta resistencia que protege tu DualSense de golpes y suciedad dejando su diseño original a la vista, más cuatro grips de silicona que suman agarre y precisión. Encaja milimétricamente en el control de PS5 —no es compatible con PS4 ni PS3— y se instala sin herramientas.",
-    "metaDescription": "Funda acrílica transparente + 4 grips para control PS5: protege sin ocultar el diseño. Despacho el mismo día vía Mercado Envíos."
+    "descripcion": "Carcasa de acrílico transparente de alta resistencia que protege tu DualSense de golpes y suciedad dejando su diseño original a la vista, más cuatro grips de silicona que suman agarre y precisión. Encaja milimétricamente en el control de PS5 —no es compatible con PS4 ni PS3— y se instala sin herramientas. Disponible con carcasa transparente o negra.",
+    "metaDescription": "Funda acrílica transparente o negra + 4 grips para control PS5: protege sin ocultar el diseño. Despacho el mismo día vía Mercado Envíos."
   },
   "audifonos-usb-c-manos-libres": {
-    "descripcion": "Audífonos in-ear con conexión USB tipo C directa, listos para música, podcasts y llamadas en cualquier equipo con puerto tipo C. Livianos, cómodos y con más de 130 valoraciones de compradores en Mercado Libre, son el manos libres simple y confiable para el día a día.",
-    "metaDescription": "Audífonos manos libres USB tipo C para celular, 4.2★ con más de 130 reseñas en Mercado Libre. Despacho el mismo día a todo Chile."
+    "descripcion": "Audífonos in-ear con conexión USB tipo C directa, listos para música, podcasts y llamadas en cualquier equipo con puerto tipo C. Livianos, cómodos y con micrófono integrado, son el manos libres simple y confiable para el día a día.",
+    "metaDescription": "Audífonos manos libres USB tipo C para celular, livianos y con micrófono integrado. Despacho el mismo día a todo Chile por Mercado Libre."
   },
   "audifonos-bluetooth-tws": {
     "descripcion": "Audífonos in-ear Bluetooth TWS Ultrapods Pro con cancelación de sonido y resistencia al agua IPX4 frente a sudor y salpicaduras. Cada audífono funciona de forma independiente y se cargan en su estuche portátil con cable USB-C incluido. Disponibles en azul, negro, rosa y blanco.",
     "metaDescription": "Audífonos Bluetooth TWS Ultrapods Pro in-ear, IPX4 y cancelación de sonido, con estuche de carga USB-C. En azul, negro, rosa y blanco."
+  },
+  "audifonos-bluetooth-open-ear": {
+    "descripcion": "Audífonos Bluetooth 5.4 open ear tipo clip-on que se sujetan al borde de la oreja sin entrar en el canal auditivo: escuchas tu música y sigues atento a tu entorno. Entre 3 y 4 horas de reproducción por carga y hasta 9 horas con el estuche de carga USB-C, micrófono para llamadas y WhatsApp, y compatibilidad con Android, iOS y Windows. Disponibles en negro, violeta y amarillo.",
+    "metaDescription": "Audífonos Bluetooth open ear clip-on con estuche de carga USB-C y micrófono. En negro, violeta y amarillo, con despacho el mismo día por Mercado Libre."
   }
 }

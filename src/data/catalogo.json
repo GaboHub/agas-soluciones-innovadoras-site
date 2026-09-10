@@ -1,5 +1,5 @@
 {
-  "generadoEl": "2026-08-14T16:56:30.573Z",
+  "generadoEl": "2026-09-10T04:02:52.265Z",
   "empresa": {
     "nickname": "AGAS_SOLUCIONES_INNOVADORAS",
     "sellerId": "3016787556",
@@ -7,8 +7,8 @@
     "paginaOficialUrl": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras",
     "reputacion": {
       "nivel": "5_green",
-      "transacciones": 279,
-      "completadas": 274
+      "transacciones": 375,
+      "completadas": 365
     }
   },
   "categorias": [
@@ -28,7 +28,7 @@
       "slug": "audio",
       "nombre": "Audio",
       "emoji": "🎧",
-      "resumen": "Audífonos con cable USB-C y Bluetooth TWS inalámbricos para tu celular."
+      "resumen": "Audífonos con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular."
     }
   ],
   "productos": [
@@ -40,11 +40,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3560689528-lamina-protectora-vidrio-templado-nintendo-switch-1-_JM",
       "precioReferencial": 4490,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege la pantalla de tu consola con nuestra lámina de vidrio templado Premium, diseñada específicamente con corte láser 1:1 para la Nintendo Switch 1.  Este protector ofrece una barrera de seguridad indispensable contra golpes, caídas accidentales y el desgaste diario, gracias a su fabricación con vidrio de alta tensión y dureza 9H.",
       "reviews": {
-        "promedio": 5,
-        "cantidad": 3
+        "promedio": 4.9,
+        "cantidad": 9
       },
       "atributosBusqueda": [],
       "imagen": "productos/lamina-vidrio-nintendo-switch/01.webp"
@@ -57,7 +57,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3556230302-pack-2-lamina-vidrio-templado-para-nintendo-switch-1-_JM",
       "precioReferencial": 8980,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Asegura el doble de protección para tu consola con nuestro Pack de 2 Láminas de Vidrio Templado Premium, diseñadas específicamente con corte láser 1:1 para la nueva Nintendo Switch.  Este set es la inversión inteligente para el gamer precavido: obtienes una barrera de seguridad indispensable contra golpes y caídas, y la tranquilidad absoluta de tener un repuesto siempre a mano.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -71,11 +71,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1794079105-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-1-rojo-_JM",
       "precioReferencial": 14990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu consola con estilo y seguridad máxima gracias a este estuche rígido temático inspirado en personajes icónicos de los videojuegos.  Fabricado en material EVA resistente a impactos, este accesorio combina una estética clásica con una funcionalidad moderna, incluyendo una solapa frontal con velcro y cremalleras a color.",
       "reviews": {
         "promedio": 5,
-        "cantidad": 3
+        "cantidad": 4
       },
       "atributosBusqueda": [],
       "imagen": "productos/kit-estuche-vidrio-nintendo-switch/01.webp"
@@ -88,7 +88,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3571625690-lamina-protectora-vidrio-templado-para-nintendo-switch-oled-_JM",
       "precioReferencial": 5250,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege la pantalla de tu consola con nuestra lámina de vidrio templado Premium, diseñada específicamente con corte láser 1:1 para la Nintendo Switch OLED.  Este protector ofrece una barrera de seguridad indispensable contra golpes, caídas accidentales y el desgaste diario, gracias a su fabricación con vidrio de alta tensión y dureza 9H.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -102,11 +102,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3572542490-pack-2-lamina-vidrio-templado-para-nintendo-switch-oled-_JM",
       "precioReferencial": 10500,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Asegura el doble de protección para tu consola con nuestro Pack de 2 Láminas de Vidrio Templado Premium, diseñadas específicamente con corte láser 1:1 para la Nintendo Switch OLED.  Este set es la inversión inteligente para el gamer precavido: obtienes una barrera de seguridad indispensable contra golpes y caídas, y la tranquilidad absoluta de tener un repuesto siempre a mano.",
       "reviews": {
-        "promedio": 4.8,
-        "cantidad": 17
+        "promedio": 4.9,
+        "cantidad": 20
       },
       "atributosBusqueda": [],
       "imagen": "productos/pack-2-laminas-vidrio-switch-oled/01.webp"
@@ -119,7 +119,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1794002211-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-oled-_JM",
       "precioReferencial": 15990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu consola modelo OLED con estilo y seguridad máxima gracias a este estuche rígido temático inspirado en personajes icónicos de los videojuegos.  Fabricado en material EVA resistente a impactos, este accesorio combina una estética clásica con una funcionalidad moderna, incluyendo una solapa frontal con velcro y cremalleras a color.",
       "reviews": null,
       "atributosBusqueda": [
@@ -136,7 +136,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3535869068-lamina-protectora-vidrio-templado-para-nintendo-switch-2-_JM",
       "precioReferencial": 5990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege la pantalla de tu nueva consola con nuestra lámina de vidrio templado Premium, diseñada específicamente con corte láser 1:1 para la Nintendo Switch 2.  Este protector ofrece una barrera de seguridad indispensable contra golpes, caídas accidentales y el desgaste diario, gracias a su fabricación con vidrio de alta tensión y dureza 9H.",
       "reviews": {
         "promedio": 5,
@@ -153,7 +153,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3543433272-pack-x2-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM",
       "precioReferencial": 11980,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Asegura el doble de protección para tu consola con nuestro Pack de 2 Láminas de Vidrio Templado Premium, diseñadas específicamente con corte láser 1:1 para la nueva Nintendo Switch 2.  Este set es la inversión inteligente para el gamer precavido: obtienes una barrera de seguridad indispensable contra golpes y caídas, y la tranquilidad absoluta de tener un repuesto siempre a mano.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -167,11 +167,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1880083137-pack-x3-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM",
       "precioReferencial": 16990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege la pantalla de tu nueva consola con nuestro pack de 3 láminas protectoras de vidrio templado premium, diseñadas exclusivamente para la Nintendo Switch 2.  Estas micas cuentan con un recubrimiento oleofóbico que resiste las manchas de huellas dactilares y protege eficazmente contra rayones, manteniendo la claridad visual intacta.",
       "reviews": {
-        "promedio": 5,
-        "cantidad": 1
+        "promedio": 4.9,
+        "cantidad": 26
       },
       "atributosBusqueda": [],
       "imagen": "productos/pack-3-laminas-vidrio-switch-2/01.webp"
@@ -184,11 +184,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM",
       "precioReferencial": 21990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu inversión y lleva tu experiencia de juego a cualquier lugar con este kit de protección completo 9 en 1, diseñado exclusivamente para la nueva Nintendo Switch 2.  Este combo ofrece una solución integral de seguridad gracias a su estuche de transporte fabricado en poliéster trenzado de alta calidad, que brinda una resistencia superior contra caídas, aplastamiento y salpicaduras de líquidos.",
       "reviews": {
         "promedio": 5,
-        "cantidad": 2
+        "cantidad": 4
       },
       "atributosBusqueda": [
         "Negro",
@@ -206,11 +206,11 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3384790604-estuche-rigido-para-nintendo-switch-2-lamina-mica-vidrio-negro-_JM",
       "precioReferencial": 19980,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Este estuche rígido para Nintendo Switch 2 ofrece una protección superior y un transporte seguro para tu consola en viajes, uso diario o guardado en casa.  Su carcasa de EVA de alta resistencia y su interior suave protegen contra caídas, golpes y rayones, mientras que su amplio espacio interno permite llevar la consola, juegos y accesorios de forma ordenada.",
       "reviews": {
         "promedio": 4.7,
-        "cantidad": 6
+        "cantidad": 7
       },
       "atributosBusqueda": [],
       "imagen": "productos/estuche-rigido-vidrio-switch-2/01.webp"
@@ -223,17 +223,17 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM",
       "precioReferencial": 39990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu inversión al máximo con este Kit 5 en 1 diseñado específicamente para la nueva Nintendo Switch 2.  Este set integral ofrece una solución completa de seguridad y ergonomía, combinando un vidrio templado de dureza 9H, fundas para los controles y un Grip Case de TPU que permite cargar la consola en el dock sin necesidad de retirarlo.",
       "reviews": {
         "promedio": 4,
         "cantidad": 4
       },
       "atributosBusqueda": [
-        "Negro",
-        "Azul y Rojo"
+        "Azul y Rojo",
+        "Negro"
       ],
-      "imagen": "productos/kit-5en1-nintendo-switch-2/negro/01.webp"
+      "imagen": "productos/kit-5en1-nintendo-switch-2/azul-y-rojo/01.webp"
     },
     {
       "slug": "estuche-goma-rigido-switch-2",
@@ -243,7 +243,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1801369167-estuche-goma-negro-rigido-para-nintendo-switch-2-negro-_JM",
       "precioReferencial": 14590,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Este estuche rígido para Nintendo Switch 2 ofrece una protección superior y un transporte seguro para tu consola en viajes, uso diario o guardado en casa.  Su carcasa de EVA de alta resistencia y su interior suave protegen contra caídas, golpes y rayones, mientras que su amplio espacio interno permite llevar la consola, juegos y accesorios de forma ordenada.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -257,7 +257,7 @@
       "emoji": "🎮",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1961379387-kit-estuche-eva-lamina-vidrio-grips-para-nintendo-switch-2-negro-_JM",
       "precioReferencial": 21000,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege y transporta tu nueva consola con la máxima seguridad gracias a este completo kit diseñado exclusivamente para la Nintendo Switch 2.  Este estuche rígido absorbe impactos y caídas, mientras que su interior de terciopelo y su diseño de ranuras mantienen tu equipo y accesorios perfectamente organizados y libres de rayones.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -271,7 +271,7 @@
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3885532976-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-urbano-negro-_JM",
       "precioReferencial": 12490,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege y personaliza al máximo tu experiencia de juego con este exclusivo kit de protección para controles de PlayStation 5.  Fabricado en silicona de alta calidad, este set incluye dos fundas con diseños únicos y cuatro grips de color para los joysticks, diseñados para mejorar el agarre y evitar el desgaste diario.",
       "reviews": null,
       "atributosBusqueda": [
@@ -291,7 +291,9 @@
         "Camo Morado",
         "Camo Blanco",
         "Camo Azul Y Verde",
-        "Camo Rojo"
+        "Camo Rojo",
+        "Blanco Skulls",
+        "Camo Verde"
       ],
       "imagen": "productos/fundas-silicona-grips-control-ps5/MLC3885532976/01.webp"
     },
@@ -303,7 +305,7 @@
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM",
       "precioReferencial": 17000,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Optimiza tu espacio de juego y mantén tus partidas siempre activas con nuestra Estación de Carga Dual para controles de PS5.  Diseñada específicamente para la nueva generación, esta base te permite cargar uno o dos mandos de forma simultánea de manera rápida y segura, asegurando que nunca te quedes sin batería en el momento más crítico.",
       "reviews": null,
       "atributosBusqueda": [
@@ -320,11 +322,11 @@
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM",
       "precioReferencial": 8590,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Renueva y blinda tu mando DualSense con nuestro Kit de Protección y Personalización diseñado exclusivamente para PlayStation 5.  Este set completo no solo cambia la estética de tu control al instante, sino que está fabricado en silicona de alta calidad que absorbe impactos, previene rayones y protege contra el polvo y el sudor de las manos.",
       "reviews": {
         "promedio": 5,
-        "cantidad": 7
+        "cantidad": 8
       },
       "atributosBusqueda": [
         "Camo Urbano",
@@ -356,7 +358,7 @@
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3464125204-pack-4-grips-goma-joystick-mando-compatible-con-ps5-ps4-xbox-_JM",
       "precioReferencial": 4590,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Mejora tu precisión y comodidad al jugar con este Set de 4 Grips Universales, diseñados específicamente para adaptarse a los mandos de PS5, PS4 y Xbox.  Fabricados en silicona de alta calidad, estos accesorios ofrecen una solución doble: protegen la goma original de tus joysticks contra el desgaste y roturas, a la vez que cuidan la yema de tus dedos durante largas sesiones de juego.",
       "reviews": {
         "promedio": 5,
@@ -383,7 +385,7 @@
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-3559025366-estuche-rigido-para-control-ps5-goma-anti-golpes-negro-estuche-control-ps5-_JM",
       "precioReferencial": 8390,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu inversión con este estuche rígido de alta gama, diseñado específicamente para el control de PlayStation 5.  Su estructura híbrida de goma EVA frontal y poliéster trenzado trasero cuenta con un moldeado 3D exacto que replica la forma del DualSense por ambas caras, garantizando un encaje perfecto que optimiza el espacio y evita el movimiento interno.",
       "reviews": null,
       "atributosBusqueda": [],
@@ -393,32 +395,38 @@
       "slug": "kit-estuche-funda-acrilica-control-ps5",
       "titulo": "Kit Estuche Rígido Funda Acrílico Grips PS5",
       "categoria": "playstation-5",
-      "tipo": "simple",
+      "tipo": "familia",
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1859283513-kit-estuche-rigido-funda-acrilico-grips-para-control-ps5-negro-transparente-_JM",
       "precioReferencial": 16990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege y personaliza al máximo tu mando con este completo kit diseñado exclusivamente para el control de PS5.  Este set es la opción perfecta para asegurar la vida útil de tus equipos, ya que incluye un estuche rígido de transporte, una carcasa de acrílico transparente y cuatro grips de silicona para los joysticks.",
       "reviews": null,
-      "atributosBusqueda": [],
-      "imagen": "productos/kit-estuche-funda-acrilica-control-ps5/01.webp"
+      "atributosBusqueda": [
+        "Transparente",
+        "Negro semitransparente"
+      ],
+      "imagen": "productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/01.webp"
     },
     {
       "slug": "kit-funda-acrilica-grips-control-ps5",
       "titulo": "Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente",
       "categoria": "playstation-5",
-      "tipo": "simple",
+      "tipo": "familia",
       "emoji": "🕹️",
       "permalink": "https://articulo.mercadolibre.cl/MLC-1858910757-kit-funda-carcasa-acrilica-control-ps5-4-grips-silicona-transparente-estuche-protector-ps5-_JM",
       "precioReferencial": 8990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Protege tu inversión y mejora tu experiencia de juego con este kit de protección integral diseñado exclusivamente para tu control de PlayStation 5.  Este set combina una carcasa de acrílico transparente de alta resistencia que blinda tu mando contra golpes y suciedad sin ocultar su diseño, junto con grips de silicona que potencian tu precisión.",
       "reviews": {
         "promedio": 5,
-        "cantidad": 1
+        "cantidad": 2
       },
-      "atributosBusqueda": [],
-      "imagen": "productos/kit-funda-acrilica-grips-control-ps5/01.webp"
+      "atributosBusqueda": [
+        "Transparente",
+        "Negro"
+      ],
+      "imagen": "productos/kit-funda-acrilica-grips-control-ps5/MLC1858910757/01.webp"
     },
     {
       "slug": "audifonos-usb-c-manos-libres",
@@ -426,14 +434,11 @@
       "categoria": "audio",
       "tipo": "simple",
       "emoji": "🎧",
-      "permalink": "https://articulo.mercadolibre.cl/MLC-4160547282-audifonos-manos-libres-tipo-c-para-celular-color-blanco-generica-_JM",
+      "permalink": "https://articulo.mercadolibre.cl/MLC-2035097907-audifonos-usb-tipo-c-manos-libres-blanco-_JM",
       "precioReferencial": 4190,
-      "fechaPrecio": "2026-08-03",
-      "resumen": "En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos Premiun y ¡escápate de la rutina por un rato!  Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.",
-      "reviews": {
-        "promedio": 4.2,
-        "cantidad": 135
-      },
+      "fechaPrecio": "2026-09-10",
+      "resumen": "Optimiza tus llamadas y disfruta de tu musica favorita con estos audifonos manos libres con conexión USB Tipo C universal.  Diseñados para ofrecer comodidad y un sonido nítido, son la elección perfecta para tus actividades diarias, clases virtuales o reuniones de teletrabajo.",
+      "reviews": null,
       "atributosBusqueda": [],
       "imagen": "productos/audifonos-usb-c-manos-libres/01.webp"
     },
@@ -445,7 +450,7 @@
       "emoji": "🎧",
       "permalink": "https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM",
       "precioReferencial": 7990,
-      "fechaPrecio": "2026-08-03",
+      "fechaPrecio": "2026-09-10",
       "resumen": "Disfruta de una experiencia de audio inalámbrico con los Audífonos Ultra Pod Pro Bluetooth, diseñados para brindarte comodidad y practicidad en tu día a día.  Equipados con tecnología de cancelación de sonido y resistencia al agua IPX4 frente a sudor y salpicaduras, son el compañero ideal para tus actividades diarias, deportes o momentos de entretenimiento.",
       "reviews": null,
       "atributosBusqueda": [
@@ -455,6 +460,24 @@
         "Blanco"
       ],
       "imagen": "productos/audifonos-bluetooth-tws/MLC4248593004/01.webp"
+    },
+    {
+      "slug": "audifonos-bluetooth-open-ear",
+      "titulo": "Audífonos Bluetooth Open Ear Clip-On TWS",
+      "categoria": "audio",
+      "tipo": "familia",
+      "emoji": "🎧",
+      "permalink": "https://articulo.mercadolibre.cl/MLC-2202409949-audifonos-bluetooth-inalambricos-open-ear-clip-on-tws-negro-_JM",
+      "precioReferencial": 15990,
+      "fechaPrecio": "2026-09-10",
+      "resumen": "Los audífonos Bluetooth Open Ear tipo Clip-on (Ear Cuff) ofrecen una experiencia de sonido cómoda, ergonómica y segura, permitiendo disfrutar de tu música y llamadas sin obstruir el canal auditivo ni aislarte de tu entorno.  Su diseño de sujeción firme y ligera se adapta al contorno de la oreja sin generar presión, convirtiéndolos en la opción ideal para el uso diario, trabajo o actividad física.",
+      "reviews": null,
+      "atributosBusqueda": [
+        "Negro",
+        "Violeta",
+        "Amarillo"
+      ],
+      "imagen": "productos/audifonos-bluetooth-open-ear/MLC2202409949/01.webp"
     }
   ]
 }

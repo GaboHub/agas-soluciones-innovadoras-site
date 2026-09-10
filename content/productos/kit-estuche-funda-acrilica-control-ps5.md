@@ -2,12 +2,12 @@
 titulo: Kit Estuche Rígido Funda Acrílico Grips PS5
 slug: kit-estuche-funda-acrilica-control-ps5
 categoria: playstation-5
-tipo: simple
+tipo: familia
 emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1859283513-kit-estuche-rigido-funda-acrilico-grips-para-control-ps5-negro-transparente-_JM
 precioReferencial: 16990
-fechaPrecio: '2026-08-03'
+fechaPrecio: '2026-09-10'
 resumen: >-
   Protege y personaliza al máximo tu mando con este completo kit diseñado
   exclusivamente para el control de PS5.  Este set es la opción perfecta para
@@ -15,12 +15,13 @@ resumen: >-
   transporte, una carcasa de acrílico transparente y cuatro grips de silicona
   para los joysticks.
 imagenes:
-  - productos/kit-estuche-funda-acrilica-control-ps5/01.webp
-  - productos/kit-estuche-funda-acrilica-control-ps5/02.webp
-  - productos/kit-estuche-funda-acrilica-control-ps5/03.webp
-  - productos/kit-estuche-funda-acrilica-control-ps5/04.webp
-  - productos/kit-estuche-funda-acrilica-control-ps5/05.webp
-  - productos/kit-estuche-funda-acrilica-control-ps5/06.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/01.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/02.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/03.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/04.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/05.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/06.webp
+  - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/07.webp
 caracteristicas:
   - >-
     Compatibilidad exclusiva: diseñado con las medidas exactas del control de
@@ -59,6 +60,39 @@ faqs:
       No, el diseño cuenta con la profundidad exacta de 7.5 cm y el moldeado
       preciso para que los joysticks y botones queden libres de presión,
       evitando el riesgo de drift o encendido accidental.
+miembros:
+  - titulo: >-
+      Kit Estuche Rígido Funda Acrílico Grips Para Control Ps5 Negro
+      Transparente
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-1859283513-kit-estuche-rigido-funda-acrilico-grips-para-control-ps5-negro-transparente-_JM
+    precio: 16990
+    imagenes:
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/01.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/02.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/03.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/04.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/05.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/06.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC1859283513/07.webp
+    atributos:
+      color: Transparente
+  - titulo: >-
+      Kit Estuche Rígido Funda Acrílico Grips Para Control Ps5 Negro Negro
+      Semi-transparente
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-4397983132-kit-estuche-rigido-funda-acrilico-grips-para-control-ps5-negro-negro-semi-transparente-_JM
+    precio: 16990
+    imagenes:
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/01.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/02.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/03.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/04.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/05.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/06.webp
+      - productos/kit-estuche-funda-acrilica-control-ps5/MLC4397983132/07.webp
+    atributos:
+      color: Negro semitransparente
 ---
 
 Protege y personaliza al máximo tu mando con este completo kit diseñado exclusivamente para el control de PS5. Este set es la opción perfecta para asegurar la vida útil de tus equipos, ya que incluye un estuche rígido de transporte, una carcasa de acrílico transparente y cuatro grips de silicona para los joysticks. Fabricado con materiales de alta resistencia, mantiene tu control a salvo de golpes, caídas y polvo, siendo ideal para cualquier gamer que busque mejorar su agarre y transportar su mando con total seguridad.

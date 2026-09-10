@@ -8,7 +8,6 @@ const resenasJsonPath = path.resolve(dirname, '../../src/data/resenas.json');
 const catalogoJsonPath = path.resolve(dirname, '../../src/data/catalogo.json');
 
 const SLUGS_REVIEWS_CATALOGO_ML = new Set([
-  'audifonos-usb-c-manos-libres',
   'pack-2-laminas-vidrio-switch-oled',
   'lamina-vidrio-nintendo-switch',
   'lamina-vidrio-nintendo-switch-2',
@@ -82,7 +81,7 @@ describe('resenas.json contenido', () => {
 
     expect(resenas.totalReviews).toBe(totalReviewsEsperado);
     expect(resenas.promedioGeneral).toBe(promedioEsperado);
-    expect(resenas.totalReviews).toBe(26);
-    expect(resenas.promedioGeneral).toBe(4.78);
+    expect(resenas.totalReviews).toBe(32);
+    expect(resenas.promedioGeneral).toBe(4.81);
   });
 });

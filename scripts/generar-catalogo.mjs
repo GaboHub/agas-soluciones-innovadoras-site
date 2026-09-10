@@ -41,7 +41,7 @@ const CATEGORIAS = {
   audio: {
     nombre: 'Audio',
     emoji: '🎧',
-    resumen: 'Audífonos con cable USB-C y Bluetooth TWS inalámbricos para tu celular.',
+    resumen: 'Audífonos con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular.',
   },
   otros: {
     nombre: 'Otros accesorios',
@@ -76,11 +76,21 @@ const SLUG_MAP = [
   { prefijo: 'MLC3516221982', slug: 'kit-funda-silicona-grips-control-ps5', titulo: 'Kit Funda Control PS5 Silicona + 4 Grips Análogos' },
   { prefijo: 'MLC3464125204', slug: 'pack-4-grips-joystick', titulo: 'Pack 4 Grips Goma Joystick PS5 / PS4 / Xbox' },
   { prefijo: 'MLC3559025366', slug: 'estuche-rigido-control-ps5', titulo: 'Estuche Rígido Control PS5 Goma Anti Golpes' },
-  { prefijo: 'MLC1859283513', slug: 'kit-estuche-funda-acrilica-control-ps5', titulo: 'Kit Estuche Rígido Funda Acrílico Grips PS5' },
-  { prefijo: 'MLC1858910757', slug: 'kit-funda-acrilica-grips-control-ps5', titulo: 'Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente' },
-  { prefijo: 'MLC2035097907', slug: 'audifonos-usb-c-blanco', titulo: 'Audífonos USB Tipo C Manos Libres Blanco' },
-  { prefijo: 'MLC4160547282', slug: 'audifonos-usb-c-manos-libres', titulo: 'Audífonos Manos Libres Tipo C para Celular' },
+  {
+    prefijo: 'familia-kit-estuche-rigido-funda-acrilico-grips',
+    slug: 'kit-estuche-funda-acrilica-control-ps5',
+    titulo: 'Kit Estuche Rígido Funda Acrílico Grips PS5',
+    coloresMiembros: { MLC1859283513: 'Transparente', MLC4397983132: 'Negro semitransparente' },
+  },
+  {
+    prefijo: 'familia-kit-funda-carcasa-acrilica-control-ps5-4',
+    slug: 'kit-funda-acrilica-grips-control-ps5',
+    titulo: 'Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente',
+    coloresMiembros: { MLC1858910757: 'Transparente', MLC4397553232: 'Negro' },
+  },
+  { prefijo: 'MLC2035097907', slug: 'audifonos-usb-c-manos-libres', titulo: 'Audífonos Manos Libres Tipo C para Celular' },
   { prefijo: 'familia-audifonos-bluetooth-tws-ultrapods-pro-in', slug: 'audifonos-bluetooth-tws', titulo: 'Audífonos Bluetooth TWS Ultrapods Pro' },
+  { prefijo: 'familia-audifonos-bluetooth-inalambricos-open-ea', slug: 'audifonos-bluetooth-open-ear', titulo: 'Audífonos Bluetooth Open Ear Clip-On TWS' },
 ];
 
 const SLUG_FUNDAS_PS5 = 'fundas-silicona-grips-control-ps5';
@@ -571,6 +581,10 @@ function parseMetaCatalogo(texto) {
   };
 }
 
+function estadoPublicacion(bloque) {
+  return bloque.match(/\*\*Estado:\*\*\s*(\S+)/)?.[1] ?? '';
+}
+
 function detectarCarpetasDuplicadas(carpetas) {
   const porUserProductId = new Map();
   for (const carpeta of carpetas) {
@@ -598,7 +612,14 @@ function dividirMiembrosFamilia(texto) {
   for (let i = 0; i < indices.length; i += 1) {
     const inicio = indices[i].index + indices[i][0].length;
     const fin = i + 1 < indices.length ? indices[i + 1].index : texto.length;
-    miembros.push({ titulo: indices[i][1].trim(), bloque: texto.slice(inicio, fin) });
+    const titulo = indices[i][1].trim();
+    const bloque = texto.slice(inicio, fin);
+    const estado = estadoPublicacion(bloque);
+    if (estado !== 'active') {
+      console.warn(`⚠ ${titulo}: estado ${estado}, se descarta`);
+      continue;
+    }
+    miembros.push({ titulo, bloque });
   }
   return miembros;
 }
@@ -752,6 +773,28 @@ async function construirProductoFundasPs5(config, texto, carpetaOrigen) {
   };
 }
 
+function firmaReviews(miembro) {
+  return JSON.stringify({
+    promedio: miembro.promedio,
+    cantidad: miembro.cantidad,
+    distribucion: miembro.distribucion,
+    comentarios: miembro.comentarios,
+  });
+}
+
+function agregarReviewsDeMiembro(agregado, miembro) {
+  const firma = firmaReviews(miembro);
+  if (agregado.firmasVistas.has(firma)) return;
+  agregado.firmasVistas.add(firma);
+
+  agregado.cantidad += miembro.cantidad;
+  agregado.sumaPonderada += miembro.promedio * miembro.cantidad;
+  for (const [estrella, cuenta] of Object.entries(miembro.distribucion)) {
+    agregado.distribucion[estrella] = (agregado.distribucion[estrella] ?? 0) + cuenta;
+  }
+  agregado.comentarios.push(...miembro.comentarios);
+}
+
 async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
   const miembros = dividirMiembrosFamilia(texto);
   const tituloCrudoBase = texto.match(/^# Familia:\s*(.+)$/m)?.[1]?.trim() ?? config.titulo;
@@ -760,15 +803,30 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
   const miembrosProcesados = [];
   const atributosBusqueda = new Set();
   let primerLink = '';
+  const reviewsAgregados = { cantidad: 0, sumaPonderada: 0, distribucion: {}, comentarios: [], firmasVistas: new Set() };
 
   for (const miembro of miembros) {
     const datos = parseCamposComunes(miembro.bloque);
     if (!primerLink) primerLink = datos.link;
-    const { color, diseno } = detectarColorYDiseno(miembro.titulo, tituloCrudoBase);
-    const atributos = {};
-    if (color) atributos.color = color;
-    if (diseno) atributos.diseno = diseno;
-    atributosBusqueda.add(color);
+
+    const colorMapeado = config.coloresMiembros?.[datos.itemId];
+    let atributos;
+    if (colorMapeado) {
+      atributos = { color: colorMapeado };
+      atributosBusqueda.add(colorMapeado);
+    } else {
+      const { color, diseno } = detectarColorYDiseno(miembro.titulo, tituloCrudoBase);
+      atributos = {};
+      if (color) atributos.color = color;
+      if (diseno) atributos.diseno = diseno;
+      atributosBusqueda.add(color);
+    }
+
+    const { esCatalogo } = parseMetaCatalogo(miembro.bloque);
+    if (!esCatalogo) {
+      const reviewsMiembro = parseReviews(extraerSeccion(miembro.bloque, 'Reviews', ['Imágenes']));
+      if (reviewsMiembro) agregarReviewsDeMiembro(reviewsAgregados, reviewsMiembro);
+    }
 
     const imagenesRaw = parseImagenes(extraerSeccion(miembro.bloque, 'Imágenes', []));
     const imagenes = await copiarImagenes(imagenesRaw, carpetaOrigen, config.slug, datos.itemId, LIMITE_IMAGENES_MIEMBRO);
@@ -781,6 +839,15 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
       atributos,
     });
   }
+
+  const reviews = reviewsAgregados.cantidad > 0
+    ? {
+        promedio: Number((reviewsAgregados.sumaPonderada / reviewsAgregados.cantidad).toFixed(1)),
+        cantidad: reviewsAgregados.cantidad,
+        distribucion: reviewsAgregados.distribucion,
+        comentarios: reviewsAgregados.comentarios,
+      }
+    : null;
 
   const primerMiembro = miembros[0];
   const primerBloqueDatos = parsePublicacionIndividual(primerMiembro.bloque);
@@ -797,7 +864,8 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
     caracteristicas: primerBloqueDatos.caracteristicas,
     incluye: primerBloqueDatos.incluye,
     faqs: primerBloqueDatos.faqs,
-    reviews: null,
+    reviews,
+    reviewsEsCatalogo: false,
     cuerpoMarkdown: primerBloqueDatos.cuerpoMarkdown,
     imagenes: [...(miembrosProcesados[0]?.imagenes ?? [])],
     miembros: miembrosProcesados,
@@ -998,9 +1066,19 @@ async function main() {
 
   limpiarSalidas();
 
-  const carpetas = readdirSync(PUBLICACIONES_DIR).filter((nombre) =>
+  const todasLasCarpetas = readdirSync(PUBLICACIONES_DIR).filter((nombre) =>
     statSync(path.join(PUBLICACIONES_DIR, nombre)).isDirectory(),
   );
+  const carpetas = todasLasCarpetas.filter((carpeta) => {
+    const { texto } = leerCarpetaPublicacion(carpeta);
+    if (/^# Familia:/.test(texto)) return true;
+    const estado = estadoPublicacion(texto);
+    if (estado !== 'active') {
+      console.warn(`⚠ ${carpeta}: estado ${estado}, se descarta`);
+      return false;
+    }
+    return true;
+  });
   const excluidas = detectarCarpetasDuplicadas(carpetas);
 
   const usadas = new Set();
@@ -1008,8 +1086,14 @@ async function main() {
 
   async function procesarCarpeta(config, carpeta) {
     usadas.add(carpeta);
-    console.log(`Procesando ${config.slug} (${carpeta})...`);
     const { rutaCarpeta, texto } = leerCarpetaPublicacion(carpeta);
+
+    if (/^# Familia:/.test(texto) && dividirMiembrosFamilia(texto).length === 0) {
+      console.warn(`⚠ ${config.slug}: familia sin miembros activos, se omite`);
+      return;
+    }
+
+    console.log(`Procesando ${config.slug} (${carpeta})...`);
 
     let producto;
     if (config.slug === SLUG_FUNDAS_PS5) {
