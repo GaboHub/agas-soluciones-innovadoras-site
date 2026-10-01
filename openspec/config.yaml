@@ -1,0 +1,31 @@
+schema: spec-driven
+
+context: |
+  Language: es
+  All artifacts must be written in es.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+  Code identifiers (files of data, JSON fields, frontmatter keys, routes, events) verbatim.
+  Specs are the single living source of truth: contracts as tables, invariants as requirements.
+  No history, no "previously", no "replaces", no source line numbers, no pedagogy.
+  No perishable counts in scenarios (number of products, reviews, guides): phrase them structurally.
+  Rationale: one line, only when the requirement is unintelligible without it.
+  Project priority is SEO and GEO: every change states its effect on indexing, metadata, JSON-LD, llms.txt and crawler access.
+
+rules:
+  proposal:
+    - Under 300 words. What changes, which capabilities, non-goals. No background narrative.
+  design:
+    - Only decisions that constrain the implementation and measured facts that justify them.
+    - Organized by section so each chunk reads only its sections.
+  specs:
+    - MODIFIED and REMOVED deltas copy the existing "### Requirement:" title verbatim.
+    - Every requirement has at least one "#### Scenario:" with **WHEN**/**THEN**.
+    - Contracts (frontmatter, JSON files, events, routes) as tables; no prose descriptions of JSON.
+  tasks:
+    - Chunks grouped by lane, disjoint files, explicit base commit; each chunk cites the requirements it must cover with spec tests.
+
+operations:
+  archive:
+    guidance:
+      - After merging deltas, run "openspec validate --specs --strict" and delete the archived change directory; git history keeps it.
+      - Verify no history text ("antes", "reemplaza a", "desde ahora") remained in the merged specs.
