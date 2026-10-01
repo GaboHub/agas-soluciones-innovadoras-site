@@ -83,11 +83,17 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('hay exactamente 24 productos, sin duplicados', () => {
-    expect(slugsDeContenido.length).toBe(24);
-    expect(new Set(slugsDeContenido).size).toBe(24);
-    expect(slugsDeclarados.length).toBe(24);
-    expect(new Set(slugsDeclarados).size).toBe(24);
+  it('hay exactamente 25 productos, sin duplicados', () => {
+    expect(slugsDeContenido.length).toBe(25);
+    expect(new Set(slugsDeContenido).size).toBe(25);
+    expect(slugsDeclarados.length).toBe(25);
+    expect(new Set(slugsDeclarados).size).toBe(25);
+  });
+
+  it('la categoría playstation-5 tiene exactamente 8 productos', () => {
+    const playstation = site.categorias.find((categoria: { slug: string }) => categoria.slug === 'playstation-5');
+    expect(playstation.productos.length).toBe(8);
+    expect(playstation.productos).toContain('kit-funda-silicona-pixel-grips-control-ps5');
   });
 
   it('la categoría audio tiene exactamente 3 productos y no incluye el duplicado colapsado', () => {
@@ -109,18 +115,18 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('catalogo.json tiene los mismos 24 productos', () => {
-    expect(catalogo.productos.length).toBe(24);
+  it('catalogo.json tiene los mismos 25 productos', () => {
+    expect(catalogo.productos.length).toBe(25);
     const slugsCatalogo = catalogo.productos.map((producto: { slug: string }) => producto.slug);
     expect(new Set(slugsCatalogo)).toEqual(new Set(slugsDeContenido));
   });
 
-  it('llms.txt lista los mismos 24 productos y no el duplicado colapsado', () => {
+  it('llms.txt lista los mismos 25 productos y no el duplicado colapsado', () => {
     const llms = readFileSync(llmsTxtPath, 'utf-8');
     const lineasCatalogo = llms
       .split('\n')
       .filter((linea) => linea.startsWith('- ') && linea.includes(' — ML: '));
-    expect(lineasCatalogo.length).toBe(24);
+    expect(lineasCatalogo.length).toBe(25);
     expect(llms).not.toContain('audifonos-usb-c-blanco');
   });
 
@@ -266,7 +272,7 @@ describe('barrido agas-context.nuevo: filtro de estado y familias remapeadas', (
     expect(new Set(comentarios.map((c) => c.fecha + c.texto)).size).toBe(comentarios.length);
   });
 
-  it('kit-estuche-funda-acrilica-control-ps5 es familia con 2 miembros Transparente/Negro semitransparente, sin reviews en ninguno de los dos', () => {
+  it('kit-estuche-funda-acrilica-control-ps5 es familia con 2 miembros Transparente/Negro semitransparente y 1 review agregada', () => {
     const producto = productos.find(({ data }) => data.slug === 'kit-estuche-funda-acrilica-control-ps5');
     expect(producto).toBeDefined();
     expect(producto?.data.tipo).toBe('familia');
@@ -275,7 +281,8 @@ describe('barrido agas-context.nuevo: filtro de estado y familias remapeadas', (
       'Transparente',
       'Negro semitransparente',
     ]);
-    expect(producto?.data.reviews).toBeUndefined();
+    expect(producto?.data.reviews.cantidad).toBe(1);
+    expect(producto?.data.reviews.promedio).toBe(4);
   });
 
   it('audifonos-bluetooth-open-ear es familia con 3 miembros Negro/Violeta/Amarillo', () => {
@@ -288,5 +295,51 @@ describe('barrido agas-context.nuevo: filtro de estado y familias remapeadas', (
       'Violeta',
       'Amarillo',
     ]);
+  });
+});
+
+describe('familia kit-funda-silicona-pixel-grips-control-ps5', () => {
+  const producto = productos.find(({ data }) => data.slug === 'kit-funda-silicona-pixel-grips-control-ps5');
+  type Grupo = { diseno: string; colores: { color: string; link: string }[] };
+
+  it('existe en playstation-5 con etiquetas Funda y Grips', () => {
+    expect(producto).toBeDefined();
+    expect(producto?.data.categoria).toBe('playstation-5');
+    expect(producto?.data.tipo).toBe('familia');
+    expect(producto?.data.etiquetaGrupo).toBe('Funda');
+    expect(producto?.data.etiquetaOpcion).toBe('Grips');
+    expect(producto?.data.miembros).toBeUndefined();
+  });
+
+  it('agrupa por color de funda, cada grupo con 9 colores de grips', () => {
+    const grupos = producto?.data.grupos as Grupo[];
+    expect(grupos.map((grupo) => grupo.diseno).sort()).toEqual(['Blanco', 'Negro', 'Rosa Chicle', 'Violeta']);
+    for (const grupo of grupos) {
+      expect(grupo.colores).toHaveLength(9);
+      expect(grupo.colores.map((color) => color.color).sort()).toEqual([
+        'Amarillo',
+        'Azul',
+        'Blanco',
+        'Gris',
+        'Morado',
+        'Negro',
+        'Rojo',
+        'Rosa',
+        'Verde',
+      ]);
+    }
+  });
+
+  it('Blanco Grip Gris (singular) cae en el grupo Blanco con su publicación', () => {
+    const grupos = producto?.data.grupos as Grupo[];
+    const gris = grupos.find((grupo) => grupo.diseno === 'Blanco')?.colores.find((color) => color.color === 'Gris');
+    expect(gris?.link).toContain('MLC-4522135884');
+  });
+
+  it('el resto de productos agrupados no lleva etiquetas propias', () => {
+    const fundas = productos.find(({ data }) => data.slug === 'fundas-silicona-grips-control-ps5');
+    expect(fundas?.data.grupos).toBeDefined();
+    expect(fundas?.data.etiquetaGrupo).toBeUndefined();
+    expect(fundas?.data.etiquetaOpcion).toBeUndefined();
   });
 });

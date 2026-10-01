@@ -28,9 +28,9 @@ const slugsDeProductos = archivosProductos.map((archivo) => {
 });
 
 describe('textos-productos.json', () => {
-  it('tiene exactamente las mismas claves que los 24 slugs de productos', () => {
+  it('tiene exactamente las mismas claves que los 25 slugs de productos', () => {
     const claves = Object.keys(textos);
-    expect(claves.length).toBe(24);
+    expect(claves.length).toBe(25);
     expect(new Set(claves)).toEqual(new Set(slugsDeProductos));
   });
 

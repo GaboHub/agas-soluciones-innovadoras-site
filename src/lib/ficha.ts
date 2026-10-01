@@ -5,6 +5,8 @@ export interface ProductoFicha {
   permalink: string;
   precioReferencial: number;
   imagenes: string[];
+  etiquetaGrupo?: string;
+  etiquetaOpcion?: string;
   grupos?: {
     diseno: string;
     colores: {
@@ -55,7 +57,8 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
   let etiquetaOpcion = 'Variante';
 
   if (data.grupos && data.grupos.length > 0) {
-    etiquetaOpcion = 'Color';
+    etiquetaGrupo = data.etiquetaGrupo ?? etiquetaGrupo;
+    etiquetaOpcion = data.etiquetaOpcion ?? 'Color';
     gruposFicha = data.grupos.map((grupo) => ({
       nombre: grupo.diseno,
       opciones: grupo.colores.map((color) => ({

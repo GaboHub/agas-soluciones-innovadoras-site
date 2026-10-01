@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3464125204-pack-4-grips-goma-joystick-mando-compatible-con-ps5-ps4-xbox-_JM
 precioReferencial: 4590
-fechaPrecio: '2026-09-10'
+fechaPrecio: '2026-10-01'
 resumen: >-
   Mejora tu precisión y comodidad al jugar con este Set de 4 Grips Universales,
   diseñados específicamente para adaptarse a los mandos de PS5, PS4 y Xbox. 
@@ -108,10 +108,11 @@ faqs:
       o rota, devolviéndoles la comodidad y el agarre sin necesidad de desarmar
       el control.
 reviews:
-  promedio: 5
-  cantidad: 3
+  promedio: 4.8
+  cantidad: 5
   distribucion:
-    '5': 3
+    '4': 1
+    '5': 4
   comentarios: []
 variantes:
   - nombre: Negro

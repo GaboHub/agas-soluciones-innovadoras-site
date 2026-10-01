@@ -130,7 +130,7 @@ def ensure_token_is_valid(account: dict[str, str]) -> None:
 def load_listings(account_id: str) -> list[dict[str, str]]:
     return run_psql(
         "SELECT id, ml_item_id, title, status, price, has_variations, permalink, thumbnail_url, "
-        "available_quantity, sold_quantity, seller_custom_field, user_product_id, family_name, "
+        "available_quantity, sold_quantity, seller_sku, user_product_id, family_name, "
         f"catalog_listing FROM listing WHERE account_id = {account_id} ORDER BY id"
     )
 
@@ -139,7 +139,7 @@ def load_listing_by_ml_item_id(account_id: str, ml_item_id: str) -> dict[str, st
     escaped = ml_item_id.replace("'", "''")
     rows = run_psql(
         "SELECT id, ml_item_id, title, status, price, has_variations, permalink, thumbnail_url, "
-        "available_quantity, sold_quantity, seller_custom_field, user_product_id, family_name, "
+        "available_quantity, sold_quantity, seller_sku, user_product_id, family_name, "
         f"catalog_listing FROM listing WHERE account_id = {account_id} AND ml_item_id = '{escaped}'"
     )
     return rows[0] if rows else None
@@ -774,7 +774,7 @@ def build_item_view(
     available_quantity = str(stock_raw) if stock_raw is not None else "-"
     sold_raw = to_int(pick(db_row.get("sold_quantity"), item.get("sold_quantity"), None))
     sold_quantity = str(sold_raw) if sold_raw is not None else "-"
-    sku = pick(db_row.get("seller_custom_field"), item.get("seller_custom_field"))
+    sku = pick(db_row.get("seller_sku"), item.get("seller_custom_field"))
     condition = item.get("condition") or "-"
 
     description_text = render_description_text(description)

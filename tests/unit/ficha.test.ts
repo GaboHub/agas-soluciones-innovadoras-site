@@ -90,6 +90,61 @@ describe('construirGruposFicha — grupos (diseño + color)', () => {
   });
 });
 
+describe('construirGruposFicha — grupos con etiquetas propias', () => {
+  const base: ProductoFicha = {
+    titulo: 'Kit Funda Pixel',
+    permalink: 'https://articulo.mercadolibre.cl/MLC-1-base-_JM',
+    precioReferencial: 8590,
+    imagenes: ['fallback.jpg'],
+    grupos: [
+      {
+        diseno: 'Negro',
+        colores: [{ color: 'Rojo', link: 'https://articulo.mercadolibre.cl/MLC-negro-rojo', imagenes: ['negro-rojo.jpg'] }],
+      },
+    ],
+  };
+
+  it('usa etiquetaGrupo y etiquetaOpcion del producto', () => {
+    const resultado = construirGruposFicha({ ...base, etiquetaGrupo: 'Funda', etiquetaOpcion: 'Grips' });
+    expect(resultado.etiquetaGrupo).toBe('Funda');
+    expect(resultado.etiquetaOpcion).toBe('Grips');
+  });
+
+  it('sin etiquetas propias cae en Diseño y Color', () => {
+    const resultado = construirGruposFicha(base);
+    expect(resultado.etiquetaGrupo).toBe('Diseño');
+    expect(resultado.etiquetaOpcion).toBe('Color');
+  });
+
+  it('la rama miembros ignora las etiquetas propias', () => {
+    const miembros = construirGruposFicha({
+      ...base,
+      grupos: undefined,
+      etiquetaGrupo: 'Funda',
+      etiquetaOpcion: 'Grips',
+      miembros: [
+        { titulo: 'M', link: 'https://articulo.mercadolibre.cl/MLC-m', precio: 1000, imagenes: ['m.jpg'], atributos: {} },
+      ],
+    });
+    expect(miembros.etiquetaGrupo).toBe('Diseño');
+    expect(miembros.etiquetaOpcion).toBe('Opción');
+  });
+
+  it('la rama variantes ignora las etiquetas propias', () => {
+    const variantes = construirGruposFicha({
+      ...base,
+      grupos: undefined,
+      etiquetaGrupo: 'Funda',
+      etiquetaOpcion: 'Grips',
+      variantes: [
+        { nombre: 'Chico', atributo: 'Talla', link: 'https://articulo.mercadolibre.cl/MLC-v?variation=1', imagenes: ['v.jpg'] },
+      ],
+    });
+    expect(variantes.etiquetaGrupo).toBe('Diseño');
+    expect(variantes.etiquetaOpcion).toBe('Talla');
+  });
+});
+
 describe('construirGruposFicha — miembros (familia)', () => {
   const data: ProductoFicha = {
     titulo: 'Cargador Dual PS5',

@@ -7,7 +7,7 @@ emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM
 precioReferencial: 8590
-fechaPrecio: '2026-09-10'
+fechaPrecio: '2026-10-01'
 resumen: >-
   Renueva y blinda tu mando DualSense con nuestro Kit de Protección y
   Personalización diseñado exclusivamente para PlayStation 5.  Este set completo
@@ -814,9 +814,9 @@ faqs:
       grips); el control no está incluido.
 reviews:
   promedio: 5
-  cantidad: 8
+  cantidad: 9
   distribucion:
-    '5': 8
+    '5': 9
   comentarios:
     - estrellas: 5
       titulo: Excelente
@@ -1995,7 +1995,7 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/05.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-azul-y-verde-green/06.webp
-  - nombre: Camo Verde / Amarillo
+  - nombre: Camo verde / Amarillo
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200977822539
@@ -2012,7 +2012,7 @@ variantes:
         productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/05.webp
       - >-
         productos/kit-funda-silicona-grips-control-ps5/camo-verde-amarillo/06.webp
-  - nombre: Camo Verde / Azul
+  - nombre: Camo verde / Azul
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200993469443
@@ -2023,7 +2023,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-azul/06.webp
-  - nombre: Camo Verde / Blanco
+  - nombre: Camo verde / Blanco
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200987999893
@@ -2034,7 +2034,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-blanco/06.webp
-  - nombre: Camo Verde / Gris
+  - nombre: Camo verde / Gris
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200987285327
@@ -2045,7 +2045,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-gris/06.webp
-  - nombre: Camo Verde / Morado
+  - nombre: Camo verde / Morado
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200987999923
@@ -2056,7 +2056,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-morado/06.webp
-  - nombre: Camo Verde / Negro
+  - nombre: Camo verde / Negro
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200987999933
@@ -2067,7 +2067,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-negro/06.webp
-  - nombre: Camo Verde / Rojo
+  - nombre: Camo verde / Rojo
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200977822625
@@ -2078,7 +2078,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rojo/06.webp
-  - nombre: Camo Verde / ROSADO
+  - nombre: Camo verde / ROSADO
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200977822655
@@ -2089,7 +2089,7 @@ variantes:
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/04.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/05.webp
       - productos/kit-funda-silicona-grips-control-ps5/camo-verde-rosado/06.webp
-  - nombre: Camo Verde / Green
+  - nombre: Camo verde / Green
     atributo: Color / Nombre del diseño
     link: >-
       https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM?variation=200987999973

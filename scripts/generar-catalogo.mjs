@@ -71,7 +71,14 @@ const SLUG_MAP = [
   { prefijo: 'MLC1813007563', slug: 'kit-5en1-nintendo-switch-2', titulo: 'Kit 5en1 Switch 2 Estuche Grip Case Vidrio' },
   { prefijo: 'MLC1801369167', slug: 'estuche-goma-rigido-switch-2', titulo: 'Estuche Goma Negro Rígido Switch 2' },
   { prefijo: 'MLC1961379387', slug: 'kit-estuche-eva-switch-2', titulo: 'Kit Estuche EVA Lámina Vidrio Grips Switch 2' },
-  { prefijo: 'familia-kit-2-fundas-silicona-disenos-4-grips-pa', slug: 'fundas-silicona-grips-control-ps5', titulo: 'Kit 2 Fundas Silicona Diseños + 4 Grips Control PS5' },
+  { prefijo: 'familia-kit-2-fundas-silicona-disenos-4-grips-pa', slug: 'fundas-silicona-grips-control-ps5', titulo: 'Kit 2 Fundas Silicona Diseños + 4 Grips Control PS5', agruparPorDiseno: true },
+  {
+    prefijo: 'familia-kit-funda-silicona-diseno-pixel-4-grips',
+    slug: 'kit-funda-silicona-pixel-grips-control-ps5',
+    titulo: 'Kit Funda Silicona Diseño Pixel + 4 Grips Control PS5',
+    agruparPorDiseno: true,
+    etiquetas: { grupo: 'Funda', opcion: 'Grips' },
+  },
   { prefijo: 'familia-cargador-dual-estacion-base-de-carga-par', slug: 'cargador-dual-controles-ps5', titulo: 'Cargador Dual Estación de Carga Controles PS5' },
   { prefijo: 'MLC3516221982', slug: 'kit-funda-silicona-grips-control-ps5', titulo: 'Kit Funda Control PS5 Silicona + 4 Grips Análogos' },
   { prefijo: 'MLC3464125204', slug: 'pack-4-grips-joystick', titulo: 'Pack 4 Grips Goma Joystick PS5 / PS4 / Xbox' },
@@ -93,7 +100,6 @@ const SLUG_MAP = [
   { prefijo: 'familia-audifonos-bluetooth-inalambricos-open-ea', slug: 'audifonos-bluetooth-open-ear', titulo: 'Audífonos Bluetooth Open Ear Clip-On TWS' },
 ];
 
-const SLUG_FUNDAS_PS5 = 'fundas-silicona-grips-control-ps5';
 const COLORES_FUNDAS_PS5 = ['Amarillo', 'Azul', 'Blanco', 'Gris', 'Morado', 'Negro', 'Rojo', 'Rosado', 'Verde'];
 
 function limpiarEspacios(texto) {
@@ -634,10 +640,8 @@ function detectarColorYDiseno(tituloMiembro, prefijoBase) {
   if (palabras.length === 1 && COLORES_FUNDAS_PS5.includes(ultima)) {
     return { color: ultima, diseno: ultima };
   }
-  if (COLORES_FUNDAS_PS5.includes(ultima)) {
-    return { color: ultima, diseno: palabras.slice(0, -1).join(' ') };
-  }
-  return { color: ultima ?? '', diseno: palabras.slice(0, -1).join(' ') };
+  const diseno = palabras.slice(0, -1).join(' ').replace(/\s+grips?$/i, '');
+  return { color: ultima ?? '', diseno };
 }
 
 async function procesarImagen(rutaOrigen, rutaDestino) {
@@ -724,7 +728,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
   return { ...base, imagenes: imagenesProducto, variantes, atributosBusqueda: [...atributosBusqueda] };
 }
 
-async function construirProductoFundasPs5(config, texto, carpetaOrigen) {
+async function construirProductoAgrupadoPorDiseno(config, texto, carpetaOrigen) {
   const miembros = dividirMiembrosFamilia(texto);
   const prefijoBase = config.titulo.replace(/\s+\+\s+/, ' + ');
   const tituloCrudoBase = texto.match(/^# Familia:\s*(.+)$/m)?.[1]?.trim() ?? config.titulo;
@@ -759,6 +763,7 @@ async function construirProductoFundasPs5(config, texto, carpetaOrigen) {
     categoria,
     tipo: 'familia',
     emoji: CATEGORIAS[categoria].emoji,
+    etiquetas: config.etiquetas,
     permalink: primerLink,
     precioReferencial: parseCamposComunes(primerMiembro.bloque).precio,
     resumen: primerBloqueDatos.resumen,
@@ -887,6 +892,10 @@ function escribirMarkdownProducto(producto, fechaPrecio) {
     imagenes: producto.imagenes,
   };
 
+  if (producto.etiquetas) {
+    frontmatter.etiquetaGrupo = producto.etiquetas.grupo;
+    frontmatter.etiquetaOpcion = producto.etiquetas.opcion;
+  }
   if (producto.caracteristicas?.length) frontmatter.caracteristicas = producto.caracteristicas;
   if (producto.incluye?.length) frontmatter.incluye = producto.incluye;
   if (producto.faqs?.length) frontmatter.faqs = producto.faqs;
@@ -1096,8 +1105,8 @@ async function main() {
     console.log(`Procesando ${config.slug} (${carpeta})...`);
 
     let producto;
-    if (config.slug === SLUG_FUNDAS_PS5) {
-      producto = await construirProductoFundasPs5(config, texto, rutaCarpeta);
+    if (config.agruparPorDiseno) {
+      producto = await construirProductoAgrupadoPorDiseno(config, texto, rutaCarpeta);
     } else if (/^# Familia:/.test(texto)) {
       producto = await construirProductoFamiliaGenerica(config, texto, rutaCarpeta);
     } else {

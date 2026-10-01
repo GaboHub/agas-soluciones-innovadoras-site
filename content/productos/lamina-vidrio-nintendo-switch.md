@@ -7,7 +7,7 @@ emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3560689528-lamina-protectora-vidrio-templado-nintendo-switch-1-_JM
 precioReferencial: 4490
-fechaPrecio: '2026-09-10'
+fechaPrecio: '2026-10-01'
 resumen: >-
   Protege la pantalla de tu consola con nuestra lámina de vidrio templado
   Premium, diseñada específicamente con corte láser 1:1 para la Nintendo Switch
@@ -68,10 +68,10 @@ faqs:
       la mensajería de la compra y lo solucionaremos de inmediato.
 reviews:
   promedio: 4.9
-  cantidad: 9
+  cantidad: 10
   distribucion:
     '4': 1
-    '5': 8
+    '5': 9
   comentarios:
     - estrellas: 4
       titulo: Muy bueno

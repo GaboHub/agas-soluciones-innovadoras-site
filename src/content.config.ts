@@ -70,6 +70,8 @@ const productos = defineCollection({
         }),
       )
       .optional(),
+    etiquetaGrupo: z.string().optional(),
+    etiquetaOpcion: z.string().optional(),
     grupos: z
       .array(
         z.object({

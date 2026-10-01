@@ -81,7 +81,7 @@ salida por advertencias e interpreta cada una:
 | Estado `closed` (u otro no `active`), se descarta | Publicación cerrada en Mercado Libre | Esperado; no hacer nada salvo que era la única del slug (ver fila siguiente) |
 | Duplicada de una publicación de catálogo | Hay una gemela de catálogo activa para el mismo `user_product_id` | Esperado si la gemela sigue viva; revisar si el slug quedó apuntando a la publicación correcta |
 | "No se encontró carpeta para el prefijo X" | Una publicación suelta que estaba mapeada por prefijo pasó a formar parte de una familia, o desapareció de Mercado Libre | Actualizar el `prefijo` de esa entrada en `SLUG_MAP`, o si el producto salió del catálogo, quitar la entrada y removerlo de `site.json`, `textos-productos.json` y los tests |
-| "Carpeta sin mapeo explícito" | Publicación o familia nueva sin entrada en `SLUG_MAP` | Elegir slug y título en `SLUG_MAP`; si es una familia cuyos títulos de miembro no terminan en un nombre de color, agregar `coloresMiembros` con el color por ML item id |
+| "Carpeta sin mapeo explícito" | Publicación o familia nueva sin entrada en `SLUG_MAP` | Elegir slug y título en `SLUG_MAP`; si es una familia cuyos títulos de miembro no terminan en un nombre de color, agregar `coloresMiembros` con el color por ML item id; si los miembros forman una matriz diseño × color (sufijo de título `<diseño> <color>`), `agruparPorDiseno: true` (layout de grupos, como `fundas-silicona-grips-control-ps5`), y `etiquetas: { grupo, opcion }` cuando «Diseño»/«Color» no describen bien los ejes (caso pixel: «Funda»/«Grips») |
 | "no matcheó ninguna regla de categoría" | Producto que ninguna regla de `REGLAS_CATEGORIA` reconoce | Ajustar `REGLAS_CATEGORIA` |
 
 El generador descarta publicaciones (y miembros de familia) cuyo estado no es
@@ -205,3 +205,8 @@ push solo cuando el usuario lo pida, según el flujo de `README.md`.
 - Barrer a un directorio nuevo con `--output` más swap manual es la
   alternativa cuando se quiere descartar todo lo viejo de una sola vez, en
   vez de confiar en la poda incremental.
+- **`column "…" does not exist` en `npm run barrido`**: el barrido lee
+  columnas de `listing`/`listing_variation` del esquema de `mi-app-ml`; es una
+  migración de esa app que renombró la columna. Se corrige en las consultas de
+  `scripts/exportar-contexto-ml.py` (caso real: `V27`, `seller_custom_field` →
+  `seller_sku`).

@@ -81,7 +81,7 @@ describe('resenas.json contenido', () => {
 
     expect(resenas.totalReviews).toBe(totalReviewsEsperado);
     expect(resenas.promedioGeneral).toBe(promedioEsperado);
-    expect(resenas.totalReviews).toBe(32);
-    expect(resenas.promedioGeneral).toBe(4.81);
+    expect(resenas.totalReviews).toBe(36);
+    expect(resenas.promedioGeneral).toBe(4.78);
   });
 });

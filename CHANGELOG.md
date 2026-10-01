@@ -9,6 +9,30 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- Familia «Kit Funda Silicona Diseño Pixel + 4 Grips Control PS5»
+  (`kit-funda-silicona-pixel-grips-control-ps5`) en PlayStation, agrupada por
+  color de funda (Blanco, Negro, Rosa Chicle, Violeta) con los colores de grips
+  como opciones; selectores rotulados «Funda» y «Grips». Opciones nuevas de
+  `SLUG_MAP` en `scripts/generar-catalogo.mjs`: `agruparPorDiseno` (reemplaza
+  el despacho por la constante `SLUG_FUNDAS_PS5`) y `etiquetas` → frontmatter
+  opcional `etiquetaGrupo`/`etiquetaOpcion` (esquema en `src/content.config.ts`;
+  `src/lib/ficha.ts` cae en `Diseño`/`Color` sin ellas). `detectarColorYDiseno`
+  quita un `Grip`/`Grips` final del diseño.
+
+### Cambiado
+
+- Refresco del catálogo al barrido de Mercado Libre del 2026-10-01 (precios,
+  reseñas); lámina 4 del carrusel de redes regenerada por el nuevo conteo de
+  PlayStation.
+
+### Corregido
+
+- `scripts/exportar-contexto-ml.py` lee `listing.seller_sku` (la migración
+  `V27__listing_seller_sku.sql` de `mi-app-ml` renombró `seller_custom_field`);
+  `npm run barrido` abortaba con `column "seller_custom_field" does not exist`.
+
 ## [1.4.0] - 2026-09-10
 
 Refresco del catálogo desde un barrido nuevo de Mercado Libre del 2026-09-10

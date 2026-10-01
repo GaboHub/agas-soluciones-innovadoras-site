@@ -7,7 +7,7 @@ emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM
 precioReferencial: 7990
-fechaPrecio: '2026-09-10'
+fechaPrecio: '2026-10-01'
 resumen: >-
   Disfruta de una experiencia de audio inalámbrico con los Audífonos Ultra Pod
   Pro Bluetooth, diseñados para brindarte comodidad y practicidad en tu día a
