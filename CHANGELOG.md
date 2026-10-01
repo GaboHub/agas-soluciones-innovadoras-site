@@ -9,6 +9,22 @@ del README.
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-10-01
+
+Promociones vigentes al 2026-10-01.
+
+### Cambiado
+
+- `src/data/promociones.json`: cupones «Cupón nuevo seguidor» y «Cupón
+  seguidores» (5 %) vigentes del 2026-09-28 al 2026-10-27, y campaña «Oferta
+  vigente septiembre–octubre» del 2026-09-14 al 2026-10-14; se quitan las
+  promociones vencidas. Cyber Monday 2026 sigue publicado como próxima
+  campaña. `public/llms.txt` regenerado.
+- `CLAUDE.md`: SEO y GEO como prioridad del proyecto.
+- Skill `refresco-catalogo` §6: se publican todas las campañas y cupones
+  vigentes en cada refresco, y regla de `desde` como primer día completo de
+  vigencia en Chile.
+
 ## [1.5.0] - 2026-10-01
 
 Refresco del catálogo al barrido de Mercado Libre del 2026-10-01, con la
@@ -486,7 +502,8 @@ Primera versión estable del sitio en producción (agassoluciones.cl).
   (e2e desktop y mobile).
 - Deploy en Cloudflare (Workers & Pages) con Wrangler y assets estáticos.
 
-[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.1...HEAD
+[1.5.1]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.2.0...v1.3.0

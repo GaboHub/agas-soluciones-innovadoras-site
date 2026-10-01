@@ -6,32 +6,25 @@
       "nombre": "Cupón nuevo seguidor",
       "porcentaje": 5,
       "condicion": "Sigue nuestra tienda en Mercado Libre por primera vez y recibe un 5% de descuento para tu primera compra.",
-      "desde": "2026-08-22",
-      "hasta": "2026-09-21"
+      "desde": "2026-09-28",
+      "hasta": "2026-10-27"
     },
     {
       "id": "seguidores",
       "nombre": "Cupón seguidores",
       "porcentaje": 5,
       "condicion": "Si ya sigues nuestra tienda en Mercado Libre, tienes un 5% de descuento disponible para usar en tu próxima compra.",
-      "desde": "2026-08-22",
-      "hasta": "2026-09-21"
+      "desde": "2026-09-28",
+      "hasta": "2026-10-27"
     }
   ],
   "campanas": [
     {
-      "id": "oferta-agosto-septiembre",
-      "nombre": "Oferta vigente agosto–septiembre",
+      "id": "oferta-septiembre-octubre",
+      "nombre": "Oferta vigente septiembre–octubre",
       "descripcion": "Descuentos activos en todo nuestro catálogo de Mercado Libre durante el período.",
-      "desde": "2026-08-13",
-      "hasta": "2026-09-12"
-    },
-    {
-      "id": "fiestas-patrias-2026",
-      "nombre": "Fiestas Patrias 2026",
-      "descripcion": "Ofertas especiales de Fiestas Patrias en productos seleccionados de nuestra tienda de Mercado Libre.",
-      "desde": "2026-09-10",
-      "hasta": "2026-09-20"
+      "desde": "2026-09-14",
+      "hasta": "2026-10-14"
     },
     {
       "id": "cyber-monday-2026",

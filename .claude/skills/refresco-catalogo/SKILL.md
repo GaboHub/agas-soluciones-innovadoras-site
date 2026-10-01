@@ -152,15 +152,19 @@ for p in r.json():
 EOF
 ```
 
-Qué publicar: campañas y cupones reales con ventana de vigencia clara
-(`SELLER_CAMPAIGN`, `SELLER_COUPON_CAMPAIGN`, `DEAL` puntuales). Qué NO
-publicar: promociones que vencen el mismo día del barrido, cupones de
-carritos abandonados, y los programas automáticos SMART, PRICE_MATCHING,
-LIGHTNING y PRICE_DISCOUNT.
+Qué publicar: **todas** las campañas y cupones vigentes o próximos de la
+cuenta con ventana de vigencia clara (`SELLER_CAMPAIGN`,
+`SELLER_COUPON_CAMPAIGN`, `DEAL` puntuales), en cada refresco. Las entradas
+vencidas se quitan de `promociones.json`. Qué NO publicar: promociones que
+vencen el mismo día del barrido, cupones de carritos abandonados, y los
+programas automáticos SMART, PRICE_MATCHING, LIGHTNING y PRICE_DISCOUNT.
 
-Regla de fechas: Mercado Libre cierra sus campañas a las 03:59:59Z o
-04:00:00Z, que es 00:59/01:00 del día siguiente en Chile. `hasta` en
-`promociones.json` es el día anterior al `finish_date` en UTC.
+Regla de fechas: Mercado Libre cierra sus campañas al final del día en Chile
+(02:59:59Z en horario de verano, 03:59:59Z en invierno), así que `hasta` en
+`promociones.json` es el día anterior al `finish_date` en UTC. `desde` es el
+primer día completo de vigencia en Chile: si la promoción arranca antes de
+la medianoche chilena (p. ej. un `DEAL` a las 23:00), `desde` es el día
+siguiente.
 
 Sin porcentajes ni precios promocionales derivados del barrido (ADR 0001): el
 estado `candidate`/`started` de un ítem no garantiza que el descuento esté
