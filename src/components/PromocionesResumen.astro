@@ -1,11 +1,22 @@
 ---
 import { promociones, getCuponesPublicables, getCampanasPublicables } from '../lib/promociones';
 import { formatearFecha } from '../lib/formato';
+import type { Campana, Cupon, EstadoPromocion } from '../lib/promociones';
 import BadgeEstadoPromocion from './BadgeEstadoPromocion.astro';
 
-const cupones = getCuponesPublicables();
-const campanas = getCampanasPublicables();
+interface Props {
+  aclaracion?: string;
+  cupones?: Array<Cupon & { estado: EstadoPromocion }>;
+  campanas?: Array<Campana & { estado: EstadoPromocion }>;
+}
+
+const {
+  aclaracion = promociones.aclaracion,
+  cupones = getCuponesPublicables(),
+  campanas = getCampanasPublicables(),
+} = Astro.props;
 const hayPromos = cupones.length + campanas.length > 0;
+import Icono from './Icono.tsx';
 ---
 
 {
@@ -18,7 +29,7 @@ const hayPromos = cupones.length + campanas.length > 0;
       <h2 id="promociones-resumen-titulo" class="font-titulos text-2xl font-bold text-tinta">
         Promociones en nuestra tienda de Mercado Libre
       </h2>
-      <p class="mt-2 font-texto text-sm font-bold text-tinta">{promociones.aclaracion}</p>
+      <p class="mt-2 font-texto text-sm font-bold text-tinta">{aclaracion}</p>
       <ul class="mt-5 grid list-none gap-3 p-0 sm:grid-cols-2">
         {cupones.map((cupon) => (
           <li data-promo class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4">
@@ -32,7 +43,7 @@ const hayPromos = cupones.length + campanas.length > 0;
           <li data-promo class="flex items-start justify-between gap-3 rounded-2xl bg-white p-4">
             <div>
               <p class="font-texto font-bold text-tinta">{campana.nombre}</p>
-              <p class="mt-1 font-texto text-xs font-bold text-tinta/60">
+              <p class="mt-1 font-texto text-xs font-bold text-tinta/70">
                 {formatearFecha(campana.desde)} – {formatearFecha(campana.hasta)}
               </p>
             </div>
@@ -43,9 +54,10 @@ const hayPromos = cupones.length + campanas.length > 0;
       <a
         href="/promociones/"
         data-cta="ver-promociones"
-        class="mt-5 inline-flex items-center gap-1 font-texto text-sm font-bold text-acento-oscuro hover:text-primario hover:underline"
+        class="mt-5 inline-flex min-h-11 items-center gap-1 font-texto text-sm font-bold text-acento-oscuro hover:text-primario hover:underline"
       >
-        Ver todas las promociones →
+        Ver todas las promociones
+        <Icono nombre="flecha-derecha" className="h-4 w-4" />
       </a>
     </section>
   )

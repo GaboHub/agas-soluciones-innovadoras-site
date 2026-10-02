@@ -48,6 +48,18 @@ describe('crearMedidorBusqueda', () => {
     });
   });
 
+  it('un término buscado sin gtag no cuenta como emitido: al recuperar gtag se emite', () => {
+    (globalThis as { window?: unknown }).window = {};
+    const medidor = crearMedidorBusqueda();
+    medidor.programar('Funda', 3, '/productos/');
+    vi.advanceTimersByTime(1500);
+    (globalThis as { window?: unknown }).window = { gtag };
+    medidor.programar('FÚNDA', 3, '/productos/');
+    vi.advanceTimersByTime(1500);
+    expect(gtag).toHaveBeenCalledTimes(1);
+    expect(gtag).toHaveBeenCalledWith('event', 'busqueda', { termino: 'funda', resultados: 3, pagina: '/productos/' });
+  });
+
   it('reprogramar antes de vencer cancela el disparo anterior y solo emite el último término', () => {
     const medidor = crearMedidorBusqueda();
     medidor.programar('fun', 5, '/productos/');

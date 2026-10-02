@@ -3,9 +3,9 @@ titulo: Estuche Goma Negro Rígido Switch 2
 slug: estuche-goma-rigido-switch-2
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1801369167-estuche-goma-negro-rigido-para-nintendo-switch-2-negro-_JM
+condicion: new
 precioReferencial: 14590
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -9,6 +9,38 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- Spec viva en `openspec/specs/`: 8 capabilities y 117 requirements
+  (`cat openspec/specs/*/spec.md | grep -c '^### Requirement:'`), con una capa
+  de tests de spec (`tests/spec/`, `e2e/spec/`, `tests/python/spec/`) y
+  auditorías que fallan ante citas rotas o requirements sin test. `npm test`
+  corre también `npm run test:py` (pytest del barrido).
+- JSON-LD: `ProductGroup` con `hasVariant` en las fichas con opciones, `Offer`
+  con disponibilidad, condición y vendedor, `ItemList` en el catálogo y las
+  categorías, y fechas en los `Article` de las guías. El sitemap pone
+  `lastmod` solo con fuente fechada.
+- Íconos SVG en lugar de emoji, regiones `aria-live` y estado de la búsqueda
+  y de la opción en la URL.
+
+### Cambiado
+
+- `llms.txt` se construye en cada build (`src/pages/llms.txt.ts`): las
+  promociones vencidas salen y las próximas no figuran como vigentes sin
+  regenerar el catálogo. `npm run generar` ya no lo escribe.
+- Barrido: una publicación que responde 403 o 404 deja de contar como error y
+  su carpeta se poda. El generador tolera «Sin datos de reviews.» y los
+  sufijos de votos.
+- Correcciones de contraste, foco, objetivos táctiles, header entre 768 y
+  869 px, movimiento reducido y visor modal centrado.
+- Los CTA hacia Mercado Libre salen de `src/data/site.json`.
+- Documentación: se eliminan `docs/adr/` y `docs/analisis-*.md`;
+  `docs/analitica.md` queda con la operación manual.
+
+### Eliminado
+
+- `src/data/catalogo.json` y `public/llms.txt`.
+
 ## [1.5.1] - 2026-10-01
 
 Promociones vigentes al 2026-10-01.

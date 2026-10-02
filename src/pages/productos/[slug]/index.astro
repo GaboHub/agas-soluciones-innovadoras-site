@@ -11,7 +11,7 @@ import { site, getCategoria } from '../../../lib/site';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
 import { fotosDesdeRutas } from '../../../lib/galeria';
 import { construirGruposFicha, linkInicial } from '../../../lib/ficha';
-import { buildOrganization, buildProduct, buildFaqPage, buildBreadcrumbList } from '../../../lib/seo';
+import { buildOrganization, buildProduct, buildProductGroup, buildFaqPage, buildBreadcrumbList } from '../../../lib/seo';
 import { formatearPrecioCLP, leyendaPrecio } from '../../../lib/formato';
 import { getTextoProducto } from '../../../lib/textos';
 import { getGuiasPorProducto } from '../../../lib/guias';
@@ -30,7 +30,7 @@ const { data } = producto;
 const categoria = getCategoria(data.categoria);
 if (!categoria) throw new Error(`Categoría no encontrada: ${data.categoria}`);
 
-const { gruposFicha: gruposBase, etiquetaGrupo, etiquetaOpcion } = construirGruposFicha(data);
+const { gruposFicha: gruposBase, etiquetaGrupo, etiquetaOpcion, agrupada } = construirGruposFicha(data);
 
 const gruposFicha: GrupoFicha[] = await Promise.all(
   gruposBase.map(async (grupo) => ({
@@ -61,14 +61,36 @@ const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const imagenesJsonLd = await Promise.all(
   data.imagenes.slice(0, 4).map((ruta) => optimizedAbsoluteUrl(resolveImagen(ruta), 800)),
 );
+const productoSeo = { ...data, resumen: descripcionVisible };
+const gruposSeo = await Promise.all(
+  gruposBase.map(async (grupo) => ({
+    nombre: grupo.nombre,
+    opciones: await Promise.all(
+      grupo.opciones.map(async (opcion) => ({
+        nombre: opcion.nombre,
+        link: opcion.link,
+        precio: opcion.precio,
+        ejes: opcion.ejes,
+        imagen:
+          opcion.rutasImagenes.length > 0
+            ? await optimizedAbsoluteUrl(resolveImagen(opcion.rutasImagenes[0]), 800)
+            : undefined,
+      })),
+    ),
+  })),
+);
 const jsonLd: object[] = [
   buildOrganization(logoUrl),
-  buildProduct({ ...data, resumen: descripcionVisible }, imagenesJsonLd),
+  data.tipo === 'simple'
+    ? buildProduct(productoSeo, imagenesJsonLd)
+    : buildProductGroup(productoSeo, { agrupada, gruposFicha: gruposSeo }, imagenesJsonLd),
   buildBreadcrumbList(categoria, data.titulo),
 ];
 if (data.faqs && data.faqs.length > 0) {
   jsonLd.push(buildFaqPage(data.faqs));
 }
+import Icono from '../../../components/Icono.tsx';
+import GlifoCategoria from '../../../components/GlifoCategoria.astro';
 ---
 
 <BaseLayout
@@ -81,14 +103,14 @@ if (data.faqs && data.faqs.length > 0) {
 >
   <nav aria-label="Ruta de navegación" class="mx-auto max-w-6xl px-4 pt-6">
     <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
-      <li><a href="/" class="hover:text-primario hover:underline">Inicio</a></li>
-      <li aria-hidden="true">›</li>
+      <li><a href="/" class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">Inicio</a></li>
+      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
       <li>
-        <a href={`/categorias/${categoria.slug}/`} class="hover:text-primario hover:underline">
+        <a href={`/categorias/${categoria.slug}/`} class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">
           {categoria.nombre}
         </a>
       </li>
-      <li aria-hidden="true">›</li>
+      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
       <li aria-current="page" class="text-tinta">{data.titulo}</li>
     </ol>
   </nav>
@@ -101,8 +123,9 @@ if (data.faqs && data.faqs.length > 0) {
           <Estrellas promedio={data.reviews.promedio} cantidad={data.reviews.cantidad} />
         )
       }
-      <span class="rounded-full bg-primario-claro px-3 py-1 font-texto text-xs font-bold text-primario-oscuro">
-        {categoria.emoji} {categoria.nombre}
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-primario-claro px-3 py-1 font-texto text-xs font-bold text-primario-oscuro">
+        <GlifoCategoria slug={categoria.slug} class="h-4 w-4" />
+        {categoria.nombre}
       </span>
     </div>
 
@@ -115,6 +138,7 @@ if (data.faqs && data.faqs.length > 0) {
         leyenda={leyendaPrecio(data.fechaPrecio)}
         resumen={descripcionVisible}
         envio={site.envio}
+        textoCtaPrincipal={site.ctaFicha}
         textoCtaSecundario={site.ctaHeader}
         linkCtaSecundario={site.mercadolibre.tienda}
       />
@@ -133,7 +157,7 @@ if (data.faqs && data.faqs.length > 0) {
           <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
             {data.caracteristicas.map((item) => (
               <li class="flex items-start gap-2 font-texto text-tinta">
-                <span aria-hidden="true" class="text-acento-oscuro">✔</span>
+                <Icono nombre="check" className="mt-1 h-4 w-4 text-acento-oscuro" />
                 <span>{item}</span>
               </li>
             ))}
@@ -151,7 +175,7 @@ if (data.faqs && data.faqs.length > 0) {
           <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
             {data.incluye.map((item) => (
               <li class="flex items-start gap-2 font-texto text-tinta">
-                <span aria-hidden="true" class="text-primario">📦</span>
+                <Icono nombre="paquete" className="mt-1 h-4 w-4 text-primario" />
                 <span>{item}</span>
               </li>
             ))}
@@ -181,9 +205,11 @@ if (data.faqs && data.faqs.length > 0) {
               <li>
                 <a
                   href={`/guias/${guia.data.slug}/`}
-                  class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
+                  class="inline-flex min-h-11 items-center gap-2 font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
                 >
-                  {guia.data.emoji} {guia.data.titulo} →
+                  <Icono nombre="libro" className="h-4 w-4" />
+                  {guia.data.titulo}
+                  <Icono nombre="flecha-derecha" className="h-4 w-4" />
                 </a>
               </li>
             ))}
@@ -196,9 +222,10 @@ if (data.faqs && data.faqs.length > 0) {
   <section class="mx-auto max-w-6xl px-4 pb-16">
     <a
       href={`/categorias/${categoria.slug}/`}
-      class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
+      class="inline-flex min-h-11 items-center gap-2 font-texto font-bold text-acento-oscuro hover:text-primario hover:underline"
     >
-      ← Ver más accesorios de {categoria.nombre}
+      <Icono nombre="flecha-izquierda" className="h-4 w-4" />
+      Ver más accesorios de {categoria.nombre}
     </a>
   </section>
 </BaseLayout>

@@ -31,6 +31,10 @@ describe('buildOrganization', () => {
     }
   });
 
+  it('lleva el @id de la organización en el origen del sitio', () => {
+    expect(organization['@id']).toBe('https://agassoluciones.cl/#organizacion');
+  });
+
   it('es serializable y re-parseable sin undefined', () => {
     const serializado = JSON.stringify(organization);
     expect(serializado).not.toContain('undefined');
@@ -44,10 +48,11 @@ describe('buildProduct', () => {
     resumen: 'Resumen de prueba.',
     permalink: 'https://articulo.mercadolibre.cl/MLC-123-producto-_JM',
     precioReferencial: 12490,
+    condicion: 'new' as const,
   };
   const imagenes = ['https://agassoluciones.cl/_astro/01.webp'];
 
-  it('genera una Offer con url del permalink, precio y CLP, sin availability', () => {
+  it('genera una Offer con url del permalink, precio y CLP, disponible', () => {
     const product = buildProduct(base, imagenes);
     expect(product['@type']).toBe('Product');
     expect(product.name).toBe(base.titulo);
@@ -56,7 +61,7 @@ describe('buildProduct', () => {
     expect(product.offers.url).toBe(base.permalink);
     expect(product.offers.price).toBe(12490);
     expect(product.offers.priceCurrency).toBe('CLP');
-    expect(JSON.stringify(product)).not.toContain('availability');
+    expect(product.offers.availability).toBe('https://schema.org/InStock');
   });
 
   it('omite aggregateRating cuando no hay reviews', () => {

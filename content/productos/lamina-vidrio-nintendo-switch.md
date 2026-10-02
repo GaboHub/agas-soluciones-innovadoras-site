@@ -3,9 +3,9 @@ titulo: Lámina Protectora Vidrio Templado Nintendo Switch 1
 slug: lamina-vidrio-nintendo-switch
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3560689528-lamina-protectora-vidrio-templado-nintendo-switch-1-_JM
+condicion: new
 precioReferencial: 4490
 fechaPrecio: '2026-10-01'
 resumen: >-

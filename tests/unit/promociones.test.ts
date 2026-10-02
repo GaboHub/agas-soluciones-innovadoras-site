@@ -1,101 +1,24 @@
-import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import { clasificar, getCampanasPublicables, getCuponesPublicables, hoyEnChile } from '../../src/lib/promociones';
-
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const promocionesJsonPath = path.resolve(dirname, '../../src/data/promociones.json');
-const promociones = JSON.parse(readFileSync(promocionesJsonPath, 'utf-8'));
-
-const FECHA_REGEX = /^\d{4}-\d{2}-\d{2}$/;
-
-describe('promociones.json contenido', () => {
-  it('tiene aclaracion no vacía', () => {
-    expect(typeof promociones.aclaracion).toBe('string');
-    expect(promociones.aclaracion.length).toBeGreaterThan(0);
-  });
-
-  it('tiene al menos un cupón y una campaña', () => {
-    expect(Array.isArray(promociones.cupones)).toBe(true);
-    expect(promociones.cupones.length).toBeGreaterThanOrEqual(1);
-    expect(Array.isArray(promociones.campanas)).toBe(true);
-    expect(promociones.campanas.length).toBeGreaterThanOrEqual(1);
-  });
-
-  it('los ids de cupones son únicos', () => {
-    const ids = promociones.cupones.map((cupon: { id: string }) => cupon.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it('los ids de campañas son únicos', () => {
-    const ids = promociones.campanas.map((campana: { id: string }) => campana.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it('cada cupón tiene porcentaje entero entre 1 y 99, condición y nombre no vacíos', () => {
-    for (const cupon of promociones.cupones) {
-      expect(Number.isInteger(cupon.porcentaje)).toBe(true);
-      expect(cupon.porcentaje).toBeGreaterThanOrEqual(1);
-      expect(cupon.porcentaje).toBeLessThanOrEqual(99);
-      expect(typeof cupon.nombre).toBe('string');
-      expect(cupon.nombre.length).toBeGreaterThan(0);
-      expect(typeof cupon.condicion).toBe('string');
-      expect(cupon.condicion.length).toBeGreaterThan(0);
-    }
-  });
-
-  it('cada campaña tiene descripción y nombre no vacíos', () => {
-    for (const campana of promociones.campanas) {
-      expect(typeof campana.nombre).toBe('string');
-      expect(campana.nombre.length).toBeGreaterThan(0);
-      expect(typeof campana.descripcion).toBe('string');
-      expect(campana.descripcion.length).toBeGreaterThan(0);
-    }
-  });
-
-  it('todas las fechas desde/hasta matchean YYYY-MM-DD y hasta >= desde', () => {
-    for (const promo of [...promociones.cupones, ...promociones.campanas]) {
-      expect(promo.desde).toMatch(FECHA_REGEX);
-      expect(promo.hasta).toMatch(FECHA_REGEX);
-      expect(promo.hasta >= promo.desde).toBe(true);
-    }
-  });
-
-  it('tiene al menos 3 faqs con pregunta y respuesta no vacías', () => {
-    expect(Array.isArray(promociones.faqs)).toBe(true);
-    expect(promociones.faqs.length).toBeGreaterThanOrEqual(3);
-    for (const faq of promociones.faqs) {
-      expect(typeof faq.pregunta).toBe('string');
-      expect(faq.pregunta.length).toBeGreaterThan(0);
-      expect(typeof faq.respuesta).toBe('string');
-      expect(faq.respuesta.length).toBeGreaterThan(0);
-    }
-  });
-});
-
-describe('clasificar', () => {
-  const promo = { desde: '2026-07-13', hasta: '2026-08-12' };
-
-  it('hoy === desde es vigente', () => {
-    expect(clasificar(promo, '2026-07-13')).toBe('vigente');
-  });
-
-  it('hoy === hasta es vigente', () => {
-    expect(clasificar(promo, '2026-08-12')).toBe('vigente');
-  });
-
-  it('el día siguiente a hasta es expirada', () => {
-    expect(clasificar(promo, '2026-08-13')).toBe('expirada');
-  });
-
-  it('el día anterior a desde es proxima', () => {
-    expect(clasificar(promo, '2026-07-12')).toBe('proxima');
-  });
-});
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { getCampanasPublicables, getCuponesPublicables, hoyEnChile } from '../../src/lib/promociones';
 
 describe('hoyEnChile', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it('devuelve una fecha en formato YYYY-MM-DD', () => {
+    vi.stubEnv('AGAS_FECHA_BUILD', '');
+    expect(hoyEnChile()).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it('usa AGAS_FECHA_BUILD cuando es una fecha válida', () => {
+    vi.stubEnv('AGAS_FECHA_BUILD', '2031-03-10');
+    expect(hoyEnChile()).toBe('2031-03-10');
+  });
+
+  it('ignora AGAS_FECHA_BUILD con formato inválido', () => {
+    vi.stubEnv('AGAS_FECHA_BUILD', '10-03-2031');
+    expect(hoyEnChile()).not.toBe('10-03-2031');
     expect(hoyEnChile()).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 });

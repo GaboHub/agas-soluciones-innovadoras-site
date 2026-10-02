@@ -28,24 +28,33 @@ const canonicalUrl = new URL(path, siteUrl).toString();
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const organization = buildOrganization(logoUrl);
-const jsonLd = [organization, buildArticle(data.titulo, data.descripcion, organization, canonicalUrl)];
+const articulo = buildArticle({
+  headline: data.titulo,
+  description: data.descripcion,
+  publisher: organization,
+  url: canonicalUrl,
+  publicado: data.publicado,
+  actualizado: data.actualizado,
+});
+const jsonLd = [organization, articulo];
+import Icono from '../../../components/Icono.tsx';
 ---
 
 <BaseLayout title={title} description={data.descripcion} path={path} jsonLd={jsonLd}>
   <nav aria-label="Ruta de navegación" class="mx-auto max-w-4xl px-4 pt-6">
     <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
-      <li><a href="/" class="hover:text-primario hover:underline">Inicio</a></li>
-      <li aria-hidden="true">›</li>
+      <li><a href="/" class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">Inicio</a></li>
+      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
       <li>
-        <a href="/guias/" class="hover:text-primario hover:underline">Guías</a>
+        <a href="/guias/" class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">Guías</a>
       </li>
-      <li aria-hidden="true">›</li>
+      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
       <li aria-current="page" class="text-tinta">{data.titulo}</li>
     </ol>
   </nav>
 
   <section class="mx-auto max-w-4xl px-4 py-8">
-    <span aria-hidden="true" class="text-4xl">{data.emoji}</span>
+    <Icono nombre="libro" className="h-10 w-10 text-primario" />
     <h1 class="mt-2 font-titulos text-3xl font-bold text-tinta md:text-4xl">{data.titulo}</h1>
     <div class="contenido-md mt-6">
       <Content />
@@ -57,8 +66,9 @@ const jsonLd = [organization, buildArticle(data.titulo, data.descripcion, organi
       <section class="mx-auto max-w-6xl px-4 pb-16">
         <h2 class="font-titulos text-2xl font-bold text-tinta">Productos de esta guía</h2>
         <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {productosRelacionados.map((producto) => (
+          {productosRelacionados.map((producto, indice) => (
             <ProductCard
+              prioridad={indice < 4}
               slug={producto.data.slug}
               titulo={producto.data.titulo}
               categoriaNombre={site.categorias.find((c) => c.slug === producto.data.categoria)?.nombre ?? ''}

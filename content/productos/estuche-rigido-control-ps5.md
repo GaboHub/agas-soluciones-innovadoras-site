@@ -3,9 +3,9 @@ titulo: Estuche Rígido Control PS5 Goma Anti Golpes
 slug: estuche-rigido-control-ps5
 categoria: playstation-5
 tipo: simple
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3559025366-estuche-rigido-para-control-ps5-goma-anti-golpes-negro-estuche-control-ps5-_JM
+condicion: new
 precioReferencial: 8390
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -3,9 +3,9 @@ titulo: Lámina Vidrio Templado Switch OLED
 slug: lamina-vidrio-switch-oled
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3571625690-lamina-protectora-vidrio-templado-para-nintendo-switch-oled-_JM
+condicion: new
 precioReferencial: 5250
 fechaPrecio: '2026-10-01'
 resumen: >-

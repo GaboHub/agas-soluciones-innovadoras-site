@@ -1,44 +1,22 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, statSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, rmSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
+import {
+  configurarFuentes,
+  DIR_FUENTES,
+  escaparXml,
+  esModuloDeEntrada,
+  RAIZ,
+  validarYEscribir,
+  verificarSoraAplicada,
+} from './marca-comun.mjs';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(dirname, '..');
-const FUENTES_DIR = path.join(ROOT_DIR, 'marca/fuentes');
-const CACHE_DIR = path.join(ROOT_DIR, 'node_modules/.cache/fontconfig-marca-redes');
-const FONTS_CONF_PATH = path.join(CACHE_DIR, 'fonts.conf');
-
-const RUTAS_FUENTES = {
-  soraSemiBold: path.join(FUENTES_DIR, 'Sora-SemiBold.ttf'),
-  soraBold: path.join(FUENTES_DIR, 'Sora-Bold.ttf'),
-  interRegular: path.join(FUENTES_DIR, 'Inter-Regular.ttf'),
-};
-
-for (const ruta of Object.values(RUTAS_FUENTES)) {
-  if (!existsSync(ruta)) {
-    console.error(`Falta la fuente convertida en ${ruta}.`);
-    console.error('Convierte los .woff de node_modules/@fontsource/{sora,inter}/files/ a .ttf con fontTools y guárdalos en marca/fuentes/ antes de correr este script.');
-    process.exit(1);
-  }
-}
-
-mkdirSync(CACHE_DIR, { recursive: true });
-writeFileSync(
-  FONTS_CONF_PATH,
-  `<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <dir>${FUENTES_DIR}</dir>
-  <cachedir>${CACHE_DIR}</cachedir>
-</fontconfig>
-`,
-);
-
-process.env.FONTCONFIG_FILE = FONTS_CONF_PATH;
-process.env.FONTCONFIG_PATH = '';
-
-const sharp = (await import('sharp')).default;
+const FUENTES_REQUERIDAS = [
+  { archivo: 'Sora-SemiBold.ttf', familia: 'Sora', estilo: 'SemiBold' },
+  { archivo: 'Sora-Bold.ttf', familia: 'Sora', estilo: 'Bold' },
+  { archivo: 'Inter-Regular.ttf', familia: 'Inter', estilo: 'Regular' },
+];
 
 const PALETA = {
   primario: '#24455C',
@@ -65,21 +43,14 @@ const GAP_SELLOS_A_CTA = 48;
 const GAP_ENTRE_SELLOS = 36;
 const ANCHO_MAXIMO_TEXTO = 888;
 
-const RUTAS_REDES = {
-  avatar: path.join(ROOT_DIR, 'marca/redes/avatar.png'),
-  carrusel: Array.from({ length: NUMERO_LAMINAS }, (_, indice) =>
-    path.join(ROOT_DIR, `marca/redes/carrusel-presentacion-${indice + 1}.png`),
-  ),
-};
-
-function escaparXml(texto) {
-  return texto
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
+export const RASTERS_REDES = [
+  { ruta: 'marca/redes/avatar.png', ancho: 1080, alto: 1080 },
+  ...Array.from({ length: NUMERO_LAMINAS }, (_, indice) => ({
+    ruta: `marca/redes/carrusel-presentacion-${indice + 1}.png`,
+    ancho: ANCHO_LAMINA,
+    alto: ALTO_LAMINA,
+  })),
+];
 
 function atributosFuente(fuente) {
   if (typeof fuente === 'string') {
@@ -108,39 +79,20 @@ async function renderMuestra(fuente) {
   return sharp(Buffer.from(svg)).png().toBuffer();
 }
 
-async function verificarCargaDeFuentes() {
-  const [conSora, conFallback] = await Promise.all([renderMuestra(FUENTE_SORA_SEMIBOLD), renderMuestra('serif')]);
-
-  if (conSora.equals(conFallback)) {
-    console.error('La fuente Sora no se aplicó: el render con "Sora SemiBold" es idéntico al de "serif".');
-    console.error('Revisa que marca/fuentes/*.ttf existan y que fonts.conf apunte a esa carpeta.');
-    process.exit(1);
-  }
-
-  const ancho = await anchoVisible(conSora);
-  if (!ancho || ancho === 0) {
-    console.error('El motor de texto no dibujó nada: el render de "AGAS" en Sora tiene ancho cero.');
-    console.error('No hay un fallback razonable: revisa la instalación de librsvg/pango incluida con sharp.');
-    process.exit(1);
-  }
-}
-
-async function detectarFamiliaBold() {
+export async function detectarFamiliaBold(render = renderMuestra) {
   const candidatas = [{ family: 'Sora Bold' }, { family: 'Sora', weight: '700' }];
-  const [renderSerif, renderSemiBold] = await Promise.all([renderMuestra('serif'), renderMuestra(FUENTE_SORA_SEMIBOLD)]);
+  const [renderSerif, renderSemiBold] = await Promise.all([render('serif'), render(FUENTE_SORA_SEMIBOLD)]);
 
   for (const candidata of candidatas) {
-    const buffer = await renderMuestra(candidata);
+    const buffer = await render(candidata);
     if (!buffer.equals(renderSerif) && !buffer.equals(renderSemiBold)) {
       return candidata;
     }
   }
 
-  console.error(
-    'No se pudo cargar Sora Bold: ni "Sora Bold" ni "Sora" con font-weight 700 producen un render distinto de "serif" o de "Sora SemiBold".',
+  throw new Error(
+    'No se pudo cargar Sora Bold: ni "Sora Bold" ni "Sora" con font-weight 700 producen un render distinto de "serif" o de "Sora SemiBold".\nRevisa que marca/fuentes/Sora-Bold.ttf exista y esté correctamente convertida.',
   );
-  console.error('Revisa que marca/fuentes/Sora-Bold.ttf exista y esté correctamente convertida.');
-  process.exit(1);
 }
 
 async function anchoVisible(bufferPng) {
@@ -169,15 +121,14 @@ async function medirAnchoTexto(texto, { fuente, fontSize, letterSpacing }) {
   return anchoVisible(buffer);
 }
 
-async function partirEnLineas(texto, opts) {
+export async function partirEnLineas(texto, opts) {
   const palabras = texto.split(' ');
   const anchoPalabras = await Promise.all(palabras.map((palabra) => medirAnchoTexto(palabra, opts)));
   const indicePalabraExcedida = anchoPalabras.findIndex((ancho) => ancho > opts.maxWidth);
   if (indicePalabraExcedida !== -1) {
-    console.error(
+    throw new Error(
       `La palabra "${palabras[indicePalabraExcedida]}" mide ${anchoPalabras[indicePalabraExcedida]}px y por sí sola supera el ancho máximo de ${opts.maxWidth}px permitido para este texto.`,
     );
-    process.exit(1);
   }
 
   const lineas = [];
@@ -200,12 +151,21 @@ async function partirEnLineas(texto, opts) {
 
 function verificarPildoraEnContenido(nombre, ancho) {
   if (MARGEN + ancho > ANCHO_LAMINA - MARGEN) {
-    console.error(
+    throw new Error(
       `La pastilla "${nombre}" mide ${ancho}px y, sumada al margen de ${MARGEN}px, supera el borde de contenido en ${
         ANCHO_LAMINA - MARGEN
       }px (caja de contenido de ${ANCHO_MAXIMO_TEXTO}px).`,
     );
-    process.exit(1);
+  }
+}
+
+export function verificarBloquesEnLaCaja(nombre, bloques) {
+  const limiteInferior = ALTO_LAMINA - MARGEN;
+  const fuera = bloques.find(({ top, bottom }) => top < MARGEN || bottom > limiteInferior);
+  if (fuera) {
+    throw new Error(
+      `El texto de ${nombre} queda fuera de la caja de contenido (${MARGEN}px a ${limiteInferior}px): un bloque ocupa de ${fuera.top}px a ${fuera.bottom}px.`,
+    );
   }
 }
 
@@ -213,28 +173,25 @@ function paddingPildora(anchoTexto, paddingObjetivo) {
   return Math.max(0, Math.min(paddingObjetivo, Math.floor((ANCHO_MAXIMO_TEXTO - anchoTexto) / 2)));
 }
 
-function extraerPrimeraOracion(texto, campo) {
+export function extraerPrimeraOracion(texto, campo) {
   const indicePunto = texto.indexOf('.');
   if (indicePunto === -1) {
-    console.error(`${campo} no contiene un punto para extraer la primera oración: "${texto}".`);
-    process.exit(1);
+    throw new Error(`${campo} no contiene un punto para extraer la primera oración: "${texto}".`);
   }
   const oracion = texto.slice(0, indicePunto + 1).trim();
   if (!oracion) {
-    console.error(`${campo} produce una primera oración vacía al cortar en el primer punto.`);
-    process.exit(1);
+    throw new Error(`${campo} produce una primera oración vacía al cortar en el primer punto.`);
   }
   if (!oracion.includes(' ')) {
-    console.error(
+    throw new Error(
       `${campo}: la primera oración extraída ("${oracion}") es una sola palabra antes del punto, probablemente una abreviatura y no el cierre de una oración; revisa el texto en site.json.`,
     );
-    process.exit(1);
   }
   return oracion;
 }
 
 function leerSiteJson() {
-  return JSON.parse(readFileSync(path.join(ROOT_DIR, 'src/data/site.json'), 'utf-8'));
+  return JSON.parse(readFileSync(path.join(RAIZ, 'src/data/site.json'), 'utf-8'));
 }
 
 function svgDefsFondoRedes() {
@@ -390,6 +347,12 @@ async function svgLamina1({ offsetX, site, dominio, fuenteBold }) {
     fuenteBold,
   });
 
+  verificarBloquesEnLaCaja('la lámina 1', [
+    { top: chipTop, bottom: chipBottom },
+    { top: tituloTop, bottom: tituloBottom },
+    { top: pieTop, bottom: pieTop + pieAltura },
+  ]);
+
   const pie = svgPie({ offsetX, top: pieTop, indiceActual: 0, dominio });
 
   return `${chip}\n${titulo}\n${pie}`;
@@ -407,7 +370,7 @@ async function svgLamina2({ offsetX, site, dominio }) {
     maxWidth: ANCHO_MAXIMO_TEXTO,
   });
   const statementAltura = statementLineas.length * 86;
-  const sub = `Tienda online chilena · ${site.direccion.localidad} · ${site.sellosConfianza[0]} en Mercado Libre`;
+  const sub = `${site.presentacionRedes} · ${site.direccion.localidad} · ${site.sellosConfianza[0]} en Mercado Libre`;
   const subLineas = await partirEnLineas(sub, {
     fuente: FUENTE_INTER,
     fontSize: 39,
@@ -422,6 +385,13 @@ async function svgLamina2({ offsetX, site, dominio }) {
   const statementTop = statementBottom - statementAltura;
   const eyebrowBottom = statementTop - GAP_DEFAULT;
   const eyebrowTop = eyebrowBottom - eyebrowAltura;
+
+  verificarBloquesEnLaCaja('la lámina 2', [
+    { top: eyebrowTop, bottom: eyebrowBottom },
+    { top: statementTop, bottom: statementBottom },
+    { top: subTop, bottom: subBottom },
+    { top: pieTop, bottom: pieTop + pieAltura },
+  ]);
 
   const eyebrow = svgEyebrow({ offsetX, top: eyebrowTop, texto: 'Quiénes somos' });
   const statement = svgLineasTexto({
@@ -472,6 +442,13 @@ async function svgLaminaCategoria({ offsetX, indiceLamina, categoria, posicionTi
   const nombreTop = nombreBottom - nombreAltura;
   const eyebrowBottom = nombreTop - GAP_DEFAULT;
   const eyebrowTop = eyebrowBottom - eyebrowAltura;
+
+  verificarBloquesEnLaCaja(`la lámina ${indiceLamina + 1}`, [
+    { top: eyebrowTop, bottom: eyebrowBottom },
+    { top: nombreTop, bottom: nombreBottom },
+    { top: resumenTop, bottom: resumenBottom },
+    { top: pieTop, bottom: pieTop + pieAltura },
+  ]);
 
   const eyebrow = svgEyebrow({ offsetX, top: eyebrowTop, texto: 'Catálogo' });
   const nombre = svgLineasTexto({
@@ -544,6 +521,13 @@ async function svgLamina6({ offsetX, site, dominio }) {
   const sellosTop = sellosBottom - sellosAltura;
   const eyebrowBottom = sellosTop - GAP_DEFAULT;
   const eyebrowTop = eyebrowBottom - eyebrowAltura;
+
+  verificarBloquesEnLaCaja('la lámina 6', [
+    { top: eyebrowTop, bottom: eyebrowBottom },
+    { top: sellosTop, bottom: sellosBottom },
+    { top: ctaTop, bottom: ctaBottom },
+    { top: pieTop, bottom: pieTop + pieAltura },
+  ]);
 
   const eyebrow = svgEyebrow({ offsetX, top: eyebrowTop, texto: 'Compra segura' });
 
@@ -636,12 +620,11 @@ function svgConstelacionYcruces() {
   return `${fantasmasConstelacion}\n${principal}\n${fantasmasSueltas}`;
 }
 
-async function generarCarrusel(site, fuenteBold) {
+export async function svgCarrusel(site, fuenteBold) {
   if (site.categorias.length !== 3) {
-    console.error(
+    throw new Error(
       `El layout del carrusel de 6 láminas asume exactamente 3 categorías; site.json tiene ${site.categorias.length}.`,
     );
-    process.exit(1);
   }
 
   const dominio = site.dominio;
@@ -678,70 +661,67 @@ async function generarCarrusel(site, fuenteBold) {
     ${constelacion}
   </svg>`;
 
-  const tiraBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+  return svg;
+}
 
-  mkdirSync(path.dirname(RUTAS_REDES.carrusel[0]), { recursive: true });
-  for (let indice = 0; indice < NUMERO_LAMINAS; indice++) {
-    await sharp(tiraBuffer)
-      .extract({ left: indice * ANCHO_LAMINA, top: 0, width: ANCHO_LAMINA, height: ALTO_LAMINA })
-      .png()
-      .toFile(RUTAS_REDES.carrusel[indice]);
+const recortarLaminas = (tira) =>
+  Promise.all(
+    Array.from({ length: NUMERO_LAMINAS }, (_, indice) =>
+      sharp(tira)
+        .extract({ left: indice * ANCHO_LAMINA, top: 0, width: ANCHO_LAMINA, height: ALTO_LAMINA })
+        .png()
+        .toBuffer(),
+    ),
+  );
+
+const renderizarSvg = (svg) => sharp(Buffer.from(svg)).png().toBuffer();
+
+const svgSoloFondosDeLaminas = () =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO_TIRA}" height="${ALTO_LAMINA}" viewBox="0 0 ${ANCHO_TIRA} ${ALTO_LAMINA}"><defs>${svgDefsFondoRedes()}${svgClipsLaminas()}</defs>${svgFondosLaminas()}</svg>`;
+
+function svgAvatar({ conMonograma = true } = {}) {
+  const monograma = `<g transform="translate(48 48) scale(1.1) translate(-46 -50)" fill="none" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M26 74 L46 26 L66 74" stroke="${PALETA.blanco}" stroke-width="11"/><path d="M37 59 L55 59" stroke="${PALETA.cobreClaro}" stroke-width="11"/></g>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 96 96"><defs><linearGradient id="fa" x1="41.32%" y1="0.76%" x2="58.68%" y2="99.24%"><stop offset="0%" stop-color="${PALETA.primario}"/><stop offset="100%" stop-color="${PALETA.primarioOscuro}"/></linearGradient><radialGradient id="ra" cx="88%" cy="8%" r="65%"><stop offset="0%" stop-color="${PALETA.acento}" stop-opacity="0.35"/><stop offset="100%" stop-color="${PALETA.acento}" stop-opacity="0"/></radialGradient></defs><rect width="96" height="96" fill="url(#fa)"/><rect width="96" height="96" fill="url(#ra)"/>${conMonograma ? monograma : ''}</svg>`;
+}
+
+async function renderizarRasters(site, fuenteBold) {
+  const [avatar, fondoAvatar, laminas, fondosLaminas] = await Promise.all([
+    renderizarSvg(svgAvatar()),
+    renderizarSvg(svgAvatar({ conMonograma: false })),
+    svgCarrusel(site, fuenteBold).then(renderizarSvg).then(recortarLaminas),
+    renderizarSvg(svgSoloFondosDeLaminas()).then(recortarLaminas),
+  ]);
+  const buffers = [avatar, ...laminas];
+  const fondos = [fondoAvatar, ...fondosLaminas];
+  return RASTERS_REDES.map(({ ruta, ancho, alto }, indice) => ({
+    ruta,
+    ancho,
+    alto,
+    buffer: buffers[indice],
+    fondo: fondos[indice],
+  }));
+}
+
+async function generar({ salida, dirFuentes, site }) {
+  const cache = configurarFuentes(dirFuentes, FUENTES_REQUERIDAS);
+  try {
+    await verificarSoraAplicada(renderMuestra);
+    const fuenteBold = await detectarFamiliaBold();
+    await validarYEscribir(await renderizarRasters(site, fuenteBold), salida);
+    for (const { ruta, ancho, alto } of RASTERS_REDES) console.log(`${ruta}: ${ancho}x${alto}`);
+    console.log(`Fuente bold detectada: ${typeof fuenteBold === 'string' ? fuenteBold : JSON.stringify(fuenteBold)}`);
+  } finally {
+    rmSync(cache, { recursive: true, force: true });
   }
 }
 
-function svgAvatar() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 96 96"><defs><linearGradient id="fa" x1="41.32%" y1="0.76%" x2="58.68%" y2="99.24%"><stop offset="0%" stop-color="${PALETA.primario}"/><stop offset="100%" stop-color="${PALETA.primarioOscuro}"/></linearGradient><radialGradient id="ra" cx="88%" cy="8%" r="65%"><stop offset="0%" stop-color="${PALETA.acento}" stop-opacity="0.35"/><stop offset="100%" stop-color="${PALETA.acento}" stop-opacity="0"/></radialGradient></defs><rect width="96" height="96" fill="url(#fa)"/><rect width="96" height="96" fill="url(#ra)"/><g transform="translate(48 48) scale(1.1) translate(-46 -50)" fill="none" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M26 74 L46 26 L66 74" stroke="${PALETA.blanco}" stroke-width="11"/><path d="M37 59 L55 59" stroke="${PALETA.cobreClaro}" stroke-width="11"/></g></svg>`;
-}
-
-async function generarAvatar() {
-  mkdirSync(path.dirname(RUTAS_REDES.avatar), { recursive: true });
-  await sharp(Buffer.from(svgAvatar())).png().toFile(RUTAS_REDES.avatar);
-}
-
-function verificarPeso(ruta) {
-  const { size } = statSync(ruta);
-  const limite = 10 * 1024 * 1024;
-  if (size >= limite) {
-    console.error(`${ruta} pesa ${(size / 1024 / 1024).toFixed(2)} MB, supera el límite de 10 MB.`);
+export async function main({ salida = RAIZ, dirFuentes = DIR_FUENTES, site = leerSiteJson() } = {}) {
+  try {
+    await generar({ salida, dirFuentes, site });
+  } catch (error) {
+    console.error(error.message);
     process.exit(1);
   }
 }
 
-async function verificarDimensiones(rutas) {
-  for (const { ruta, ancho, alto } of rutas) {
-    const { width, height } = await sharp(ruta).metadata();
-    if (width !== ancho || height !== alto) {
-      console.error(`${ruta} tiene dimensiones ${width}x${height}, se esperaba ${ancho}x${alto}.`);
-      process.exit(1);
-    }
-  }
-}
-
-async function main() {
-  await verificarCargaDeFuentes();
-  const fuenteBold = await detectarFamiliaBold();
-
-  const site = leerSiteJson();
-
-  await generarAvatar();
-  await generarCarrusel(site, fuenteBold);
-
-  const generados = [RUTAS_REDES.avatar, ...RUTAS_REDES.carrusel];
-  for (const ruta of generados) {
-    verificarPeso(ruta);
-  }
-
-  await verificarDimensiones([
-    { ruta: RUTAS_REDES.avatar, ancho: 1080, alto: 1080 },
-    ...RUTAS_REDES.carrusel.map((ruta) => ({ ruta, ancho: 1080, alto: 1350 })),
-  ]);
-
-  for (const ruta of generados) {
-    const { width, height } = await sharp(ruta).metadata();
-    console.log(`${path.relative(ROOT_DIR, ruta)}: ${width}x${height}`);
-  }
-
-  console.log(`Fuente bold detectada: ${typeof fuenteBold === 'string' ? fuenteBold : JSON.stringify(fuenteBold)}`);
-}
-
-await main();
+if (esModuloDeEntrada(import.meta.url)) await main();

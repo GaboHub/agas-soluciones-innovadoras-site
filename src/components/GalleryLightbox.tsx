@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import Icono from './Icono';
 
 export interface FotoGaleria {
   thumbSrc: string;
   thumbWidth: number;
   thumbHeight: number;
+  thumbSrcSet?: string;
   fullSrc: string;
   fullWidth: number;
   fullHeight: number;
@@ -82,8 +84,10 @@ export default function GalleryLightbox({ fotos }: Props) {
                 src={foto.thumbSrc}
                 width={foto.thumbWidth}
                 height={foto.thumbHeight}
+                srcSet={foto.thumbSrcSet}
+                sizes="84px"
                 alt={foto.alt}
-                loading="lazy"
+                loading="eager"
                 className="h-full w-full object-contain"
               />
             </button>
@@ -94,7 +98,7 @@ export default function GalleryLightbox({ fotos }: Props) {
       <dialog
         ref={dialogRef}
         onClose={cerrar}
-        className="max-h-[90vh] max-w-[95vw] rounded-2xl bg-white p-0 backdrop:bg-black/80 md:max-w-3xl"
+        className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-0 backdrop:bg-black/80 md:max-w-3xl"
         aria-label="Foto ampliada"
       >
         {fotoAmpliada && (
@@ -103,33 +107,35 @@ export default function GalleryLightbox({ fotos }: Props) {
               type="button"
               onClick={cerrar}
               aria-label="Cerrar foto ampliada"
-              className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-tinta/70 text-white active:translate-y-[2px]"
+              className="absolute right-2 top-2 flex size-11 items-center justify-center rounded-full bg-tinta/70 text-white active:translate-y-[2px]"
             >
-              ✕
+              <Icono nombre="cerrar" className="h-5 w-5" />
             </button>
             <img
               src={fotoAmpliada.fullSrc}
               width={fotoAmpliada.fullWidth}
               height={fotoAmpliada.fullHeight}
               alt={fotoAmpliada.alt}
-              className="max-h-[80vh] w-auto rounded-2xl bg-white object-contain"
+              className="max-h-[80dvh] w-auto rounded-2xl bg-white object-contain"
             />
             <div className="flex w-full items-center justify-between gap-2 p-3">
               <button
                 type="button"
                 onClick={anterior}
                 aria-label="Foto anterior"
-                className="rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
               >
-                ← Anterior
+                <Icono nombre="flecha-izquierda" className="h-4 w-4" />
+                Anterior
               </button>
               <button
                 type="button"
                 onClick={siguiente}
                 aria-label="Foto siguiente"
-                className="rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primario-claro px-4 py-2 font-bold text-tinta active:translate-y-[2px]"
               >
-                Siguiente →
+                Siguiente
+                <Icono nombre="flecha-derecha" className="h-4 w-4" />
               </button>
             </div>
           </div>

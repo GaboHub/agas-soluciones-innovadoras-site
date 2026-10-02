@@ -2,8 +2,9 @@
 titulo: "¿Qué lámina de vidrio sirve para mi Nintendo Switch?"
 slug: que-lamina-sirve-para-mi-nintendo-switch
 descripcion: "Guía rápida para saber qué lámina de vidrio templado corresponde a tu modelo de Nintendo Switch — Switch 1, OLED o Switch 2 — y no equivocarte al comprar."
+publicado: '2026-07-21'
+actualizado: '2026-08-03'
 metaTitulo: "Qué lámina sirve para tu Nintendo Switch"
-emoji: 🛡️
 productosRelacionados: [lamina-vidrio-nintendo-switch, pack-2-laminas-vidrio-nintendo-switch, lamina-vidrio-switch-oled, pack-2-laminas-vidrio-switch-oled, lamina-vidrio-nintendo-switch-2, pack-2-laminas-vidrio-switch-2, pack-3-laminas-vidrio-switch-2]
 ---
 

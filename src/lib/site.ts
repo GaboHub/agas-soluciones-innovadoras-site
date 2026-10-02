@@ -3,7 +3,6 @@ import raw from '../data/site.json';
 export interface Categoria {
   slug: string;
   nombre: string;
-  emoji: string;
   resumen: string;
   productos: string[];
 }
@@ -33,6 +32,9 @@ export interface SiteData {
   };
   ctaHeader: string;
   ctaBurbujaProducto: string;
+  ctaFicha: string;
+  ctaCupon: string;
+  ctaPaginaOficial: string;
   footer: string;
   contacto: {
     email: string;

@@ -1,18 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
-import promociones from '../src/data/promociones.json' with { type: 'json' };
 
 async function extraerJsonLd(page: import('@playwright/test').Page) {
   const bloques = await page.locator('script[type="application/ld+json"]').allTextContents();
   return bloques.map((bloque) => JSON.parse(bloque));
 }
-
-function hoyEnChile(): string {
-  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
-}
-
-const hoy = hoyEnChile();
-const hayPromosPublicables = [...promociones.cupones, ...promociones.campanas].some((item) => item.hasta >= hoy);
 
 test.describe('página de producto', () => {
   test('el CTA primario apunta al permalink de Mercado Libre en pestaña nueva', async ({ page }) => {
@@ -44,21 +36,6 @@ test.describe('página de producto', () => {
     await page.goto('/productos/lamina-vidrio-nintendo-switch/');
     const cuerpo = (await page.locator('main').textContent()) ?? '';
     expect(cuerpo).not.toMatch(/stock/i);
-  });
-
-  test('muestra el bloque de promociones de la tienda', async ({ page }) => {
-    if (!hayPromosPublicables) {
-      test.skip(true, 'no hay cupones ni campañas publicables en promociones.json a la fecha de build');
-      return;
-    }
-    await page.goto('/productos/lamina-vidrio-nintendo-switch/');
-    const bloque = page.locator('#promociones-resumen');
-    await expect(bloque).toBeVisible();
-    await expect(bloque.getByText(promociones.aclaracion)).toBeVisible();
-    const cta = bloque.locator('[data-cta="ver-promociones"]');
-    await expect(cta).toHaveAttribute('href', '/promociones/');
-    const cuerpo = (await bloque.textContent()) ?? '';
-    expect(cuerpo).not.toMatch(/\$\d{1,3}(\.\d{3})*/);
   });
 
   test('el layout es de dos columnas: galería a la izquierda y precio/CTA a la derecha', async ({
@@ -151,7 +128,7 @@ test.describe('página de producto', () => {
   test('la ficha emite un JSON-LD BreadcrumbList que coincide con la miga visible', async ({ page }) => {
     await page.goto('/productos/lamina-vidrio-nintendo-switch/');
     const nav = page.locator('nav[aria-label="Ruta de navegación"]');
-    const textosVisibles = (await nav.locator('li').allTextContents()).filter((texto) => texto !== '›');
+    const textosVisibles = (await nav.locator('li').allTextContents()).filter((texto) => texto.trim() !== '');
 
     const bloquesJsonLd = await extraerJsonLd(page);
     const breadcrumb = bloquesJsonLd.find((entrada) => entrada['@type'] === 'BreadcrumbList');

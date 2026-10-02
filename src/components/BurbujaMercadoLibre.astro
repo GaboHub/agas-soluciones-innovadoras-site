@@ -16,9 +16,9 @@ const { href, etiqueta } = Astro.props;
   rel="noopener"
   aria-label={etiqueta}
   title={etiqueta}
-  class="fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meli-tinta active:translate-y-[2px]"
+  class="fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg motion-safe:transition-transform motion-safe:hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meli-tinta active:translate-y-[2px]"
 >
-  <span aria-hidden="true" class="h-full w-full [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
+  <span aria-hidden="true" data-ilustracion class="h-full w-full [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
     <Fragment set:html={isotipo} />
   </span>
 </a>

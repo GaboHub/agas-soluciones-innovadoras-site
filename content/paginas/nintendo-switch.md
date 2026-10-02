@@ -1,11 +1,10 @@
 ---
 titulo: Nintendo Switch
 slug: nintendo-switch
-emoji: 🎮
 tipo: categoria
 ---
 
-# Accesorios para Nintendo Switch 🎮
+# Accesorios para Nintendo Switch
 
 Protege tu consola con nuestra línea de accesorios para Nintendo Switch, Switch OLED y Switch 2: láminas de vidrio templado, estuches rígidos de transporte y kits completos de protección.
 

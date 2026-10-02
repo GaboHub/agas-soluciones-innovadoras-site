@@ -1,6 +1,7 @@
 ---
 import Estrellas from './Estrellas.astro';
 import { resenas } from '../lib/resenas';
+import { site } from '../lib/site';
 
 const { mercadolibre, promedioGeneral, totalReviews, destacadas } = resenas;
 ---
@@ -18,15 +19,15 @@ const { mercadolibre, promedioGeneral, totalReviews, destacadas } = resenas;
       destacadas.map((resena) => (
         <figure class="flex flex-col gap-3 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-black/5">
           <Estrellas promedio={resena.estrellas} />
-          <blockquote class="font-texto text-sm text-tinta/80">“{resena.texto}”</blockquote>
+          <blockquote data-resena-cliente class="font-texto text-sm text-tinta/80">“{resena.texto}”</blockquote>
           <figcaption class="mt-auto">
             <a
               href={`/productos/${resena.productoSlug}/`}
-              class="font-titulos text-sm font-bold text-primario-oscuro hover:underline"
+              class="flex min-h-11 items-center font-titulos text-sm font-bold text-primario-oscuro hover:underline"
             >
               {resena.productoTitulo}
             </a>
-            <p class="font-texto text-xs text-tinta/50">Compra verificada en Mercado Libre</p>
+            <p class="font-texto text-xs text-tinta/70">Compra verificada en Mercado Libre</p>
           </figcaption>
         </figure>
       ))
@@ -38,9 +39,9 @@ const { mercadolibre, promedioGeneral, totalReviews, destacadas } = resenas;
       href={mercadolibre.url}
       target="_blank"
       rel="noopener"
-      class="inline-flex items-center justify-center gap-2 rounded-xl bg-primario px-6 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
+      class="inline-flex items-center justify-center gap-2 rounded-xl bg-primario px-6 py-3 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
     >
-      Ver nuestra tienda en Mercado Libre
+      {site.ctaHeader}
     </a>
   </div>
 </section>

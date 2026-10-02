@@ -14,6 +14,7 @@ const llenas = Math.round(promedio);
     {
       Array.from({ length: 5 }).map((_, indice) => (
         <svg
+          data-ilustracion
           viewBox="0 0 24 24"
           fill={indice < llenas ? 'currentColor' : 'none'}
           stroke="currentColor"
@@ -28,7 +29,7 @@ const llenas = Math.round(promedio);
   <span class="font-texto text-sm font-bold text-tinta">{promedio.toFixed(1)}</span>
   {
     cantidad !== undefined && (
-      <span class="font-texto text-sm text-tinta/60">({cantidad})</span>
+      <span class="font-texto text-sm text-tinta/70">({cantidad})</span>
     )
   }
   <span class="sr-only">{promedio.toFixed(1)} de 5 estrellas</span>

@@ -18,7 +18,7 @@ const { ga4Id } = Astro.props;
   gtag('config', ga4Id);
 </script>
 <script>
-  import { destinoContacto, destinoSaliente } from '../lib/analitica';
+  import { destinoContacto, destinoSaliente, resolverHref } from '../lib/analitica';
   import { analitica } from '../data/site.json';
 
   document.addEventListener('click', (evento) => {
@@ -26,7 +26,8 @@ const { ga4Id } = Astro.props;
     if (!(objetivo instanceof Element)) return;
     const enlace = objetivo.closest('a[href]');
     if (!enlace) return;
-    const href = new URL(enlace.getAttribute('href') ?? '', location.href).toString();
+    const href = resolverHref(enlace.getAttribute('href') ?? '', location.href);
+    if (!href) return;
     const destinoSalienteEncontrado = destinoSaliente(href, analitica.dominiosSalientes);
     if (destinoSalienteEncontrado && window.gtag) {
       window.gtag('event', 'clic_saliente', { destino: destinoSalienteEncontrado, pagina: location.pathname });

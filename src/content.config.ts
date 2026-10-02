@@ -7,7 +7,6 @@ const paginas = defineCollection({
     titulo: z.string(),
     slug: z.string(),
     tipo: z.enum(['categoria']).optional(),
-    emoji: z.string().optional(),
   }),
 });
 
@@ -18,8 +17,8 @@ const productos = defineCollection({
     slug: z.string(),
     categoria: z.string(),
     tipo: z.enum(['simple', 'variantes', 'familia']),
-    emoji: z.string(),
     permalink: z.string().url(),
+    condicion: z.enum(['new', 'used', 'refurbished']),
     precioReferencial: z.number().int().positive(),
     fechaPrecio: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     resumen: z.string(),
@@ -36,7 +35,7 @@ const productos = defineCollection({
       .optional(),
     reviews: z
       .object({
-        promedio: z.number(),
+        promedio: z.number().min(1).max(5),
         cantidad: z.number().int(),
         distribucion: z.record(z.string(), z.number()),
         comentarios: z.array(
@@ -95,8 +94,9 @@ const guias = defineCollection({
     titulo: z.string(),
     slug: z.string(),
     descripcion: z.string(),
+    publicado: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    actualizado: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     metaTitulo: z.string().optional(),
-    emoji: z.string(),
     productosRelacionados: z.array(z.string()),
   }),
 });

@@ -1,43 +1,21 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { readFileSync, rmSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
+import {
+  configurarFuentes,
+  DIR_FUENTES,
+  escaparXml,
+  esModuloDeEntrada,
+  RAIZ,
+  validarYEscribir,
+  verificarSoraAplicada,
+} from './marca-comun.mjs';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(dirname, '..');
-const FUENTES_DIR = path.join(ROOT_DIR, 'marca/fuentes');
-const CACHE_DIR = path.join(ROOT_DIR, 'node_modules/.cache/fontconfig-marca-ml');
-const FONTS_CONF_PATH = path.join(CACHE_DIR, 'fonts.conf');
-
-const RUTAS_FUENTES = {
-  soraSemiBold: path.join(FUENTES_DIR, 'Sora-SemiBold.ttf'),
-  interRegular: path.join(FUENTES_DIR, 'Inter-Regular.ttf'),
-};
-
-for (const ruta of Object.values(RUTAS_FUENTES)) {
-  if (!existsSync(ruta)) {
-    console.error(`Falta la fuente convertida en ${ruta}.`);
-    console.error('Convierte los .woff de node_modules/@fontsource/{sora,inter}/files/ a .ttf con fontTools y guárdalos en marca/fuentes/ antes de correr este script.');
-    process.exit(1);
-  }
-}
-
-mkdirSync(CACHE_DIR, { recursive: true });
-writeFileSync(
-  FONTS_CONF_PATH,
-  `<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <dir>${FUENTES_DIR}</dir>
-  <cachedir>${CACHE_DIR}</cachedir>
-</fontconfig>
-`,
-);
-
-process.env.FONTCONFIG_FILE = FONTS_CONF_PATH;
-process.env.FONTCONFIG_PATH = '';
-
-const sharp = (await import('sharp')).default;
+const FUENTES_REQUERIDAS = [
+  { archivo: 'Sora-SemiBold.ttf', familia: 'Sora', estilo: 'SemiBold' },
+  { archivo: 'Inter-Regular.ttf', familia: 'Inter', estilo: 'Regular' },
+];
 
 const PALETA = {
   primario: '#24455C',
@@ -51,52 +29,23 @@ const PALETA = {
 const FUENTE_SORA_SEMIBOLD = 'Sora SemiBold';
 const FUENTE_INTER = 'Inter';
 
-const RUTAS_ML = {
-  logo: path.join(ROOT_DIR, 'marca/mercadolibre/logo.png'),
-  bannerEscritorio: path.join(ROOT_DIR, 'marca/mercadolibre/banner-escritorio.png'),
-  bannerMovil: path.join(ROOT_DIR, 'marca/mercadolibre/banner-movil.png'),
-};
-
-const RASTERS_SITIO = [
-  path.join(ROOT_DIR, 'public/apple-touch-icon.png'),
-  path.join(ROOT_DIR, 'public/logo.png'),
-  path.join(ROOT_DIR, 'src/assets/images/logo.png'),
+export const RASTERS_ML = [
+  { ruta: 'marca/mercadolibre/logo.png', ancho: 1000, alto: 1000 },
+  { ruta: 'marca/mercadolibre/banner-escritorio.png', ancho: 3840, alto: 200 },
+  { ruta: 'marca/mercadolibre/banner-movil.png', ancho: 1440, alto: 320 },
+  { ruta: 'public/apple-touch-icon.png', ancho: 180, alto: 180 },
+  { ruta: 'public/logo.png', ancho: 512, alto: 512 },
+  { ruta: 'src/assets/images/logo.png', ancho: 512, alto: 512 },
 ];
 
-function escaparXml(texto) {
-  return texto
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
-
-async function verificarCargaDeFuentes() {
-  const render = (fontFamily) =>
-    sharp(
-      Buffer.from(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120"><text x="10" y="90" font-family="${fontFamily}" font-size="72" fill="#000000">AGAS</text></svg>`,
-      ),
-    )
-      .png()
-      .toBuffer();
-
-  const [conSora, conFallback] = await Promise.all([render(FUENTE_SORA_SEMIBOLD), render('serif')]);
-
-  if (conSora.equals(conFallback)) {
-    console.error('La fuente Sora no se aplicó: el render con "Sora SemiBold" es idéntico al de "serif".');
-    console.error('Revisa que marca/fuentes/*.ttf existan y que fonts.conf apunte a esa carpeta.');
-    process.exit(1);
-  }
-
-  const recorte = await sharp(conSora).trim().metadata();
-  if (!recorte.width || recorte.width === 0) {
-    console.error('El motor de texto no dibujó nada: el recorte de "AGAS" en Sora tiene ancho cero.');
-    console.error('No hay un fallback razonable: revisa la instalación de librsvg/pango incluida con sharp.');
-    process.exit(1);
-  }
-}
+const renderMuestra = (fontFamily) =>
+  sharp(
+    Buffer.from(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120"><text x="10" y="90" font-family="${fontFamily}" font-size="72" fill="#000000">AGAS</text></svg>`,
+    ),
+  )
+    .png()
+    .toBuffer();
 
 async function medirAnchoTexto(texto, { fontFamily, fontSize, letterSpacing }) {
   const lienzoAncho = fontSize * texto.length + fontSize * 4;
@@ -214,15 +163,10 @@ function svgRomboDecorativo({ x, y, ladoTile, gap }) {
 }
 
 function leerSiteJson() {
-  return JSON.parse(readFileSync(path.join(ROOT_DIR, 'src/data/site.json'), 'utf-8'));
+  return JSON.parse(readFileSync(path.join(RAIZ, 'src/data/site.json'), 'utf-8'));
 }
 
-async function generarLogoMercadoLibre() {
-  const svg = svgIconoStandalone(1000);
-  await sharp(Buffer.from(svg)).png().toFile(RUTAS_ML.logo);
-}
-
-async function generarBannerEscritorio(site) {
+export async function svgBannerEscritorio(site) {
   const ancho = 3840;
   const alto = 200;
   const margen = 80;
@@ -263,10 +207,10 @@ async function generarBannerEscritorio(site) {
     ${svgRomboDecorativo({ x: xCentroRombo, y: yCentroRombo, ladoTile, gap: gapTile })}
   </svg>`;
 
-  await sharp(Buffer.from(svg)).png().toFile(RUTAS_ML.bannerEscritorio);
+  return svg;
 }
 
-async function generarBannerMovil(site) {
+export async function svgBannerMovil(site) {
   const ancho = 1440;
   const alto = 320;
   const margen = 64;
@@ -316,52 +260,53 @@ async function generarBannerMovil(site) {
     ${incluirRombo ? svgRomboDecorativo({ x: xCentroRombo, y: yCentroRombo, ladoTile, gap: gapTile }) : ''}
   </svg>`;
 
-  await sharp(Buffer.from(svg)).png().toFile(RUTAS_ML.bannerMovil);
+  return svg;
 }
 
-async function regenerarRastersSitio() {
-  for (const ruta of RASTERS_SITIO) {
-    if (!existsSync(ruta)) {
-      console.error(`No existe el raster a regenerar: ${ruta}`);
-      process.exit(1);
-    }
-    const { width, height } = await sharp(ruta).metadata();
-    if (!width || !height || width !== height) {
-      console.error(`Dimensiones inesperadas en ${ruta}: ${width}x${height} (se esperaba un cuadrado).`);
-      process.exit(1);
-    }
-    const svg = svgIconoStandalone(width);
-    await sharp(Buffer.from(svg)).png().toFile(ruta);
+const renderizar = (svg) => sharp(Buffer.from(svg)).png().toBuffer();
+
+const TRANSPARENTE = [0, 0, 0, 0];
+
+const svgSoloFondo = (ancho, alto) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${ancho}" height="${alto}" viewBox="0 0 ${ancho} ${alto}">${svgFondoDegradado(ancho, alto)}</svg>`;
+
+async function renderizarRasters(site) {
+  const svgs = {
+    'marca/mercadolibre/banner-escritorio.png': await svgBannerEscritorio(site),
+    'marca/mercadolibre/banner-movil.png': await svgBannerMovil(site),
+  };
+  return Promise.all(
+    RASTERS_ML.map(async ({ ruta, ancho, alto }) => {
+      const esBanner = ruta in svgs;
+      return {
+        ruta,
+        ancho,
+        alto,
+        buffer: await renderizar(esBanner ? svgs[ruta] : svgIconoStandalone(ancho)),
+        fondo: esBanner ? await renderizar(svgSoloFondo(ancho, alto)) : TRANSPARENTE,
+      };
+    }),
+  );
+}
+
+async function generar({ salida, dirFuentes, site }) {
+  const cache = configurarFuentes(dirFuentes, FUENTES_REQUERIDAS);
+  try {
+    await verificarSoraAplicada(renderMuestra);
+    await validarYEscribir(await renderizarRasters(site), salida);
+    for (const { ruta, ancho, alto } of RASTERS_ML) console.log(`${ruta}: ${ancho}x${alto}`);
+  } finally {
+    rmSync(cache, { recursive: true, force: true });
   }
 }
 
-function verificarPeso(ruta) {
-  const { size } = statSync(ruta);
-  const limite = 10 * 1024 * 1024;
-  if (size >= limite) {
-    console.error(`${ruta} pesa ${(size / 1024 / 1024).toFixed(2)} MB, supera el límite de 10 MB.`);
+export async function main({ salida = RAIZ, dirFuentes = DIR_FUENTES, site = leerSiteJson() } = {}) {
+  try {
+    await generar({ salida, dirFuentes, site });
+  } catch (error) {
+    console.error(error.message);
     process.exit(1);
   }
 }
 
-async function main() {
-  mkdirSync(path.dirname(RUTAS_ML.logo), { recursive: true });
-
-  await verificarCargaDeFuentes();
-
-  const site = leerSiteJson();
-
-  await generarLogoMercadoLibre();
-  await generarBannerEscritorio(site);
-  await generarBannerMovil(site);
-  await regenerarRastersSitio();
-
-  const generados = [RUTAS_ML.logo, RUTAS_ML.bannerEscritorio, RUTAS_ML.bannerMovil, ...RASTERS_SITIO];
-  for (const ruta of generados) {
-    verificarPeso(ruta);
-    const { width, height } = await sharp(ruta).metadata();
-    console.log(`${path.relative(ROOT_DIR, ruta)}: ${width}x${height}`);
-  }
-}
-
-await main();
+if (esModuloDeEntrada(import.meta.url)) await main();

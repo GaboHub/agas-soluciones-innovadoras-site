@@ -1,0 +1,82 @@
+---
+import Faq from './Faq.astro';
+import TarjetaCupon from './TarjetaCupon.astro';
+import TarjetaPromocion from './TarjetaPromocion.astro';
+import { site } from '../lib/site';
+import type { Campana, Cupon, EstadoPromocion } from '../lib/promociones';
+import type { FaqItem } from '../lib/faqs';
+
+interface Props {
+  aclaracion: string;
+  cupones: Array<Cupon & { estado: EstadoPromocion }>;
+  campanas: Array<Campana & { estado: EstadoPromocion }>;
+  faqs: FaqItem[];
+}
+
+const { aclaracion, cupones, campanas, faqs } = Astro.props;
+---
+
+<section class="mx-auto max-w-4xl px-4 py-6">
+  <p class="rounded-2xl bg-destacado/10 px-5 py-4 font-texto text-sm font-bold text-tinta">
+    {aclaracion}
+  </p>
+</section>
+
+{
+  cupones.length > 0 && (
+    <section id="cupones" class="mx-auto max-w-4xl px-4 py-6">
+      <h2 class="font-titulos text-2xl font-bold text-tinta">Cupones</h2>
+      <div class="mt-4 grid gap-5 sm:grid-cols-2">
+        {cupones.map((cupon) => (
+          <TarjetaCupon
+            nombre={cupon.nombre}
+            porcentaje={cupon.porcentaje}
+            condicion={cupon.condicion}
+            estado={cupon.estado}
+            desde={cupon.desde}
+            hasta={cupon.hasta}
+            href={site.mercadolibre.paginaOficial}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  campanas.length > 0 && (
+    <section id="campanas" class="mx-auto max-w-4xl px-4 py-6">
+      <h2 class="font-titulos text-2xl font-bold text-tinta">Campañas</h2>
+      <div class="mt-4 grid gap-5 sm:grid-cols-2">
+        {campanas.map((campana) => (
+          <TarjetaPromocion
+            nombre={campana.nombre}
+            descripcion={campana.descripcion}
+            estado={campana.estado}
+            desde={campana.desde}
+            hasta={campana.hasta}
+            href={site.mercadolibre.tienda}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  cupones.length + campanas.length === 0 && (
+    <div id="promo-fallback" class="mx-auto max-w-4xl px-4 py-10 text-center">
+      <p class="font-texto text-lg font-bold text-tinta">En este momento no tenemos promociones activas.</p>
+      <a
+        href={site.mercadolibre.tienda}
+        target="_blank"
+        rel="noopener"
+        class="mt-4 inline-flex items-center justify-center rounded-xl bg-primario px-6 py-3 font-texto text-sm font-bold text-white motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
+      >
+        {site.ctaHeader}
+      </a>
+    </div>
+  )
+}
+
+<Faq items={faqs} titulo="Preguntas sobre promociones" />

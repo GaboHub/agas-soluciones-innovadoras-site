@@ -23,6 +23,9 @@
   },
   "ctaHeader": "Ver tienda en Mercado Libre",
   "ctaBurbujaProducto": "Ver esta publicación en Mercado Libre",
+  "ctaFicha": "Ver en Mercado Libre",
+  "ctaCupon": "Seguir la tienda en Mercado Libre",
+  "ctaPaginaOficial": "Página oficial en Mercado Libre",
   "footer": "Compra 100% protegida a través de Mercado Libre. Encuentra todo nuestro catálogo en nuestra tienda oficial.",
   "contacto": {
     "email": "agassolucionesinnovadoras@gmail.com",
@@ -32,6 +35,7 @@
     "instagram": "https://www.instagram.com/agassoluciones.cl/"
   },
   "sellosConfianza": ["Reputación verde", "Despacho el mismo día", "Desde Santiago a todo Chile"],
+  "presentacionRedes": "Tienda online chilena",
   "hero": {
     "titulo": "Soluciones innovadoras para tu día a día",
     "acentuada": "innovadoras",
@@ -43,7 +47,6 @@
     {
       "slug": "nintendo-switch",
       "nombre": "Nintendo Switch",
-      "emoji": "🎮",
       "resumen": "Láminas, estuches y kits de protección para Nintendo Switch, Switch OLED y Switch 2.",
       "productos": [
         "lamina-vidrio-nintendo-switch",
@@ -65,7 +68,6 @@
     {
       "slug": "playstation-5",
       "nombre": "PlayStation",
-      "emoji": "🕹️",
       "resumen": "Fundas, grips y cargadores para controles de PlayStation 5.",
       "productos": [
         "fundas-silicona-grips-control-ps5",
@@ -81,7 +83,6 @@
     {
       "slug": "audio",
       "nombre": "Audio",
-      "emoji": "🎧",
       "resumen": "Audífonos con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular.",
       "productos": ["audifonos-usb-c-manos-libres", "audifonos-bluetooth-tws", "audifonos-bluetooth-open-ear"]
     }

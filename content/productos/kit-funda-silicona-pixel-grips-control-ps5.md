@@ -3,9 +3,9 @@ titulo: Kit Funda Silicona Diseño Pixel + 4 Grips Control PS5
 slug: kit-funda-silicona-pixel-grips-control-ps5
 categoria: playstation-5
 tipo: familia
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-2274117635-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rojo-_JM
+condicion: new
 precioReferencial: 8590
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -3,9 +3,9 @@ titulo: Kit Funda Control PS5 Silicona + 4 Grips Análogos
 slug: kit-funda-silicona-grips-control-ps5
 categoria: playstation-5
 tipo: variantes
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM
+condicion: new
 precioReferencial: 8590
 fechaPrecio: '2026-10-01'
 resumen: >-

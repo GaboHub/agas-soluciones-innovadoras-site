@@ -7,6 +7,7 @@ import Resenas from '../components/Resenas.astro';
 import Faq from '../components/Faq.astro';
 import ConstelacionMarca from '../components/ConstelacionMarca.astro';
 import GlifoCategoria from '../components/GlifoCategoria.astro';
+import Icono from '../components/Icono.tsx';
 import { site } from '../lib/site';
 import { faqsGlobales } from '../lib/faqs';
 import { getProductosDeCategoria, getProductosDestacados } from '../lib/productos';
@@ -35,11 +36,8 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
 
 const [heroAntes, heroDespues] = site.hero.titulo.split(site.hero.acentuada);
 
-const sellosIconos = [
-  'M5 13l4 4L19 7',
-  'M3 7h10v9H3zM13 10h4l3 3v3h-7v-6ZM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z',
-  'M12 21s-6-5.5-6-10.5A6 6 0 0 1 18 10.5C18 15.5 12 21 12 21ZM12 8a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z',
-];
+const sellosIconos = ['check', 'camion', 'ubicacion'] as const;
+import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
 ---
 
 <BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
@@ -55,11 +53,11 @@ const sellosIconos = [
         <h1 class="font-titulos text-3xl font-bold leading-tight md:text-5xl">
           {heroAntes}<span class="text-destacado">{site.hero.acentuada}</span>{heroDespues}
         </h1>
-        <p class="max-w-xl font-texto text-lg text-white/82 md:text-xl">{site.hero.bajada}</p>
+        <p class="max-w-xl font-texto text-lg text-white/82 md:text-xl md:leading-normal">{site.hero.bajada}</p>
         <div class="flex flex-wrap justify-center gap-3 md:justify-start">
           <a
             href="/productos/"
-            class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
+            class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
           >
             Ver catálogo
           </a>
@@ -76,18 +74,7 @@ const sellosIconos = [
           {
             site.sellosConfianza.map((sello, indice) => (
               <li class="flex items-center gap-2">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4 shrink-0 text-destacado"
-                  aria-hidden="true"
-                >
-                  <path d={sellosIconos[indice]} />
-                </svg>
+                <Icono nombre={sellosIconos[indice]} className="h-4 w-4 text-destacado" />
                 {sello}
               </li>
             ))
@@ -113,7 +100,7 @@ const sellosIconos = [
           categoriasConImagen.map(({ categoria, imagen }) => (
             <a
               href={`/categorias/${categoria.slug}/`}
-              class="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-lg"
+              class="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg"
             >
               <div class="flex items-center justify-center bg-white p-4">
                 <Image
@@ -121,6 +108,8 @@ const sellosIconos = [
                   alt={`Accesorios de ${categoria.nombre}`}
                   width={480}
                   height={480}
+                  widths={ANCHOS_TARJETA}
+                  sizes={SIZES_TARJETA}
                   class="h-40 w-auto object-contain sm:h-48"
                 />
               </div>
@@ -132,8 +121,9 @@ const sellosIconos = [
                   <p class="font-titulos text-lg font-bold text-tinta">{categoria.nombre}</p>
                 </div>
                 <p class="font-texto text-sm text-tinta/80">{categoria.resumen}</p>
-                <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
-                  Ver {categoria.productos.length} productos →
+                <span class="mt-auto inline-flex items-center gap-1 pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+                  Ver {categoria.productos.length} productos
+                  <Icono nombre="flecha-derecha" className="h-4 w-4" />
                 </span>
               </div>
             </a>
@@ -153,8 +143,9 @@ const sellosIconos = [
       </p>
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {
-          destacados.map((producto) => (
+          destacados.map((producto, indice) => (
             <ProductCard
+              prioridad={indice < 4}
               slug={producto.data.slug}
               titulo={producto.data.titulo}
               categoriaNombre={site.categorias.find((c) => c.slug === producto.data.categoria)?.nombre ?? ''}
@@ -169,7 +160,7 @@ const sellosIconos = [
   </section>
 
   <section class="mx-auto max-w-4xl px-4 py-12">
-    <div class="contenido-md">
+    <div class="contenido-md contenido-md-con-check">
       <Content />
     </div>
   </section>
@@ -184,7 +175,7 @@ const sellosIconos = [
       </p>
       <a
         href="/guias/"
-        class="rounded-xl bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
+        class="rounded-xl bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
       >
         Ver todas las guías
       </a>
@@ -194,15 +185,16 @@ const sellosIconos = [
   <section class="bg-white px-4 py-2">
     <Faq items={faqsTeaser} titulo="Preguntas frecuentes" />
     <div class="mx-auto max-w-4xl pb-10">
-      <a href="/preguntas-frecuentes/" class="font-texto font-bold text-acento-oscuro hover:text-primario hover:underline">
-        Ver todas las preguntas frecuentes →
+      <a href="/preguntas-frecuentes/" class="inline-flex min-h-11 items-center gap-1 font-texto font-bold text-acento-oscuro hover:text-primario hover:underline">
+        Ver todas las preguntas frecuentes
+        <Icono nombre="flecha-derecha" className="h-4 w-4" />
       </a>
     </div>
   </section>
 
   <section class="px-4 py-14">
     <div class="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-3xl bg-primario px-6 py-10 text-center text-white">
-      <h2 class="font-titulos text-2xl font-bold md:text-3xl">¿Listo para equipar tu setup? 🎮</h2>
+      <h2 class="font-titulos text-2xl font-bold md:text-3xl">¿Listo para equipar tu setup?</h2>
       <p class="font-texto text-white/90">
         Encuentra todo nuestro catálogo con precios vigentes y despacho a todo Chile.
       </p>
@@ -210,7 +202,7 @@ const sellosIconos = [
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md transition-transform hover:scale-105 active:translate-y-[2px]"
+        class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
       >
         {site.ctaHeader}
       </a>

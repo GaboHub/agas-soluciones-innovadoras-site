@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { destinoContacto, destinoSaliente } from '../../src/lib/analitica';
+import { destinoContacto, destinoSaliente, resolverHref } from '../../src/lib/analitica';
 
 const dominios = ['mercadolibre.cl'];
 
@@ -86,5 +86,24 @@ describe('destinoContacto', () => {
 
   it('devuelve null para un mailto vacío', () => {
     expect(destinoContacto('mailto:')).toBeNull();
+  });
+});
+
+describe('resolverHref', () => {
+  const base = 'https://agassoluciones.cl/productos/';
+
+  it('resuelve una ruta relativa contra la página actual', () => {
+    expect(resolverHref('/contacto/', base)).toBe('https://agassoluciones.cl/contacto/');
+    expect(resolverHref('x/', base)).toBe('https://agassoluciones.cl/productos/x/');
+  });
+
+  it('conserva una URL absoluta y un mailto', () => {
+    expect(resolverHref('https://articulo.mercadolibre.cl/MLC-1', base)).toBe('https://articulo.mercadolibre.cl/MLC-1');
+    expect(resolverHref('mailto:a@b.cl?subject=Hola', base)).toBe('mailto:a@b.cl?subject=Hola');
+  });
+
+  it('devuelve null si la URL es malformada', () => {
+    expect(resolverHref('http://', base)).toBeNull();
+    expect(resolverHref('https://', base)).toBeNull();
   });
 });

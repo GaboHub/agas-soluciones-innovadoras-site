@@ -39,16 +39,23 @@ hardcodeados.
   flotante (`BurbujaMercadoLibre`), visible en todos los viewports, que en
   todas las páginas lleva a la tienda y en la ficha de producto apunta
   siempre al mismo destino que el CTA "Ver en Mercado Libre", sincronizada
-  con la variante activa (ver
-  `docs/adr/0004-burbuja-mercado-libre-en-todos-los-viewports.md`).
+  con la variante activa.
+- **Spec viva**: `openspec/specs/<capability>/spec.md` (8 capabilities) es
+  la fuente de verdad del comportamiento.
 - **Tests**: Vitest (`tests/unit/`) valida catálogo, imágenes, reseñas,
   FAQs y SEO; Playwright (`e2e/`) cubre navegación, buscador, ficha de
-  producto, familias, SEO y responsive en desktop y mobile.
+  producto, familias, SEO y responsive en desktop y mobile. La capa de spec
+  (`tests/spec/`, `e2e/spec/` y `tests/python/spec/`) cita cada requirement
+  por nombre; su auditoría (`tests/spec/auditoria/propias.ts` exige las 8
+  capabilities, y `tests/python/test_auditoria_spec.py` la de `barrido`) falla
+  ante una cita rota o un requirement sin test. `tests/python/` prueba el
+  barrido con pytest.
 
 ## Estructura del proyecto
 
 ```text
 agas_site/
+├── openspec/specs/             Spec viva por capability (fuente de verdad)
 ├── content/
 │   ├── guias/                  Guías de compra y uso (manuales, no generadas)
 │   ├── paginas/                Inicio, categorías, contacto, términos
@@ -61,7 +68,7 @@ agas_site/
 │   ├── layouts/                BaseLayout con SEO (meta, OG, JSON-LD) y burbuja flotante de Mercado Libre
 │   ├── lib/                    site, seo, images, galeria, productos, ficha, formato, faqs,
 │   │                           resenas, guias, textos
-│   ├── data/                   site.json, faqs.json, catalogo.json, resenas.json,
+│   ├── data/                   site.json, faqs.json, resenas.json, promociones.json,
 │   │                           textos-productos.json
 │   ├── assets/images/          Logos SVG + imágenes de producto (productos/<slug>/*.webp)
 │   └── styles/global.css       Tokens de marca (colores y fuentes) con Tailwind 4 `@theme`
@@ -72,9 +79,11 @@ agas_site/
 ├── marca/                      Fuera del build: assets de marca para Mercado Libre
 │                               y para redes sociales, y los TTF con que los
 │                               scripts componen los textos
-├── e2e/                        Pruebas Playwright (projects desktop/mobile)
+├── e2e/                        Pruebas Playwright (projects desktop/mobile/ga4); e2e/spec/ = capa de spec
 ├── tests/unit/                 Pruebas Vitest
-└── public/                     robots.txt, llms.txt, favicon.svg, logo.png,
+├── tests/spec/                 Tests de spec (Vitest) y su auditoría
+├── tests/python/               Pruebas pytest del barrido; tests/python/spec/ = capa de spec
+└── public/                     robots.txt, favicon.svg, logo.png,
                                 apple-touch-icon.png, _headers
 ```
 
@@ -91,9 +100,10 @@ editan a mano.
 | `npm run dev`        | Servidor de desarrollo en `localhost:4321`                  |
 | `npm run build`      | Genera el sitio estático en `./dist/`                       |
 | `npm run preview`    | Sirve `dist/` tal como quedaría publicado                   |
-| `npm run test:unit`  | Pruebas unitarias (Vitest)                                  |
-| `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile). Si el puerto 4321 está ocupado por otro proyecto, correr `E2E_PORT=4331 npm run test:e2e` (u otro puerto libre): con `reuseExistingServer` activo, reusar un servidor ajeno en 4321 probaría el sitio equivocado |
-| `npm test`           | Ambas suites                                                |
+| `npm run test:unit`  | Pruebas unitarias y de spec (Vitest)                        |
+| `npm run test:py`    | Pruebas pytest del barrido (crea `.venv/` la primera vez)   |
+| `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile). Si el puerto 4321 está ocupado por otro proyecto, correr `E2E_PORT=4331 npm run test:e2e` (u otro puerto libre): con `reuseExistingServer` activo, reusar un servidor ajeno en 4321 probaría el sitio equivocado. El segundo build, con GA4 de prueba, usa `E2E_PORT_GA4` (4322 por defecto) |
+| `npm test`           | `test:py`, `test:unit` y `test:e2e`                         |
 | `npm run barrido`    | Descarga el barrido de Mercado Libre a `../agas-context` (ver skill `refresco-catalogo`) |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
 | `node scripts/generar-marca-ml.mjs` | Regenera los assets de marca de Mercado Libre y los rasters del sitio (ver `marca/mercadolibre/README.md`) |
@@ -112,9 +122,8 @@ El flujo completo de actualización es: `npm run barrido` → `npm run generar` 
 (si cambió algún conteo de productos por categoría, regenerar y republicar los
 assets de redes) → `npm run build` y las suites de test. Procedimiento
 detallado, con la tabla de advertencias del generador y las trampas
-conocidas, en la skill `.claude/skills/refresco-catalogo/SKILL.md`; racional
-completo en
-`docs/adr/0009-barrido-en-el-repo-poda-conservadora-y-filtro-de-publicaciones-cerradas.md`.
+conocidas, en la skill `.claude/skills/refresco-catalogo/SKILL.md`; contratos
+en `openspec/specs/barrido/spec.md` y `openspec/specs/catalogo/spec.md`.
 
 **`npm run barrido`** ejecuta `scripts/exportar-contexto-ml.py` (Python 3,
 stdlib + `requests`), configurado por un `.env` en la raíz (copiar de
@@ -122,7 +131,7 @@ stdlib + `requests`), configurado por un `.env` en la raíz (copiar de
 publicaciones/variantes/familias virtuales desde la base Postgres de la app
 `mi-app-ml` (contenedor Docker `pg-dev`), y descarga de la API de Mercado
 Libre detalle, descripción, promociones por ítem, reseñas e imágenes,
-escribiendo desde cero `../agas-context` (`empresa.md`, `indice.md`,
+escribiendo `../agas-context` (`empresa.md`, `indice.md`,
 `publicaciones/<carpeta>/publicacion.md` + imágenes). Es el único proceso con
 permiso de escritura sobre ese directorio: un dato mal capturado se corrige
 en este script, nunca editando el markdown exportado a mano. Poda las
@@ -135,13 +144,13 @@ el barrido aunque la base todavía las liste.
 
 **`npm run generar`** ejecuta `scripts/generar-catalogo.mjs`, que lee el
 barrido desde `../agas-context` (configurable con la variable de entorno
-`AGAS_CONTEXT_DIR`, la misma que lee el script de barrido) y regenera desde
-cero:
+`AGAS_CONTEXT_DIR`, la misma que lee el script de barrido) y regenera:
 
 - `content/productos/*.md`: una ficha por publicación lógica, con frontmatter estructurado (FAQs, reviews, variantes, grupos) y la descripción limpia como cuerpo.
 - `src/assets/images/productos/<slug>/`: imágenes convertidas a WebP (máximo 800 px de lado mayor).
-- `src/data/catalogo.json` y `src/data/resenas.json`: fuentes para listados, buscador y reseñas.
-- `public/llms.txt`: resumen del catálogo para agentes de IA.
+- `src/data/resenas.json`: fuente de reseñas.
+
+`llms.txt` no lo escribe el script: lo construye el build (`src/pages/llms.txt.ts`).
 
 El script es idempotente: borra y vuelve a crear todo lo que produce. Antes de
 resolver duplicados de catálogo o armar familias, descarta las publicaciones
@@ -152,7 +161,7 @@ firma del bloque (promedio, cantidad, distribución y comentarios): Mercado
 Libre replica el mismo bloque de reseñas en varios miembros de una familia, y
 sumarlos sin deduplicar duplicaría el conteo real.
 
-Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json` son contenido editorial manual y sobreviven intactos a cada regeneración (las guías solo se *leen* para listarlas en `llms.txt`). Requisito de entrada: que `../agas-context` exista con el barrido de publicaciones; sin él, `npm run generar` falla y el resto del sitio sigue construyendo con lo último generado y commiteado.
+Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json` son contenido editorial manual y sobreviven intactos a cada regeneración (las guías solo se *leen* para listarlas en `llms.txt` durante el build). Requisito de entrada: que `../agas-context` exista con el barrido de publicaciones; sin él, `npm run generar` falla y el resto del sitio sigue construyendo con lo último generado y commiteado.
 
 ## Datos manuales vs generados
 
@@ -166,7 +175,7 @@ Lo que el script **no** toca: `content/guias/` y `src/data/textos-productos.json
   `global.css`, logos.
 - **Generados** (no editar a mano; corregir en el script de barrido o en el generador y regenerar):
   `content/productos/*.md`, `src/assets/images/productos/`,
-  `src/data/catalogo.json`, `src/data/resenas.json`, `public/llms.txt`.
+  `src/data/resenas.json`.
 
 Si se agrega o quita un producto del catálogo, hay que actualizar el
 arreglo `productos` de su categoría en `site.json` (los tests validan la
@@ -177,20 +186,22 @@ consistencia entre ambos) y los conteos exactos de `tests/unit/`.
 `src/data/promociones.json` es la única fuente de las promociones y cupones
 que se publican, tanto en `/promociones/` como en el bloque de la ficha de
 cada producto: es un dato curado a mano, nunca se genera ni se deriva de
-`../agas-context` (ver `docs/adr/0001-promociones-curadas.md`).
+`../agas-context`.
 
 - Cada cupón o campaña declara `desde` y `hasta` en formato `YYYY-MM-DD`,
   ambos **inclusivos**: la promo se muestra desde las 00:00 de `desde` hasta
   las 23:59 de `hasta` en horario de Chile. Mercado Libre cierra sus campañas
-  a las 03:59:59Z o 04:00:00Z, que es 00:59/01:00 del día siguiente en Chile:
-  `hasta` es el día anterior al `finish_date` en UTC de la campaña, para no
-  anunciar un beneficio que ya no está disponible.
+  al final del día en Chile (02:59:59Z en horario de verano, 03:59:59Z en
+  invierno), así que `hasta` es el día anterior al `finish_date` en UTC de la
+  campaña. `desde` es el primer día completo de vigencia en Chile: si la
+  promoción arranca antes de la medianoche chilena, `desde` es el día
+  siguiente.
 - El barrido de `../agas-context` (sección `### Promociones y cupones` de
   cada `publicacion.md`) sirve solo como **referencia** para enterarse de
   qué campañas existen: nunca como fuente automática. El campo
   `estado: candidate|started|pending` que trae esa sección no garantiza que
   el descuento esté realmente aplicado sobre el precio de la publicación
-  (ver el ADR para el detalle de la verificación que llevó a esta regla).
+  (por eso nunca se usa como fuente).
 - Otra vía de referencia es consultar directamente la API de promociones de
   Mercado Libre con el token vigente:
   `GET /seller-promotions/users/{seller_id}?app_version=v2` (lista campañas
@@ -202,13 +213,11 @@ cada producto: es un dato curado a mano, nunca se genera ni se deriva de
   es solo referencia; el snippet completo y qué tipos de promoción publicar
   están en la skill `refresco-catalogo`.
 - Las promociones vencidas desaparecen en el **siguiente redeploy**: el
-  filtrado de vigencia corre solo en build
-  (`docs/adr/0002-filtrado-promos-solo-en-build.md`), así que hay que
+  filtrado de vigencia corre solo en build, así que hay que
   redesplegar al día siguiente del vencimiento de cada promo para que deje
   de mostrarse. Flujo de mantención: al vencer una promo, actualizar
   `src/data/promociones.json` si corresponde (por ejemplo dar de alta una
-  campaña o cupón nuevo), correr `npm run generar` para refrescar
-  `public/llms.txt`, y hacer commit + push (el push a `main` dispara el
+  campaña o cupón nuevo), y hacer commit + push (el push a `main` dispara el
   deploy en Cloudflare Pages); alternativamente, disparar un redeploy
   manual desde el dashboard de Cloudflare Pages si no hay cambios que
   commitear.
@@ -233,8 +242,8 @@ El flujo es manual:
 
 ## Runbook: deploy y dominio
 
-1. **Deploy en Cloudflare (Workers & Pages)**: en el dashboard actual,
-   "Create application" → conectar con GitHub → seleccionar este
+1. **Deploy en Cloudflare Pages con integración Git**: en el dashboard,
+   crear el proyecto de Pages conectado a GitHub y seleccionar este
    repositorio (no usar la opción de subir estático a mano, para que cada
    push dispare build y deploy automáticos). Ajustes:
 
@@ -280,10 +289,8 @@ El flujo es manual:
   `destacado-oscuro`, también por AA), `tinta` (texto) y `fondo`
   (superficie). Retematizar el sitio es editar los valores de `@theme` y
   las fuentes en `global.css`; los valores vigentes son los de la paleta
-  «Acero y cobre» y su racional está en
-  `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`
-  (la identidad que la enmarca, en
-  `docs/adr/0003-identidad-visual-serena-e-innovadora.md`).
+  «Acero y cobre», definida en
+  `openspec/specs/marca/spec.md`.
 - Los colores literales viven solo en `global.css` y en los assets de marca
   (los SVG de `src/assets/images/` y `public/`, más
   `scripts/generar-marca-ml.mjs` y `scripts/generar-marca-redes.mjs`). Un
@@ -292,14 +299,12 @@ El flujo es manual:
   `style` ya se escapó una vez de un grep que solo miraba hexes. Un chequeo
   de contraste, además de los pares de tokens, tiene que componer las
   utilidades con opacidad (`text-tinta/NN`, `text-white/NN`) contra su
-  superficie; ver
-  `docs/adr/0005-paleta-acero-y-cobre-y-assets-de-marca-reproducibles.md`.
+  superficie.
 - Los hex de los assets de marca replican valores de `@theme`, incluida la
   bajada "SOLUCIONES INNOVADORAS" de los lockups (`primario` sobre
-  superficies claras, `primario-claro` sobre oscuras: ver
-  `docs/adr/0006-la-bajada-del-lockup-se-deriva-de-los-tokens.md`). Ningún
+  superficies claras, `primario-claro` sobre oscuras). Ningún
   asset inventa un color propio; la única excepción aprobada es el cobre
-  claro `#C8813F` del travesaño sobre oscuro (ADR 0005). El barrido
+  claro `#C8813F` del travesaño sobre oscuro (`openspec/specs/marca/spec.md`). El barrido
   `grep -oh "#[0-9A-Fa-f]\{6\}" public/favicon.svg src/assets/images/agas-lockup*.svg scripts/generar-marca-ml.mjs scripts/generar-marca-redes.mjs | tr 'a-f' 'A-F' | sort -u`
   lista los valores en uso; el `#000000` que aparece es del arnés con que los
   scripts miden anchos de texto, no de un asset. Sumar el script de redes
@@ -313,8 +318,7 @@ El flujo es manual:
   siete de `marca/redes/` (`avatar.png` y `carrusel-presentacion-1..6.png`).
   Los del carrusel llevan horneados los conteos de productos por categoría,
   así que un refresco del catálogo que los mueva obliga a regenerarlos **y a
-  republicarlos** en la red social (ver
-  `docs/adr/0007-assets-de-marca-para-redes-sociales-reproducibles.md`).
+  republicarlos** en la red social.
 - El sitio nunca muestra stock: los precios son referenciales con su fecha,
   y el precio vigente vive en la publicación de Mercado Libre de cada
   producto. Las promociones y cupones sí se publican, pero solo desde

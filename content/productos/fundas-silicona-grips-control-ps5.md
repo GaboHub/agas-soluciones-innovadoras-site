@@ -3,9 +3,9 @@ titulo: Kit 2 Fundas Silicona Diseños + 4 Grips Control PS5
 slug: fundas-silicona-grips-control-ps5
 categoria: playstation-5
 tipo: familia
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3885532976-kit-2-fundas-silicona-disenos-4-grips-para-control-ps5-camo-urbano-negro-_JM
+condicion: new
 precioReferencial: 12490
 fechaPrecio: '2026-10-01'
 resumen: >-

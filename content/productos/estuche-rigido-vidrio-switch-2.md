@@ -3,9 +3,9 @@ titulo: Estuche Rígido Switch 2 + Lámina Vidrio Negro
 slug: estuche-rigido-vidrio-switch-2
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3384790604-estuche-rigido-para-nintendo-switch-2-lamina-mica-vidrio-negro-_JM
+condicion: new
 precioReferencial: 19980
 fechaPrecio: '2026-10-01'
 resumen: >-

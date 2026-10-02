@@ -3,9 +3,9 @@ titulo: Pack x3 Lámina Mica Vidrio Switch 2
 slug: pack-3-laminas-vidrio-switch-2
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1880083137-pack-x3-unidades-lamina-mica-vidrio-para-nintendo-switch-2-_JM
+condicion: new
 precioReferencial: 16990
 fechaPrecio: '2026-10-01'
 resumen: >-

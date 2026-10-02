@@ -5,6 +5,14 @@ declare global {
   }
 }
 
+export function resolverHref(valor: string, base: string): string | null {
+  try {
+    return new URL(valor, base).toString();
+  } catch {
+    return null;
+  }
+}
+
 export function destinoSaliente(href: string, dominios: string[]): string | null {
   let url: URL;
   try {
@@ -49,10 +57,9 @@ export function crearMedidorBusqueda(esperaMs = 1500) {
       temporizador = setTimeout(() => {
         const termino = normalizarTermino(consulta);
         if (termino === '' || termino === ultimoEmitido) return;
+        if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
         ultimoEmitido = termino;
-        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-          window.gtag('event', 'busqueda', { termino, resultados, pagina });
-        }
+        window.gtag('event', 'busqueda', { termino, resultados, pagina });
       }, esperaMs);
     },
     cancelar(): void {

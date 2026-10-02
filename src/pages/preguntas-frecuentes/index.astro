@@ -15,6 +15,7 @@ const description = `Resuelve tus dudas sobre comprar en ${site.nombre} por Merc
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];
+import Icono from '../../components/Icono.tsx';
 ---
 
 <BaseLayout title={title} description={description} path="/preguntas-frecuentes/" jsonLd={jsonLd}>
@@ -38,9 +39,10 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(faqsGlobales)];
           <li>
             <a
               href={`/productos/${producto.data.slug}/`}
-              class="font-texto text-sm font-bold text-acento-oscuro hover:text-primario hover:underline"
+              class="inline-flex min-h-11 items-center gap-1 font-texto text-sm font-bold text-acento-oscuro hover:text-primario hover:underline"
             >
-              {producto.data.titulo} →
+              {producto.data.titulo}
+              <Icono nombre="flecha-derecha" className="h-4 w-4" />
             </a>
           </li>
         ))

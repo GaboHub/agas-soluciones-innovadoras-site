@@ -12,6 +12,7 @@ const description = 'Aprende a elegir el accesorio correcto para tu consola y s�
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl)];
+import Icono from '../../components/Icono.tsx';
 ---
 
 <BaseLayout title={title} description={description} path="/guias/" jsonLd={jsonLd}>
@@ -26,15 +27,14 @@ const jsonLd = [buildOrganization(logoUrl)];
         guias.map((guia) => (
           <a
             href={`/guias/${guia.data.slug}/`}
-            class="group flex flex-col gap-2 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-lg"
+            class="group flex flex-col gap-2 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg"
           >
-            <span aria-hidden="true" class="text-3xl">
-              {guia.data.emoji}
-            </span>
+            <Icono nombre="libro" className="h-8 w-8 text-primario" />
             <p class="font-titulos text-lg font-bold text-tinta">{guia.data.titulo}</p>
             <p class="font-texto text-sm text-tinta/70">{guia.data.descripcion}</p>
-            <span class="mt-auto pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
-              Leer guía →
+            <span class="mt-auto inline-flex items-center gap-1 pt-2 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+              Leer guía
+              <Icono nombre="flecha-derecha" className="h-4 w-4" />
             </span>
           </a>
         ))

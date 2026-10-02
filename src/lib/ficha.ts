@@ -34,6 +34,8 @@ export interface OpcionFichaBase {
   nombre: string;
   link: string;
   precioTexto: string;
+  precio: number;
+  ejes: Record<string, string>;
   rutasImagenes: string[];
   altFotos: string;
 }
@@ -47,6 +49,7 @@ export interface ResultadoFicha {
   gruposFicha: GrupoFichaBase[];
   etiquetaGrupo: string;
   etiquetaOpcion: string;
+  agrupada: boolean;
 }
 
 export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
@@ -65,6 +68,8 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
         nombre: color.color,
         link: color.link,
         precioTexto: precioBaseTexto,
+        precio: data.precioReferencial,
+        ejes: { [etiquetaGrupo]: grupo.diseno, [etiquetaOpcion]: color.color },
         rutasImagenes: color.imagenes,
         altFotos: `${data.titulo} (${grupo.diseno}, ${color.color})`,
       })),
@@ -78,6 +83,8 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
           nombre: miembro.atributos.color ?? miembro.titulo,
           link: miembro.link,
           precioTexto: formatearPrecioCLP(miembro.precio),
+          precio: miembro.precio,
+          ejes: Object.fromEntries(miembro.atributos.color ? [['Color', miembro.atributos.color]] : []),
           rutasImagenes: miembro.imagenes,
           altFotos: miembro.titulo,
         })),
@@ -92,6 +99,8 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
           nombre: variante.nombre,
           link: variante.link,
           precioTexto: precioBaseTexto,
+          precio: data.precioReferencial,
+          ejes: { [variante.atributo]: variante.nombre },
           rutasImagenes: variante.imagenes,
           altFotos: `${data.titulo} (${variante.nombre})`,
         })),
@@ -106,6 +115,8 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
             nombre: data.titulo,
             link: data.permalink,
             precioTexto: precioBaseTexto,
+            precio: data.precioReferencial,
+            ejes: {},
             rutasImagenes: data.imagenes,
             altFotos: data.titulo,
           },
@@ -114,7 +125,7 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
     ];
   }
 
-  return { gruposFicha, etiquetaGrupo, etiquetaOpcion };
+  return { gruposFicha, etiquetaGrupo, etiquetaOpcion, agrupada: Boolean(data.grupos && data.grupos.length > 0) };
 }
 
 export function linkInicial(grupos: { opciones: { link: string }[] }[]): string {

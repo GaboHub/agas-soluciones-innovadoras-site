@@ -7,7 +7,7 @@ const lockupBlanco = resolveImagen('agas-lockup-blanco.svg');
 const anio = new Date().getFullYear();
 ---
 
-<footer class="mt-16 border-t border-primario-claro bg-primario-oscuro text-white">
+<footer class="mt-16 pb-24 md:pb-0 border-t border-primario-claro bg-primario-oscuro text-white">
   <div class="mx-auto max-w-6xl px-4 py-10">
     <div class="grid gap-8 md:grid-cols-3">
       <div>
@@ -17,12 +17,12 @@ const anio = new Date().getFullYear();
       </div>
       <div class="text-sm">
         <p class="font-titulos text-base font-bold">Catálogo</p>
-        <ul class="mt-2 flex list-none flex-col gap-1 p-0">
-          <li><a href="/productos/" class="hover:underline">Todos los productos</a></li>
+        <ul class="mt-2 flex list-none flex-col gap-2 p-0">
+          <li><a href="/productos/" class="flex min-h-11 items-center hover:underline">Todos los productos</a></li>
           {
             site.categorias.map((categoria) => (
               <li>
-                <a href={`/categorias/${categoria.slug}/`} class="hover:underline">
+                <a href={`/categorias/${categoria.slug}/`} class="flex min-h-11 items-center hover:underline">
                   {categoria.nombre}
                 </a>
               </li>
@@ -32,32 +32,32 @@ const anio = new Date().getFullYear();
       </div>
       <div class="text-sm">
         <p class="font-titulos text-base font-bold">Compra y contacto</p>
-        <ul class="mt-2 flex list-none flex-col gap-1 p-0">
+        <ul class="mt-2 flex list-none flex-col gap-2 p-0">
           <li>
-            <a href={site.mercadolibre.tienda} target="_blank" rel="noopener" class="hover:underline">
+            <a href={site.mercadolibre.tienda} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
               Tienda en Mercado Libre
             </a>
           </li>
           <li>
-            <a href={site.mercadolibre.paginaOficial} target="_blank" rel="noopener" class="hover:underline">
-              Página oficial en Mercado Libre
+            <a href={site.mercadolibre.paginaOficial} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
+              {site.ctaPaginaOficial}
             </a>
           </li>
           <li>
-            <a href={site.redes.instagram} target="_blank" rel="noopener" class="hover:underline">
+            <a href={site.redes.instagram} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
               Instagram
             </a>
           </li>
-          <li><a href="/promociones/" class="hover:underline">Promociones</a></li>
-          <li><a href="/guias/" class="hover:underline">Guías</a></li>
-          <li><a href="/preguntas-frecuentes/" class="hover:underline">Preguntas frecuentes</a></li>
-          <li><a href="/contacto/" class="hover:underline">Contacto</a></li>
-          <li><a href="/terminos-y-condiciones/" class="hover:underline">Términos y condiciones</a></li>
+          <li><a href="/promociones/" class="flex min-h-11 items-center hover:underline">Promociones</a></li>
+          <li><a href="/guias/" class="flex min-h-11 items-center hover:underline">Guías</a></li>
+          <li><a href="/preguntas-frecuentes/" class="flex min-h-11 items-center hover:underline">Preguntas frecuentes</a></li>
+          <li><a href="/contacto/" class="flex min-h-11 items-center hover:underline">Contacto</a></li>
+          <li><a href="/terminos-y-condiciones/" class="flex min-h-11 items-center hover:underline">Términos y condiciones</a></li>
         </ul>
         <p class="mt-3 text-white/80">{site.ubicacion}</p>
         <p class="mt-1 text-white/80">{site.cobertura}</p>
         <p class="mt-4 text-white/80">
-          {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="font-semibold text-destacado hover:underline">{site.contacto.email}</a>
+          {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="break-words font-semibold text-destacado hover:underline">{site.contacto.email}</a>
         </p>
       </div>
     </div>

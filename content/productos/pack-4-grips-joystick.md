@@ -3,9 +3,9 @@ titulo: Pack 4 Grips Goma Joystick PS5 / PS4 / Xbox
 slug: pack-4-grips-joystick
 categoria: playstation-5
 tipo: variantes
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3464125204-pack-4-grips-goma-joystick-mando-compatible-con-ps5-ps4-xbox-_JM
+condicion: new
 precioReferencial: 4590
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -3,10 +3,10 @@ import type { GetStaticPaths } from 'astro';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ProductCard from '../../../components/ProductCard.astro';
-import { site, getCategoria, getOtrasCategorias } from '../../../lib/site';
+import { site, siteUrl, getCategoria, getOtrasCategorias } from '../../../lib/site';
 import { getProductosDeCategoria } from '../../../lib/productos';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
-import { buildOrganization } from '../../../lib/seo';
+import { buildOrganization, buildItemList } from '../../../lib/seo';
 
 export const getStaticPaths = (() =>
   site.categorias.map((categoria) => ({
@@ -31,7 +31,11 @@ const title = `${categoria.nombre} | ${site.nombre}`;
 const description = `${categoria.resumen} Precio referencial y compra en Mercado Libre, despacho a todo Chile.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
-const jsonLd = [buildOrganization(logoUrl)];
+const jsonLd = [
+  buildOrganization(logoUrl),
+  buildItemList(productos.map((producto) => new URL(`/productos/${producto.data.slug}/`, siteUrl).toString())),
+];
+import GlifoCategoria from '../../../components/GlifoCategoria.astro';
 ---
 
 <BaseLayout
@@ -42,6 +46,7 @@ const jsonLd = [buildOrganization(logoUrl)];
   jsonLd={jsonLd}
 >
   <section class="mx-auto max-w-4xl px-4 py-12">
+    <GlifoCategoria slug={slug} class="mb-3 h-12 w-12 text-primario" />
     <div class="contenido-md">
       <Content />
     </div>
@@ -53,8 +58,9 @@ const jsonLd = [buildOrganization(logoUrl)];
     </h2>
     <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        productos.map((producto) => (
+        productos.map((producto, indice) => (
           <ProductCard
+            prioridad={indice < 4}
             slug={producto.data.slug}
             titulo={producto.data.titulo}
             categoriaNombre={categoria.nombre}
@@ -74,9 +80,10 @@ const jsonLd = [buildOrganization(logoUrl)];
         otrasCategorias.map((otra) => (
           <a
             href={`/categorias/${otra.slug}/`}
-            class="rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
+            class="inline-flex items-center gap-2 rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
           >
-            {otra.emoji} {otra.nombre}
+            <GlifoCategoria slug={otra.slug} class="h-5 w-5" />
+            {otra.nombre}
           </a>
         ))
       }

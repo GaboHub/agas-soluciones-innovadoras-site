@@ -6,8 +6,8 @@ description: Úsala cuando el usuario pida descargar o actualizar publicaciones,
 # Refresco del catálogo desde Mercado Libre
 
 Flujo completo: `npm run barrido` → `npm run generar` → (assets de redes si
-cambiaron conteos por categoría) → gates → cierre documental. Racional en
-`docs/adr/0009-barrido-en-el-repo-poda-conservadora-y-filtro-de-publicaciones-cerradas.md`.
+cambiaron conteos por categoría) → gates → cierre documental. Contratos en
+`openspec/specs/barrido/spec.md` y `openspec/specs/catalogo/spec.md`.
 
 ## 1. Prerrequisitos
 
@@ -72,9 +72,13 @@ npm run generar
 ```
 
 Corre `scripts/generar-catalogo.mjs` sobre `../agas-context` y regenera
-`content/productos/`, `src/assets/images/productos/`,
-`src/data/catalogo.json`, `src/data/resenas.json` y `public/llms.txt`. Lee la
-salida por advertencias e interpreta cada una:
+`content/productos/`, `src/assets/images/productos/` y
+`src/data/resenas.json`; `llms.txt` lo construye el build, no el generador.
+Para generar desde otro directorio de contexto (p. ej. un worktree):
+`AGAS_CONTEXT_DIR=<ruta> npm run generar`. El generador exporta
+`main({ contexto, raiz, slugMap })`; `condicion` es un enum validado
+(`new|used|refurbished`) y `parseReviews` devuelve `null` si no hay datos de
+reseñas. Lee la salida por advertencias e interpreta cada una:
 
 | Advertencia | Qué significa | Acción |
 | :--- | :--- | :--- |
@@ -99,28 +103,27 @@ el mismo cambio:
   su `resumen` si el conteo lo amerita.
 - `src/data/textos-productos.json`: descripción y `metaDescription` (≤160
   caracteres) para el producto nuevo. Nunca afirmar estrellas o cantidad de
-  reseñas que `src/data/catalogo.json` no respalde (una publicación de
+  reseñas que el frontmatter de la ficha no respalde (una publicación de
   catálogo sin reseñas propias no hereda las de otra).
 - Conteos exactos en `tests/unit/contenido.test.ts`,
   `tests/unit/textos-productos.test.ts`, `tests/unit/resenas.test.ts` y
   `e2e/buscador.spec.ts`.
-- Si el resumen de una categoría cambió, alinear la constante `CATEGORIAS` de
-  `scripts/generar-catalogo.mjs` con `site.json`.
 
 ## 5. Assets de redes
 
 Si cambió algún conteo de productos por categoría, los conteos quedan
-horneados en el carrusel de redes (ADR 0007):
+horneados en el carrusel de redes:
 
 ```sh
 node scripts/generar-marca-redes.mjs
 ```
 
-y republicar las láminas afectadas.
+y republicar las láminas afectadas. El script valida fuentes y rasters antes
+de escribir y lee `presentacionRedes` de `src/data/site.json`.
 
 ## 6. Promociones
 
-`src/data/promociones.json` es dato curado a mano (ADR 0001): el barrido y la
+`src/data/promociones.json` es dato curado a mano: el barrido y la
 API de promociones de Mercado Libre son solo referencia, nunca fuente
 automática.
 
@@ -166,17 +169,19 @@ primer día completo de vigencia en Chile: si la promoción arranca antes de
 la medianoche chilena (p. ej. un `DEAL` a las 23:00), `desde` es el día
 siguiente.
 
-Sin porcentajes ni precios promocionales derivados del barrido (ADR 0001): el
+Sin porcentajes ni precios promocionales derivados del barrido: el
 estado `candidate`/`started` de un ítem no garantiza que el descuento esté
 aplicado.
 
 Editar `src/data/promociones.json` y las fixtures de
-`tests/unit/promociones.test.ts` con los datos confirmados a mano.
+`tests/unit/promociones.test.ts` con los datos confirmados a mano. Las
+promociones se reflejan en `llms.txt` con el próximo build.
 
 ## 7. Gates
 
 ```sh
 npm run build
+npm run test:py
 npm run test:unit
 npm run test:e2e
 ```
@@ -187,6 +192,9 @@ probaría el sitio equivocado):
 ```sh
 E2E_PORT=4331 npm run test:e2e
 ```
+
+El e2e levanta además un segundo build con un GA4 de prueba en
+`E2E_PORT_GA4` (4322 por defecto); si está ocupado, fijar otro puerto libre.
 
 ## 8. Cierre
 

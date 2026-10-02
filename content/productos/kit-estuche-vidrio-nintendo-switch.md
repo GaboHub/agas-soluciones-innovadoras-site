@@ -3,9 +3,9 @@ titulo: Kit Estuche Goma Rígido + Vidrio Switch 1 Rojo
 slug: kit-estuche-vidrio-nintendo-switch
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1794079105-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-1-rojo-_JM
+condicion: new
 precioReferencial: 14990
 fechaPrecio: '2026-10-01'
 resumen: >-

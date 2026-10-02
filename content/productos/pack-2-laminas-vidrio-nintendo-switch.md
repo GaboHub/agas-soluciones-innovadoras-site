@@ -3,9 +3,9 @@ titulo: Pack 2 Lámina Vidrio Templado Nintendo Switch 1
 slug: pack-2-laminas-vidrio-nintendo-switch
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3556230302-pack-2-lamina-vidrio-templado-para-nintendo-switch-1-_JM
+condicion: new
 precioReferencial: 8980
 fechaPrecio: '2026-10-01'
 resumen: >-

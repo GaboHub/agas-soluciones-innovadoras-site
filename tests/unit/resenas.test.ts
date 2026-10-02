@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import matter from 'gray-matter';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const resenasJsonPath = path.resolve(dirname, '../../src/data/resenas.json');
-const catalogoJsonPath = path.resolve(dirname, '../../src/data/catalogo.json');
+const productosDir = path.resolve(dirname, '../../content/productos');
 
 const SLUGS_REVIEWS_CATALOGO_ML = new Set([
   'pack-2-laminas-vidrio-switch-oled',
@@ -62,8 +63,10 @@ describe('resenas.json contenido', () => {
   });
 
   it('promedioGeneral y totalReviews solo cuentan reviews de publicaciones propias, no de catálogo compartido', () => {
-    const catalogo = JSON.parse(readFileSync(catalogoJsonPath, 'utf-8'));
-    const productosPropios = catalogo.productos.filter(
+    const fichas = readdirSync(productosDir)
+      .filter((archivo) => archivo.endsWith('.md'))
+      .map((archivo) => matter(readFileSync(path.join(productosDir, archivo), 'utf-8')).data);
+    const productosPropios = fichas.filter(
       (producto: { slug: string; reviews: { promedio: number; cantidad: number } | null }) =>
         producto.reviews && !SLUGS_REVIEWS_CATALOGO_ML.has(producto.slug),
     );

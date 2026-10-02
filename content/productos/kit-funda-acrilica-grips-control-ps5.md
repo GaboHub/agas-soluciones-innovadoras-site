@@ -3,9 +3,9 @@ titulo: Kit Funda Carcasa Acrílica PS5 + 4 Grips Transparente
 slug: kit-funda-acrilica-grips-control-ps5
 categoria: playstation-5
 tipo: familia
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1858910757-kit-funda-carcasa-acrilica-control-ps5-4-grips-silicona-transparente-estuche-protector-ps5-_JM
+condicion: new
 precioReferencial: 8990
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -3,9 +3,9 @@ titulo: Kit Estuche EVA Lámina Vidrio Grips Switch 2
 slug: kit-estuche-eva-switch-2
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1961379387-kit-estuche-eva-lamina-vidrio-grips-para-nintendo-switch-2-negro-_JM
+condicion: new
 precioReferencial: 21000
 fechaPrecio: '2026-10-01'
 resumen: >-

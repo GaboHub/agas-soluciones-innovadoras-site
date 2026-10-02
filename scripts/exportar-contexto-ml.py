@@ -59,6 +59,8 @@ if not TARGET_ML_USER_ID.isdigit():
 REQUEST_TIMEOUT = 30
 MAX_RETRIES = 3
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+UNAVAILABLE_STATUS = {403, 404}
+ITEM_UNAVAILABLE = object()
 RETRY_BASE_DELAY_SECONDS = 0.3
 RETRY_JITTER_SECONDS = 0.3
 API_POOL_WORKERS = 4
@@ -253,12 +255,14 @@ def fetch_reviews(access_token: str, ml_item_id: str) -> tuple[dict | None, list
 
 def fetch_item_bundle(
     access_token: str, ml_item_id: str
-) -> tuple[dict | None, str | None, list, dict | None, list[str]]:
+) -> tuple[dict | object | None, str | None, list, dict | None, list[str]]:
     errors: list[str] = []
     try:
         item_response = ml_get(access_token, f"/items/{ml_item_id}")
     except RuntimeError as exc:
         return None, None, [], None, [str(exc)]
+    if item_response.status_code in UNAVAILABLE_STATUS:
+        return ITEM_UNAVAILABLE, None, [], None, []
     if item_response.status_code != 200:
         return None, None, [], None, [f"GET /items/{ml_item_id} returned HTTP {item_response.status_code}"]
     item = item_response.json()
@@ -592,12 +596,17 @@ class SweepStats:
     with_variations: int = 0
     without_variations: int = 0
     obsolete_removed: int = 0
+    unavailable: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     lock: threading.Lock = field(default_factory=threading.Lock)
 
     def record_error(self, message: str) -> None:
         with self.lock:
             self.errors.append(message)
+
+    def record_unavailable(self, ml_item_id: str) -> None:
+        with self.lock:
+            self.unavailable.append(ml_item_id)
 
     def record_obsolete(self) -> None:
         with self.lock:
@@ -744,7 +753,7 @@ def build_item_view(
     args: argparse.Namespace,
     stats: SweepStats,
     generated_date: str,
-    item: dict | None,
+    item: dict | object | None,
     description: str | None,
     promotions: list,
     reviews_result: dict | None,
@@ -752,6 +761,9 @@ def build_item_view(
 ) -> ItemView | None:
     for message in fetch_errors:
         stats.record_error(f"{ml_item_id}: {message}")
+    if item is ITEM_UNAVAILABLE:
+        stats.record_unavailable(ml_item_id)
+        return None
     if item is None:
         stats.record_error(f"{ml_item_id}: could not fetch item detail from the ML API, skipped")
         return None
@@ -901,7 +913,6 @@ def process_standalone_batch(
     for (ml_item_id, listing_row, db_variations), future in zip(id_and_rows, futures):
         folder_slug = standalone_folder_slug(ml_item_id, (listing_row or {}).get("title"))
         item_dir = publications_root / folder_slug
-        item_dir.mkdir(parents=True, exist_ok=True)
 
         item, description, promotions, reviews_result, fetch_errors = future.result()
         view = build_item_view(
@@ -911,6 +922,7 @@ def process_standalone_batch(
         if view is None:
             continue
 
+        item_dir.mkdir(parents=True, exist_ok=True)
         write_standalone_publicacion_md(item_dir, view)
         kind = "variantes" if view.variants else "simple"
         rows.append(
@@ -1015,6 +1027,20 @@ def prune_obsolete_folders(publications_root: Path, protected_folders: set[str],
             stats.record_obsolete()
 
 
+def prune_obsolete_members(
+    publications_root: Path, expected_members_by_family: dict[str, set[str]], stats: SweepStats
+) -> None:
+    for family_slug, expected_members in expected_members_by_family.items():
+        family_dir = publications_root / family_slug
+        if not family_dir.is_dir():
+            continue
+        for entry in sorted(family_dir.iterdir()):
+            if entry.is_dir() and entry.name not in expected_members:
+                shutil.rmtree(entry)
+                print(f"Carpeta obsoleta eliminada: {family_slug}/{entry.name}")
+                stats.record_obsolete()
+
+
 def run_full_sweep(
     account: dict[str, str],
     access_token: str,
@@ -1064,11 +1090,28 @@ def run_full_sweep(
         access_token, api_pool, image_pool, id_and_rows, publications_root, args, stats, generated_date
     )
 
+    protected_folders -= {
+        standalone_folder_slug(listing_row["ml_item_id"], listing_row.get("title"))
+        for listing_row in loose_rows
+        if listing_row["ml_item_id"] in stats.unavailable
+    }
+
+    expected_members_by_family = {
+        family_folder_slug(family): {
+            standalone_folder_slug(listings_by_id[listing_id]["ml_item_id"], listings_by_id[listing_id].get("title"))
+            for listing_id in members_by_family.get(family["id"], [])
+            if listing_id in listings_by_id
+            and listings_by_id[listing_id]["ml_item_id"] not in stats.unavailable
+        }
+        for family in families
+    }
+
     skip_reason = prune_skip_reason(listings, stats.errors)
     if skip_reason:
         print(skip_reason)
     else:
         prune_obsolete_folders(publications_root, protected_folders, stats)
+        prune_obsolete_members(publications_root, expected_members_by_family, stats)
 
     return rows
 
@@ -1183,6 +1226,9 @@ def print_summary(stats: SweepStats) -> None:
     print(f"  Imágenes saltadas (ya existían): {stats.images_skipped}")
     print(f"  Videos encontrados: {stats.videos_found}")
     print(f"  Videos exportados como referencia: {stats.videos_referenced}")
+    print(f"  Publicaciones no disponibles: {len(stats.unavailable)}")
+    for ml_item_id in stats.unavailable:
+        print(f"    - {ml_item_id}")
     print(f"  Carpetas obsoletas eliminadas: {stats.obsolete_removed}")
     print(f"  Errores: {len(stats.errors)}")
     for error in stats.errors:

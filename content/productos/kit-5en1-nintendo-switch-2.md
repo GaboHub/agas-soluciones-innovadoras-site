@@ -3,9 +3,9 @@ titulo: Kit 5en1 Switch 2 Estuche Grip Case Vidrio
 slug: kit-5en1-nintendo-switch-2
 categoria: nintendo-switch
 tipo: variantes
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM
+condicion: new
 precioReferencial: 39990
 fechaPrecio: '2026-10-01'
 resumen: >-

@@ -3,9 +3,9 @@ titulo: Audífonos Bluetooth TWS Ultrapods Pro
 slug: audifonos-bluetooth-tws
 categoria: audio
 tipo: familia
-emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM
+condicion: new
 precioReferencial: 7990
 fechaPrecio: '2026-10-01'
 resumen: >-

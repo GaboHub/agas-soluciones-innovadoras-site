@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import site from '../src/data/site.json' with { type: 'json' };
 
 test.describe('prueba social de Mercado Libre', () => {
   test('la home muestra el sello de reputación verde en el hero', async ({ page }) => {
@@ -17,7 +18,9 @@ test.describe('prueba social de Mercado Libre', () => {
     });
     expect(await tarjetas.count()).toBeGreaterThanOrEqual(4);
 
-    const cta = page.getByRole('link', { name: 'Ver nuestra tienda en Mercado Libre' });
+    const cta = page
+      .getByRole('region', { name: 'Lo que dicen nuestros compradores' })
+      .getByRole('link', { name: site.ctaHeader });
     await expect(cta).toBeVisible();
     await expect(cta).toHaveAttribute('href', /mercadolibre\.cl/);
   });

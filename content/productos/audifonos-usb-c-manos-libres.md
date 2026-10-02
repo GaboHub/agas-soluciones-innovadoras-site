@@ -3,9 +3,9 @@ titulo: Audífonos Manos Libres Tipo C para Celular
 slug: audifonos-usb-c-manos-libres
 categoria: audio
 tipo: simple
-emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-2035097907-audifonos-usb-tipo-c-manos-libres-blanco-_JM
+condicion: new
 precioReferencial: 4190
 fechaPrecio: '2026-10-01'
 resumen: >-

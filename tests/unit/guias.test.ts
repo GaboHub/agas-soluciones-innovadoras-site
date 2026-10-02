@@ -50,8 +50,7 @@ describe('colección de guías', () => {
     expect(data.slug.length).toBeGreaterThan(0);
     expect(typeof data.descripcion).toBe('string');
     expect(data.descripcion.length).toBeGreaterThan(0);
-    expect(typeof data.emoji).toBe('string');
-    expect(data.emoji.length).toBeGreaterThan(0);
+    expect('emoji' in data).toBe(false);
     expect(Array.isArray(data.productosRelacionados)).toBe(true);
     expect(data.productosRelacionados.length).toBeGreaterThan(0);
   });

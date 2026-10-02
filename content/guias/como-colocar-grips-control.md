@@ -2,8 +2,9 @@
 titulo: "Cómo colocar los grips en las palancas de tu control"
 slug: como-colocar-grips-control
 descripcion: "Instala los grips de silicona en los análogos de tu control en tres pasos: móntalos, asegura los bordes y juega con mejor agarre y precisión."
+publicado: '2026-07-22'
+actualizado: '2026-08-03'
 metaTitulo: "Cómo colocar grips en tu control"
-emoji: 🕹️
 productosRelacionados: [pack-4-grips-joystick, fundas-silicona-grips-control-ps5, kit-funda-silicona-grips-control-ps5, kit-funda-acrilica-grips-control-ps5, kit-estuche-funda-acrilica-control-ps5]
 ---
 

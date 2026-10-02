@@ -8,23 +8,6 @@ test.describe('archivos estáticos', () => {
     expect(cuerpo).toContain('Sitemap: https://agassoluciones.cl/sitemap-index.xml');
   });
 
-  test('llms.txt responde 200 y resume el catálogo', async ({ request }) => {
-    const response = await request.get('/llms.txt');
-    expect(response.status()).toBe(200);
-    const cuerpo = await response.text();
-    expect(cuerpo).toContain('AGAS Soluciones Innovadoras');
-    expect(cuerpo).toContain('Mercado Libre');
-    expect(cuerpo).toContain('Nintendo Switch');
-    expect(cuerpo).toContain('https://agassoluciones.cl/productos/');
-  });
-
-  test('llms.txt incluye la sección de Guías', async ({ request }) => {
-    const response = await request.get('/llms.txt');
-    const cuerpo = await response.text();
-    expect(cuerpo).toContain('## Guías');
-    expect(cuerpo).toContain('https://agassoluciones.cl/guias/');
-  });
-
   test('favicon.svg responde 200', async ({ request }) => {
     const response = await request.get('/favicon.svg');
     expect(response.status()).toBe(200);

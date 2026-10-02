@@ -9,17 +9,18 @@ const description = `La página que buscas no existe. Vuelve al catálogo de ${s
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
 const jsonLd = [buildOrganization(logoUrl)];
+import Icono from '../components/Icono.tsx';
 ---
 
 <BaseLayout title={title} description={description} path="/404/" jsonLd={jsonLd} noindex>
   <section class="mx-auto flex max-w-2xl flex-col items-center gap-5 px-4 py-24 text-center">
-    <span class="text-6xl" aria-hidden="true">🔍</span>
+    <Icono nombre="buscar" className="h-16 w-16 text-primario" />
     <h1 class="font-titulos text-3xl font-bold text-tinta md:text-4xl">Página no encontrada</h1>
     <p class="font-texto text-tinta/80">
       Parece que esta página no existe. Revisa nuestro catálogo o vuelve al inicio.
     </p>
     <div class="flex flex-wrap justify-center gap-3">
-      <a href="/" class="rounded-xl bg-primario px-6 py-3 font-texto font-bold text-white shadow-md transition-transform hover:scale-105 active:translate-y-[2px]">
+      <a href="/" class="rounded-xl bg-primario px-6 py-3 font-texto font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]">
         Volver al inicio
       </a>
       <a href="/productos/" class="rounded-xl border-2 border-primario px-6 py-3 font-texto font-bold text-primario transition-colors hover:bg-primario-claro active:translate-y-[2px]">

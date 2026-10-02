@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import Icono from './Icono.tsx';
 import { site } from '../lib/site';
 import { resolveImagen } from '../lib/images';
 
@@ -15,22 +16,25 @@ const enlaces = [
 ];
 
 const currentPath = Astro.url.pathname;
+const rutaDeSeccion = currentPath.startsWith('/categorias/') ? '/productos/' : currentPath;
+const esActivo = (href: string) => (href === '/' ? rutaDeSeccion === '/' : rutaDeSeccion.startsWith(href));
 ---
 
 <header class="sticky top-0 z-40 border-b border-primario-claro bg-fondo/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-    <a href="/" class="flex shrink-0 items-center" aria-label={`${site.nombre} — Inicio`}>
-      <Image src={lockup} alt={`Logo de ${site.nombre}`} width={180} height={48} class="h-10 w-auto md:h-11" />
+    <a href="/" class="flex min-h-11 shrink-0 items-center" aria-label={`${site.nombre} — Inicio`}>
+      <Image src={lockup} alt={`Logo de ${site.nombre}`} width={180} height={48} loading="eager" class="h-10 w-auto md:h-11" />
     </a>
 
-    <nav aria-label="Navegación principal" class="hidden md:flex md:items-center md:gap-6">
+    <nav aria-label="Navegación principal" class="hidden lg:flex lg:items-center lg:gap-3 xl:gap-6">
       {
         enlaces.map((enlace) => (
           <a
             href={enlace.href}
+            aria-current={esActivo(enlace.href) ? 'page' : undefined}
             class:list={[
-              'font-texto font-semibold text-tinta transition-colors hover:text-primario',
-              currentPath === enlace.href && 'text-primario',
+              'whitespace-nowrap font-texto text-sm font-semibold transition-colors xl:text-base hover:text-primario',
+              esActivo(enlace.href) ? 'text-primario underline decoration-2 underline-offset-8' : 'text-tinta',
             ]}
           >
             {enlace.etiqueta}
@@ -41,30 +45,33 @@ const currentPath = Astro.url.pathname;
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="rounded-xl bg-primario px-4 py-2 font-texto font-bold text-white shadow-sm transition-transform hover:scale-105 active:translate-y-[2px]"
+        class="whitespace-nowrap rounded-xl bg-primario px-3 py-2 font-texto text-sm font-bold xl:px-4 xl:text-base text-white shadow-sm motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
       >
         {site.ctaHeader}
       </a>
     </nav>
 
-    <details class="relative md:hidden" id="menu-movil">
+    <details class="relative lg:hidden" id="menu-movil">
       <summary
-        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full bg-primario-claro text-tinta transition-transform active:translate-y-[2px] [&::-webkit-details-marker]:hidden"
+        class="flex size-11 list-none items-center justify-center rounded-full bg-primario-claro text-tinta motion-safe:transition-transform active:translate-y-[2px] [&::-webkit-details-marker]:hidden"
         aria-label="Abrir menú de navegación"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="h-6 w-6">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+        <Icono nombre="menu" className="h-6 w-6" />
       </summary>
       <nav
         aria-label="Navegación móvil"
-        class="absolute right-0 top-12 flex w-64 flex-col gap-1 rounded-2xl border border-primario-claro bg-white p-3 shadow-lg"
+        class="absolute right-0 top-12 flex w-64 flex-col gap-2 rounded-2xl border border-primario-claro bg-white p-3 shadow-lg"
       >
         {
           enlaces.map((enlace) => (
-            <a href={enlace.href} class="rounded-xl px-3 py-2 font-texto font-semibold text-tinta hover:bg-primario-claro">
+            <a
+              href={enlace.href}
+              aria-current={esActivo(enlace.href) ? 'page' : undefined}
+              class:list={[
+                'rounded-xl px-3 py-3 font-texto font-semibold hover:bg-primario-claro',
+                esActivo(enlace.href) ? 'bg-primario-claro text-primario underline decoration-2 underline-offset-4' : 'text-tinta',
+              ]}
+            >
               {enlace.etiqueta}
             </a>
           ))
@@ -73,7 +80,7 @@ const currentPath = Astro.url.pathname;
           href={site.mercadolibre.tienda}
           target="_blank"
           rel="noopener"
-          class="mt-1 rounded-xl bg-primario px-3 py-2 text-center font-texto font-bold text-white active:translate-y-[2px]"
+          class="mt-1 rounded-xl bg-primario px-3 py-3 text-center font-texto font-bold text-white active:translate-y-[2px]"
         >
           {site.ctaHeader}
         </a>
@@ -88,6 +95,12 @@ const currentPath = Astro.url.pathname;
     const target = event.target as HTMLElement;
     if (target.tagName === 'A') {
       menu.open = false;
+    }
+  });
+  menu?.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
     }
   });
   document.addEventListener('click', (event) => {

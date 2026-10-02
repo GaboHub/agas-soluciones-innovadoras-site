@@ -1,11 +1,10 @@
 ---
 titulo: Audio
 slug: audio
-emoji: 🎧
 tipo: categoria
 ---
 
-# Audio 🎧
+# Audio
 
 Audífonos in-ear con conector USB-C y manos libres, ideales para celulares sin entrada de audífonos tradicional.
 

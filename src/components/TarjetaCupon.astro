@@ -1,5 +1,6 @@
 ---
 import { formatearFecha } from '../lib/formato';
+import { site } from '../lib/site';
 import type { EstadoPromocion } from '../lib/promociones';
 import BadgeEstadoPromocion from './BadgeEstadoPromocion.astro';
 
@@ -30,8 +31,8 @@ const { nombre, porcentaje, condicion, estado, desde, hasta, href } = Astro.prop
     href={href}
     target="_blank"
     rel="noopener"
-    class="mt-auto inline-flex items-center justify-center rounded-xl bg-primario px-5 py-2.5 text-center font-texto text-sm font-bold text-white transition-transform hover:scale-105 active:translate-y-[2px]"
+    class="mt-auto inline-flex min-h-11 items-center justify-center rounded-xl bg-primario px-5 py-2.5 text-center font-texto text-sm font-bold text-white motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
   >
-    Seguir la tienda en Mercado Libre
+    {site.ctaCupon}
   </a>
 </article>

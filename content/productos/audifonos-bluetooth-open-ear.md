@@ -3,9 +3,9 @@ titulo: Audífonos Bluetooth Open Ear Clip-On TWS
 slug: audifonos-bluetooth-open-ear
 categoria: audio
 tipo: familia
-emoji: "\U0001F3A7"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-2202409949-audifonos-bluetooth-inalambricos-open-ear-clip-on-tws-negro-_JM
+condicion: new
 precioReferencial: 15990
 fechaPrecio: '2026-10-01'
 resumen: >-

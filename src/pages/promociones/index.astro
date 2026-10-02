@@ -1,9 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Faq from '../../components/Faq.astro';
-import TarjetaCupon from '../../components/TarjetaCupon.astro';
-import TarjetaPromocion from '../../components/TarjetaPromocion.astro';
+import PaginaPromociones from '../../components/PaginaPromociones.astro';
 import { site } from '../../lib/site';
 import { promociones, getCuponesPublicables, getCampanasPublicables } from '../../lib/promociones';
 import { resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
@@ -31,68 +29,5 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
     </div>
   </section>
 
-  <section class="mx-auto max-w-4xl px-4 py-6">
-    <p class="rounded-2xl bg-destacado/10 px-5 py-4 font-texto text-sm font-bold text-tinta">
-      {promociones.aclaracion}
-    </p>
-  </section>
-
-  {
-    cupones.length > 0 && (
-      <section id="cupones" class="mx-auto max-w-4xl px-4 py-6">
-        <h2 class="font-titulos text-2xl font-bold text-tinta">Cupones</h2>
-        <div class="mt-4 grid gap-5 sm:grid-cols-2">
-          {cupones.map((cupon) => (
-            <TarjetaCupon
-              nombre={cupon.nombre}
-              porcentaje={cupon.porcentaje}
-              condicion={cupon.condicion}
-              estado={cupon.estado}
-              desde={cupon.desde}
-              hasta={cupon.hasta}
-              href={site.mercadolibre.paginaOficial}
-            />
-          ))}
-        </div>
-      </section>
-    )
-  }
-
-  {
-    campanas.length > 0 && (
-      <section id="campanas" class="mx-auto max-w-4xl px-4 py-6">
-        <h2 class="font-titulos text-2xl font-bold text-tinta">Campañas</h2>
-        <div class="mt-4 grid gap-5 sm:grid-cols-2">
-          {campanas.map((campana) => (
-            <TarjetaPromocion
-              nombre={campana.nombre}
-              descripcion={campana.descripcion}
-              estado={campana.estado}
-              desde={campana.desde}
-              hasta={campana.hasta}
-              href={site.mercadolibre.tienda}
-            />
-          ))}
-        </div>
-      </section>
-    )
-  }
-
-  {
-    cupones.length + campanas.length === 0 && (
-      <div id="promo-fallback" class="mx-auto max-w-4xl px-4 py-10 text-center">
-        <p class="font-texto text-lg font-bold text-tinta">En este momento no tenemos promociones activas.</p>
-        <a
-          href={site.mercadolibre.tienda}
-          target="_blank"
-          rel="noopener"
-          class="mt-4 inline-flex items-center justify-center rounded-xl bg-primario px-6 py-3 font-texto text-sm font-bold text-white transition-transform hover:scale-105 active:translate-y-[2px]"
-        >
-          Ver nuestra tienda en Mercado Libre
-        </a>
-      </div>
-    )
-  }
-
-  <Faq items={promociones.faqs} titulo="Preguntas sobre promociones" />
+  <PaginaPromociones aclaracion={promociones.aclaracion} cupones={cupones} campanas={campanas} faqs={promociones.faqs} />
 </BaseLayout>

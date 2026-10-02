@@ -1,5 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import GalleryLightbox, { type FotoGaleria } from './GalleryLightbox';
+import Icono from './Icono';
+import { claveOpcion, ubicarOpcion } from '../lib/opcion-url';
 
 export interface OpcionFicha {
   nombre: string;
@@ -20,6 +22,7 @@ interface Props {
   leyenda: string;
   resumen: string;
   envio: string;
+  textoCtaPrincipal: string;
   textoCtaSecundario: string;
   linkCtaSecundario: string;
 }
@@ -49,7 +52,7 @@ function Selector({
           id={selectId}
           value={indiceActivo}
           onChange={(evento) => onElegir(Number(evento.target.value))}
-          className="mt-2 w-full rounded-xl border-2 border-primario-claro bg-white px-3 py-2.5 font-texto text-sm text-tinta focus:border-primario focus:outline-none"
+          className="mt-2 w-full rounded-xl border-2 border-primario-claro bg-white px-3 py-2.5 font-texto text-base text-tinta focus:border-primario"
         >
           {nombres.map((nombre, indice) => (
             <option key={`${nombre}-${indice}`} value={indice}>
@@ -73,7 +76,7 @@ function Selector({
             type="button"
             onClick={() => onElegir(indice)}
             aria-pressed={indice === indiceActivo}
-            className={`rounded-full px-4 py-1.5 font-texto text-sm font-bold transition-colors active:translate-y-[2px] ${
+            className={`min-h-11 rounded-full px-3 font-texto text-sm font-bold transition-colors active:translate-y-[2px] ${
               indice === indiceActivo
                 ? 'bg-primario text-white'
                 : 'bg-primario-claro text-primario-oscuro hover:bg-primario/20'
@@ -94,6 +97,7 @@ export default function FichaProducto({
   leyenda,
   resumen,
   envio,
+  textoCtaPrincipal,
   textoCtaSecundario,
   linkCtaSecundario,
 }: Props) {
@@ -108,9 +112,29 @@ export default function FichaProducto({
     document.getElementById('burbuja-mercadolibre')?.setAttribute('href', opcionActiva.link);
   }, [opcionActiva.link]);
 
+  useEffect(() => {
+    const posicion = ubicarOpcion(grupos, new URLSearchParams(location.search).get('opcion'));
+    if (!posicion) return;
+    setIndiceGrupo(posicion.indiceGrupo);
+    setIndiceOpcion(posicion.indiceOpcion);
+  }, [grupos]);
+
+  function escribirOpcion(indiceDeGrupo: number, indiceDeOpcion: number) {
+    const grupo = grupos[indiceDeGrupo];
+    const url = new URL(location.href);
+    url.searchParams.set('opcion', claveOpcion(grupo.nombre, grupo.opciones[indiceDeOpcion].nombre, grupos.length > 1));
+    history.replaceState(history.state, '', url);
+  }
+
   function elegirGrupo(indice: number) {
     setIndiceGrupo(indice);
     setIndiceOpcion(0);
+    escribirOpcion(indice, 0);
+  }
+
+  function elegirOpcion(indice: number) {
+    setIndiceOpcion(indice);
+    escribirOpcion(indiceGrupo, indice);
   }
 
   return (
@@ -132,11 +156,12 @@ export default function FichaProducto({
             etiqueta={etiquetaOpcion}
             nombres={grupoActivo.opciones.map((opcion) => opcion.nombre)}
             indiceActivo={indiceOpcionActiva}
-            onElegir={setIndiceOpcion}
+            onElegir={elegirOpcion}
           />
         )}
 
-        <div>
+        <div aria-live="polite">
+          <p className="sr-only">{opcionActiva.nombre}</p>
           <p className="font-titulos text-3xl font-bold text-primario md:text-4xl">{opcionActiva.precioTexto}</p>
           <p className="mt-1 font-texto text-sm text-tinta/70">{leyenda}</p>
         </div>
@@ -147,9 +172,9 @@ export default function FichaProducto({
             target="_blank"
             rel="noopener"
             data-cta="ver-en-mercado-libre"
-            className="inline-flex items-center justify-center rounded-xl bg-primario px-8 py-3.5 text-center font-texto text-base font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
+            className="inline-flex items-center justify-center rounded-xl bg-primario px-8 py-3.5 text-center font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
           >
-            Ver en Mercado Libre
+            {textoCtaPrincipal}
           </a>
           <a
             href={linkCtaSecundario}
@@ -165,11 +190,11 @@ export default function FichaProducto({
           data-testid="badge-envio"
           className="inline-flex w-fit items-center gap-2 rounded-full bg-destacado/15 px-4 py-1.5 font-texto text-sm font-bold text-tinta"
         >
-          <span aria-hidden="true">🚚</span>
+          <Icono nombre="camion" className="h-4 w-4" />
           {envio}
         </p>
 
-        <p className="font-texto text-sm text-tinta/70">{resumen}</p>
+        <p className="font-texto text-base text-tinta/70">{resumen}</p>
       </div>
     </div>
   );

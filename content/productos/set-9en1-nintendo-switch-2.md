@@ -3,9 +3,9 @@ titulo: Set Switch 2 Estuche Mica Fundas Grips Carcasa (9 en 1)
 slug: set-9en1-nintendo-switch-2
 categoria: nintendo-switch
 tipo: variantes
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM
+condicion: new
 precioReferencial: 21990
 fechaPrecio: '2026-10-01'
 resumen: >-

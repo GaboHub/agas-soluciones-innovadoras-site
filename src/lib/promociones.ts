@@ -1,4 +1,4 @@
-import raw from '../data/promociones.json';
+import raw from '../data/promociones.json' with { type: 'json' };
 import type { FaqItem } from './faqs';
 
 export interface Cupon {
@@ -29,7 +29,11 @@ export const promociones: PromocionesData = raw as PromocionesData;
 
 export type EstadoPromocion = 'vigente' | 'proxima' | 'expirada';
 
+const FECHA_ISO = /^\d{4}-\d{2}-\d{2}$/;
+
 export function hoyEnChile(): string {
+  const fijada = process.env.AGAS_FECHA_BUILD;
+  if (fijada && FECHA_ISO.test(fijada)) return fijada;
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
 }
 
@@ -39,7 +43,7 @@ export function clasificar(promo: { desde: string; hasta: string }, hoy: string)
   return 'vigente';
 }
 
-function ordenarPublicables<T extends { desde: string; hasta: string }>(
+export function publicables<T extends { desde: string; hasta: string }>(
   items: T[],
   hoy: string,
 ): Array<T & { estado: EstadoPromocion }> {
@@ -53,9 +57,9 @@ function ordenarPublicables<T extends { desde: string; hasta: string }>(
 }
 
 export function getCuponesPublicables(hoy: string = hoyEnChile()): Array<Cupon & { estado: EstadoPromocion }> {
-  return ordenarPublicables(promociones.cupones, hoy);
+  return publicables(promociones.cupones, hoy);
 }
 
 export function getCampanasPublicables(hoy: string = hoyEnChile()): Array<Campana & { estado: EstadoPromocion }> {
-  return ordenarPublicables(promociones.campanas, hoy);
+  return publicables(promociones.campanas, hoy);
 }

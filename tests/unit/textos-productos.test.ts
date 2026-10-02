@@ -7,25 +7,16 @@ import matter from 'gray-matter';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const textosPath = path.resolve(dirname, '../../src/data/textos-productos.json');
 const productosDir = path.resolve(dirname, '../../content/productos');
-const catalogoPath = path.resolve(dirname, '../../src/data/catalogo.json');
 
 const textos: Record<string, { descripcion: string; metaDescription: string }> = JSON.parse(
   readFileSync(textosPath, 'utf-8'),
 );
 
-const catalogo: { productos: Array<{ slug: string; reviews: { promedio: number; cantidad: number } | null }> } =
-  JSON.parse(readFileSync(catalogoPath, 'utf-8'));
-
-const promedioPorSlug = new Map(
-  catalogo.productos.map((producto) => [producto.slug, producto.reviews?.promedio ?? null]),
-);
-
-const archivosProductos = readdirSync(productosDir).filter((archivo) => archivo.endsWith('.md'));
-const slugsDeProductos = archivosProductos.map((archivo) => {
-  const contenido = readFileSync(path.join(productosDir, archivo), 'utf-8');
-  const { data } = matter(contenido);
-  return data.slug as string;
-});
+const fichas = readdirSync(productosDir)
+  .filter((archivo) => archivo.endsWith('.md'))
+  .map((archivo) => matter(readFileSync(path.join(productosDir, archivo), 'utf-8')).data);
+const slugsDeProductos = fichas.map((ficha) => ficha.slug as string);
+const promedioPorSlug = new Map(fichas.map((ficha) => [ficha.slug as string, (ficha.reviews?.promedio as number) ?? null]));
 
 describe('textos-productos.json', () => {
   it('tiene exactamente las mismas claves que los 25 slugs de productos', () => {
@@ -46,7 +37,7 @@ describe('textos-productos.json', () => {
   });
 
   it.each(Object.entries(textos))(
-    '%s no cita un promedio de estrellas (N.N★) desactualizado respecto a catalogo.json',
+    '%s no cita un promedio de estrellas (N.N★) desactualizado respecto al frontmatter de la ficha',
     (slug, texto) => {
       const patronEstrellas = /(\d+\.\d+)★/g;
       const promedio = promedioPorSlug.get(slug) ?? null;

@@ -3,9 +3,9 @@ titulo: Cargador Dual Estación de Carga Controles PS5
 slug: cargador-dual-controles-ps5
 categoria: playstation-5
 tipo: familia
-emoji: "\U0001F579️"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM
+condicion: new
 precioReferencial: 17000
 fechaPrecio: '2026-10-01'
 resumen: >-

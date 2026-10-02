@@ -3,9 +3,9 @@ titulo: Pack 2 Lámina Vidrio Templado Switch OLED
 slug: pack-2-laminas-vidrio-switch-oled
 categoria: nintendo-switch
 tipo: simple
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-3572542490-pack-2-lamina-vidrio-templado-para-nintendo-switch-oled-_JM
+condicion: new
 precioReferencial: 10500
 fechaPrecio: '2026-10-01'
 resumen: >-

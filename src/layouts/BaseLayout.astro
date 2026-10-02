@@ -32,7 +32,7 @@ const {
 const imagenFuente = ogImage ?? resolveLogo();
 const imagenSocialOptimizada = await getImage({
   src: imagenFuente,
-  width: 630,
+  width: Math.min(630, imagenFuente.width),
   format: ogFormat(imagenFuente),
   quality: 65,
 });
@@ -47,7 +47,8 @@ const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
 <html lang="es-CL">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {analiticaActiva && <Analitica ga4Id={ga4Id as string} />}
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
@@ -76,11 +77,16 @@ const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
         <script type="application/ld+json" set:html={JSON.stringify(entrada)} is:inline />
       ))
     }
-    {analiticaActiva && <Analitica ga4Id={ga4Id as string} />}
   </head>
-  <body class="flex min-h-screen flex-col">
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:block focus:bg-white focus:px-4 focus:py-2 focus:font-texto focus:font-bold focus:text-primario-oscuro"
+    >
+      Saltar al contenido
+    </a>
     <Header />
-    <main class="flex-1">
+    <main id="contenido" tabindex="-1" class="flex-1 focus:outline-none">
       <slot />
     </main>
     <Footer />

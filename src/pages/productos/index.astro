@@ -2,18 +2,19 @@
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BuscadorProductos, { type ProductoBuscable } from '../../components/BuscadorProductos.tsx';
-import { site } from '../../lib/site';
+import { site, siteUrl } from '../../lib/site';
 import { getProductos, atributosDeProducto } from '../../lib/productos';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../lib/images';
-import { buildOrganization } from '../../lib/seo';
+import { buildOrganization, buildItemList } from '../../lib/seo';
 import { formatearPrecioCLP } from '../../lib/formato';
+import { ANCHOS_TARJETA, SIZES_TARJETA } from '../../lib/imagenes-tarjeta';
 
 const productos = await getProductos();
 
 const buscables: ProductoBuscable[] = await Promise.all(
   productos.map(async (producto) => {
     const origen = resolveImagen(producto.data.imagenes[0]);
-    const imagen = await getImage({ src: origen, width: 480 });
+    const imagen = await getImage({ src: origen, width: 480, widths: ANCHOS_TARJETA, sizes: SIZES_TARJETA });
     return {
       slug: producto.data.slug,
       url: `/productos/${producto.data.slug}/`,
@@ -27,6 +28,7 @@ const buscables: ProductoBuscable[] = await Promise.all(
         src: imagen.src,
         width: imagen.attributes.width as number,
         height: imagen.attributes.height as number,
+        srcSet: imagen.srcSet.attribute,
       },
     };
   }),
@@ -36,7 +38,11 @@ const title = `Catálogo de productos | ${site.nombre}`;
 const description = `Catálogo de accesorios ${site.nombre} para ${site.categorias.map((categoria) => categoria.nombre).join(', ')}: precio referencial y compra directa en Mercado Libre.`;
 
 const logoUrl = await optimizedAbsoluteUrl(resolveLogo());
-const jsonLd = [buildOrganization(logoUrl)];
+const jsonLd = [
+  buildOrganization(logoUrl),
+  buildItemList(productos.map((producto) => new URL(`/productos/${producto.data.slug}/`, siteUrl).toString())),
+];
+import GlifoCategoria from '../../components/GlifoCategoria.astro';
 ---
 
 <BaseLayout title={title} description={description} path="/productos/" jsonLd={jsonLd}>
@@ -53,9 +59,10 @@ const jsonLd = [buildOrganization(logoUrl)];
         site.categorias.map((categoria) => (
           <a
             href={`/categorias/${categoria.slug}/`}
-            class="rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
+            class="inline-flex min-h-11 items-center gap-2 rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
           >
-            {categoria.emoji} {categoria.nombre}
+            <GlifoCategoria slug={categoria.slug} class="h-5 w-5" />
+            {categoria.nombre}
           </a>
         ))
       }

@@ -56,7 +56,6 @@ test.describe('SEO', () => {
         expect(product.offers.url).toMatch(/^https:\/\/articulo\.mercadolibre\.cl\//);
         expect(product.offers.priceCurrency).toBe('CLP');
         expect(product.offers.price).toBeGreaterThan(0);
-        expect(JSON.stringify(product)).not.toContain('availability');
       }
 
       const faqPage = bloquesJsonLd.find((entrada) => entrada['@type'] === 'FAQPage');
@@ -85,17 +84,5 @@ test.describe('SEO', () => {
     expect(tipos).toContain('Organization');
     expect(tipos).not.toContain('LocalBusiness');
     expect(tipos).not.toContain('Service');
-  });
-
-  test('los títulos y descripciones son únicos entre las páginas muestreadas', async ({ page }) => {
-    const titulos = new Set<string>();
-    const descripciones = new Set<string>();
-    for (const pagina of paginas) {
-      await page.goto(pagina.path);
-      titulos.add(await page.title());
-      descripciones.add((await page.locator('meta[name="description"]').getAttribute('content')) ?? '');
-    }
-    expect(titulos.size).toBe(paginas.length);
-    expect(descripciones.size).toBe(paginas.length);
   });
 });

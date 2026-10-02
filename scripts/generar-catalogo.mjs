@@ -1,25 +1,11 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import sharp from 'sharp';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(dirname, '..');
-const CONTEXT_DIR = path.resolve(
-  ROOT_DIR,
-  process.env.AGAS_CONTEXT_DIR ?? '../agas-context',
-);
-const PUBLICACIONES_DIR = path.join(CONTEXT_DIR, 'publicaciones');
-const EMPRESA_MD = path.join(CONTEXT_DIR, 'empresa.md');
-
-const PRODUCTOS_CONTENT_DIR = path.join(ROOT_DIR, 'content/productos');
-const PRODUCTOS_IMAGES_DIR = path.join(ROOT_DIR, 'src/assets/images/productos');
-const GUIAS_CONTENT_DIR = path.join(ROOT_DIR, 'content/guias');
-const DATA_DIR = path.join(ROOT_DIR, 'src/data');
-const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
-
-const SITE_URL = 'https://agassoluciones.cl';
 
 const LIMITE_IMAGENES_SIMPLE = 7;
 const LIMITE_IMAGENES_VARIANTE = 7;
@@ -27,36 +13,13 @@ const LIMITE_IMAGENES_MIEMBRO = 7;
 const LADO_MAYOR_MAXIMO = 800;
 const CALIDAD_WEBP = 80;
 
-const CATEGORIAS = {
-  'nintendo-switch': {
-    nombre: 'Nintendo Switch',
-    emoji: '🎮',
-    resumen: 'Láminas, estuches y kits de protección para Nintendo Switch, Switch OLED y Switch 2.',
-  },
-  'playstation-5': {
-    nombre: 'PlayStation',
-    emoji: '🕹️',
-    resumen: 'Fundas, grips y cargadores para controles de PlayStation 5.',
-  },
-  audio: {
-    nombre: 'Audio',
-    emoji: '🎧',
-    resumen: 'Audífonos con cable USB-C, Bluetooth TWS in-ear y open ear clip-on para tu celular.',
-  },
-  otros: {
-    nombre: 'Otros accesorios',
-    emoji: '🔌',
-    resumen: 'Otros productos de nuestra tienda.',
-  },
-};
-
-const REGLAS_CATEGORIA = [
+export const REGLAS_CATEGORIA = [
   { patron: /audifonos|audífonos|manos libres/i, categoria: 'audio' },
   { patron: /ps5|ps4|xbox|joystick|control/i, categoria: 'playstation-5' },
   { patron: /switch|nintendo/i, categoria: 'nintendo-switch' },
 ];
 
-const SLUG_MAP = [
+export const SLUG_MAP = [
   { prefijo: 'MLC3560689528', slug: 'lamina-vidrio-nintendo-switch', titulo: 'Lámina Protectora Vidrio Templado Nintendo Switch 1' },
   { prefijo: 'MLC3556230302', slug: 'pack-2-laminas-vidrio-nintendo-switch', titulo: 'Pack 2 Lámina Vidrio Templado Nintendo Switch 1' },
   { prefijo: 'MLC1794079105', slug: 'kit-estuche-vidrio-nintendo-switch', titulo: 'Kit Estuche Goma Rígido + Vidrio Switch 1 Rojo' },
@@ -100,9 +63,9 @@ const SLUG_MAP = [
   { prefijo: 'familia-audifonos-bluetooth-inalambricos-open-ea', slug: 'audifonos-bluetooth-open-ear', titulo: 'Audífonos Bluetooth Open Ear Clip-On TWS' },
 ];
 
-const COLORES_FUNDAS_PS5 = ['Amarillo', 'Azul', 'Blanco', 'Gris', 'Morado', 'Negro', 'Rojo', 'Rosado', 'Verde'];
+export const COLORES_FUNDAS_PS5 = ['Amarillo', 'Azul', 'Blanco', 'Gris', 'Morado', 'Negro', 'Rojo', 'Rosado', 'Verde'];
 
-function limpiarEspacios(texto) {
+export function limpiarEspacios(texto) {
   return texto
     .replace(/_{2,}/g, ' ')
     .replace(/[ \t]+/g, ' ')
@@ -110,11 +73,11 @@ function limpiarEspacios(texto) {
     .trim();
 }
 
-function parseMonto(texto) {
+export function parseMonto(texto) {
   return Number(texto.replace(/\./g, '').replace(/,/g, ''));
 }
 
-function slugificar(texto) {
+export function slugificar(texto) {
   return texto
     .toLowerCase()
     .normalize('NFD')
@@ -123,15 +86,15 @@ function slugificar(texto) {
     .replace(/^-+|-+$/g, '');
 }
 
-function asignarCategoria(titulo) {
+export function asignarCategoria(titulo) {
   for (const regla of REGLAS_CATEGORIA) {
     if (regla.patron.test(titulo)) return regla.categoria;
   }
   return 'otros';
 }
 
-function parseEmpresa() {
-  const texto = readFileSync(EMPRESA_MD, 'utf8');
+export function parseEmpresa(rutas) {
+  const texto = readFileSync(rutas.empresa, 'utf8');
   const nickname = texto.match(/^# (.+)$/m)?.[1]?.trim() ?? '';
   const sellerId = texto.match(/\*\*Seller ID:\*\*\s*(\S+)/)?.[1] ?? '';
   const tiendaUrl = texto.match(/\*\*Tienda:\*\*\s*(\S+)/)?.[1] ?? '';
@@ -150,7 +113,7 @@ function parseEmpresa() {
   };
 }
 
-function extraerSeccion(texto, encabezado, siguientesEncabezados) {
+export function extraerSeccion(texto, encabezado, siguientesEncabezados) {
   const inicioRegex = new RegExp(`(^|\\n)###\\s*${encabezado}\\s*\\n`);
   const inicioMatch = texto.match(inicioRegex);
   if (!inicioMatch) return '';
@@ -168,15 +131,15 @@ function extraerSeccion(texto, encabezado, siguientesEncabezados) {
   return texto.slice(inicio, fin).trim();
 }
 
-function limpiarBullet(linea) {
+export function limpiarBullet(linea) {
   return linea.replace(/^[\t ]*[•*][\t ]*/, '').replace(/^[\t ]*-[\t ]+/, '').trim();
 }
 
-function esLineaBullet(linea) {
+export function esLineaBullet(linea) {
   return /^[\t ]*[•*-][\t ]+\S/.test(linea);
 }
 
-function extraerFaqs(bloqueFaqRaw) {
+export function extraerFaqs(bloqueFaqRaw) {
   if (!bloqueFaqRaw) return [];
   const normalizado = bloqueFaqRaw
     .split('\n')
@@ -212,7 +175,7 @@ function extraerFaqs(bloqueFaqRaw) {
   return extraerFaqsPorLineas(normalizado);
 }
 
-function extraerFaqsPorLineas(normalizado) {
+export function extraerFaqsPorLineas(normalizado) {
   const lineas = normalizado.split('\n');
   const faqs = [];
   let actual = null;
@@ -243,7 +206,7 @@ const PARRAFOS_BOILERPLATE = [
   /^-{3,}$/,
 ];
 
-function esParrafoBoilerplate(parrafo) {
+export function esParrafoBoilerplate(parrafo) {
   return PARRAFOS_BOILERPLATE.some((patron) => patron.test(parrafo));
 }
 
@@ -252,18 +215,18 @@ const LINEAS_ETIQUETA = [
   /^caracter[ií]sticas principales y especificaciones$/i,
 ];
 
-function quitarLineasEtiqueta(texto) {
+export function quitarLineasEtiqueta(texto) {
   return texto
     .split('\n')
     .filter((linea) => !LINEAS_ETIQUETA.some((patron) => patron.test(linea.trim())))
     .join('\n');
 }
 
-function normalizarIndentadosABullets(texto) {
+export function normalizarIndentadosABullets(texto) {
   return texto.replace(/^(?: {4,}|\t+)(?=\S)/gm, '- ');
 }
 
-function extraerCuerpoYFaqs(descripcionRaw) {
+export function extraerCuerpoYFaqs(descripcionRaw) {
   const parrafos = normalizarIndentadosABullets(quitarLineasEtiqueta(descripcionRaw))
     .split(/\n{2,}/)
     .map((parrafo) => parrafo.trim())
@@ -290,7 +253,7 @@ const INICIO_INCLUYE = /^(?:(?:el|este|cada)\s+(?:set|kit|pack|combo|compra)\s+i
 const FRASE_INCLUYE = /(?:el|este|cada)\s+(?:set|kit|pack|combo|compra)\s+incluye\s+(?:adem[aá]s\s+)?([^.!?\n]+)/gi;
 const CLAUSULA_FINAL = /,\s*(?:lo que\b|ideal(?:es)?\b|dise[ñn]ad[oa]s?\b|pensad[oa]s?\b|[a-záéíóúñ]*(?:ando|endo|ándo|éndo)[a-záéíóúñ]*)\b.*$/i;
 
-function dividirEnumeracion(texto) {
+export function dividirEnumeracion(texto) {
   const items = [];
   let actual = '';
   let profundidad = 0;
@@ -315,7 +278,7 @@ function dividirEnumeracion(texto) {
   return items;
 }
 
-function extraerItemsDeContenido(contenido) {
+export function extraerItemsDeContenido(contenido) {
   let texto = limpiarEspacios(contenido).replace(/[.;:\s]+$/, '');
   const enumeracionTrasColon = texto.match(/:\s*(\d.*)$/);
   if (enumeracionTrasColon) texto = enumeracionTrasColon[1];
@@ -325,7 +288,7 @@ function extraerItemsDeContenido(contenido) {
     .filter((item) => item.length > 2);
 }
 
-function extraerContenidoIncluye(linea) {
+export function extraerContenidoIncluye(linea) {
   const directo = linea.match(INICIO_INCLUYE);
   if (directo) return linea.slice(directo[0].length);
   const conEtiqueta = linea.match(/^[^:]{3,60}:\s*(.*)$/);
@@ -335,7 +298,7 @@ function extraerContenidoIncluye(linea) {
   return trasEtiqueta ? resto.slice(trasEtiqueta[0].length) : null;
 }
 
-function deduplicarItems(items) {
+export function deduplicarItems(items) {
   const vistos = new Set();
   const resultado = [];
   for (const item of items) {
@@ -347,7 +310,7 @@ function deduplicarItems(items) {
   return resultado;
 }
 
-function extraerIncluyeFallback(lineas, cuerpo) {
+export function extraerIncluyeFallback(lineas, cuerpo) {
   const items = [];
   const indicesUsados = new Set();
   lineas.forEach((linea, indice) => {
@@ -366,7 +329,7 @@ function extraerIncluyeFallback(lineas, cuerpo) {
   return { items: deduplicarItems(items), indicesUsados };
 }
 
-function extraerCaracteristicasEIncluye(cuerpo) {
+export function extraerCaracteristicasEIncluye(cuerpo) {
   const lineas = cuerpo.split('\n');
   const indiceIncluye = lineas.findIndex((linea) => ENCABEZADO_INCLUYE.test(limpiarBullet(linea)));
 
@@ -414,7 +377,7 @@ function extraerCaracteristicasEIncluye(cuerpo) {
   return { caracteristicas, incluye };
 }
 
-function extraerResumen(cuerpo) {
+export function extraerResumen(cuerpo) {
   const primerParrafo = cuerpo.split(/\n{2,}/).map((p) => p.trim()).find((p) => p && !esLineaBullet(p) && !/:$/.test(p));
   if (!primerParrafo) return '';
   const textoPlano = limpiarEspacios(primerParrafo.replace(/\n/g, ' '));
@@ -422,7 +385,7 @@ function extraerResumen(cuerpo) {
   return oraciones.slice(0, 2).join(' ').trim();
 }
 
-function markdownizarCuerpo(cuerpo) {
+export function markdownizarCuerpo(cuerpo) {
   const lineas = cuerpo.split('\n');
   const resultado = [];
   for (const lineaOriginal of lineas) {
@@ -445,13 +408,16 @@ function markdownizarCuerpo(cuerpo) {
     .trim();
 }
 
-function parseReviews(bloqueReviewsRaw) {
+const SUFIJO_VOTOS = /\s*\[(?:\d+\s*likes?(?:,\s*\d+\s*dislikes?)?|\d+\s*dislikes?)\]\s*$/i;
+
+export function parseReviews(bloqueReviewsRaw) {
   const bloque = bloqueReviewsRaw.trim();
   if (!bloque || /^Sin reviews aún/i.test(bloque)) return null;
 
   const avgMatch = bloque.match(/([\d.]+)★\s*—\s*(\d+)\s*reviews/);
-  const promedio = avgMatch ? Number(avgMatch[1]) : null;
-  const cantidad = avgMatch ? Number(avgMatch[2]) : 0;
+  if (!avgMatch) return null;
+  const promedio = Number(avgMatch[1]);
+  const cantidad = Number(avgMatch[2]);
 
   const distribucion = {};
   for (const match of bloque.matchAll(/^-\s*(\d)★:\s*(\d+)\s*$/gm)) {
@@ -478,8 +444,8 @@ function parseReviews(bloqueReviewsRaw) {
       const [, estrellasStr, titulo, resto] = encabezado;
       const fechaMatch = resto.match(/\((\d{4}-\d{2}-\d{2})\)/);
       const textoLimpio = resto
-        .replace(/\s*\[\d+\s*likes?\]\s*$/i, '')
-        .replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*(\[\d+\s*likes?\])?\s*$/i, '')
+        .replace(SUFIJO_VOTOS, '')
+        .replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*$/, '')
         .replace(/\n+/g, ' ')
         .trim();
       return {
@@ -494,7 +460,7 @@ function parseReviews(bloqueReviewsRaw) {
   return { promedio, cantidad, distribucion, comentarios };
 }
 
-function parseImagenes(bloqueImagenesRaw) {
+export function parseImagenes(bloqueImagenesRaw) {
   if (!bloqueImagenesRaw) return [];
   return bloqueImagenesRaw
     .split('\n')
@@ -503,7 +469,7 @@ function parseImagenes(bloqueImagenesRaw) {
     .map((linea) => linea.slice(2).trim());
 }
 
-function parseVariantesTabla(bloqueVariantesRaw) {
+export function parseVariantesTabla(bloqueVariantesRaw) {
   if (!bloqueVariantesRaw) return [];
   const filas = [];
   for (const linea of bloqueVariantesRaw.split('\n')) {
@@ -517,7 +483,7 @@ function parseVariantesTabla(bloqueVariantesRaw) {
   return filas;
 }
 
-function parseImagenesPorVariante(bloqueRaw) {
+export function parseImagenesPorVariante(bloqueRaw) {
   const mapa = new Map();
   if (!bloqueRaw) return mapa;
   const regex = /\*\*(.+?)\*\*\n\n((?:- .+\n?)+)/g;
@@ -533,16 +499,17 @@ function parseImagenesPorVariante(bloqueRaw) {
   return mapa;
 }
 
-function parseCamposComunes(bloque) {
+export function parseCamposComunes(bloque) {
   const itemId = bloque.match(/\*\*ML Item ID:\*\*\s*(\S+)/)?.[1] ?? '';
   const link = bloque.match(/\*\*Link:\*\*\s*(\S+)/)?.[1] ?? '';
+  const condicion = bloque.match(/\*\*Condición:\*\*\s*(\S+)/)?.[1] ?? '';
   const precioMatch = bloque.match(/\*\*Precio:\*\*\s*\$([\d.,]+)(?:\s*\(precio original \$([\d.,]+)\))?/);
   const precio = precioMatch ? parseMonto(precioMatch[2] ?? precioMatch[1]) : 0;
-  return { itemId, link, precio };
+  return { itemId, link, condicion, precio };
 }
 
-function parsePublicacionIndividual(bloqueTexto) {
-  const { itemId, link, precio } = parseCamposComunes(bloqueTexto);
+export function parsePublicacionIndividual(bloqueTexto) {
+  const { itemId, link, condicion, precio } = parseCamposComunes(bloqueTexto);
   const descripcionRaw = extraerSeccion(bloqueTexto, 'Descripción', ['Promociones y cupones', 'Reviews', 'Variantes', 'Imágenes']);
   const { cuerpo, faqs } = extraerCuerpoYFaqs(descripcionRaw);
   const { caracteristicas, incluye } = extraerCaracteristicasEIncluye(cuerpo);
@@ -559,6 +526,7 @@ function parsePublicacionIndividual(bloqueTexto) {
   return {
     itemId,
     link,
+    condicion,
     precio,
     cuerpoMarkdown,
     resumen,
@@ -572,14 +540,14 @@ function parsePublicacionIndividual(bloqueTexto) {
   };
 }
 
-function leerCarpetaPublicacion(nombreCarpeta) {
-  const rutaCarpeta = path.join(PUBLICACIONES_DIR, nombreCarpeta);
+export function leerCarpetaPublicacion(rutas, nombreCarpeta) {
+  const rutaCarpeta = path.join(rutas.publicaciones, nombreCarpeta);
   const rutaMd = path.join(rutaCarpeta, 'publicacion.md');
   const texto = readFileSync(rutaMd, 'utf8');
   return { rutaCarpeta, texto };
 }
 
-function parseMetaCatalogo(texto) {
+export function parseMetaCatalogo(texto) {
   return {
     esFamilia: /^# Familia:/.test(texto),
     esCatalogo: /\*\*Catálogo:\*\*\s*S[ií]/.test(texto),
@@ -587,14 +555,14 @@ function parseMetaCatalogo(texto) {
   };
 }
 
-function estadoPublicacion(bloque) {
+export function estadoPublicacion(bloque) {
   return bloque.match(/\*\*Estado:\*\*\s*(\S+)/)?.[1] ?? '';
 }
 
-function detectarCarpetasDuplicadas(carpetas) {
+export function detectarCarpetasDuplicadas(rutas, carpetas) {
   const porUserProductId = new Map();
   for (const carpeta of carpetas) {
-    const { texto } = leerCarpetaPublicacion(carpeta);
+    const { texto } = leerCarpetaPublicacion(rutas, carpeta);
     const meta = parseMetaCatalogo(texto);
     if (meta.esFamilia || !meta.userProductId) continue;
     if (!porUserProductId.has(meta.userProductId)) porUserProductId.set(meta.userProductId, []);
@@ -612,7 +580,7 @@ function detectarCarpetasDuplicadas(carpetas) {
   return excluidas;
 }
 
-function dividirMiembrosFamilia(texto) {
+export function dividirMiembrosFamilia(texto) {
   const indices = [...texto.matchAll(/\n## (.+)\n/g)];
   const miembros = [];
   for (let i = 0; i < indices.length; i += 1) {
@@ -630,7 +598,7 @@ function dividirMiembrosFamilia(texto) {
   return miembros;
 }
 
-function detectarColorYDiseno(tituloMiembro, prefijoBase) {
+export function detectarColorYDiseno(tituloMiembro, prefijoBase) {
   let sufijo = tituloMiembro;
   if (sufijo.startsWith(prefijoBase)) {
     sufijo = sufijo.slice(prefijoBase.length).trim();
@@ -644,7 +612,7 @@ function detectarColorYDiseno(tituloMiembro, prefijoBase) {
   return { color: ultima ?? '', diseno };
 }
 
-async function procesarImagen(rutaOrigen, rutaDestino) {
+export async function procesarImagen(rutaOrigen, rutaDestino) {
   mkdirSync(path.dirname(rutaDestino), { recursive: true });
   await sharp(rutaOrigen)
     .resize({ width: LADO_MAYOR_MAXIMO, height: LADO_MAYOR_MAXIMO, fit: 'inside', withoutEnlargement: true })
@@ -652,7 +620,7 @@ async function procesarImagen(rutaOrigen, rutaDestino) {
     .toFile(rutaDestino);
 }
 
-async function copiarImagenes(rutasRelativas, carpetaOrigenBase, slugProducto, subcarpeta, limite) {
+export async function copiarImagenes(rutas, rutasRelativas, carpetaOrigenBase, slugProducto, subcarpeta, limite) {
   const seleccionadas = rutasRelativas.slice(0, limite);
   const rutasFinales = [];
   let contador = 1;
@@ -666,7 +634,7 @@ async function copiarImagenes(rutasRelativas, carpetaOrigenBase, slugProducto, s
     const destinoRelativo = subcarpeta
       ? path.join('productos', slugProducto, subcarpeta, nombreArchivo)
       : path.join('productos', slugProducto, nombreArchivo);
-    const destinoAbsoluto = path.join(ROOT_DIR, 'src/assets/images', destinoRelativo);
+    const destinoAbsoluto = path.join(rutas.imagenes, destinoRelativo);
     await procesarImagen(origen, destinoAbsoluto);
     rutasFinales.push(destinoRelativo.split(path.sep).join('/'));
     contador += 1;
@@ -674,7 +642,7 @@ async function copiarImagenes(rutasRelativas, carpetaOrigenBase, slugProducto, s
   return rutasFinales;
 }
 
-async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
+export async function construirProductoSimpleOVariantes(rutas, config, texto, carpetaOrigen) {
   const datos = parsePublicacionIndividual(texto);
   const categoria = asignarCategoria(config.titulo);
   const tipo = datos.variantesFilas.length > 0 ? 'variantes' : 'simple';
@@ -685,8 +653,8 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
     slug: config.slug,
     categoria,
     tipo,
-    emoji: CATEGORIAS[categoria].emoji,
     permalink: datos.link,
+    condicion: datos.condicion,
     precioReferencial: datos.precio,
     resumen: datos.resumen,
     caracteristicas: datos.caracteristicas,
@@ -698,7 +666,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
   };
 
   if (tipo === 'simple') {
-    const imagenes = await copiarImagenes(datos.imagenesSimple, carpetaOrigen, config.slug, null, LIMITE_IMAGENES_SIMPLE);
+    const imagenes = await copiarImagenes(rutas, datos.imagenesSimple, carpetaOrigen, config.slug, null, LIMITE_IMAGENES_SIMPLE);
     return { ...base, imagenes, variantes: undefined, atributosBusqueda: [] };
   }
 
@@ -716,7 +684,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
     const atributo = pares.map((par) => par.clave).join(' / ');
     const imagenesRelativas = datos.imagenesPorVariante.get(fila.atributosRaw) ?? [];
     const slugVariante = slugificar(nombre);
-    const imagenes = await copiarImagenes(imagenesRelativas, carpetaOrigen, config.slug, slugVariante, LIMITE_IMAGENES_VARIANTE);
+    const imagenes = await copiarImagenes(rutas, imagenesRelativas, carpetaOrigen, config.slug, slugVariante, LIMITE_IMAGENES_VARIANTE);
     const link = fila.variationId ? `${datos.link}?variation=${fila.variationId}` : datos.link;
     variantes.push({ nombre, atributo, link, imagenes });
     for (const par of pares) {
@@ -728,7 +696,7 @@ async function construirProductoSimpleOVariantes(config, texto, carpetaOrigen) {
   return { ...base, imagenes: imagenesProducto, variantes, atributosBusqueda: [...atributosBusqueda] };
 }
 
-async function construirProductoAgrupadoPorDiseno(config, texto, carpetaOrigen) {
+export async function construirProductoAgrupadoPorDiseno(rutas, config, texto, carpetaOrigen) {
   const miembros = dividirMiembrosFamilia(texto);
   const prefijoBase = config.titulo.replace(/\s+\+\s+/, ' + ');
   const tituloCrudoBase = texto.match(/^# Familia:\s*(.+)$/m)?.[1]?.trim() ?? config.titulo;
@@ -746,7 +714,7 @@ async function construirProductoAgrupadoPorDiseno(config, texto, carpetaOrigen) 
 
     const imagenesRaw = parseImagenes(extraerSeccion(miembro.bloque, 'Imágenes', []));
     const slugMiembro = datos.itemId;
-    const imagenes = await copiarImagenes(imagenesRaw, carpetaOrigen, config.slug, slugMiembro, LIMITE_IMAGENES_MIEMBRO);
+    const imagenes = await copiarImagenes(rutas, imagenesRaw, carpetaOrigen, config.slug, slugMiembro, LIMITE_IMAGENES_MIEMBRO);
 
     if (!gruposMapa.has(diseno)) gruposMapa.set(diseno, []);
     gruposMapa.get(diseno).push({ color, link: datos.link, imagenes });
@@ -762,9 +730,9 @@ async function construirProductoAgrupadoPorDiseno(config, texto, carpetaOrigen) 
     slug: config.slug,
     categoria,
     tipo: 'familia',
-    emoji: CATEGORIAS[categoria].emoji,
     etiquetas: config.etiquetas,
     permalink: primerLink,
+    condicion: parseCamposComunes(primerMiembro.bloque).condicion,
     precioReferencial: parseCamposComunes(primerMiembro.bloque).precio,
     resumen: primerBloqueDatos.resumen,
     caracteristicas: primerBloqueDatos.caracteristicas,
@@ -778,7 +746,7 @@ async function construirProductoAgrupadoPorDiseno(config, texto, carpetaOrigen) 
   };
 }
 
-function firmaReviews(miembro) {
+export function firmaReviews(miembro) {
   return JSON.stringify({
     promedio: miembro.promedio,
     cantidad: miembro.cantidad,
@@ -787,7 +755,7 @@ function firmaReviews(miembro) {
   });
 }
 
-function agregarReviewsDeMiembro(agregado, miembro) {
+export function agregarReviewsDeMiembro(agregado, miembro) {
   const firma = firmaReviews(miembro);
   if (agregado.firmasVistas.has(firma)) return;
   agregado.firmasVistas.add(firma);
@@ -800,7 +768,7 @@ function agregarReviewsDeMiembro(agregado, miembro) {
   agregado.comentarios.push(...miembro.comentarios);
 }
 
-async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
+export async function construirProductoFamiliaGenerica(rutas, config, texto, carpetaOrigen) {
   const miembros = dividirMiembrosFamilia(texto);
   const tituloCrudoBase = texto.match(/^# Familia:\s*(.+)$/m)?.[1]?.trim() ?? config.titulo;
   const categoria = asignarCategoria(config.titulo);
@@ -834,7 +802,7 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
     }
 
     const imagenesRaw = parseImagenes(extraerSeccion(miembro.bloque, 'Imágenes', []));
-    const imagenes = await copiarImagenes(imagenesRaw, carpetaOrigen, config.slug, datos.itemId, LIMITE_IMAGENES_MIEMBRO);
+    const imagenes = await copiarImagenes(rutas, imagenesRaw, carpetaOrigen, config.slug, datos.itemId, LIMITE_IMAGENES_MIEMBRO);
 
     miembrosProcesados.push({
       titulo: miembro.titulo,
@@ -862,8 +830,8 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
     slug: config.slug,
     categoria,
     tipo: 'familia',
-    emoji: CATEGORIAS[categoria].emoji,
     permalink: primerLink,
+    condicion: parseCamposComunes(miembros[0].bloque).condicion,
     precioReferencial: miembrosProcesados[0]?.precio ?? 0,
     resumen: primerBloqueDatos.resumen,
     caracteristicas: primerBloqueDatos.caracteristicas,
@@ -878,14 +846,14 @@ async function construirProductoFamiliaGenerica(config, texto, carpetaOrigen) {
   };
 }
 
-function escribirMarkdownProducto(producto, fechaPrecio) {
+export function escribirMarkdownProducto(rutas, producto, fechaPrecio) {
   const frontmatter = {
     titulo: producto.titulo,
     slug: producto.slug,
     categoria: producto.categoria,
     tipo: producto.tipo,
-    emoji: producto.emoji,
     permalink: producto.permalink,
+    condicion: producto.condicion,
     precioReferencial: producto.precioReferencial,
     fechaPrecio,
     resumen: producto.resumen,
@@ -905,47 +873,17 @@ function escribirMarkdownProducto(producto, fechaPrecio) {
   if (producto.grupos?.length) frontmatter.grupos = producto.grupos;
 
   const archivo = matter.stringify(`\n${producto.cuerpoMarkdown}\n`, frontmatter);
-  writeFileSync(path.join(PRODUCTOS_CONTENT_DIR, `${producto.slug}.md`), archivo, 'utf8');
+  writeFileSync(path.join(rutas.fichas, `${producto.slug}.md`), archivo, 'utf8');
 }
 
-function limpiarSalidas() {
-  rmSync(PRODUCTOS_CONTENT_DIR, { recursive: true, force: true });
-  rmSync(PRODUCTOS_IMAGES_DIR, { recursive: true, force: true });
-  mkdirSync(PRODUCTOS_CONTENT_DIR, { recursive: true });
-  mkdirSync(PRODUCTOS_IMAGES_DIR, { recursive: true });
+export function limpiarSalidas(rutas) {
+  rmSync(rutas.fichas, { recursive: true, force: true });
+  rmSync(rutas.imagenesProductos, { recursive: true, force: true });
+  mkdirSync(rutas.fichas, { recursive: true });
+  mkdirSync(rutas.imagenesProductos, { recursive: true });
 }
 
-function construirCatalogoJson(productos, empresa, fechaPrecio) {
-  return {
-    generadoEl: new Date().toISOString(),
-    empresa: {
-      nickname: empresa.nickname,
-      sellerId: empresa.sellerId,
-      tiendaUrl: empresa.tiendaUrl,
-      paginaOficialUrl: empresa.paginaOficialUrl,
-      reputacion: empresa.reputacion,
-    },
-    categorias: Object.entries(CATEGORIAS)
-      .filter(([slug]) => slug !== 'otros')
-      .map(([slug, datos]) => ({ slug, nombre: datos.nombre, emoji: datos.emoji, resumen: datos.resumen })),
-    productos: productos.map((producto) => ({
-      slug: producto.slug,
-      titulo: producto.titulo,
-      categoria: producto.categoria,
-      tipo: producto.tipo,
-      emoji: producto.emoji,
-      permalink: producto.permalink,
-      precioReferencial: producto.precioReferencial,
-      fechaPrecio,
-      resumen: producto.resumen,
-      reviews: producto.reviews ? { promedio: producto.reviews.promedio, cantidad: producto.reviews.cantidad } : null,
-      atributosBusqueda: producto.atributosBusqueda ?? [],
-      imagen: producto.imagenes[0] ?? '',
-    })),
-  };
-}
-
-function construirResenasJson(productos, empresa) {
+export function construirResenasJson(productos, empresa) {
   const todasConComentarios = [];
   for (const producto of productos) {
     if (producto.reviewsEsCatalogo) continue;
@@ -992,94 +930,38 @@ function construirResenasJson(productos, empresa) {
   };
 }
 
-function leerGuias() {
-  if (!existsSync(GUIAS_CONTENT_DIR)) return [];
-  const archivos = readdirSync(GUIAS_CONTENT_DIR).filter((nombre) => nombre.endsWith('.md'));
-  return archivos
-    .map((archivo) => {
-      const texto = readFileSync(path.join(GUIAS_CONTENT_DIR, archivo), 'utf8');
-      const { data } = matter(texto);
-      return { titulo: data.titulo, slug: data.slug };
-    })
-    .sort((a, b) => a.titulo.localeCompare(b.titulo));
+export function resolverRutas({ contexto, raiz } = {}) {
+  const rutaRaiz = path.resolve(raiz ?? ROOT_DIR);
+  const rutaContexto = path.resolve(rutaRaiz, contexto ?? process.env.AGAS_CONTEXT_DIR ?? '../agas-context');
+  return {
+    raiz: rutaRaiz,
+    contexto: rutaContexto,
+    publicaciones: path.join(rutaContexto, 'publicaciones'),
+    empresa: path.join(rutaContexto, 'empresa.md'),
+    fichas: path.join(rutaRaiz, 'content/productos'),
+    imagenes: path.join(rutaRaiz, 'src/assets/images'),
+    imagenesProductos: path.join(rutaRaiz, 'src/assets/images/productos'),
+    datos: path.join(rutaRaiz, 'src/data'),
+  };
 }
 
-function leerPromociones() {
-  const promocionesPath = path.join(DATA_DIR, 'promociones.json');
-  if (!existsSync(promocionesPath)) return null;
-  return JSON.parse(readFileSync(promocionesPath, 'utf8'));
-}
-
-function construirSeccionPromociones(promociones) {
-  if (!promociones) return [];
-  const hoy = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
-  const cuponesVigentes = (promociones.cupones ?? []).filter((cupon) => cupon.hasta >= hoy);
-  const campanasVigentes = (promociones.campanas ?? []).filter((campana) => campana.hasta >= hoy);
-
-  const lineas = [];
-  lineas.push('## Promociones');
-  lineas.push('');
-  lineas.push(`Cupones y campañas vigentes en la tienda: ${SITE_URL}/promociones/`);
-  lineas.push('');
-  for (const cupon of cuponesVigentes) {
-    lineas.push(`- Cupón: ${cupon.nombre} — ${cupon.porcentaje}% (vigente del ${cupon.desde} al ${cupon.hasta})`);
-  }
-  for (const campana of campanasVigentes) {
-    lineas.push(`- Campaña: ${campana.nombre} (vigente del ${campana.desde} al ${campana.hasta})`);
-  }
-  lineas.push('');
-  return lineas;
-}
-
-function construirLlmsTxt(productos, empresa, fechaPrecio, guias, promociones) {
-  const lineas = [];
-  lineas.push('# AGAS Soluciones Innovadoras');
-  lineas.push('');
-  lineas.push(
-    'Tienda chilena que elige con criterio productos para tu día a día —hoy gaming y audio— y vende por Mercado Libre, con reputación verde y despacho a todo Chile.',
-  );
-  lineas.push('');
-  lineas.push(`Tienda en Mercado Libre: ${empresa.tiendaUrl}`);
-  lineas.push(`Página oficial en Mercado Libre: ${empresa.paginaOficialUrl}`);
-  lineas.push('');
-  lineas.push('## Catálogo');
-  lineas.push('');
-  for (const producto of productos) {
-    const urlSitio = `${SITE_URL}/productos/${producto.slug}/`;
-    lineas.push(
-      `- ${producto.titulo} — ${CATEGORIAS[producto.categoria].nombre} — precio referencial $${producto.precioReferencial.toLocaleString('es-CL')} (al ${fechaPrecio}) — ${urlSitio} — ML: ${producto.permalink}`,
-    );
-  }
-  lineas.push('');
-  if (guias.length > 0) {
-    lineas.push('## Guías');
-    lineas.push('');
-    for (const guia of guias) {
-      const urlGuia = `${SITE_URL}/guias/${guia.slug}/`;
-      lineas.push(`- ${guia.titulo} — ${urlGuia}`);
-    }
-    lineas.push('');
-  }
-  lineas.push(...construirSeccionPromociones(promociones));
-  return lineas.join('\n');
-}
-
-async function main() {
-  console.log(`Leyendo contexto desde: ${CONTEXT_DIR}`);
-  if (!existsSync(PUBLICACIONES_DIR)) {
-    throw new Error(`No se encontró el directorio de publicaciones: ${PUBLICACIONES_DIR}`);
+export async function main({ contexto, raiz, slugMap = SLUG_MAP } = {}) {
+  const rutas = resolverRutas({ contexto, raiz });
+  console.log(`Leyendo contexto desde: ${rutas.contexto}`);
+  if (!existsSync(rutas.publicaciones)) {
+    throw new Error(`No se encontró el directorio de publicaciones: ${rutas.publicaciones}`);
   }
 
-  const empresa = parseEmpresa();
+  const empresa = parseEmpresa(rutas);
   const fechaPrecio = empresa.fechaGenerado;
 
-  limpiarSalidas();
+  limpiarSalidas(rutas);
 
-  const todasLasCarpetas = readdirSync(PUBLICACIONES_DIR).filter((nombre) =>
-    statSync(path.join(PUBLICACIONES_DIR, nombre)).isDirectory(),
+  const todasLasCarpetas = readdirSync(rutas.publicaciones).sort().filter((nombre) =>
+    statSync(path.join(rutas.publicaciones, nombre)).isDirectory(),
   );
   const carpetas = todasLasCarpetas.filter((carpeta) => {
-    const { texto } = leerCarpetaPublicacion(carpeta);
+    const { texto } = leerCarpetaPublicacion(rutas, carpeta);
     if (/^# Familia:/.test(texto)) return true;
     const estado = estadoPublicacion(texto);
     if (estado !== 'active') {
@@ -1088,14 +970,14 @@ async function main() {
     }
     return true;
   });
-  const excluidas = detectarCarpetasDuplicadas(carpetas);
+  const excluidas = detectarCarpetasDuplicadas(rutas, carpetas);
 
   const usadas = new Set();
   const productos = [];
 
   async function procesarCarpeta(config, carpeta) {
     usadas.add(carpeta);
-    const { rutaCarpeta, texto } = leerCarpetaPublicacion(carpeta);
+    const { rutaCarpeta, texto } = leerCarpetaPublicacion(rutas, carpeta);
 
     if (/^# Familia:/.test(texto) && dividirMiembrosFamilia(texto).length === 0) {
       console.warn(`⚠ ${config.slug}: familia sin miembros activos, se omite`);
@@ -1106,22 +988,22 @@ async function main() {
 
     let producto;
     if (config.agruparPorDiseno) {
-      producto = await construirProductoAgrupadoPorDiseno(config, texto, rutaCarpeta);
+      producto = await construirProductoAgrupadoPorDiseno(rutas, config, texto, rutaCarpeta);
     } else if (/^# Familia:/.test(texto)) {
-      producto = await construirProductoFamiliaGenerica(config, texto, rutaCarpeta);
+      producto = await construirProductoFamiliaGenerica(rutas, config, texto, rutaCarpeta);
     } else {
-      producto = await construirProductoSimpleOVariantes(config, texto, rutaCarpeta);
+      producto = await construirProductoSimpleOVariantes(rutas, config, texto, rutaCarpeta);
     }
 
     if (producto.categoria === 'otros') {
       console.warn(`⚠ ${config.slug}: no matcheó ninguna regla de categoría, quedó en "otros"`);
     }
 
-    escribirMarkdownProducto(producto, fechaPrecio);
+    escribirMarkdownProducto(rutas, producto, fechaPrecio);
     productos.push(producto);
   }
 
-  for (const config of SLUG_MAP) {
+  for (const config of slugMap) {
     const carpeta = carpetas.find((nombre) => nombre.startsWith(config.prefijo));
     if (!carpeta) {
       console.warn(`⚠ No se encontró carpeta para el prefijo ${config.prefijo}, se omite ${config.slug}`);
@@ -1137,7 +1019,7 @@ async function main() {
   const slugsUsados = new Set(productos.map((producto) => producto.slug));
   for (const carpeta of carpetas) {
     if (usadas.has(carpeta) || excluidas.has(carpeta)) continue;
-    const { texto } = leerCarpetaPublicacion(carpeta);
+    const { texto } = leerCarpetaPublicacion(rutas, carpeta);
     const tituloCrudo = texto.match(/^# (?:Familia:\s*)?(.+)$/m)?.[1]?.trim() ?? carpeta;
     let slugAuto = slugificar(tituloCrudo);
     while (slugsUsados.has(slugAuto)) {
@@ -1148,23 +1030,15 @@ async function main() {
     await procesarCarpeta({ prefijo: carpeta, slug: slugAuto, titulo: tituloCrudo }, carpeta);
   }
 
-  mkdirSync(DATA_DIR, { recursive: true });
-  writeFileSync(path.join(DATA_DIR, 'catalogo.json'), `${JSON.stringify(construirCatalogoJson(productos, empresa, fechaPrecio), null, 2)}\n`, 'utf8');
-  writeFileSync(path.join(DATA_DIR, 'resenas.json'), `${JSON.stringify(construirResenasJson(productos, empresa), null, 2)}\n`, 'utf8');
-
-  mkdirSync(PUBLIC_DIR, { recursive: true });
-  const guias = leerGuias();
-  const promociones = leerPromociones();
-  writeFileSync(
-    path.join(PUBLIC_DIR, 'llms.txt'),
-    construirLlmsTxt(productos, empresa, fechaPrecio, guias, promociones),
-    'utf8',
-  );
+  mkdirSync(rutas.datos, { recursive: true });
+  writeFileSync(path.join(rutas.datos, 'resenas.json'), `${JSON.stringify(construirResenasJson(productos, empresa), null, 2)}\n`, 'utf8');
 
   console.log(`\nListo: ${productos.length} productos generados.`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

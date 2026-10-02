@@ -11,9 +11,9 @@ Vendemos el 100% de nuestro catálogo a través de Mercado Libre, con reputació
 
 Despachamos desde Santiago, Región Metropolitana, a todo Chile vía Mercado Envíos, con empaque reforzado para que tus accesorios lleguen impecables.
 
-## 🛡️ Por qué comprarnos
+## Por qué comprarnos
 
-- ✔️ Compra 100% protegida por Mercado Libre.
-- ✔️ Reputación verde y reseñas reales de compradores.
-- ✔️ Accesorios probados para Nintendo Switch, PS5 y audio.
-- ✔️ Despacho a todo Chile vía Mercado Envíos.
+- Compra 100% protegida por Mercado Libre.
+- Reputación verde y reseñas reales de compradores.
+- Accesorios probados para Nintendo Switch, PS5 y audio.
+- Despacho a todo Chile vía Mercado Envíos.

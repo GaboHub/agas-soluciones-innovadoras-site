@@ -3,9 +3,9 @@ titulo: Kit Estuche Goma Rígido + Vidrio Switch OLED
 slug: kit-estuche-vidrio-switch-oled
 categoria: nintendo-switch
 tipo: variantes
-emoji: "\U0001F3AE"
 permalink: >-
   https://articulo.mercadolibre.cl/MLC-1794002211-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-oled-_JM
+condicion: new
 precioReferencial: 15990
 fechaPrecio: '2026-10-01'
 resumen: >-
