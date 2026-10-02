@@ -103,18 +103,23 @@ editan a mano.
 | `npm run test:unit`  | Pruebas unitarias y de spec (Vitest)                        |
 | `npm run test:py`    | Pruebas pytest del barrido (crea `.venv/` la primera vez)   |
 | `npm run test:e2e`   | Pruebas end-to-end (Playwright, projects desktop/mobile). Si el puerto 4321 está ocupado por otro proyecto, correr `E2E_PORT=4331 npm run test:e2e` (u otro puerto libre): con `reuseExistingServer` activo, reusar un servidor ajeno en 4321 probaría el sitio equivocado. El segundo build, con GA4 de prueba, usa `E2E_PORT_GA4` (4322 por defecto) |
-| `npm test`           | `test:py`, `test:unit` y `test:e2e`                         |
+| `npm run check`      | Chequeo de tipos (`astro check`)                            |
+| `npm test`           | `check`, `test:py`, `test:unit` y `test:e2e`                |
 | `npm run barrido`    | Descarga el barrido de Mercado Libre a `../agas-context` (ver skill `refresco-catalogo`) |
 | `npm run generar`    | Regenera el catálogo desde el contexto de Mercado Libre     |
 | `node scripts/generar-marca-ml.mjs` | Regenera los assets de marca de Mercado Libre y los rasters del sitio (ver `marca/mercadolibre/README.md`) |
 | `node scripts/generar-marca-redes.mjs` | Regenera los assets de marca para redes sociales: avatar y carrusel de presentación (ver `marca/redes/README.md`) |
 
 Un hook de pre-commit (`.githooks/pre-commit`) corre `npm test` antes de cada
-commit y lo bloquea si algo falla. Se activa solo al correr `npm install`
+commit (el chequeo de tipos corre primero) y lo bloquea si algo falla. Se activa solo al correr `npm install`
 (script `prepare` que configura `git config core.hooksPath .githooks`); en
 una emergencia se puede saltar con `git commit --no-verify`. En un clon
 nuevo, correr además `npx playwright install` una vez, o el e2e del hook
 fallará por falta de navegadores.
+
+Si las islas no hidratan en `astro dev` y la consola muestra
+`_jsxDEV is not a function`, reiniciar con `npx astro dev --force`, que
+regenera la caché de dependencias de Vite.
 
 ## Refresco del catálogo
 

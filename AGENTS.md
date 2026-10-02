@@ -18,7 +18,7 @@ El comportamiento vigente vive en `openspec/specs/<capability>/spec.md` (8 capab
 - Precios siempre referenciales con fecha (`fechaPrecio` del barrido, leyenda "Precio referencial al DD-MM-AAAA — ver precio vigente en Mercado Libre"). Nunca se publica stock.
 - Promociones y cupones sí se publican, pero SOLO desde `src/data/promociones.json`, dato de negocio curado a mano: nunca se autogeneran desde el barrido. Cada promo lleva ventana de vigencia explícita, la aclaración de que el beneficio se obtiene comprando directamente en Mercado Libre, y filtrado por fecha en build; las promos vencidas desaparecen en el siguiente redeploy, y el flujo de mantención exige redesplegar al vencer cada promo (ver README, sección "Mantención de promociones"). No se publican porcentajes ni precios promocionales derivados del barrido: el estado `candidate`/`started` de ML no garantiza que el descuento esté aplicado.
 - El código no lleva comentarios de ningún tipo; única excepción, directivas funcionales (`// @ts-check`, `@ts-expect-error`, shebangs). La documentación va en Markdown.
-- Tras cualquier cambio, `npm run build`, `npm run test:unit` y `npm run test:e2e` deben quedar en verde (si el puerto 4321 está ocupado por otro proyecto, `E2E_PORT=4331 npm run test:e2e`). Tras tocar el script generador, además `npm run generar` seguido de `npm run build`.
+- Tras cualquier cambio, `npm run check`, `npm run build`, `npm run test:unit` y `npm run test:e2e` deben quedar en verde (si el puerto 4321 está ocupado por otro proyecto, `E2E_PORT=4331 npm run test:e2e`). Tras tocar el script generador, además `npm run generar` seguido de `npm run build`.
 
 ## Versionado
 

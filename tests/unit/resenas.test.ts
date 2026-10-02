@@ -15,6 +15,8 @@ const SLUGS_REVIEWS_CATALOGO_ML = new Set([
   'pack-3-laminas-vidrio-switch-2',
 ]);
 
+type Ficha = { slug: string; reviews: { promedio: number; cantidad: number } | null };
+
 describe('resenas.json contenido', () => {
   const resenas = JSON.parse(readFileSync(resenasJsonPath, 'utf-8'));
 
@@ -65,19 +67,15 @@ describe('resenas.json contenido', () => {
   it('promedioGeneral y totalReviews solo cuentan reviews de publicaciones propias, no de catálogo compartido', () => {
     const fichas = readdirSync(productosDir)
       .filter((archivo) => archivo.endsWith('.md'))
-      .map((archivo) => matter(readFileSync(path.join(productosDir, archivo), 'utf-8')).data);
+      .map((archivo) => matter(readFileSync(path.join(productosDir, archivo), 'utf-8')).data as Ficha);
     const productosPropios = fichas.filter(
-      (producto: { slug: string; reviews: { promedio: number; cantidad: number } | null }) =>
-        producto.reviews && !SLUGS_REVIEWS_CATALOGO_ML.has(producto.slug),
+      (producto): producto is Ficha & { reviews: NonNullable<Ficha['reviews']> } =>
+        Boolean(producto.reviews) && !SLUGS_REVIEWS_CATALOGO_ML.has(producto.slug),
     );
 
-    const totalReviewsEsperado = productosPropios.reduce(
-      (suma: number, producto: { reviews: { cantidad: number } }) => suma + producto.reviews.cantidad,
-      0,
-    );
+    const totalReviewsEsperado = productosPropios.reduce((suma, producto) => suma + producto.reviews.cantidad, 0);
     const sumaPonderadaEsperada = productosPropios.reduce(
-      (suma: number, producto: { reviews: { promedio: number; cantidad: number } }) =>
-        suma + producto.reviews.promedio * producto.reviews.cantidad,
+      (suma, producto) => suma + producto.reviews.promedio * producto.reviews.cantidad,
       0,
     );
     const promedioEsperado = Number((sumaPonderadaEsperada / totalReviewsEsperado).toFixed(2));

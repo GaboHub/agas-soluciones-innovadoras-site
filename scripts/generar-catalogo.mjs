@@ -945,7 +945,8 @@ export function resolverRutas({ contexto, raiz } = {}) {
   };
 }
 
-export async function main({ contexto, raiz, slugMap = SLUG_MAP } = {}) {
+export async function main(opciones = {}) {
+  const { contexto, raiz, slugMap = SLUG_MAP } = opciones;
   const rutas = resolverRutas({ contexto, raiz });
   console.log(`Leyendo contexto desde: ${rutas.contexto}`);
   if (!existsSync(rutas.publicaciones)) {

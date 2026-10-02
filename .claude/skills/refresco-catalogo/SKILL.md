@@ -180,6 +180,7 @@ promociones se reflejan en `llms.txt` con el próximo build.
 ## 7. Gates
 
 ```sh
+npm run check
 npm run build
 npm run test:py
 npm run test:unit

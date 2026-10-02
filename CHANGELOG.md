@@ -9,6 +9,17 @@ del README.
 
 ## [Unreleased]
 
+### Corregido
+
+- Los errores de tipos que reportaba `astro check` (9 en `vitest.config.ts`,
+  `scripts/generar-catalogo.mjs` y `tests/unit/resenas.test.ts`): ahora da 0.
+- `astro check` ya no recorre `dist-ga4/`.
+
+### Cambiado
+
+- `astro check` (`npm run check`) es el primer paso de `npm test` y, por lo
+  tanto, del hook de pre-commit.
+
 ## [1.6.0] - 2026-10-01
 
 ### Agregado
