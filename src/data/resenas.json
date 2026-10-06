@@ -1,11 +1,11 @@
 {
   "mercadolibre": {
     "nivel": "5_green",
-    "transacciones": 428,
+    "transacciones": 453,
     "url": "https://www.mercadolibre.cl/pagina/agas_soluciones_innovadoras"
   },
-  "promedioGeneral": 4.78,
-  "totalReviews": 36,
+  "promedioGeneral": 4.82,
+  "totalReviews": 42,
   "destacadas": [
     {
       "productoSlug": "kit-funda-acrilica-grips-control-ps5",
@@ -46,6 +46,14 @@
       "titulo": "Excelente",
       "texto": "Es practico y cumple la función de protección para la consola.",
       "fecha": "2026-06-05"
+    },
+    {
+      "productoSlug": "pack-4-grips-joystick",
+      "productoTitulo": "Pack 4 Grips Goma Joystick PS5 / PS4 / Xbox",
+      "estrellas": 5,
+      "titulo": "Excelente",
+      "texto": "Es bueno, yo lo utilice como templado de la goma original.",
+      "fecha": "2026-10-06"
     },
     {
       "productoSlug": "set-9en1-nintendo-switch-2",

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-2202409949-audifonos-bluetooth-inalambricos-open-ear-clip-on-tws-negro-_JM
 condicion: new
 precioReferencial: 15990
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Los audífonos Bluetooth Open Ear tipo Clip-on (Ear Cuff) ofrecen una
   experiencia de sonido cómoda, ergonómica y segura, permitiendo disfrutar de tu

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-1801369167-estuche-goma-negro-rigido-para-nintendo-switch-2-negro-_JM
 condicion: new
 precioReferencial: 14590
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Este estuche rígido para Nintendo Switch 2 ofrece una protección superior y un
   transporte seguro para tu consola en viajes, uso diario o guardado en casa. 

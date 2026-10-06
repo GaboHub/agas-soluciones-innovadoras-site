@@ -30,9 +30,13 @@ test.describe('[sitio] Home', () => {
   test('Más reseñadas', async ({ page }) => {
     const conResenas = muestras.fichas
       .filter((ficha) => (ficha.reviews?.cantidad ?? 0) > 0)
-      .sort((a, b) => b.reviews.cantidad - a.reviews.cantidad);
+      .sort(
+        (a, b) =>
+          b.reviews.cantidad - a.reviews.cantidad ||
+          b.reviews.promedio - a.reviews.promedio ||
+          a.slug.localeCompare(b.slug),
+      );
     expect(conResenas.length).toBeGreaterThan(4);
-    expect(conResenas[3].reviews.cantidad).toBeGreaterThan(conResenas[4].reviews.cantidad);
     await page.goto('/');
     const tarjetas = (
       await page.locator('main a[href^="/productos/"]').evaluateAll((enlaces) =>

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-2035097907-audifonos-usb-tipo-c-manos-libres-blanco-_JM
 condicion: new
 precioReferencial: 4190
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Optimiza tus llamadas y disfruta de tu musica favorita con estos audifonos
   manos libres con conexión USB Tipo C universal.  Diseñados para ofrecer

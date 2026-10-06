@@ -18,19 +18,38 @@ cambiaron conteos por categoría) → gates → cierre documental. Contratos en
     "SELECT token_expires_at FROM ml_account WHERE ml_user_id = 3016787556"
   ```
   Lo rota sola la app `mi-app-ml` cuando corre, con 5 minutos de margen; si
-  está vencido, hay que abrir esa app para que lo refresque.
+  está vencido, hay que renovarlo (ver «Renovar token y resincronizar»).
 - La base tiene que estar sincronizada con Mercado Libre: la lista de
   publicaciones que lee el barrido sale de la tabla `listing`. Para
   resincronizarla, correr la app `mi-app-ml` con sesión OAuth activa y llamar
   `POST /api/inventory/listings/sync`. Para comprobar que está al día,
   comparar `SELECT ml_item_id FROM listing WHERE status='active'` contra
   `GET /users/{seller_id}/items/search?status=active` (con el token vigente).
+- `pg-dev` puede estar detenido: `docker start pg-dev`.
 - `python3` con el paquete `requests` instalado (no hay manifiesto de
   dependencias Python en este repo).
 - `.env` en la raíz, copiado de `.env.example`
   (`AGAS_ML_USER_ID`, `AGAS_CONTEXT_DIR`, `AGAS_PG_CONTAINER`, `AGAS_PG_USER`,
   `AGAS_PG_DB`). El entorno real (variables ya exportadas) manda sobre lo que
   diga el archivo.
+
+### Renovar token y resincronizar
+
+`mi-app-ml` está en producción desde 2026-09-30: nadie abre la app local, así
+que el token de `pg-dev` vence. Se renueva levantando el backend de desarrollo
+en un puerto libre con las escrituras a Mercado Libre apagadas, desde
+`mi-app-ml/agas-app-ml-back` (el contenedor `agas-app-tunnel` corre el perfil
+`tunnel-local`, donde `dev-login` está apagado y responde 404):
+
+```sh
+SERVER_PORT=<libre> INVENTORY_ML_WRITES_ENABLED=false ./mvnw -q -o spring-boot:run
+curl -c cookie.txt -X POST localhost:<libre>/api/auth/dev-login \
+  -H 'Content-Type: application/json' -d '{"mlUserId":3016787556}'
+curl -b cookie.txt -X POST localhost:<libre>/api/oauth/refresh
+curl -b cookie.txt -X POST localhost:<libre>/api/inventory/listings/sync
+```
+
+Después se apaga ese backend por su PID exacto.
 
 ## 2. Barrido
 
@@ -105,6 +124,13 @@ el mismo cambio:
   caracteres) para el producto nuevo. Nunca afirmar estrellas o cantidad de
   reseñas que el frontmatter de la ficha no respalde (una publicación de
   catálogo sin reseñas propias no hereda las de otra).
+- El hook de pre-commit corre `npm test` completo: el commit del refresco
+  trae en el mismo commit los literales que el refresco rompe. Totales y
+  promedio de `tests/unit/resenas.test.ts` y las estrellas citadas en
+  `src/data/textos-productos.json` frente al frontmatter de la ficha. Cifras
+  de reseñas: `node -p "const r=require('./src/data/resenas.json');[r.totalReviews,r.promedioGeneral]"`.
+- Un empate de reseñas en el 4.º lugar de la home no rompe nada:
+  `ordenarPorResenas` lo desempata por cantidad, promedio y slug.
 - Conteos exactos en `tests/unit/contenido.test.ts`,
   `tests/unit/textos-productos.test.ts`, `tests/unit/resenas.test.ts` y
   `e2e/buscador.spec.ts`.

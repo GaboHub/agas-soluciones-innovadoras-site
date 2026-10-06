@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-1794002211-kit-estuche-goma-rigido-vidrio-para-nintendo-switch-oled-_JM
 condicion: new
 precioReferencial: 15990
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege tu consola modelo OLED con estilo y seguridad máxima gracias a este
   estuche rígido temático inspirado en personajes icónicos de los videojuegos. 

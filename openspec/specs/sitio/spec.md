@@ -108,7 +108,9 @@ Los listados SHALL ordenar las fichas según el orden de `categorias[].productos
 - **THEN** las tarjetas siguen el orden de `site.json`
 
 ### Requirement: Home
-La home SHALL mostrar el hero de `site.hero` con su palabra `acentuada` resaltada y sus sellos de confianza, una tarjeta por categoría con su glifo, las 4 fichas con más reseñas, el resumen de `resenas.json` («<promedio con 1 decimal> de 5 estrellas con <total> reseñas…») con las reseñas destacadas enlazadas a su ficha, 3 preguntas frecuentes globales y un enlace a la tienda.
+La home SHALL mostrar el hero de `site.hero` con su palabra `acentuada` resaltada y sus sellos de confianza, una tarjeta por categoría con su glifo, las 4 fichas con más reseñas (ordenadas por cantidad de reseñas descendente, luego promedio descendente y luego slug ascendente), el resumen de `resenas.json` («<promedio con 1 decimal> de 5 estrellas con <total> reseñas…») con las reseñas destacadas enlazadas a su ficha, 3 preguntas frecuentes globales y un enlace a la tienda.
+
+Rationale: sin desempate, el cuarto lugar depende del orden de la colección cuando varias fichas tienen la misma cantidad de reseñas.
 
 #### Scenario: Estructura
 - **WHEN** se abre `/`
@@ -116,7 +118,11 @@ La home SHALL mostrar el hero de `site.hero` con su palabra `acentuada` resaltad
 
 #### Scenario: Más reseñadas
 - **WHEN** hay más de 4 fichas con reseñas
-- **THEN** la home muestra las 4 de mayor cantidad de reseñas
+- **THEN** la home muestra las 4 primeras por cantidad de reseñas descendente, promedio descendente y slug ascendente
+
+#### Scenario: Empate en cantidad de reseñas
+- **WHEN** varias fichas empatan en cantidad de reseñas en el límite de las 4
+- **THEN** entra primero la de mayor promedio y, con igual promedio, la de slug menor
 
 #### Scenario: Reseñas destacadas
 - **WHEN** se abre `/`

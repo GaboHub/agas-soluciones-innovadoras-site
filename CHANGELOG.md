@@ -9,6 +9,17 @@ del README.
 
 ## [Unreleased]
 
+### Cambiado
+
+- Refresco del catálogo del 2026-10-06: fecha de precio 2026-10-06, 42 reseñas
+  con promedio 4.82 (`node -p "const r=require('./src/data/resenas.json');[r.totalReviews,r.promedioGeneral]"`)
+  y 25 productos, sin altas ni bajas
+  (`ls content/productos | wc -l`).
+- Cyber Monday 2026 figura como vigente en la campaña y en la página de
+  promociones.
+- «Más reseñadas» de la home desempata de forma determinista: cantidad de
+  reseñas, promedio y slug.
+
 ## [1.6.1] - 2026-10-01
 
 ### Corregido

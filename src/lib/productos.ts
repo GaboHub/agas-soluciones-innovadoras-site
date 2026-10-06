@@ -27,12 +27,22 @@ export async function getProductosPorSlugs(slugs: string[]): Promise<Producto[]>
     .filter((producto): producto is Producto => Boolean(producto));
 }
 
-export async function getProductosDestacados(cantidad = 4): Promise<Producto[]> {
-  const productos = await getProductos();
+type ConResenas = { data: { slug: string; reviews?: { cantidad: number; promedio: number } | null } };
+
+export function ordenarPorResenas<T extends ConResenas>(productos: T[], cantidad: number): T[] {
   return productos
     .filter((producto) => producto.data.reviews && producto.data.reviews.cantidad > 0)
-    .sort((a, b) => (b.data.reviews?.cantidad ?? 0) - (a.data.reviews?.cantidad ?? 0))
+    .sort(
+      (a, b) =>
+        (b.data.reviews?.cantidad ?? 0) - (a.data.reviews?.cantidad ?? 0) ||
+        (b.data.reviews?.promedio ?? 0) - (a.data.reviews?.promedio ?? 0) ||
+        a.data.slug.localeCompare(b.data.slug),
+    )
     .slice(0, cantidad);
+}
+
+export async function getProductosDestacados(cantidad = 4): Promise<Producto[]> {
+  return ordenarPorResenas(await getProductos(), cantidad);
 }
 
 export function atributosDeProducto(producto: Producto): string[] {

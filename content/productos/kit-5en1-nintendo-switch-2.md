@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-1813007563-kit-5en1-para-nintendo-switch-2-estuche-grip-case-vidrio-_JM
 condicion: new
 precioReferencial: 39990
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege tu inversión al máximo con este Kit 5 en 1 diseñado específicamente
   para la nueva Nintendo Switch 2.  Este set integral ofrece una solución

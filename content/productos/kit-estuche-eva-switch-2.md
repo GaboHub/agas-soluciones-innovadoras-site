@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-1961379387-kit-estuche-eva-lamina-vidrio-grips-para-nintendo-switch-2-negro-_JM
 condicion: new
 precioReferencial: 21000
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege y transporta tu nueva consola con la máxima seguridad gracias a este
   completo kit diseñado exclusivamente para la Nintendo Switch 2.  Este estuche

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM
 condicion: new
 precioReferencial: 21990
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege tu inversión y lleva tu experiencia de juego a cualquier lugar con
   este kit de protección completo 9 en 1, diseñado exclusivamente para la nueva

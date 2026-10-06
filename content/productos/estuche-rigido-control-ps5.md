@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-3559025366-estuche-rigido-para-control-ps5-goma-anti-golpes-negro-estuche-control-ps5-_JM
 condicion: new
 precioReferencial: 8390
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege tu inversión con este estuche rígido de alta gama, diseñado
   específicamente para el control de PlayStation 5.  Su estructura híbrida de

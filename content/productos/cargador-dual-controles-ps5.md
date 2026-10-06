@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM
 condicion: new
 precioReferencial: 17000
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Optimiza tu espacio de juego y mantén tus partidas siempre activas con nuestra
   Estación de Carga Dual para controles de PS5.  Diseñada específicamente para

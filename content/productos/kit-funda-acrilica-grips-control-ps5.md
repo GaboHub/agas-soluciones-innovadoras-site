@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-1858910757-kit-funda-carcasa-acrilica-control-ps5-4-grips-silicona-transparente-estuche-protector-ps5-_JM
 condicion: new
 precioReferencial: 8990
-fechaPrecio: '2026-10-01'
+fechaPrecio: '2026-10-06'
 resumen: >-
   Protege tu inversión y mejora tu experiencia de juego con este kit de
   protección integral diseñado exclusivamente para tu control de PlayStation 5. 
