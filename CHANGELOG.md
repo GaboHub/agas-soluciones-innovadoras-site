@@ -9,6 +9,8 @@ del README.
 
 ## [Unreleased]
 
+## [1.6.2] - 2026-10-06
+
 ### Cambiado
 
 - Refresco del catálogo del 2026-10-06: fecha de precio 2026-10-06, 42 reseñas
@@ -560,7 +562,8 @@ Primera versión estable del sitio en producción (agassoluciones.cl).
   (e2e desktop y mobile).
 - Deploy en Cloudflare (Workers & Pages) con Wrangler y assets estáticos.
 
-[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.2...HEAD
+[1.6.2]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.1...v1.6.0
 [1.5.1]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.0...v1.5.1
