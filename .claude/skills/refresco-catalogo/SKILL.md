@@ -26,8 +26,9 @@ cambiaron conteos por categoría) → gates → cierre documental. Contratos en
   comparar `SELECT ml_item_id FROM listing WHERE status='active'` contra
   `GET /users/{seller_id}/items/search?status=active` (con el token vigente).
 - `pg-dev` puede estar detenido: `docker start pg-dev`.
-- `python3` con el paquete `requests` instalado (no hay manifiesto de
-  dependencias Python en este repo).
+- `python3` del sistema con el paquete `requests` instalado: `npm run barrido`
+  corre `python3` directo, no el `.venv` que `npm run test:py` crea desde
+  `requirements-dev.txt`.
 - `.env` en la raíz, copiado de `.env.example`
   (`AGAS_ML_USER_ID`, `AGAS_CONTEXT_DIR`, `AGAS_PG_CONTAINER`, `AGAS_PG_USER`,
   `AGAS_PG_DB`). El entorno real (variables ya exportadas) manda sobre lo que
@@ -35,8 +36,8 @@ cambiaron conteos por categoría) → gates → cierre documental. Contratos en
 
 ### Renovar token y resincronizar
 
-`mi-app-ml` está en producción desde 2026-09-30: nadie abre la app local, así
-que el token de `pg-dev` vence. Se renueva levantando el backend de desarrollo
+`mi-app-ml` corre en producción: nadie abre la app local, así que el token de
+`pg-dev` vence. Se renueva levantando el backend de desarrollo
 en un puerto libre con las escrituras a Mercado Libre apagadas, desde
 `mi-app-ml/agas-app-ml-back` (el contenedor `agas-app-tunnel` corre el perfil
 `tunnel-local`, donde `dev-login` está apagado y responde 404):
@@ -110,8 +111,7 @@ reseñas. Lee la salida por advertencias e interpreta cada una:
 El generador descarta publicaciones (y miembros de familia) cuyo estado no es
 `active` ANTES de resolver duplicados de catálogo: evita que una publicación
 de catálogo cerrada le gane a su gemela activa y quede publicado un link
-muerto (caso real: MLC4160547282 cerró y perdía contra MLC2035097907 sin este
-orden).
+muerto.
 
 ## 4. Producto nuevo o retirado
 
@@ -247,5 +247,4 @@ push solo cuando el usuario lo pida, según el flujo de `README.md`.
 - **`column "…" does not exist` en `npm run barrido`**: el barrido lee
   columnas de `listing`/`listing_variation` del esquema de `mi-app-ml`; es una
   migración de esa app que renombró la columna. Se corrige en las consultas de
-  `scripts/exportar-contexto-ml.py` (caso real: `V27`, `seller_custom_field` →
-  `seller_sku`).
+  `scripts/exportar-contexto-ml.py`.

@@ -2,7 +2,7 @@ Lee `AGENTS.md` antes de trabajar en este proyecto y respeta sus invariantes, en
 
 La prioridad del proyecto es **SEO y GEO**: que buscadores y motores de IA encuentren, entiendan y citen el catálogo. Todo plan, delegación y revisión evalúa el efecto del cambio sobre indexación (sitemap, canonical, robots), metadatos y títulos únicos, datos estructurados JSON-LD, `llms.txt` y el acceso de crawlers (incluidos los de IA, que no se bloquean ni en `robots.txt` ni en la configuración de Cloudflare). Ningún cambio degrada esas superficies sin decisión explícita del usuario.
 
-## UI/UX (jerarquía global del 2026-10-24: Nivel 1 local > `ui-ux-pro-max` > `impeccable`)
+## UI/UX (jerarquía global: Nivel 1 local > `ui-ux-pro-max` > `impeccable`)
 
 - **Nivel 1, manda sobre cualquier skill:** tokens de rol en el `@theme` de `src/styles/global.css` (`primario`, `acento`, `destacado`, `tinta`, `fondo`); semántica e invariantes en `AGENTS.md`, `openspec/specs/marca/spec.md` y `openspec/specs/interfaz/spec.md`; componentes en `src/components`. Nunca valores crudos ni primitivas reimplementadas; retematizar o cambiar paleta o tipografía exige un rediseño aprobado por el usuario.
 - **Creación** (vista, componente o patrón sin precedente aquí): la hace el implementador con `ui: creación`, leyendo primero el Nivel 1 y consultando `ui-ux-pro-max` solo para lo que el Nivel 1 no fija. Identidad nueva o rediseño: rol `disenador-jefe`, maqueta aprobada antes de cualquier código.
