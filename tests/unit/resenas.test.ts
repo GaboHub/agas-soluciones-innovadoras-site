@@ -13,6 +13,7 @@ const SLUGS_REVIEWS_CATALOGO_ML = new Set([
   'lamina-vidrio-nintendo-switch',
   'lamina-vidrio-nintendo-switch-2',
   'pack-3-laminas-vidrio-switch-2',
+  'pack-2-laminas-vidrio-switch-2',
 ]);
 
 type Ficha = { slug: string; reviews: { promedio: number; cantidad: number } | null };
@@ -82,7 +83,7 @@ describe('resenas.json contenido', () => {
 
     expect(resenas.totalReviews).toBe(totalReviewsEsperado);
     expect(resenas.promedioGeneral).toBe(promedioEsperado);
-    expect(resenas.totalReviews).toBe(42);
-    expect(resenas.promedioGeneral).toBe(4.82);
+    expect(resenas.totalReviews).toBe(53);
+    expect(resenas.promedioGeneral).toBe(4.59);
   });
 });

@@ -6,32 +6,32 @@
       "nombre": "Cupón nuevo seguidor",
       "porcentaje": 5,
       "condicion": "Sigue nuestra tienda en Mercado Libre por primera vez y recibe un 5% de descuento para tu primera compra.",
-      "desde": "2026-09-28",
-      "hasta": "2026-10-27"
+      "desde": "2026-10-28",
+      "hasta": "2026-11-26"
     },
     {
       "id": "seguidores",
       "nombre": "Cupón seguidores",
       "porcentaje": 5,
       "condicion": "Si ya sigues nuestra tienda en Mercado Libre, tienes un 5% de descuento disponible para usar en tu próxima compra.",
-      "desde": "2026-09-28",
-      "hasta": "2026-10-27"
+      "desde": "2026-10-28",
+      "hasta": "2026-11-26"
     }
   ],
   "campanas": [
     {
-      "id": "oferta-septiembre-octubre",
-      "nombre": "Oferta vigente septiembre–octubre",
+      "id": "oferta-octubre-noviembre",
+      "nombre": "Oferta vigente octubre–noviembre",
       "descripcion": "Descuentos activos en todo nuestro catálogo de Mercado Libre durante el período.",
-      "desde": "2026-09-14",
-      "hasta": "2026-10-14"
+      "desde": "2026-10-14",
+      "hasta": "2026-11-13"
     },
     {
-      "id": "cyber-monday-2026",
-      "nombre": "Cyber Monday 2026",
-      "descripcion": "Descuentos de Cyber Monday por tiempo limitado en nuestro catálogo de Mercado Libre.",
-      "desde": "2026-10-05",
-      "hasta": "2026-10-11"
+      "id": "ofertas-11-del-11-2026",
+      "nombre": "Ofertas 11 del 11",
+      "descripcion": "Descuentos del evento 11 del 11 por tiempo limitado en nuestro catálogo de Mercado Libre.",
+      "desde": "2026-10-29",
+      "hasta": "2026-11-11"
     }
   ],
   "faqs": [

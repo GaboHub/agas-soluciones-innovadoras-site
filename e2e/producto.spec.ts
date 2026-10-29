@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
+import { muestras } from './spec/_muestras';
 
 async function extraerJsonLd(page: import('@playwright/test').Page) {
   const bloques = await page.locator('script[type="application/ld+json"]').allTextContents();
@@ -120,9 +121,12 @@ test.describe('página de producto', () => {
     await esperarHidratacion(page);
     const cta = page.locator('[data-cta="ver-en-mercado-libre"]');
     const hrefInicial = await cta.getAttribute('href');
-    await page.getByRole('button', { name: 'Blanco', exact: true }).click();
+    const { link, atributos } = muestras.fichas.find(({ slug }) => slug === 'cargador-dual-controles-ps5')!.miembros[1];
+    const inactivo = page.getByRole('button', { name: atributos.color, exact: true });
+    await expect(inactivo).toHaveAttribute('aria-pressed', 'false');
+    await inactivo.click();
     await expect(cta).not.toHaveAttribute('href', hrefInicial ?? '');
-    await expect(cta).toHaveAttribute('href', /^https:\/\/articulo\.mercadolibre\.cl\/MLC-/);
+    await expect(cta).toHaveAttribute('href', link);
   });
 
   test('la ficha emite un JSON-LD BreadcrumbList que coincide con la miga visible', async ({ page }) => {

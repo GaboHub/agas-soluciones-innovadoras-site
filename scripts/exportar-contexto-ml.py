@@ -228,7 +228,7 @@ def fetch_reviews(access_token: str, ml_item_id: str) -> tuple[dict | None, list
             errors.append(f"GET reviews for {ml_item_id} failed: {exc}")
             return None, errors
         if response.status_code != 200:
-            if not (400 <= response.status_code < 500):
+            if response.status_code not in UNAVAILABLE_STATUS:
                 errors.append(f"GET reviews for {ml_item_id} returned HTTP {response.status_code}")
             return None, errors
         data = response.json()

@@ -66,11 +66,11 @@ describe('consistencia site.json vs colección de productos', () => {
     }
   });
 
-  it('hay exactamente 25 productos, sin duplicados', () => {
-    expect(slugsDeContenido.length).toBe(25);
-    expect(new Set(slugsDeContenido).size).toBe(25);
-    expect(slugsDeclarados.length).toBe(25);
-    expect(new Set(slugsDeclarados).size).toBe(25);
+  it('hay exactamente 28 productos, sin duplicados', () => {
+    expect(slugsDeContenido.length).toBe(28);
+    expect(new Set(slugsDeContenido).size).toBe(28);
+    expect(slugsDeclarados.length).toBe(28);
+    expect(new Set(slugsDeclarados).size).toBe(28);
   });
 
   it('la categoría playstation-5 tiene exactamente 8 productos', () => {
@@ -171,10 +171,10 @@ describe('barrido agas-context.nuevo: filtro de estado y familias remapeadas', (
     expect(producto).toBeDefined();
     expect(producto?.data.tipo).toBe('familia');
     expect(producto?.data.miembros).toHaveLength(3);
-    expect(producto?.data.miembros.map((miembro: { atributos: { color: string } }) => miembro.atributos.color)).toEqual([
+    expect(producto?.data.miembros.map((miembro: { atributos: { color: string } }) => miembro.atributos.color).sort()).toEqual([
+      'Amarillo',
       'Negro',
       'Violeta',
-      'Amarillo',
     ]);
   });
 });

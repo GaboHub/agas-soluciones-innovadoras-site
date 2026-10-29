@@ -1,3 +1,5 @@
+import { appendFileSync } from 'node:fs';
+import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   borrar,
@@ -80,6 +82,33 @@ describe('[catalogo] Familia agrupada por diseño', () => {
     expect(conEtiquetas.ficha('kit-con-etiquetas').data).toMatchObject({ etiquetaGrupo: 'Funda', etiquetaOpcion: 'Grips' });
     expect(datos).not.toHaveProperty('etiquetaGrupo');
     expect(datos).not.toHaveProperty('etiquetaOpcion');
+  });
+
+  it('Conector antes de grips', async () => {
+    const miembroConConector = [
+      '',
+      '## Kit Fundas Fixture Diseños Control Ps5 Acrilico Transparente Y Grips Morados',
+      '',
+      '- **ML Item ID:** MLC3006',
+      '- **Link:** https://articulo.mercadolibre.cl/MLC-3006-kit-fundas-fixture-acrilico-transparente-y-grips-morados-_JM',
+      '- **Estado:** active',
+      '- **Condición:** new',
+      '- **Catálogo:** No',
+      '- **Precio:** $7.990',
+      '',
+      '### Imágenes',
+      '',
+      '- MLC3005-miembro/imagenes/01-100-MLC3005_1.jpg',
+      '',
+    ].join('\n');
+    appendFileSync(path.join(contexto, 'publicaciones', 'familia-kit-fundas-fixture', 'publicacion.md'), miembroConConector);
+
+    const aparte = await generarAparte([entradaAgrupada], contexto);
+
+    const grupo = (aparte.ficha('kit-con-etiquetas').data.grupos as Grupo[]).find(
+      (candidato) => candidato.diseno === 'Acrilico Transparente',
+    );
+    expect(grupo?.colores.map((color) => color.color)).toEqual(['Morados']);
   });
 
   it('la ficha no lleva reviews aunque un miembro las tenga', () => {

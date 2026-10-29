@@ -27,7 +27,7 @@ test.describe('[interfaz] Cursor en controles', () => {
       expect(noPointer(controles), ficha.slug).toEqual([]);
     }
 
-    await page.goto(`/productos/${muestras.fichaConGrupos.slug}/`);
+    await page.goto(`/productos/${muestras.fichaConSelect.slug}/`);
     await esperarHidratacion(page);
     const selectores = await cursoresDeControles(page, 'select');
     expect(selectores.length).toBeGreaterThan(0);

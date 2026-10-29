@@ -9,6 +9,35 @@ del README.
 
 ## [Unreleased]
 
+### Agregado
+
+- Fichas `carcasa-acrilica-nintendo-switch-2`,
+  `kit-carcasa-acrilica-lamina-vidrio-switch-2` y
+  `kit-estuche-eva-carcasa-acrilica-grips-switch-2`: Nintendo Switch pasa a 17
+  fichas y el catálogo a 28
+  (`grep -l '^categoria: nintendo-switch' content/productos/*.md | wc -l` → 17;
+  `ls content/productos/*.md | wc -l` → 28).
+
+### Cambiado
+
+- Catálogo, precios, imágenes y reseñas al barrido del 2026-10-29: 53 reseñas
+  con promedio 4.59
+  (`node -p "const r=require('./src/data/resenas.json');[r.totalReviews,r.promedioGeneral]"`
+  → `[53, 4.59]`).
+- Promociones vigentes: cupones de seguidores y nuevos seguidores (2026-10-28
+  a 2026-11-26), «Oferta vigente octubre–noviembre» (2026-10-14 a 2026-11-13)
+  y «Ofertas 11 del 11» (2026-10-29 a 2026-11-11); salen las vencidas.
+- Resumen de la categoría Nintendo Switch con «carcasas» y carrusel de redes
+  regenerado.
+
+### Corregido
+
+- El barrido registra como error toda respuesta de reseñas distinta de 200
+  salvo 403/404: un 429 persistente dejaba fichas sin reseñas y la poda corría
+  igual.
+- El generador quita el conector «y» antes de «grips» al separar diseño y
+  color.
+
 ## [1.6.2] - 2026-10-06
 
 ### Cambiado

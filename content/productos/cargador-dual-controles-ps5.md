@@ -4,10 +4,10 @@ slug: cargador-dual-controles-ps5
 categoria: playstation-5
 tipo: familia
 permalink: >-
-  https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM
+  https://articulo.mercadolibre.cl/MLC-4027738490-cargador-dual-estacion-base-de-carga-para-controles-ps5-blanco-_JM
 condicion: new
 precioReferencial: 17000
-fechaPrecio: '2026-10-06'
+fechaPrecio: '2026-10-29'
 resumen: >-
   Optimiza tu espacio de juego y mantén tus partidas siempre activas con nuestra
   Estación de Carga Dual para controles de PS5.  Diseñada específicamente para
@@ -15,13 +15,13 @@ resumen: >-
   simultánea de manera rápida y segura, asegurando que nunca te quedes sin
   batería en el momento más crítico.
 imagenes:
-  - productos/cargador-dual-controles-ps5/MLC4027738488/01.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/02.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/03.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/04.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/05.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/06.webp
-  - productos/cargador-dual-controles-ps5/MLC4027738488/07.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/01.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/02.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/03.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/04.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/05.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/06.webp
+  - productos/cargador-dual-controles-ps5/MLC4027738490/07.webp
 caracteristicas:
   - >-
     Carga simultánea inteligente: Capacidad para cargar hasta dos controles de
@@ -74,21 +74,6 @@ faqs:
       No, esta estación de carga ha sido diseñada de forma exclusiva y
       específica para la compatibilidad con los controles de PS5.
 miembros:
-  - titulo: Cargador Dual Estacion Base De Carga Para Controles Ps5 Negro
-    link: >-
-      https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM
-    precio: 17000
-    imagenes:
-      - productos/cargador-dual-controles-ps5/MLC4027738488/01.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/02.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/03.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/04.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/05.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/06.webp
-      - productos/cargador-dual-controles-ps5/MLC4027738488/07.webp
-    atributos:
-      color: Negro
-      diseno: Negro
   - titulo: Cargador Dual Estacion Base De Carga Para Controles Ps5 Blanco
     link: >-
       https://articulo.mercadolibre.cl/MLC-4027738490-cargador-dual-estacion-base-de-carga-para-controles-ps5-blanco-_JM
@@ -104,6 +89,21 @@ miembros:
     atributos:
       color: Blanco
       diseno: Blanco
+  - titulo: Cargador Dual Estacion Base De Carga Para Controles Ps5 Negro
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-4027738488-cargador-dual-estacion-base-de-carga-para-controles-ps5-negro-_JM
+    precio: 17000
+    imagenes:
+      - productos/cargador-dual-controles-ps5/MLC4027738488/01.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/02.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/03.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/04.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/05.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/06.webp
+      - productos/cargador-dual-controles-ps5/MLC4027738488/07.webp
+    atributos:
+      color: Negro
+      diseno: Negro
 ---
 
 Optimiza tu espacio de juego y mantén tus partidas siempre activas con nuestra Estación de Carga Dual para controles de PS5. Diseñada específicamente para la nueva generación, esta base te permite cargar uno o dos mandos de forma simultánea de manera rápida y segura, asegurando que nunca te quedes sin batería en el momento más crítico. Fabricada con materiales plásticos de alta resistencia térmica y estructural que no conducen electricidad, consta de un diseño elegante de dos piezas (base plana y soporte vertical) que garantiza máxima estabilidad y protección absoluta para tus controles.

@@ -27,6 +27,16 @@ const fichaConGrupos = primera(
   enOrdenDeCatalogo.filter((ficha) => Array.isArray(ficha.grupos) && ficha.grupos.length > 0),
   'fichas con grupos',
 );
+const UMBRAL_SELECT = 10;
+const fichaConSelect = primera(
+  enOrdenDeCatalogo.filter(
+    (ficha) =>
+      (ficha.grupos?.length ?? 0) > UMBRAL_SELECT ||
+      (ficha.grupos ?? []).some((grupo: { colores: unknown[] }) => grupo.colores.length > UMBRAL_SELECT) ||
+      (ficha.variantes?.length ?? 0) > UMBRAL_SELECT,
+  ),
+  'fichas con select',
+);
 const fichaSimple = primera(
   enOrdenDeCatalogo.filter((ficha) => ficha.tipo === 'simple'),
   'fichas simples',
@@ -38,6 +48,7 @@ const guia = primera(
 
 export const muestras = {
   fichaConGrupos: { slug: fichaConGrupos.slug as string, datos: fichaConGrupos },
+  fichaConSelect: { slug: fichaConSelect.slug as string, datos: fichaConSelect },
   fichaSimple: { slug: fichaSimple.slug as string, datos: fichaSimple },
   guia: { slug: guia.slug as string, datos: guia },
   fichas,

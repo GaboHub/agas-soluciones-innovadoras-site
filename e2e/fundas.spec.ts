@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
+import { muestras } from './spec/_muestras';
 
 test.describe('familia de fundas PS5', () => {
   test('agrupa por diseño (select, por ser más de 10) y muestra selector de color', async ({ page }) => {
@@ -22,9 +23,12 @@ test.describe('familia de fundas PS5', () => {
     const hrefInicial = await cta.getAttribute('href');
     expect(hrefInicial).toMatch(/^https:\/\/articulo\.mercadolibre\.cl\/MLC-/);
 
-    await page.getByRole('button', { name: 'Rojo', exact: true }).click();
+    const { link, color } = muestras.fichas.find(({ slug }) => slug === 'fundas-silicona-grips-control-ps5')!.grupos[0].colores[1];
+    const inactivo = page.getByRole('button', { name: color, exact: true });
+    await expect(inactivo).toHaveAttribute('aria-pressed', 'false');
+    await inactivo.click();
     await expect(cta).not.toHaveAttribute('href', hrefInicial ?? '');
-    await expect(cta).toHaveAttribute('href', /^https:\/\/articulo\.mercadolibre\.cl\/MLC-/);
+    await expect(cta).toHaveAttribute('href', link);
   });
 
   test('cambiar el diseño también cambia el link y reinicia el color', async ({ page }) => {

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM
 condicion: new
 precioReferencial: 21990
-fechaPrecio: '2026-10-06'
+fechaPrecio: '2026-10-29'
 resumen: >-
   Protege tu inversión y lleva tu experiencia de juego a cualquier lugar con
   este kit de protección completo 9 en 1, diseñado exclusivamente para la nueva
@@ -16,20 +16,6 @@ resumen: >-
   calidad, que brinda una resistencia superior contra caídas, aplastamiento y
   salpicaduras de líquidos.
 imagenes:
-  - productos/set-9en1-nintendo-switch-2/negro/01.webp
-  - productos/set-9en1-nintendo-switch-2/negro/02.webp
-  - productos/set-9en1-nintendo-switch-2/negro/03.webp
-  - productos/set-9en1-nintendo-switch-2/negro/04.webp
-  - productos/set-9en1-nintendo-switch-2/negro/05.webp
-  - productos/set-9en1-nintendo-switch-2/negro/06.webp
-  - productos/set-9en1-nintendo-switch-2/negro/07.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/01.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/02.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/03.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/04.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/05.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/06.webp
-  - productos/set-9en1-nintendo-switch-2/celeste/07.webp
   - productos/set-9en1-nintendo-switch-2/rojo/01.webp
   - productos/set-9en1-nintendo-switch-2/rojo/02.webp
   - productos/set-9en1-nintendo-switch-2/rojo/03.webp
@@ -37,6 +23,20 @@ imagenes:
   - productos/set-9en1-nintendo-switch-2/rojo/05.webp
   - productos/set-9en1-nintendo-switch-2/rojo/06.webp
   - productos/set-9en1-nintendo-switch-2/rojo/07.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/01.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/02.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/03.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/04.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/05.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/06.webp
+  - productos/set-9en1-nintendo-switch-2/celeste/07.webp
+  - productos/set-9en1-nintendo-switch-2/negro/01.webp
+  - productos/set-9en1-nintendo-switch-2/negro/02.webp
+  - productos/set-9en1-nintendo-switch-2/negro/03.webp
+  - productos/set-9en1-nintendo-switch-2/negro/04.webp
+  - productos/set-9en1-nintendo-switch-2/negro/05.webp
+  - productos/set-9en1-nintendo-switch-2/negro/06.webp
+  - productos/set-9en1-nintendo-switch-2/negro/07.webp
   - productos/set-9en1-nintendo-switch-2/azul/01.webp
   - productos/set-9en1-nintendo-switch-2/azul/02.webp
   - productos/set-9en1-nintendo-switch-2/azul/03.webp
@@ -99,9 +99,10 @@ faqs:
       pensado principalmente para cables, audífonos, correas y los cartuchos de
       juego.
 reviews:
-  promedio: 5
-  cantidad: 4
+  promedio: 4.8
+  cantidad: 5
   distribucion:
+    '4': 1
     '5': 4
   comentarios:
     - estrellas: 5
@@ -117,30 +118,6 @@ reviews:
       texto: Exelente producto.
       fecha: '2026-08-03'
 variantes:
-  - nombre: Negro
-    atributo: Color
-    link: >-
-      https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM?variation=187961743376
-    imagenes:
-      - productos/set-9en1-nintendo-switch-2/negro/01.webp
-      - productos/set-9en1-nintendo-switch-2/negro/02.webp
-      - productos/set-9en1-nintendo-switch-2/negro/03.webp
-      - productos/set-9en1-nintendo-switch-2/negro/04.webp
-      - productos/set-9en1-nintendo-switch-2/negro/05.webp
-      - productos/set-9en1-nintendo-switch-2/negro/06.webp
-      - productos/set-9en1-nintendo-switch-2/negro/07.webp
-  - nombre: Celeste
-    atributo: Color
-    link: >-
-      https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM?variation=187961743378
-    imagenes:
-      - productos/set-9en1-nintendo-switch-2/celeste/01.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/02.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/03.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/04.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/05.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/06.webp
-      - productos/set-9en1-nintendo-switch-2/celeste/07.webp
   - nombre: Rojo
     atributo: Color
     link: >-
@@ -153,6 +130,30 @@ variantes:
       - productos/set-9en1-nintendo-switch-2/rojo/05.webp
       - productos/set-9en1-nintendo-switch-2/rojo/06.webp
       - productos/set-9en1-nintendo-switch-2/rojo/07.webp
+  - nombre: Celeste
+    atributo: Color
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM?variation=187961743378
+    imagenes:
+      - productos/set-9en1-nintendo-switch-2/celeste/01.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/02.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/03.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/04.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/05.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/06.webp
+      - productos/set-9en1-nintendo-switch-2/celeste/07.webp
+  - nombre: Negro
+    atributo: Color
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-3412797212-set-para-nintendo-switch-2-estuche-mica-fundas-grips-carcasa-_JM?variation=187961743376
+    imagenes:
+      - productos/set-9en1-nintendo-switch-2/negro/01.webp
+      - productos/set-9en1-nintendo-switch-2/negro/02.webp
+      - productos/set-9en1-nintendo-switch-2/negro/03.webp
+      - productos/set-9en1-nintendo-switch-2/negro/04.webp
+      - productos/set-9en1-nintendo-switch-2/negro/05.webp
+      - productos/set-9en1-nintendo-switch-2/negro/06.webp
+      - productos/set-9en1-nintendo-switch-2/negro/07.webp
   - nombre: Azul
     atributo: Color
     link: >-

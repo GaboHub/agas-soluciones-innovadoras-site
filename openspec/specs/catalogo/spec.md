@@ -90,11 +90,15 @@ Por cada fila de la tabla de Variantes el generador SHALL emitir `nombre` (valor
 - **THEN** la variante es `{nombre: "Rojo", atributo: "Color", link: "<permalink>?variation=123"}`
 
 ### Requirement: Familia agrupada por diseño
-Para entradas de `SLUG_MAP` con `agruparPorDiseno`, el generador SHALL tomar el sufijo del título de cada miembro tras el título crudo de la familia, con la última palabra como color y el resto como diseño sin el sufijo «grip» o «grips»; un sufijo de una sola palabra que es color conocido SHALL dar diseño igual al color; los grupos SHALL ir en orden de aparición, `etiquetaGrupo`/`etiquetaOpcion` SHALL emitirse solo si la entrada declara `etiquetas`, y la ficha MUST NOT llevar `reviews`.
+Para entradas de `SLUG_MAP` con `agruparPorDiseno`, el generador SHALL tomar el sufijo del título de cada miembro tras el título crudo de la familia, con la última palabra como color y el resto como diseño sin el sufijo «grip» o «grips» ni el conector «y» que lo antecede; un sufijo de una sola palabra que es color conocido SHALL dar diseño igual al color; los grupos SHALL ir en orden de aparición, `etiquetaGrupo`/`etiquetaOpcion` SHALL emitirse solo si la entrada declara `etiquetas`, y la ficha MUST NOT llevar `reviews`.
 
 #### Scenario: Diseño y color
 - **WHEN** un miembro se titula «<familia> Blanco Grip Gris»
 - **THEN** pertenece al grupo `Blanco` con color `Gris`
+
+#### Scenario: Conector antes de grips
+- **WHEN** un miembro se titula «<familia> Acrilico Transparente Y Grips Morados»
+- **THEN** pertenece al grupo `Acrilico Transparente` con color `Morados`
 
 #### Scenario: Etiquetas declaradas
 - **WHEN** la entrada declara `etiquetas: {grupo: "Funda", opcion: "Grips"}`

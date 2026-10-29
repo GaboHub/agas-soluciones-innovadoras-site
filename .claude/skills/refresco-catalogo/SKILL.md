@@ -70,6 +70,13 @@ publicaciones de la base no vino vacío y no hubo errores en la corrida; si
 hubo errores, la poda se omite y el resumen lo dice — hay que reintentar el
 barrido antes de confiar en que `publicaciones/` está limpio.
 
+Una respuesta de reseñas distinta de 200 salvo 403/404 (típicamente 429 por
+límite de tasa) cuenta como error y omite la poda: reintentar el barrido hasta
+`Errores: 0`.
+
+Desde un worktree no hay `.env`: exportar las variables `AGAS_*` en el shell,
+con `AGAS_CONTEXT_DIR` absoluto.
+
 Publicaciones eliminadas de la cuenta devuelven 403 en la API de Mercado
 Libre y simplemente no aparecen en el barrido, aunque la base todavía las
 tenga en `listing`.
@@ -144,7 +151,8 @@ horneados en el carrusel de redes:
 node scripts/generar-marca-redes.mjs
 ```
 
-y republicar las láminas afectadas. El script valida fuentes y rasters antes
+y republicar las láminas afectadas. Correrlo después de dejar `site.json`
+final (resúmenes de categoría y conteos). El script valida fuentes y rasters antes
 de escribir y lee `presentacionRedes` de `src/data/site.json`.
 
 ## 6. Promociones
@@ -248,3 +256,9 @@ push solo cuando el usuario lo pida, según el flujo de `README.md`.
   columnas de `listing`/`listing_variation` del esquema de `mi-app-ml`; es una
   migración de esa app que renombró la columna. Se corrige en las consultas de
   `scripts/exportar-contexto-ml.py`.
+- **Meta description de categoría**: es el `resumen` de la categoría más un
+  sufijo fijo y debe quedar ≤ 160 caracteres; si cambia el `resumen`, medirla
+  tras el build.
+- **Muestras de e2e**: se eligen por estructura (`fichaConSelect` en
+  `e2e/spec/_muestras.ts`) y el clic va a una opción distinta de la activa,
+  porque el orden de miembros de una familia viene del barrido.

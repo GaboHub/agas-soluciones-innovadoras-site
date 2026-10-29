@@ -34,6 +34,15 @@ export const SLUG_MAP = [
   { prefijo: 'MLC1813007563', slug: 'kit-5en1-nintendo-switch-2', titulo: 'Kit 5en1 Switch 2 Estuche Grip Case Vidrio' },
   { prefijo: 'MLC1801369167', slug: 'estuche-goma-rigido-switch-2', titulo: 'Estuche Goma Negro Rígido Switch 2' },
   { prefijo: 'MLC1961379387', slug: 'kit-estuche-eva-switch-2', titulo: 'Kit Estuche EVA Lámina Vidrio Grips Switch 2' },
+  { prefijo: 'familia-carcasa-funda-acrilica-transparente-para', slug: 'carcasa-acrilica-nintendo-switch-2', titulo: 'Carcasa Funda Acrílica Nintendo Switch 2' },
+  { prefijo: 'familia-kit-carcasa-acrilica-lamina-vidrio-para', slug: 'kit-carcasa-acrilica-lamina-vidrio-switch-2', titulo: 'Kit Carcasa Acrílica + Lámina Vidrio Switch 2' },
+  {
+    prefijo: 'familia-kit-estuche-eva-carcasa-acrilica-lamina',
+    slug: 'kit-estuche-eva-carcasa-acrilica-grips-switch-2',
+    titulo: 'Kit Estuche EVA Carcasa Acrílica Lámina Grips Switch 2',
+    agruparPorDiseno: true,
+    etiquetas: { grupo: 'Carcasa', opcion: 'Grips' },
+  },
   { prefijo: 'familia-kit-2-fundas-silicona-disenos-4-grips-pa', slug: 'fundas-silicona-grips-control-ps5', titulo: 'Kit 2 Fundas Silicona Diseños + 4 Grips Control PS5', agruparPorDiseno: true },
   {
     prefijo: 'familia-kit-funda-silicona-diseno-pixel-4-grips',
@@ -608,7 +617,7 @@ export function detectarColorYDiseno(tituloMiembro, prefijoBase) {
   if (palabras.length === 1 && COLORES_FUNDAS_PS5.includes(ultima)) {
     return { color: ultima, diseno: ultima };
   }
-  const diseno = palabras.slice(0, -1).join(' ').replace(/\s+grips?$/i, '');
+  const diseno = palabras.slice(0, -1).join(' ').replace(/\s+(?:y\s+)?grips?$/i, '');
   return { color: ultima ?? '', diseno };
 }
 

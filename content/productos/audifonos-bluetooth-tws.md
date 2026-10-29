@@ -4,10 +4,10 @@ slug: audifonos-bluetooth-tws
 categoria: audio
 tipo: familia
 permalink: >-
-  https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM
+  https://articulo.mercadolibre.cl/MLC-4248593006-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-negro-_JM
 condicion: new
 precioReferencial: 7990
-fechaPrecio: '2026-10-06'
+fechaPrecio: '2026-10-29'
 resumen: >-
   Disfruta de una experiencia de audio inalámbrico con los Audífonos Ultra Pod
   Pro Bluetooth, diseñados para brindarte comodidad y practicidad en tu día a
@@ -15,13 +15,13 @@ resumen: >-
   IPX4 frente a sudor y salpicaduras, son el compañero ideal para tus
   actividades diarias, deportes o momentos de entretenimiento.
 imagenes:
-  - productos/audifonos-bluetooth-tws/MLC4248593004/01.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/02.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/03.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/04.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/05.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/06.webp
-  - productos/audifonos-bluetooth-tws/MLC4248593004/07.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/01.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/02.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/03.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/04.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/05.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/06.webp
+  - productos/audifonos-bluetooth-tws/MLC4248593006/07.webp
 caracteristicas:
   - >-
     Contenido del empaque: Par de audífonos inalámbricos, base de carga portátil
@@ -87,21 +87,6 @@ faqs:
       No es necesario, puedes utilizar el cable USB Tipo-C incluido en la caja o
       cualquier otro cable USB Tipo-C compatible que tengas en casa.
 miembros:
-  - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Azul
-    link: >-
-      https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM
-    precio: 7990
-    imagenes:
-      - productos/audifonos-bluetooth-tws/MLC4248593004/01.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/02.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/03.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/04.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/05.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/06.webp
-      - productos/audifonos-bluetooth-tws/MLC4248593004/07.webp
-    atributos:
-      color: Azul
-      diseno: Azul
   - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Negro
     link: >-
       https://articulo.mercadolibre.cl/MLC-4248593006-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-negro-_JM
@@ -117,20 +102,21 @@ miembros:
     atributos:
       color: Negro
       diseno: Negro
-  - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Rosa
+  - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Azul
     link: >-
-      https://articulo.mercadolibre.cl/MLC-2092618593-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-rosa-_JM
+      https://articulo.mercadolibre.cl/MLC-4248593004-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-azul-_JM
     precio: 7990
     imagenes:
-      - productos/audifonos-bluetooth-tws/MLC2092618593/01.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/02.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/03.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/04.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/05.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/06.webp
-      - productos/audifonos-bluetooth-tws/MLC2092618593/07.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/01.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/02.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/03.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/04.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/05.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/06.webp
+      - productos/audifonos-bluetooth-tws/MLC4248593004/07.webp
     atributos:
-      color: Rosa
+      color: Azul
+      diseno: Azul
   - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Blanco
     link: >-
       https://articulo.mercadolibre.cl/MLC-2092618595-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-blanco-_JM
@@ -146,6 +132,20 @@ miembros:
     atributos:
       color: Blanco
       diseno: Blanco
+  - titulo: Audifonos Bluetooth Tws Ultrapods Pro Inalambricos Rosa
+    link: >-
+      https://articulo.mercadolibre.cl/MLC-2092618593-audifonos-bluetooth-tws-ultrapods-pro-inalambricos-rosa-_JM
+    precio: 7990
+    imagenes:
+      - productos/audifonos-bluetooth-tws/MLC2092618593/01.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/02.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/03.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/04.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/05.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/06.webp
+      - productos/audifonos-bluetooth-tws/MLC2092618593/07.webp
+    atributos:
+      color: Rosa
 ---
 
 Disfruta de una experiencia de audio inalámbrico con los Audífonos Ultra Pod Pro Bluetooth, diseñados para brindarte comodidad y practicidad en tu día a día. Equipados con tecnología de cancelación de sonido y resistencia al agua IPX4 frente a sudor y salpicaduras, son el compañero ideal para tus actividades diarias, deportes o momentos de entretenimiento. Su estuche de carga portátil y su variedad de colores combinan funcionalidad, estilo y excelente autonomía.

@@ -7,7 +7,7 @@ permalink: >-
   https://articulo.mercadolibre.cl/MLC-3516221982-kit-funda-control-ps5-silicona-4-grips-analogos-_JM
 condicion: new
 precioReferencial: 8590
-fechaPrecio: '2026-10-06'
+fechaPrecio: '2026-10-29'
 resumen: >-
   Renueva y blinda tu mando DualSense con nuestro Kit de Protección y
   Personalización diseñado exclusivamente para PlayStation 5.  Este set completo
@@ -814,9 +814,9 @@ faqs:
       grips); el control no está incluido.
 reviews:
   promedio: 5
-  cantidad: 9
+  cantidad: 11
   distribucion:
-    '5': 9
+    '5': 11
   comentarios:
     - estrellas: 5
       titulo: Excelente
@@ -835,9 +835,19 @@ reviews:
     - estrellas: 5
       titulo: Excelente
       texto: >-
+        Cumple lo prometido. Desde ahora mi hijo evitará romper otro controlm
+        muchas gracias.
+      fecha: '2026-10-07'
+    - estrellas: 5
+      titulo: Excelente
+      texto: >-
         La funda queda perfecta con el control de ps5. Los grips me ayudaron a
         evitar que se despegara el grip original del control.
       fecha: '2026-05-11'
+    - estrellas: 5
+      titulo: Excelente
+      texto: Super bueno muy recomendable.
+      fecha: '2026-10-14'
     - estrellas: 5
       titulo: Excelente
       texto: Bueno.

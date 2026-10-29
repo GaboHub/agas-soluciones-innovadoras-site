@@ -63,7 +63,7 @@ El barrido SHALL tomar título, estado, permalink, catálogo, familia, `user_pro
 - **THEN** se usa el precio de la API
 
 ### Requirement: Datos de la API de Mercado Libre
-El barrido SHALL consultar por publicación `/items/{id}`, `/items/{id}/description`, `/seller-promotions/items/{id}?app_version=v2` y `/reviews/item/{id}` paginado de a 50, y `/users/{id}` para `empresa.md`; una descripción 404 MUST quedar como «Sin descripción.» sin registrar error, y un 4xx de promociones o de reseñas MUST NOT contar como error.
+El barrido SHALL consultar por publicación `/items/{id}`, `/items/{id}/description`, `/seller-promotions/items/{id}?app_version=v2` y `/reviews/item/{id}` paginado de a 50, y `/users/{id}` para `empresa.md`. Una descripción 404 MUST quedar como «Sin descripción.» sin registrar error. Un 4xx de promociones y un 403 o 404 de reseñas MUST NOT contar como error. Cualquier otra respuesta de reseñas distinta de 200 SHALL registrarse como error de esa publicación, incluido un 429 que persiste tras los reintentos.
 
 #### Scenario: Reseñas paginadas
 - **WHEN** una publicación tiene 120 reseñas
@@ -72,6 +72,14 @@ El barrido SHALL consultar por publicación `/items/{id}`, `/items/{id}/descript
 #### Scenario: Descripción inexistente
 - **WHEN** la descripción responde 404
 - **THEN** el bloque Descripción dice «Sin descripción.» y la corrida no registra error
+
+#### Scenario: Reseñas no disponibles
+- **WHEN** `/reviews/item/{id}` responde 404
+- **THEN** el bloque Reviews dice «Sin datos de reviews.» y la corrida no registra error
+
+#### Scenario: Reseñas limitadas por tasa
+- **WHEN** `/reviews/item/{id}` responde 429 en todos los reintentos de un barrido completo
+- **THEN** el resumen lista el error de esa publicación y la poda se omite
 
 ### Requirement: Publicación no disponible
 Una publicación cuyo `/items/{id}` responde 403 o 404 SHALL informarse en el resumen como no disponible, MUST NOT contar como error, MUST NOT escribirse y su carpeta MUST NOT quedar protegida de la poda; cualquier otra respuesta distinta de 200 SHALL registrarse como error y omitir la publicación.

@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { esperarHidratacion } from './hidratacion';
+import { muestras } from './spec/_muestras';
 
 test.describe('burbuja flotante de Mercado Libre', () => {
   test('en la home apunta a la tienda en pestaña nueva', async ({ page }) => {
@@ -33,11 +34,14 @@ test.describe('burbuja flotante de Mercado Libre', () => {
     const hrefInicialCta = await cta.getAttribute('href');
     expect(hrefInicialBurbuja).toBe(hrefInicialCta);
 
-    await page.getByRole('button', { name: 'Rojo', exact: true }).click();
+    const { link, color } = muestras.fichas.find(({ slug }) => slug === 'fundas-silicona-grips-control-ps5')!.grupos[0].colores[1];
+    const inactivo = page.getByRole('button', { name: color, exact: true });
+    await expect(inactivo).toHaveAttribute('aria-pressed', 'false');
+    await inactivo.click();
 
-    const hrefFinalCta = await cta.getAttribute('href');
-    expect(hrefFinalCta).not.toBe(hrefInicialCta);
-    await expect(burbuja).toHaveAttribute('href', hrefFinalCta ?? '');
+    await expect(cta).toHaveAttribute('href', link);
+    expect(link).not.toBe(hrefInicialCta);
+    await expect(burbuja).toHaveAttribute('href', link);
   });
 
   test('queda fija en la esquina inferior derecha del viewport', async ({ page }) => {

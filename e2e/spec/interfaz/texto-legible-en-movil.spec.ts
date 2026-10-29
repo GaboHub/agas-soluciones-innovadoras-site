@@ -9,7 +9,7 @@ test.describe('[interfaz] Texto legible en móvil', () => {
 
   test('Selector de opciones', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 800 });
-    await page.goto(`/productos/${muestras.fichaConGrupos.slug}/`);
+    await page.goto(`/productos/${muestras.fichaConSelect.slug}/`);
     await esperarHidratacion(page);
 
     const tamanos = await page.evaluate(() => {

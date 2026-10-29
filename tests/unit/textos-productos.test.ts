@@ -19,9 +19,9 @@ const slugsDeProductos = fichas.map((ficha) => ficha.slug as string);
 const promedioPorSlug = new Map(fichas.map((ficha) => [ficha.slug as string, (ficha.reviews?.promedio as number) ?? null]));
 
 describe('textos-productos.json', () => {
-  it('tiene exactamente las mismas claves que los 25 slugs de productos', () => {
+  it('tiene exactamente las mismas claves que los 28 slugs de productos', () => {
     const claves = Object.keys(textos);
-    expect(claves.length).toBe(25);
+    expect(claves.length).toBe(28);
     expect(new Set(claves)).toEqual(new Set(slugsDeProductos));
   });
 

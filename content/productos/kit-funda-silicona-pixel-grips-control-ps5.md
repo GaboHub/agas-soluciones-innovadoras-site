@@ -4,10 +4,10 @@ slug: kit-funda-silicona-pixel-grips-control-ps5
 categoria: playstation-5
 tipo: familia
 permalink: >-
-  https://articulo.mercadolibre.cl/MLC-2274117635-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rojo-_JM
+  https://articulo.mercadolibre.cl/MLC-2274117639-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-verde-_JM
 condicion: new
 precioReferencial: 8590
-fechaPrecio: '2026-10-06'
+fechaPrecio: '2026-10-29'
 resumen: >-
   Renueva y blinda tu mando DualSense con nuestro Kit de Protección y
   Personalización diseñado exclusivamente para PlayStation 5.  Este set completo
@@ -15,12 +15,12 @@ resumen: >-
   en silicona de alta calidad que absorbe impactos, previene rayones y protege
   contra el polvo y el sudor de las manos.
 imagenes:
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/01.webp
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/02.webp
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/03.webp
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/04.webp
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/05.webp
-  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/06.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/01.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/02.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/03.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/04.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/05.webp
+  - productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/06.webp
 etiquetaGrupo: Funda
 etiquetaOpcion: Grips
 caracteristicas:
@@ -73,102 +73,6 @@ faqs:
 grupos:
   - diseno: Negro
     colores:
-      - color: Rojo
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274117635-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rojo-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/06.webp
-      - color: Rosa
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274092203-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rosa-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/06.webp
-      - color: Morado
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274079355-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-morado-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/06.webp
-      - color: Azul
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274117633-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-azul-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/06.webp
-      - color: Negro
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274117637-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-negro-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/06.webp
-      - color: Gris
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2274079357-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-gris-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/06.webp
       - color: Verde
         link: >-
           https://articulo.mercadolibre.cl/MLC-2274117639-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-verde-_JM
@@ -185,22 +89,54 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117639/06.webp
-      - color: Amarillo
+      - color: Negro
         link: >-
-          https://articulo.mercadolibre.cl/MLC-2274092201-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-amarillo-_JM
+          https://articulo.mercadolibre.cl/MLC-2274117637-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-negro-_JM
         imagenes:
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/01.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/01.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/02.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/02.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/03.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/03.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/04.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/04.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/05.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/05.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/06.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117637/06.webp
+      - color: Rojo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274117635-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rojo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117635/06.webp
+      - color: Azul
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274117633-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-azul-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274117633/06.webp
       - color: Blanco
         link: >-
           https://articulo.mercadolibre.cl/MLC-2274104841-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-blanco-_JM
@@ -217,6 +153,70 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274104841/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274104841/06.webp
+      - color: Rosa
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274092203-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-rosa-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092203/06.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274092201-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-amarillo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274092201/06.webp
+      - color: Gris
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274079357-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-gris-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079357/06.webp
+      - color: Morado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2274079355-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-negro-grips-morado-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2274079355/06.webp
   - diseno: Rosa Chicle
     colores:
       - color: Blanco
@@ -235,102 +235,6 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016380/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016380/06.webp
-      - color: Gris
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4514951998-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-gris-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/06.webp
-      - color: Azul
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4514977694-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-azul-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/06.webp
-      - color: Verde
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4515016376-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-verde-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/06.webp
-      - color: Negro
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4514977690-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-negro-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/06.webp
-      - color: Amarillo
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4514977696-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-amarillo-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/06.webp
-      - color: Rojo
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4514951996-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-rojo-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/06.webp
       - color: Morado
         link: >-
           https://articulo.mercadolibre.cl/MLC-4515016378-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-morado-_JM
@@ -347,6 +251,54 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016378/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016378/06.webp
+      - color: Verde
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4515016376-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-verde-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4515016376/06.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4514977696-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-amarillo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977696/06.webp
+      - color: Azul
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4514977694-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-azul-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977694/06.webp
       - color: Rosa
         link: >-
           https://articulo.mercadolibre.cl/MLC-4514977692-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-rosa-_JM
@@ -363,72 +315,56 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977692/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977692/06.webp
-  - diseno: Blanco
-    colores:
+      - color: Negro
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4514977690-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-negro-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514977690/06.webp
       - color: Gris
         link: >-
-          https://articulo.mercadolibre.cl/MLC-4522135884-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grip-gris-_JM
+          https://articulo.mercadolibre.cl/MLC-4514951998-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-gris-_JM
         imagenes:
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/01.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/01.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/02.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/02.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/03.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/03.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/04.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/04.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/05.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/05.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/06.webp
-      - color: Morado
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951998/06.webp
+      - color: Rojo
         link: >-
-          https://articulo.mercadolibre.cl/MLC-4522135886-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-morado-_JM
+          https://articulo.mercadolibre.cl/MLC-4514951996-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-rosa-chicle-grips-rojo-_JM
         imagenes:
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/01.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/01.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/02.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/02.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/03.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/03.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/04.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/04.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/05.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/05.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/06.webp
-      - color: Blanco
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4522135888-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-blanco-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/06.webp
-      - color: Amarillo
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4522149008-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-amarillo-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/06.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4514951996/06.webp
+  - diseno: Blanco
+    colores:
       - color: Rojo
         link: >-
           https://articulo.mercadolibre.cl/MLC-4522149010-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-rojo-_JM
@@ -445,6 +381,70 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149010/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149010/06.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4522149008-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-amarillo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522149008/06.webp
+      - color: Blanco
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4522135888-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-blanco-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135888/06.webp
+      - color: Morado
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4522135886-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-morado-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135886/06.webp
+      - color: Gris
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4522135884-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grip-gris-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135884/06.webp
       - color: Azul
         link: >-
           https://articulo.mercadolibre.cl/MLC-4522135882-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-azul-_JM
@@ -461,22 +461,6 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135882/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522135882/06.webp
-      - color: Verde
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-4522110014-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-verde-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/06.webp
       - color: Rosa
         link: >-
           https://articulo.mercadolibre.cl/MLC-4522122868-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-rosa-_JM
@@ -509,40 +493,24 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110016/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110016/06.webp
+      - color: Verde
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-4522110014-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-blanco-grips-verde-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC4522110014/06.webp
   - diseno: Violeta
     colores:
-      - color: Amarillo
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2282601435-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-amarillo-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/06.webp
-      - color: Azul
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2282627135-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-azul-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/06.webp
       - color: Morado
         link: >-
           https://articulo.mercadolibre.cl/MLC-2282627137-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-morado-_JM
@@ -559,22 +527,38 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627137/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627137/06.webp
-      - color: Rojo
+      - color: Azul
         link: >-
-          https://articulo.mercadolibre.cl/MLC-2282575465-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-rojo-_JM
+          https://articulo.mercadolibre.cl/MLC-2282627135-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-azul-_JM
         imagenes:
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/01.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/01.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/02.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/02.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/03.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/03.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/04.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/04.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/05.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/05.webp
           - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/06.webp
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282627135/06.webp
+      - color: Amarillo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2282601435-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-amarillo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282601435/06.webp
       - color: Verde
         link: >-
           https://articulo.mercadolibre.cl/MLC-2282588409-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-verde-_JM
@@ -591,54 +575,6 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588409/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588409/06.webp
-      - color: Negro
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2282588405-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-negro-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/06.webp
-      - color: Gris
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2282575463-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-gris-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/06.webp
-      - color: Rosa
-        link: >-
-          https://articulo.mercadolibre.cl/MLC-2282575467-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-rosa-_JM
-        imagenes:
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/01.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/02.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/03.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/04.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/05.webp
-          - >-
-            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/06.webp
       - color: Blanco
         link: >-
           https://articulo.mercadolibre.cl/MLC-2282588407-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-blanco-_JM
@@ -655,6 +591,70 @@ grupos:
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588407/05.webp
           - >-
             productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588407/06.webp
+      - color: Negro
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2282588405-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-negro-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282588405/06.webp
+      - color: Rosa
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2282575467-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-rosa-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575467/06.webp
+      - color: Rojo
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2282575465-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-rojo-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575465/06.webp
+      - color: Gris
+        link: >-
+          https://articulo.mercadolibre.cl/MLC-2282575463-kit-funda-silicona-diseno-pixel-4-grips-para-control-ps5-violeta-grips-gris-_JM
+        imagenes:
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/01.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/02.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/03.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/04.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/05.webp
+          - >-
+            productos/kit-funda-silicona-pixel-grips-control-ps5/MLC2282575463/06.webp
 ---
 
 Renueva y blinda tu mando DualSense con nuestro Kit de Protección y Personalización diseñado exclusivamente para PlayStation 5. Este set completo no solo cambia la estética de tu control al instante, sino que está fabricado en silicona de alta calidad que absorbe impactos, previene rayones y protege contra el polvo y el sudor de las manos. Al mejorar la ergonomía y el agarre, podrás disfrutar de largas sesiones de juego con mayor comodidad y precisión, evitando que el control se resbale en los momentos más intensos de la partida.

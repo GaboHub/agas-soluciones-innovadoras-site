@@ -78,3 +78,29 @@ def test_promociones_con_5xx_si_cuentan_como_error(esc, capsys):
     esc.correr()
 
     assert "Errores: 1" in capsys.readouterr().out
+
+
+def test_resenas_no_disponibles(esc, capsys):
+    esc.listings = [fila_listing(1, "MLA1")]
+    esc.responder("/reviews/item/MLA1", Respuesta(404, {}))
+
+    esc.correr()
+
+    assert "Sin datos de reviews." in esc.publicacion("MLA1-titulo-mla1")
+    assert "Errores: 0" in capsys.readouterr().out
+
+
+def test_resenas_limitadas_por_tasa(esc, capsys):
+    esc.listings = [fila_listing(1, "MLA1")]
+    esc.responder("/reviews/item/MLA1", Respuesta(429, {}))
+    ruta = esc.salida / "publicaciones" / "MLA9-obsoleta"
+    ruta.mkdir(parents=True)
+    (ruta / "publicacion.md").write_text("previa", encoding="utf-8")
+
+    esc.correr()
+
+    resumen = capsys.readouterr().out
+    assert "Errores: 1" in resumen
+    assert "    - MLA1: GET reviews for MLA1 returned HTTP 429" in resumen
+    assert "se omite la poda de carpetas obsoletas" in resumen
+    assert ruta.exists()

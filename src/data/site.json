@@ -47,7 +47,7 @@
     {
       "slug": "nintendo-switch",
       "nombre": "Nintendo Switch",
-      "resumen": "Láminas, estuches y kits de protección para Nintendo Switch, Switch OLED y Switch 2.",
+      "resumen": "Láminas, carcasas, estuches y kits para Nintendo Switch, Switch OLED y Switch 2.",
       "productos": [
         "lamina-vidrio-nintendo-switch",
         "pack-2-laminas-vidrio-nintendo-switch",
@@ -62,7 +62,10 @@
         "estuche-rigido-vidrio-switch-2",
         "kit-5en1-nintendo-switch-2",
         "estuche-goma-rigido-switch-2",
-        "kit-estuche-eva-switch-2"
+        "kit-estuche-eva-switch-2",
+        "carcasa-acrilica-nintendo-switch-2",
+        "kit-carcasa-acrilica-lamina-vidrio-switch-2",
+        "kit-estuche-eva-carcasa-acrilica-grips-switch-2"
       ]
     },
     {
