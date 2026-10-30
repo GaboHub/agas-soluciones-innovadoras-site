@@ -18,6 +18,8 @@
   --color-fondo: #f5f3f0;
   --color-meli-tinta: #2d3277;
 
+  --shadow-barra-compra: 0 -4px 12px -2px color-mix(in srgb, var(--color-tinta) 8%, transparent);
+
   --font-titulos: 'Sora', system-ui, sans-serif;
   --font-texto: 'Inter', system-ui, sans-serif;
 
@@ -28,6 +30,7 @@
 @layer base {
   :root {
     --alto-header: 4.5rem;
+    --alto-barra-compra: calc(1px + 0.625rem + 3.5rem + max(0.625rem, env(safe-area-inset-bottom)));
   }
 
   html {
@@ -39,8 +42,19 @@
     outline-offset: 2px;
   }
 
-  footer :focus-visible {
+  footer :focus-visible,
+  .superficie-oscura :focus-visible {
     outline-color: white;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   button:not(:disabled),
@@ -85,7 +99,7 @@ h4 {
 .contenido-md h2 {
   font-family: var(--font-titulos);
   font-weight: 700;
-  font-size: 1.5rem;
+  @apply text-2xl md:text-3xl;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   color: var(--color-primario-oscuro);
@@ -115,12 +129,16 @@ h4 {
   flex-direction: column;
   gap: 0.6rem;
   margin-bottom: 1.25rem;
-  list-style: none;
-  padding-left: 0;
+  list-style: disc;
+  padding-left: 1.25rem;
 }
 
 .contenido-md li {
   line-height: 1.6;
+}
+
+.contenido-md li::marker {
+  color: var(--color-acento-oscuro);
 }
 
 .contenido-md strong {
@@ -141,6 +159,11 @@ h4 {
 .contenido-md a:focus-visible {
   outline: 2px solid var(--color-primario-oscuro);
   outline-offset: 2px;
+}
+
+.contenido-md-con-check ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .contenido-md-con-check li {
@@ -164,6 +187,7 @@ h4 {
   flex-direction: column;
   gap: 0.6rem;
   margin-bottom: 1.25rem;
+  list-style: decimal;
   padding-left: 1.25rem;
 }
 

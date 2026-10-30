@@ -31,7 +31,6 @@ export interface SiteData {
     dominiosRedes: string[];
   };
   ctaHeader: string;
-  ctaBurbujaProducto: string;
   ctaFicha: string;
   ctaCupon: string;
   ctaPaginaOficial: string;

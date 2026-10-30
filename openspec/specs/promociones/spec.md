@@ -87,7 +87,7 @@ La vigencia SHALL evaluarse al construir el sitio con la fecha calendario de `Am
 Rationale: los crawlers de IA no ejecutan JavaScript; lo que publica el HTML es lo que leen.
 
 ### Requirement: Página de promociones
-`/promociones/` SHALL mostrar la aclaración; la sección `#cupones` solo si hay cupones publicables y `#campanas` solo si hay campañas publicables, con una tarjeta `[data-promo]` por promoción que muestra nombre, insignia «Vigente» o «Próximamente» y fechas `DD-MM-AAAA – DD-MM-AAAA`; un cupón SHALL mostrar su porcentaje y un enlace a la página oficial de Mercado Libre y una campaña su descripción y un enlace a la tienda; sin publicables SHALL mostrar `#promo-fallback` con enlace a la tienda y sin las secciones; al final, las preguntas frecuentes de promociones.
+`/promociones/` SHALL mostrar la aclaración; la sección `#cupones` solo si hay cupones publicables y `#campanas` solo si hay campañas publicables, con una tarjeta `[data-promo]` por promoción que muestra nombre, insignia «Vigente» o «Próximamente» y fechas `DD-MM-AAAA – DD-MM-AAAA`; un cupón SHALL mostrar su porcentaje y un enlace a la página oficial de Mercado Libre y una campaña su descripción y un enlace a la tienda; sin publicables SHALL mostrar `#promo-fallback` con enlace a la tienda y sin las secciones; las secciones de promociones o `#promo-fallback` SHALL ir justo después del `h1`, antes de la explicación de cupones y campañas; al final, las preguntas frecuentes de promociones.
 
 #### Scenario: Cupón vigente
 - **WHEN** la fecha de build está dentro de la ventana de un cupón
@@ -100,6 +100,10 @@ Rationale: los crawlers de IA no ejecutan JavaScript; lo que publica el HTML es 
 #### Scenario: Nada publicable
 - **WHEN** ninguna promoción es publicable
 - **THEN** `#promo-fallback` es visible y `#cupones` y `#campanas` no existen
+
+#### Scenario: Estado primero
+- **WHEN** se abre `/promociones/`
+- **THEN** el primer bloque después del `h1` es `#cupones`, `#campanas` o `#promo-fallback`
 
 ### Requirement: Bloque de promociones en la ficha
 Cada ficha SHALL mostrar `#promociones-resumen` solo si hay promociones publicables, con la aclaración, cada cupón como «nombre — N%», cada campaña con sus fechas, la insignia de estado y un enlace a `/promociones/`; el bloque MUST NOT contener precios.

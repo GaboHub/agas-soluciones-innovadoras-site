@@ -37,27 +37,27 @@ const jsonLd = [buildOrganization(logoUrl), buildWebSite()];
 const [heroAntes, heroDespues] = site.hero.titulo.split(site.hero.acentuada);
 
 const sellosIconos = ['check', 'camion', 'ubicacion'] as const;
-import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
+import { ANCHOS_TARJETA, SIZES_CATEGORIA } from '../lib/imagenes-tarjeta';
 ---
 
 <BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
   <section
-    class="relative overflow-hidden px-4 py-16 text-white md:py-24"
+    class="superficie-oscura relative overflow-hidden px-4 py-8 text-white sm:py-16 md:py-24"
     style="background: radial-gradient(120% 60% at 85% 0%, color-mix(in srgb, var(--color-acento) 35%, transparent), transparent 60%), radial-gradient(100% 60% at 10% 100%, color-mix(in srgb, var(--color-destacado) 12%, transparent), transparent 60%), linear-gradient(170deg, var(--color-primario), var(--color-primario-oscuro));"
   >
-    <div class="relative mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
-      <div class="flex flex-col items-center gap-6 text-center md:items-start md:text-left">
+    <div class="relative mx-auto grid max-w-6xl gap-6 sm:gap-12 md:grid-cols-2 md:items-center">
+      <div class="flex flex-col items-center gap-4 text-center sm:gap-6 md:items-start md:text-left">
         <span class="rounded-full border border-destacado px-4 py-1.5 font-texto text-sm font-bold text-destacado">
           {site.hero.chip}
         </span>
         <h1 class="font-titulos text-3xl font-bold leading-tight md:text-5xl">
           {heroAntes}<span class="text-destacado">{site.hero.acentuada}</span>{heroDespues}
         </h1>
-        <p class="max-w-xl font-texto text-lg text-white/82 md:text-xl md:leading-normal">{site.hero.bajada}</p>
-        <div class="flex flex-wrap justify-center gap-3 md:justify-start">
+        <p class="max-w-xl font-texto text-base text-white/82 sm:text-lg md:text-xl md:leading-normal">{site.hero.bajada}</p>
+        <div class="grid w-full gap-3 sm:flex sm:w-auto sm:flex-wrap sm:justify-center md:justify-start">
           <a
             href="/productos/"
-            class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
+            class="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px] sm:w-auto"
           >
             Ver catálogo
           </a>
@@ -65,7 +65,7 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
             href={site.mercadolibre.tienda}
             target="_blank"
             rel="noopener"
-            class="rounded-xl border-2 border-white/45 px-7 py-3 font-texto text-base font-bold text-white transition-colors hover:bg-white/10 active:translate-y-[2px]"
+            class="inline-flex min-h-12 w-full items-center justify-center rounded-xl border-2 border-white/45 px-7 py-2.5 font-texto text-base font-bold text-white transition-colors hover:bg-white/10 active:translate-y-[2px] sm:w-auto"
           >
             {site.ctaHeader}
           </a>
@@ -88,35 +88,35 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
 
   <section id="categorias" aria-labelledby="categorias-titulo" class="px-4 py-14">
     <div class="mx-auto max-w-6xl">
-      <h2 id="categorias-titulo" class="text-center font-titulos text-3xl font-bold text-tinta">
+      <h2 id="categorias-titulo" class="text-center font-titulos text-2xl font-bold text-tinta md:text-3xl">
         Explora por categoría
       </h2>
       <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
         Accesorios para tus consolas y tu celular, listos para despacho a todo Chile.
       </p>
 
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-10 grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {
           categoriasConImagen.map(({ categoria, imagen }) => (
             <a
               href={`/categorias/${categoria.slug}/`}
-              class="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg"
+              class="group flex flex-row overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg sm:flex-col"
             >
-              <div class="flex items-center justify-center bg-white p-4">
+              <div class="flex w-[104px] shrink-0 items-center justify-center border-r border-primario-claro bg-white p-2 sm:w-auto sm:border-r-0 sm:p-4">
                 <Image
                   src={imagen}
                   alt={`Accesorios de ${categoria.nombre}`}
                   width={480}
                   height={480}
                   widths={ANCHOS_TARJETA}
-                  sizes={SIZES_TARJETA}
-                  class="h-40 w-auto object-contain sm:h-48"
+                  sizes={SIZES_CATEGORIA}
+                  class="h-auto w-full object-contain sm:h-48 sm:w-auto"
                 />
               </div>
-              <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
+              <div class="flex flex-1 flex-col gap-2 p-3 sm:border-t sm:border-primario-claro sm:p-5">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[26%] bg-primario-claro text-primario">
-                    <GlifoCategoria slug={categoria.slug} class="h-8 w-8" />
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[26%] bg-primario-claro text-primario sm:h-16 sm:w-16">
+                    <GlifoCategoria slug={categoria.slug} class="h-5 w-5 sm:h-8 sm:w-8" />
                   </span>
                   <p class="font-titulos text-lg font-bold text-tinta">{categoria.nombre}</p>
                 </div>
@@ -135,13 +135,13 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
 
   <section aria-labelledby="destacados-titulo" class="bg-white px-4 py-14">
     <div class="mx-auto max-w-6xl">
-      <h2 id="destacados-titulo" class="text-center font-titulos text-3xl font-bold text-tinta">
+      <h2 id="destacados-titulo" class="text-center font-titulos text-2xl font-bold text-tinta md:text-3xl">
         Los favoritos de nuestros compradores
       </h2>
       <p class="mx-auto mt-2 max-w-2xl text-center font-texto text-tinta/70">
         Los productos con más reseñas reales en Mercado Libre.
       </p>
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {
           destacados.map((producto, indice) => (
             <ProductCard
@@ -175,7 +175,7 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
       </p>
       <a
         href="/guias/"
-        class="rounded-xl bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
+        class="rounded-xl bg-primario px-7 py-3 min-h-12 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
       >
         Ver todas las guías
       </a>
@@ -184,7 +184,7 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
 
   <section class="bg-white px-4 py-2">
     <Faq items={faqsTeaser} titulo="Preguntas frecuentes" />
-    <div class="mx-auto max-w-4xl pb-10">
+    <div class="mx-auto max-w-4xl px-4 pb-10">
       <a href="/preguntas-frecuentes/" class="inline-flex min-h-11 items-center gap-1 font-texto font-bold text-acento-oscuro hover:text-primario hover:underline">
         Ver todas las preguntas frecuentes
         <Icono nombre="flecha-derecha" className="h-4 w-4" />
@@ -193,7 +193,7 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
   </section>
 
   <section class="px-4 py-14">
-    <div class="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-3xl bg-primario px-6 py-10 text-center text-white">
+    <div class="superficie-oscura mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-3xl bg-primario px-6 py-10 text-center text-white">
       <h2 class="font-titulos text-2xl font-bold md:text-3xl">¿Listo para equipar tu setup?</h2>
       <p class="font-texto text-white/90">
         Encuentra todo nuestro catálogo con precios vigentes y despacho a todo Chile.
@@ -202,7 +202,7 @@ import { ANCHOS_TARJETA, SIZES_TARJETA } from '../lib/imagenes-tarjeta';
         href={site.mercadolibre.tienda}
         target="_blank"
         rel="noopener"
-        class="rounded-xl bg-white px-7 py-3 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
+        class="rounded-xl bg-white px-7 py-3 min-h-12 font-texto text-base font-bold text-primario shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 active:translate-y-[2px]"
       >
         {site.ctaHeader}
       </a>

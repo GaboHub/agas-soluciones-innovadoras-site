@@ -22,7 +22,7 @@ const archivosDe = (directorio: string): string[] =>
 const esDominioPermitido = (hostname: string): boolean =>
   dominiosPermitidos.some((dominio) => hostname === dominio || hostname.endsWith(`.${dominio}`));
 
-const clavesDeCta = ['ctaHeader', 'ctaFicha', 'ctaCupon', 'ctaBurbujaProducto', 'ctaPaginaOficial'] as const;
+const clavesDeCta = ['ctaHeader', 'ctaFicha', 'ctaCupon', 'ctaPaginaOficial'] as const;
 
 const literalesDe = (archivos: { ruta: string; texto: string }[], textos: string[]): string[] =>
   archivos.flatMap(({ ruta, texto }) => textos.filter((candidato) => texto.includes(candidato)).map((candidato) => `${ruta}: ${candidato}`));

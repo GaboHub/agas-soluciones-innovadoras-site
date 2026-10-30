@@ -22,12 +22,13 @@ const jsonLd = [buildOrganization(logoUrl), buildFaqPage(promociones.faqs), ...c
 ---
 
 <BaseLayout title={title} description={description} path="/promociones/" jsonLd={jsonLd}>
-  <section class="mx-auto max-w-4xl px-4 pt-12">
-    <h1 class="font-titulos text-3xl font-bold text-tinta md:text-4xl">Promociones y cupones</h1>
-    <div class="contenido-md mt-3">
-      <Content />
-    </div>
-  </section>
+  <h1 class="mx-auto max-w-4xl px-4 pt-12 font-titulos text-3xl font-bold text-tinta md:text-4xl">Promociones y cupones</h1>
 
-  <PaginaPromociones aclaracion={promociones.aclaracion} cupones={cupones} campanas={campanas} faqs={promociones.faqs} />
+  <PaginaPromociones aclaracion={promociones.aclaracion} cupones={cupones} campanas={campanas} faqs={promociones.faqs}>
+    <section class="mx-auto max-w-4xl px-4 py-6">
+      <div class="contenido-md">
+        <Content />
+      </div>
+    </section>
+  </PaginaPromociones>
 </BaseLayout>

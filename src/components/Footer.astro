@@ -5,6 +5,7 @@ import { resolveImagen } from '../lib/images';
 
 const lockupBlanco = resolveImagen('agas-lockup-blanco.svg');
 const anio = new Date().getFullYear();
+const [usuarioCorreo, dominioCorreo] = site.contacto.email.split('@');
 ---
 
 <footer class="mt-16 pb-24 md:pb-0 border-t border-primario-claro bg-primario-oscuro text-white">
@@ -17,12 +18,12 @@ const anio = new Date().getFullYear();
       </div>
       <div class="text-sm">
         <p class="font-titulos text-base font-bold">Catálogo</p>
-        <ul class="mt-2 flex list-none flex-col gap-2 p-0">
-          <li><a href="/productos/" class="flex min-h-11 items-center hover:underline">Todos los productos</a></li>
+        <ul class="mt-2 flex list-none flex-col gap-2 p-0 md:gap-1">
+          <li><a href="/productos/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Todos los productos</a></li>
           {
             site.categorias.map((categoria) => (
               <li>
-                <a href={`/categorias/${categoria.slug}/`} class="flex min-h-11 items-center hover:underline">
+                <a href={`/categorias/${categoria.slug}/`} class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">
                   {categoria.nombre}
                 </a>
               </li>
@@ -32,32 +33,32 @@ const anio = new Date().getFullYear();
       </div>
       <div class="text-sm">
         <p class="font-titulos text-base font-bold">Compra y contacto</p>
-        <ul class="mt-2 flex list-none flex-col gap-2 p-0">
+        <ul class="mt-2 flex list-none flex-col gap-2 p-0 md:gap-1">
           <li>
-            <a href={site.mercadolibre.tienda} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
+            <a href={site.mercadolibre.tienda} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">
               Tienda en Mercado Libre
             </a>
           </li>
           <li>
-            <a href={site.mercadolibre.paginaOficial} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
+            <a href={site.mercadolibre.paginaOficial} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">
               {site.ctaPaginaOficial}
             </a>
           </li>
           <li>
-            <a href={site.redes.instagram} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline">
+            <a href={site.redes.instagram} target="_blank" rel="noopener" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">
               Instagram
             </a>
           </li>
-          <li><a href="/promociones/" class="flex min-h-11 items-center hover:underline">Promociones</a></li>
-          <li><a href="/guias/" class="flex min-h-11 items-center hover:underline">Guías</a></li>
-          <li><a href="/preguntas-frecuentes/" class="flex min-h-11 items-center hover:underline">Preguntas frecuentes</a></li>
-          <li><a href="/contacto/" class="flex min-h-11 items-center hover:underline">Contacto</a></li>
-          <li><a href="/terminos-y-condiciones/" class="flex min-h-11 items-center hover:underline">Términos y condiciones</a></li>
+          <li><a href="/promociones/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Promociones</a></li>
+          <li><a href="/guias/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Guías</a></li>
+          <li><a href="/preguntas-frecuentes/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Preguntas frecuentes</a></li>
+          <li><a href="/contacto/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Contacto</a></li>
+          <li><a href="/terminos-y-condiciones/" class="flex min-h-11 items-center hover:underline md:min-h-0 md:py-1">Términos y condiciones</a></li>
         </ul>
         <p class="mt-3 text-white/80">{site.ubicacion}</p>
         <p class="mt-1 text-white/80">{site.cobertura}</p>
         <p class="mt-4 text-white/80">
-          {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="break-words font-semibold text-destacado hover:underline">{site.contacto.email}</a>
+          {site.contacto.ventasVolumen} <a href={`mailto:${site.contacto.email}`} class="break-words font-semibold text-destacado hover:underline">{usuarioCorreo}<wbr />@{dominioCorreo}</a>
         </p>
       </div>
     </div>

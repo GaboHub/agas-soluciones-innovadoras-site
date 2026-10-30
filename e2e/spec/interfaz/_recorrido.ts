@@ -5,6 +5,8 @@ export interface PasoDeFoco {
   etiqueta: string;
   enElHeader: boolean;
   tapadoPorElHeader: boolean;
+  enLaBarra: boolean;
+  tapadoPorLaBarra: boolean;
   outlineStyle: string;
   outlineWidth: number;
 }
@@ -43,11 +45,24 @@ const leerFoco = (page: Page): Promise<(PasoDeFoco & { repetido: boolean }) | nu
       caja.bottom > cajaHeader.top &&
       caja.left < cajaHeader.right &&
       caja.right > cajaHeader.left;
+    const barra = document.getElementById('barra-compra');
+    const cajaBarra = barra?.getBoundingClientRect();
+    const enLaBarra = !!barra?.contains(elemento);
+    const solapaConLaBarra =
+      !!cajaBarra &&
+      caja.width > 0 &&
+      caja.height > 0 &&
+      caja.top < cajaBarra.bottom &&
+      caja.bottom > cajaBarra.top &&
+      caja.left < cajaBarra.right &&
+      caja.right > cajaBarra.left;
     const estilo = getComputedStyle(elemento);
     return {
       etiqueta: `${elemento.tagName.toLowerCase()} ${(elemento.getAttribute('aria-label') ?? elemento.textContent ?? '').trim().slice(0, 40)}`,
       enElHeader,
       tapadoPorElHeader: !enElHeader && solapa,
+      enLaBarra,
+      tapadoPorLaBarra: !enLaBarra && solapaConLaBarra,
       outlineStyle: estilo.outlineStyle,
       outlineWidth: parseFloat(estilo.outlineWidth),
       repetido,

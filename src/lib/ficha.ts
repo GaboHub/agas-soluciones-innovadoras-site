@@ -52,6 +52,18 @@ export interface ResultadoFicha {
   agrupada: boolean;
 }
 
+function ordenUnico(grupos: GrupoFichaBase[]): GrupoFichaBase[] {
+  const orden = [...new Set(grupos.flatMap((grupo) => grupo.opciones.map((opcion) => opcion.nombre)))];
+  return grupos.map((grupo) => ({
+    ...grupo,
+    opciones: [...grupo.opciones].sort((a, b) => orden.indexOf(a.nombre) - orden.indexOf(b.nombre)),
+  }));
+}
+
+export function indiceAlCambiarDeGrupo(opciones: { nombre: string }[], nombreActivo: string): number {
+  return Math.max(0, opciones.findIndex((opcion) => opcion.nombre === nombreActivo));
+}
+
 export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
   const precioBaseTexto = formatearPrecioCLP(data.precioReferencial);
 
@@ -62,18 +74,20 @@ export function construirGruposFicha(data: ProductoFicha): ResultadoFicha {
   if (data.grupos && data.grupos.length > 0) {
     etiquetaGrupo = data.etiquetaGrupo ?? etiquetaGrupo;
     etiquetaOpcion = data.etiquetaOpcion ?? 'Color';
-    gruposFicha = data.grupos.map((grupo) => ({
-      nombre: grupo.diseno,
-      opciones: grupo.colores.map((color) => ({
-        nombre: color.color,
-        link: color.link,
-        precioTexto: precioBaseTexto,
-        precio: data.precioReferencial,
-        ejes: { [etiquetaGrupo]: grupo.diseno, [etiquetaOpcion]: color.color },
-        rutasImagenes: color.imagenes,
-        altFotos: `${data.titulo} (${grupo.diseno}, ${color.color})`,
+    gruposFicha = ordenUnico(
+      data.grupos.map((grupo) => ({
+        nombre: grupo.diseno,
+        opciones: grupo.colores.map((color) => ({
+          nombre: color.color,
+          link: color.link,
+          precioTexto: precioBaseTexto,
+          precio: data.precioReferencial,
+          ejes: { [etiquetaGrupo]: grupo.diseno, [etiquetaOpcion]: color.color },
+          rutasImagenes: color.imagenes,
+          altFotos: `${data.titulo} (${grupo.diseno}, ${color.color})`,
+        })),
       })),
-    }));
+    );
   } else if (data.miembros && data.miembros.length > 0) {
     etiquetaOpcion = 'Opción';
     gruposFicha = [

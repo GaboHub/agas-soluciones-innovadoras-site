@@ -39,7 +39,8 @@ hardcodeados.
   flotante (`BurbujaMercadoLibre`), visible en todos los viewports, que en
   todas las páginas lleva a la tienda y en la ficha de producto apunta
   siempre al mismo destino que el CTA "Ver en Mercado Libre", sincronizada
-  con la variante activa.
+  con la variante activa. En una ficha bajo 768 px se presenta como barra
+  de compra con precio referencial, fecha y el CTA de la ficha.
 - **Spec viva**: `openspec/specs/<capability>/spec.md` (8 capabilities) es
   la fuente de verdad del comportamiento.
 - **Tests**: Vitest (`tests/unit/`) valida catálogo, imágenes, reseñas,

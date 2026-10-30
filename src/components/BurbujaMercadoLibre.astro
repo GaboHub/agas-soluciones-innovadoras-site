@@ -4,21 +4,49 @@ import isotipo from '../assets/images/mercadolibre-burbuja.svg?raw';
 interface Props {
   href: string;
   etiqueta: string;
+  barra?: { precioTexto: string; leyenda: string };
 }
 
-const { href, etiqueta } = Astro.props;
+const { href, etiqueta, barra } = Astro.props;
+
+const anillo =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white focus-visible:ring-6 focus-visible:ring-tinta active:translate-y-[2px]';
+const clasePlana = `fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg motion-safe:transition-transform motion-safe:hover:scale-110 ${anillo}`;
+const claseEnBarra = `ml-auto flex h-14 min-w-0 items-center gap-2 rounded-full bg-primario pl-4 font-texto text-sm leading-tight font-bold text-white shadow-md hover:bg-primario-oscuro md:fixed md:right-[max(1.25rem,env(safe-area-inset-right))] md:bottom-[max(1.25rem,env(safe-area-inset-bottom))] md:z-50 md:w-14 md:justify-center md:gap-0 md:bg-transparent md:p-0 md:shadow-lg md:hover:bg-transparent motion-safe:md:transition-transform motion-safe:md:hover:scale-110 ${anillo}`;
 ---
 
-<a
-  id="burbuja-mercadolibre"
-  href={href}
-  target="_blank"
-  rel="noopener"
-  aria-label={etiqueta}
-  title={etiqueta}
-  class="fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg motion-safe:transition-transform motion-safe:hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meli-tinta active:translate-y-[2px]"
->
-  <span aria-hidden="true" data-ilustracion class="h-full w-full [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
-    <Fragment set:html={isotipo} />
-  </span>
-</a>
+{
+  barra ? (
+    <div
+      id="barra-compra"
+      class="fixed inset-x-0 bottom-0 z-50 flex items-center justify-between gap-3 border-t border-primario-claro bg-white pt-2.5 pr-[max(0.75rem,env(safe-area-inset-right))] pb-[max(0.625rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] shadow-barra-compra md:contents"
+    >
+      <div class="hidden w-28 shrink-0 flex-col min-[360px]:flex md:hidden">
+        <span id="barra-compra-precio" class="font-titulos text-xl leading-none font-bold text-primario">
+          {barra.precioTexto}
+        </span>
+        <span class="font-texto text-xs leading-snug text-tinta/70">{barra.leyenda}</span>
+      </div>
+      <a id="burbuja-mercadolibre" href={href} target="_blank" rel="noopener" title={etiqueta} class={claseEnBarra}>
+        <span class="md:sr-only">{etiqueta}</span>
+        <span aria-hidden="true" data-ilustracion class="h-14 w-14 shrink-0 [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
+          <Fragment set:html={isotipo} />
+        </span>
+      </a>
+    </div>
+  ) : (
+    <a
+      id="burbuja-mercadolibre"
+      href={href}
+      target="_blank"
+      rel="noopener"
+      aria-label={etiqueta}
+      title={etiqueta}
+      class={clasePlana}
+    >
+      <span aria-hidden="true" data-ilustracion class="h-14 w-14 shrink-0 [&>svg]:block [&>svg]:h-full [&>svg]:w-full">
+        <Fragment set:html={isotipo} />
+      </span>
+    </a>
+  )
+}

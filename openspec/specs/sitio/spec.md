@@ -43,22 +43,30 @@ La ficha SHALL construir grupos y opciones de compra así: con `grupos`, un grup
 - **THEN** todas apuntan a `mercadolibre.cl` y la opción inicial tiene link
 
 ### Requirement: Selector y CTA de la ficha
-El CTA principal de la ficha (`data-cta="ver-en-mercado-libre"`) SHALL apuntar al link de la opción activa con `target=_blank` y `rel=noopener`; el selector de grupo SHALL existir solo con más de un grupo y el de opción solo con más de una opción; con más de 10 opciones el selector SHALL ser un `<select>` y si no botones con `aria-pressed`; elegir otro grupo SHALL volver a su primera opción, y la galería SHALL mostrar las fotos de la opción activa.
+El CTA principal de la ficha (`data-cta="ver-en-mercado-libre"`) SHALL apuntar al link de la opción activa con `target=_blank` y `rel=noopener`; el selector de grupo SHALL existir solo con más de un grupo y el de opción solo con más de una opción; con más de 10 grupos u opciones el selector correspondiente SHALL ser un `<select>`, y si no, el de grupo SHALL ser un control segmentado de botones con `aria-pressed` distinto de los chips de opción y el de opción botones con `aria-pressed`; las opciones SHALL listarse en un mismo orden en todos los grupos, el del primer grupo seguido de las que falten en él en orden de aparición, resuelto al construir; elegir otro grupo SHALL conservar la opción activa si existe una del mismo nombre en el grupo nuevo y si no volver a su primera opción, y la galería SHALL mostrar las fotos de la opción activa.
 
 #### Scenario: Cambio de color
 - **WHEN** se elige otro color
 - **THEN** el `href` del CTA cambia al link de ese color
 
 #### Scenario: Cambio de grupo
-- **WHEN** se elige otro diseño
-- **THEN** la opción activa vuelve a la primera de ese diseño y el CTA apunta a su link
+- **WHEN** se elige otro diseño que tiene una opción del mismo nombre que la activa
+- **THEN** esa opción sigue activa en el diseño nuevo y el CTA apunta a su link
+
+#### Scenario: Cambio de grupo sin la opción activa
+- **WHEN** se elige otro diseño que no tiene una opción del nombre de la activa
+- **THEN** la opción activa pasa a la primera de ese diseño y el CTA apunta a su link
+
+#### Scenario: Orden único de opciones
+- **WHEN** dos diseños tienen las mismas opciones en distinto orden de aparición
+- **THEN** el selector las muestra en el mismo orden en ambos diseños
 
 #### Scenario: Muchas opciones
 - **WHEN** una ficha tiene 12 variantes
 - **THEN** el selector es un `<select>` y no hay botones con esos nombres
 
 ### Requirement: Burbuja de Mercado Libre
-Toda página SHALL mostrar en todos los viewports un enlace fijo abajo a la derecha (`#burbuja-mercadolibre`, `target=_blank`, `rel=noopener`) que lleva a la tienda con la etiqueta `ctaHeader`; en una ficha SHALL llevar al link de la opción activa con la etiqueta `ctaBurbujaProducto` y seguir al CTA cuando cambia la opción.
+Toda página SHALL mostrar en todos los viewports un enlace fijo abajo a la derecha (`#burbuja-mercadolibre`, `target=_blank`, `rel=noopener`) que lleva a la tienda con la etiqueta `ctaHeader`; en una ficha SHALL llevar al link de la opción activa, con nombre accesible igual a su texto `ctaFicha`, y seguir al CTA cuando cambia la opción. En una ficha bajo 768 px SHALL presentarse como barra de compra a todo el ancho: a la izquierda el precio referencial y la fecha de la opción activa, presentes en el HTML del build y actualizados al cambiar la opción, y a la derecha `ctaFicha` visible junto al círculo de la burbuja; bajo 360 px la barra SHALL mostrar solo el enlace.
 
 #### Scenario: Fuera de una ficha
 - **WHEN** se abre `/`
@@ -66,11 +74,19 @@ Toda página SHALL mostrar en todos los viewports un enlace fijo abajo a la dere
 
 #### Scenario: Ficha con opción cambiada
 - **WHEN** en una ficha se elige otra opción
-- **THEN** el `href` de la burbuja es igual al del CTA principal
+- **THEN** el `href` de la burbuja es igual al del CTA principal y la barra muestra el precio de esa opción
 
 #### Scenario: Móvil
-- **WHEN** el viewport es móvil
+- **WHEN** el viewport es móvil fuera de una ficha
 - **THEN** la burbuja es visible dentro del cuadrante inferior derecho
+
+#### Scenario: Barra de compra
+- **WHEN** se abre una ficha a 390×844
+- **THEN** sin hacer scroll se ven el precio referencial, su fecha y el enlace `ctaFicha` dentro de la barra fija inferior
+
+#### Scenario: Pantalla angosta
+- **WHEN** se abre una ficha a 320 px de ancho
+- **THEN** la barra muestra el enlace y no muestra el precio
 
 Rationale: la compra se cierra en la publicación y variante exactas de Mercado Libre.
 
@@ -108,7 +124,7 @@ Los listados SHALL ordenar las fichas según el orden de `categorias[].productos
 - **THEN** las tarjetas siguen el orden de `site.json`
 
 ### Requirement: Home
-La home SHALL mostrar el hero de `site.hero` con su palabra `acentuada` resaltada y sus sellos de confianza, una tarjeta por categoría con su glifo, las 4 fichas con más reseñas (ordenadas por cantidad de reseñas descendente, luego promedio descendente y luego slug ascendente), el resumen de `resenas.json` («<promedio con 1 decimal> de 5 estrellas con <total> reseñas…») con las reseñas destacadas enlazadas a su ficha, 3 preguntas frecuentes globales y un enlace a la tienda.
+La home SHALL mostrar el hero de `site.hero` con su palabra `acentuada` resaltada y sus sellos de confianza, una tarjeta por categoría con su glifo, las 4 fichas con más reseñas (ordenadas por cantidad de reseñas descendente, luego promedio descendente y luego slug ascendente), el resumen de `resenas.json` («<promedio con 1 decimal> de 5 estrellas con <total> reseñas…») con las reseñas destacadas enlazadas a su ficha, 3 preguntas frecuentes globales y un enlace a la tienda. Bajo 640 px, las reseñas destacadas SHALL presentarse en un carril horizontal con scroll-snap con todas sus tarjetas en el HTML, y desde 640 px en grilla.
 
 Rationale: sin desempate, el cuarto lugar depende del orden de la colección cuando varias fichas tienen la misma cantidad de reseñas.
 
@@ -127,6 +143,10 @@ Rationale: sin desempate, el cuarto lugar depende del orden de la colección cua
 #### Scenario: Reseñas destacadas
 - **WHEN** se abre `/`
 - **THEN** cada reseña destacada enlaza a la ficha de su `productoSlug`
+
+#### Scenario: Carril de reseñas en móvil
+- **WHEN** se abre `/` a 390 px
+- **THEN** las reseñas destacadas comparten fila en un contenedor con `scroll-snap-type` horizontal, y el documento no tiene scroll horizontal
 
 ### Requirement: Página de categoría
 Cada categoría SHALL mostrar el contenido de su `content/paginas/<slug>.md`, sus fichas y enlaces a las demás categorías; su `og:image` SHALL ser la primera imagen de su primera ficha.
@@ -197,7 +217,7 @@ Desde el breakpoint `md` la ficha SHALL mostrarse en dos columnas, con la galer�
 - **THEN** la galería queda a la izquierda del precio y del CTA en la misma fila
 
 ### Requirement: Datos de negocio fuera de los componentes
-URLs externas, correos, precios, promociones, textos de identidad y los textos de los CTA que llevan a Mercado Libre SHALL venir de `src/data/*.json` o de `content/`; ningún archivo de `src/components`, `src/layouts` o `src/pages` MUST contener URLs de Mercado Libre o de Instagram ni correos. Los CTA hacia Mercado Libre usan `ctaHeader` (tienda: header, burbuja por defecto, campañas, reseñas de la home y página de promociones sin publicables), `ctaBurbujaProducto`, `ctaFicha` (CTA principal de la ficha), `ctaCupon` (cupones) y `ctaPaginaOficial` (enlace a la página oficial en contacto); el botón de tienda de contacto usa `ctaHeader`. El microcopy de navegación interna puede vivir en los componentes.
+URLs externas, correos, precios, promociones, textos de identidad y los textos de los CTA que llevan a Mercado Libre SHALL venir de `src/data/*.json` o de `content/`; ningún archivo de `src/components`, `src/layouts` o `src/pages` MUST contener URLs de Mercado Libre o de Instagram ni correos. Los CTA hacia Mercado Libre usan `ctaHeader` (tienda: header, burbuja por defecto, campañas, reseñas de la home y página de promociones sin publicables), `ctaFicha` (CTA principal de la ficha y burbuja o barra de compra de la ficha), `ctaCupon` (cupones) y `ctaPaginaOficial` (enlace a la página oficial en contacto); el botón de tienda de contacto usa `ctaHeader`. El microcopy de navegación interna puede vivir en los componentes.
 
 #### Scenario: Escaneo de fuentes
 - **WHEN** se escanean `src/components`, `src/layouts` y `src/pages`
@@ -215,3 +235,10 @@ El sitio MUST NOT ofrecer carrito, checkout ni formularios de pago; toda acción
 - **THEN** ninguna página tiene un `<form>`
 
 Rationale: Mercado Libre no permite precargar un carrito desde un sitio externo; el permalink con variante es el destino más preciso.
+
+### Requirement: Listados en dos columnas en móvil
+Los listados de fichas (`/productos/`, cada categoría, las fichas de la home y los productos relacionados de cada guía) SHALL mostrar dos tarjetas por fila desde 320 px.
+
+#### Scenario: Catálogo a 390 px
+- **WHEN** se abre `/productos/` a 390 px
+- **THEN** las dos primeras tarjetas tienen el mismo borde superior y no se superponen

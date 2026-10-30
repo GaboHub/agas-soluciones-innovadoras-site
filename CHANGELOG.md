@@ -20,6 +20,16 @@ del README.
 
 ### Cambiado
 
+- Interfaz: foco visible sobre superficies oscuras y en la burbuja; listas de
+  la prosa con viñetas y números; escala única de `h2` de sección y del botón
+  de acción; promociones con el estado vigente antes de la explicación; fecha
+  de actualización visible en cada guía.
+- Ficha de producto: selector de grupo segmentado, orden único de opciones
+  que se conserva al cambiar de grupo, miniaturas en una tira, miga en una
+  línea, enlace de texto a la tienda y rótulos de características en negrita;
+  bajo 768 px, barra de compra fija con precio referencial, fecha y CTA.
+- Móvil: listados en dos columnas, reseñas de la home en carril horizontal y
+  primera pantalla de la home más compacta.
 - Catálogo, precios, imágenes y reseñas al barrido del 2026-10-29: 53 reseñas
   con promedio 4.59
   (`node -p "const r=require('./src/data/resenas.json');[r.totalReviews,r.promedioGeneral]"`
@@ -37,6 +47,7 @@ del README.
   igual.
 - El generador quita el conector «y» antes de «grips» al separar diseño y
   color.
+- El dato de reseñas de cada tarjeta ya no se repite en el HTML.
 
 ## [1.6.2] - 2026-10-06
 

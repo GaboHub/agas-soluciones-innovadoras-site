@@ -1,7 +1,11 @@
 import { expect, test, type Page } from '@playwright/test';
 import { esperarHidratacion } from '../_hidratacion';
-import { paginasDeMuestra } from '../_muestras';
+import { muestras, paginasDeMuestra } from '../_muestras';
 import { SELECTOR_OBJETIVOS } from './_objetivos';
+import { recorrerConTeclado } from './_recorrido';
+
+const fichasDeMuestra = [muestras.fichaSimple.slug, muestras.fichaConGrupos.slug];
+const rutaDe = (slug: string) => `/productos/${slug}/`;
 
 const alFinalDeLaPagina = (page: Page) =>
   page.evaluate(
@@ -23,7 +27,8 @@ const alFinalDeLaPagina = (page: Page) =>
 const tapadoPorLaBurbuja = (page: Page) =>
   page.evaluate((selectorObjetivos) => {
     const burbuja = document.getElementById('burbuja-mercadolibre')!;
-    const cajaBurbuja = burbuja.getBoundingClientRect();
+    const zona = document.getElementById('barra-compra') ?? burbuja;
+    const cajaBurbuja = zona.getBoundingClientRect();
     const interseca = (caja: DOMRect) =>
       caja.width > 0 &&
       caja.height > 0 &&
@@ -37,7 +42,7 @@ const tapadoPorLaBurbuja = (page: Page) =>
     let encontrados = 0;
     for (let nodo = lineas.nextNode(); nodo; nodo = lineas.nextNode()) {
       const padre = nodo.parentElement;
-      if (!padre || burbuja.contains(padre) || !nodo.textContent?.trim()) continue;
+      if (!padre || zona.contains(padre) || !nodo.textContent?.trim()) continue;
       if (!padre.checkVisibility({ visibilityProperty: true })) continue;
       const rango = document.createRange();
       rango.selectNodeContents(nodo);
@@ -49,7 +54,7 @@ const tapadoPorLaBurbuja = (page: Page) =>
 
     const objetivos = [...document.querySelectorAll<HTMLElement>(selectorObjetivos)].filter(
       (elemento) =>
-        elemento !== burbuja &&
+        !zona.contains(elemento) &&
         elemento.getBoundingClientRect().width > 1 &&
         elemento.checkVisibility({ visibilityProperty: true }),
     );
@@ -65,6 +70,7 @@ const tapadoPorLaBurbuja = (page: Page) =>
       objetivos: objetivos.length,
       alMaximo: Math.abs(window.scrollY + window.innerHeight - document.documentElement.scrollHeight) <= 1,
       burbujaVisible: cajaBurbuja.width > 1 && cajaBurbuja.bottom <= window.innerHeight + 0.5 && cajaBurbuja.top >= 0,
+      conBarra: zona !== burbuja,
     };
   }, SELECTOR_OBJETIVOS);
 
@@ -87,7 +93,57 @@ test.describe('[interfaz] Elementos fijos sin tapar contenido', () => {
       expect(medida.encontrados, `${ruta}: líneas de texto visibles`).toBeGreaterThan(5);
       expect(medida.objetivos, `${ruta}: objetivos visibles`).toBeGreaterThan(0);
       expect(medida.tapados, ruta).toEqual([]);
+      expect(medida.conBarra, ruta).toBe(ruta.startsWith('/productos/') && ruta !== '/productos/');
     }
+  });
+
+  test('Foco bajo la barra de compra', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const slug of fichasDeMuestra) {
+      const pasos = await recorrerConTeclado(page, rutaDe(slug), 'Tab');
+      expect(pasos.length, slug).toBeGreaterThan(20);
+      expect(pasos.some((paso) => paso.enLaBarra), `${slug}: la burbuja de la barra recibe foco`).toBe(true);
+      expect(pasos.filter((paso) => paso.tapadoPorLaBarra).map((paso) => `${slug}: ${paso.etiqueta}`)).toEqual([]);
+    }
+  });
+
+  test('Reserva de la barra de compra', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const medir = () =>
+      page.evaluate(() => {
+        const barra = document.getElementById('barra-compra')!;
+        const caja = barra.getBoundingClientRect();
+        const estilo = getComputedStyle(barra);
+        return {
+          reserva: getComputedStyle(document.documentElement).scrollPaddingBottom,
+          alto: caja.height,
+          ancho: caja.width,
+          fondo: caja.bottom,
+          relleno: parseFloat(estilo.paddingBottom),
+        };
+      });
+    for (const slug of fichasDeMuestra) {
+      await page.goto(rutaDe(slug));
+      const sesion = await page.context().newCDPSession(page);
+      await sesion.send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 0, bottom: 34, left: 0, right: 0 } });
+      const conInset = await medir();
+      expect(conInset.relleno, slug).toBe(34);
+      expect([conInset.ancho, conInset.fondo], slug).toEqual([390, 844]);
+      expect(parseFloat(conInset.reserva), slug).toBeGreaterThanOrEqual(conInset.alto);
+      await sesion.send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 0, bottom: 0, left: 0, right: 0 } });
+      const normal = await medir();
+      expect(normal.relleno, slug).toBe(10);
+      expect(parseFloat(normal.reserva), slug).toBeGreaterThanOrEqual(normal.alto);
+    }
+  });
+
+  test('Sin reserva fuera de la barra', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/contacto/');
+    expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollPaddingBottom)).toBe('auto');
+    await page.setViewportSize({ width: 768, height: 900 });
+    await page.goto(rutaDe(muestras.fichaSimple.slug));
+    expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollPaddingBottom)).toBe('auto');
   });
 
   test('Safe areas de la burbuja', async ({ page }) => {

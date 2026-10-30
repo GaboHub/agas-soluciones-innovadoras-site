@@ -46,7 +46,7 @@ function Estrellitas({ promedio, cantidad }: { promedio: number; cantidad: numbe
             fill={indice < llenas ? 'currentColor' : 'none'}
             stroke="currentColor"
             strokeWidth="1.5"
-            className="h-4 w-4"
+            className={indice === 0 ? 'h-4 w-4' : 'hidden h-4 w-4 sm:block'}
           >
             <path d="M12 2.5 14.9 8.6 21.6 9.4 16.8 14 18 20.6 12 17.4 6 20.6 7.2 14 2.4 9.4 9.1 8.6Z" />
           </svg>
@@ -132,14 +132,14 @@ export default function BuscadorProductos({ productos }: Props) {
           </button>
         </div>
       ) : (
-        <ul className="grid list-none gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="grid list-none grid-cols-2 gap-3 p-0 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           {resultados.map((producto, indice) => (
             <li key={producto.slug}>
               <a
                 href={producto.url}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex items-center justify-center bg-white p-4">
+                <div className="flex items-center justify-center bg-white p-3 sm:p-4">
                   <img
                     src={producto.imagen.src}
                     width={producto.imagen.width}
@@ -148,14 +148,14 @@ export default function BuscadorProductos({ productos }: Props) {
                     sizes={SIZES_TARJETA}
                     alt={producto.titulo}
                     loading={indice < 4 ? 'eager' : 'lazy'}
-                    className="h-40 w-auto object-contain sm:h-44"
+                    className="h-28 w-auto object-contain sm:h-40"
                   />
                 </div>
-                <div className="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
+                <div className="flex flex-1 flex-col gap-2 border-t border-primario-claro p-3 sm:p-5">
                   <p className="font-texto text-xs font-bold tracking-wide text-destacado-oscuro uppercase">
                     {producto.categoriaNombre}
                   </p>
-                  <p className="font-titulos text-base font-bold text-tinta">{producto.titulo}</p>
+                  <p className="font-titulos text-sm font-bold text-balance text-tinta sm:text-base">{producto.titulo}</p>
                   {producto.promedio !== null && producto.cantidad !== null && (
                     <Estrellitas promedio={producto.promedio} cantidad={producto.cantidad} />
                   )}
@@ -163,7 +163,7 @@ export default function BuscadorProductos({ productos }: Props) {
                     {producto.precioTexto}
                     <span className="block font-texto text-xs font-normal text-tinta/70">Precio referencial</span>
                   </p>
-                  <span className="inline-flex items-center gap-1 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+                  <span className="hidden items-center gap-1 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario sm:inline-flex">
                     Ver producto
                     <Icono nombre="flecha-derecha" className="h-4 w-4" />
                   </span>

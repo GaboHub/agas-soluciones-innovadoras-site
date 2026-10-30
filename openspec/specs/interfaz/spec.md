@@ -27,6 +27,14 @@ Todo elemento del orden de tabulación SHALL mostrar al enfocarse con teclado un
 - **WHEN** un enlace o botón recibe foco de teclado
 - **THEN** su `outline-style` no es `none` ni `auto` y su `outline-width` es de al menos 2 px
 
+#### Scenario: Indicador sobre superficie oscura
+- **WHEN** reciben foco de teclado los CTAs del hero, el CTA del panel de cierre de la home y un enlace del footer
+- **THEN** el color de su `outline` tiene contraste de al menos 3:1 contra el color de fondo de la superficie que los contiene
+
+#### Scenario: Indicador de la burbuja
+- **WHEN** la burbuja recibe foco de teclado sobre una superficie clara y sobre el footer
+- **THEN** su indicador tiene un anillo con contraste de al menos 3:1 contra cada una de esas superficies
+
 ### Requirement: Enlace para saltar al contenido
 Cada página SHALL tener como primer elemento enfocable un enlace «Saltar al contenido» que es visible al enfocarse y lleva el foco a `<main id="contenido">`, que queda fuera del orden de tabulación (`tabindex="-1"`) y sin outline.
 
@@ -116,11 +124,15 @@ Ninguna página SHALL tener elementos fuera del viewport horizontal a 320, 390, 
 - **THEN** todo elemento visible cumple `left ≥ 0` y `right ≤ innerWidth`
 
 ### Requirement: Elementos fijos sin tapar contenido
-La burbuja SHALL respetar las safe areas (`max(1.25rem, env(safe-area-inset-*))`) y el final de cada página SHALL reservar espacio para que, con el scroll al máximo, la burbuja no intersecte ningún texto ni objetivo.
+La burbuja SHALL respetar las safe areas (`max(1.25rem, env(safe-area-inset-*))`) y el final de cada página SHALL reservar espacio para que, con el scroll al máximo, la burbuja no intersecte ningún texto ni objetivo; en una ficha bajo 768 px, la barra de compra SHALL ocupar el ancho del viewport con `env(safe-area-inset-bottom)` como relleno inferior y el documento SHALL reservar `scroll-padding-bottom` de al menos su alto.
 
 #### Scenario: Final de página en móvil
 - **WHEN** se hace scroll al final de cualquier página a 390×844
 - **THEN** el rectángulo de la burbuja no intersecta ninguna línea de texto ni objetivo
+
+#### Scenario: Foco bajo la barra de compra
+- **WHEN** se recorre con Tab una ficha a 390×844
+- **THEN** en cada paso el rectángulo del elemento enfocado no intersecta el de la barra de compra
 
 ### Requirement: Visor modal centrado
 El visor de fotos SHALL abrirse centrado en el viewport.
@@ -185,3 +197,14 @@ Escribir una consulta en el buscador SHALL reflejarla en `?q=` y elegir una opci
 #### Scenario: Opción compartida
 - **WHEN** se carga una ficha con `?opcion=` de su segunda opción
 - **THEN** la opción activa y el CTA son los de esa opción y el canonical no trae parámetros
+
+### Requirement: Marcadores de lista en la prosa
+Las listas del contenido Markdown (`.contenido-md`) SHALL mostrar viñeta en `ul` y número en `ol`, con el marcador en `acento-oscuro`; solo las listas `.contenido-md-con-check` MUST usar su ícono de check en lugar del marcador.
+
+#### Scenario: Paso a paso numerado
+- **WHEN** se abre una guía con una lista ordenada
+- **THEN** cada `li` de esa lista tiene `list-style-type: decimal`
+
+#### Scenario: Lista con viñetas
+- **WHEN** se abre una página de prosa con una lista no ordenada fuera de `.contenido-md-con-check`
+- **THEN** cada `li` de esa lista tiene `list-style-type: disc`

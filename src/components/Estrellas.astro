@@ -3,9 +3,10 @@ interface Props {
   promedio: number;
   cantidad?: number;
   class?: string;
+  compacta?: boolean;
 }
 
-const { promedio, cantidad, class: className = '' } = Astro.props;
+const { promedio, cantidad, class: className = '', compacta = false } = Astro.props;
 const llenas = Math.round(promedio);
 ---
 
@@ -19,7 +20,7 @@ const llenas = Math.round(promedio);
           fill={indice < llenas ? 'currentColor' : 'none'}
           stroke="currentColor"
           stroke-width="1.5"
-          class="h-4 w-4"
+          class:list={['h-4 w-4', compacta && indice > 0 && 'hidden sm:block']}
         >
           <path d="M12 2.5 14.9 8.6 21.6 9.4 16.8 14 18 20.6 12 17.4 6 20.6 7.2 14 2.4 9.4 9.1 8.6Z" />
         </svg>

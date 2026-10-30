@@ -57,4 +57,29 @@ test.describe('[sitio] Home', () => {
       await expect(reseña.locator(`a[href="/productos/${destacada.productoSlug}/"]`)).toHaveCount(1);
     }
   });
+
+  test('Carril de reseñas en móvil', async ({ page }) => {
+    for (const ancho of [320, 390]) {
+      await page.setViewportSize({ width: ancho, height: 844 });
+      await page.goto('/');
+      const carril = page.locator('#resenas-titulo').locator('xpath=ancestor::section[1]//ul');
+      await expect(carril, `${ancho}px`).toHaveCount(1);
+      const medida = await carril.evaluate((lista) => {
+        const estilo = getComputedStyle(lista);
+        const cajas = [...lista.children].map((item) => item.getBoundingClientRect());
+        return {
+          snap: estilo.scrollSnapType,
+          desborde: estilo.overflowX,
+          tarjetas: cajas.length,
+          mismaFila: new Set(cajas.map((caja) => Math.round(caja.top))).size === 1,
+          documento: document.documentElement.scrollWidth,
+        };
+      });
+      expect(medida.snap, `${ancho}px`).toContain('x');
+      expect(medida.desborde, `${ancho}px`).toBe('auto');
+      expect(medida.tarjetas, `${ancho}px`).toBe(resenas.destacadas.length);
+      expect(medida.mismaFila, `${ancho}px`).toBe(true);
+      expect(medida.documento, `${ancho}px`).toBeLessThanOrEqual(ancho);
+    }
+  });
 });

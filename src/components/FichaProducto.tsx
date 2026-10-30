@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import GalleryLightbox, { type FotoGaleria } from './GalleryLightbox';
 import Icono from './Icono';
+import { indiceAlCambiarDeGrupo } from '../lib/ficha';
 import { claveOpcion, ubicarOpcion } from '../lib/opcion-url';
 
 export interface OpcionFicha {
@@ -34,11 +35,13 @@ function Selector({
   nombres,
   indiceActivo,
   onElegir,
+  segmentado = false,
 }: {
   etiqueta: string;
   nombres: string[];
   indiceActivo: number;
   onElegir: (indice: number) => void;
+  segmentado?: boolean;
 }) {
   const selectId = useId();
 
@@ -60,6 +63,37 @@ function Selector({
             </option>
           ))}
         </select>
+      </div>
+    );
+  }
+
+  if (segmentado) {
+    return (
+      <div>
+        <p id={selectId} className="font-texto text-sm font-bold text-tinta">
+          {etiqueta}: <span className="font-normal text-tinta/70">{nombres[indiceActivo]}</span>
+        </p>
+        <div
+          role="group"
+          aria-labelledby={selectId}
+          className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(7.5rem,1fr))] gap-2"
+        >
+          {nombres.map((nombre, indice) => (
+            <button
+              key={`${nombre}-${indice}`}
+              type="button"
+              onClick={() => onElegir(indice)}
+              aria-pressed={indice === indiceActivo}
+              className={`min-h-12 rounded-xl border-2 px-3 font-texto text-sm font-bold transition-colors active:translate-y-[2px] ${
+                indice === indiceActivo
+                  ? 'border-primario bg-primario text-white'
+                  : 'border-primario/60 bg-white text-primario-oscuro hover:bg-primario-claro'
+              }`}
+            >
+              {nombre}
+            </button>
+          ))}
+        </div>
       </div>
     );
   }
@@ -110,7 +144,9 @@ export default function FichaProducto({
 
   useEffect(() => {
     document.getElementById('burbuja-mercadolibre')?.setAttribute('href', opcionActiva.link);
-  }, [opcionActiva.link]);
+    const precioDeLaBarra = document.getElementById('barra-compra-precio');
+    if (precioDeLaBarra) precioDeLaBarra.textContent = opcionActiva.precioTexto;
+  }, [opcionActiva.link, opcionActiva.precioTexto]);
 
   useEffect(() => {
     const posicion = ubicarOpcion(grupos, new URLSearchParams(location.search).get('opcion'));
@@ -127,9 +163,10 @@ export default function FichaProducto({
   }
 
   function elegirGrupo(indice: number) {
+    const indiceDeOpcion = indiceAlCambiarDeGrupo(grupos[indice].opciones, opcionActiva.nombre);
     setIndiceGrupo(indice);
-    setIndiceOpcion(0);
-    escribirOpcion(indice, 0);
+    setIndiceOpcion(indiceDeOpcion);
+    escribirOpcion(indice, indiceDeOpcion);
   }
 
   function elegirOpcion(indice: number) {
@@ -138,7 +175,7 @@ export default function FichaProducto({
   }
 
   return (
-    <div className="grid gap-8 md:grid-cols-2 md:items-start">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start">
       <GalleryLightbox key={`${indiceGrupo}-${indiceOpcionActiva}`} fotos={opcionActiva.fotos} />
 
       <div className="flex flex-col gap-5">
@@ -148,6 +185,7 @@ export default function FichaProducto({
             nombres={grupos.map((grupo) => grupo.nombre)}
             indiceActivo={indiceGrupo}
             onElegir={elegirGrupo}
+            segmentado
           />
         )}
 
@@ -180,9 +218,10 @@ export default function FichaProducto({
             href={linkCtaSecundario}
             target="_blank"
             rel="noopener"
-            className="inline-flex items-center justify-center rounded-xl border-2 border-primario px-8 py-3 text-center font-texto text-base font-bold text-primario transition-colors hover:bg-primario-claro active:translate-y-[2px]"
+            className="inline-flex min-h-11 items-center gap-1.5 self-start font-texto font-bold text-acento-oscuro hover:underline"
           >
             {textoCtaSecundario}
+            <Icono nombre="flecha-derecha" className="h-4 w-4" />
           </a>
         </div>
 

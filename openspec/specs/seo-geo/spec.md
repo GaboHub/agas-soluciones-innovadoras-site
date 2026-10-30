@@ -133,11 +133,15 @@ Una página SHALL emitir `FAQPage` solo si todas sus preguntas están visibles e
 - **THEN** existe su `SaleEvent` con sus fechas y sin `offers`
 
 ### Requirement: Article de cada guía
-Cada guía SHALL emitir `Article` con `headline`, `description`, `inLanguage` `es-CL`, `publisher` (la organización), `mainEntityOfPage` igual a su canonical, `datePublished` y `dateModified` desde `publicado` y `actualizado` de su frontmatter.
+Cada guía SHALL emitir `Article` con `headline`, `description`, `inLanguage` `es-CL`, `publisher` (la organización), `mainEntityOfPage` igual a su canonical, `datePublished` y `dateModified` desde `publicado` y `actualizado` de su frontmatter, y SHALL mostrar bajo su `h1` la fecha de `actualizado` en un `<time>` cuyo `datetime` es igual a `dateModified`.
 
 #### Scenario: Fechas de la guía
 - **WHEN** una guía declara `publicado: 2026-08-10` y `actualizado: 2026-09-02`
 - **THEN** su `Article` trae `datePublished: 2026-08-10` y `dateModified: 2026-09-02`
+
+#### Scenario: Fecha visible
+- **WHEN** se abre una guía
+- **THEN** bajo el `h1` hay un `<time>` visible con `datetime` igual al `dateModified` de su `Article`
 
 ### Requirement: ItemList en listados
 `/productos/` y cada `/categorias/<slug>/` SHALL emitir `ItemList` con un `ListItem` por ficha listada, con `position` desde 1 en el orden visible y `url` absoluta de la ficha.

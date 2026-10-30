@@ -24,4 +24,22 @@ test.describe('[seo-geo] Article de cada guía', () => {
       expect(articulo!.publisher['@id'], guia.slug).toBe('https://agassoluciones.cl/#organizacion');
     }
   });
+
+  test('Fecha visible', async ({ page }) => {
+    for (const guia of muestras.guias) {
+      await page.goto(`/guias/${guia.slug}/`);
+      const articulo = (await bloquesJsonLd(page)).find((bloque) => bloque['@type'] === 'Article');
+      const fecha = page.locator('xpath=//main//h1/following::time[1]');
+      await expect(fecha, guia.slug).toBeVisible();
+      await expect(fecha, guia.slug).toHaveAttribute('datetime', articulo!.dateModified);
+      await expect(fecha, guia.slug).toHaveText(articulo!.dateModified.split('-').reverse().join('-'));
+      const [cajaTitulo, cajaFecha, cajaProsa] = await Promise.all(
+        ['main h1', 'xpath=//main//h1/following::time[1]', 'main .contenido-md'].map((selector) =>
+          page.locator(selector).first().boundingBox(),
+        ),
+      );
+      expect(cajaFecha!.y, guia.slug).toBeGreaterThan(cajaTitulo!.y);
+      expect(cajaFecha!.y, guia.slug).toBeLessThan(cajaProsa!.y);
+    }
+  });
 });

@@ -26,7 +26,7 @@ import Icono from './Icono.tsx';
   href={`/productos/${slug}/`}
   class="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 motion-safe:transition-transform motion-safe:hover:-translate-y-1 hover:shadow-lg"
 >
-  <div class="flex items-center justify-center bg-white p-4">
+  <div class="flex items-center justify-center bg-white p-3 sm:p-4">
     <Image
       src={imagen}
       alt={titulo}
@@ -35,18 +35,22 @@ import Icono from './Icono.tsx';
       widths={ANCHOS_TARJETA}
       sizes={SIZES_TARJETA}
       loading={prioridad ? 'eager' : 'lazy'}
-      class="h-40 w-auto object-contain sm:h-48"
+      class="h-28 w-auto object-contain sm:h-40"
     />
   </div>
-  <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-5">
+  <div class="flex flex-1 flex-col gap-2 border-t border-primario-claro p-3 sm:p-5">
     <p class="font-texto text-xs font-bold tracking-wide text-destacado-oscuro uppercase">{categoriaNombre}</p>
-    <p class="font-titulos text-base font-bold text-tinta">{titulo}</p>
-    {reviews && reviews.cantidad > 0 && <Estrellas promedio={reviews.promedio} cantidad={reviews.cantidad} />}
+    <p class="font-titulos text-sm font-bold text-balance text-tinta sm:text-base">{titulo}</p>
+    {
+      reviews && reviews.cantidad > 0 && (
+        <Estrellas promedio={reviews.promedio} cantidad={reviews.cantidad} compacta />
+      )
+    }
     <p class="mt-auto pt-2 font-titulos text-lg font-bold text-primario">
       {formatearPrecioCLP(precioReferencial)}
       <span class="block font-texto text-xs font-normal text-tinta/70">Precio referencial</span>
     </p>
-    <span class="inline-flex items-center gap-1 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario">
+    <span class="hidden items-center gap-1 font-texto text-sm font-bold text-acento-oscuro group-hover:text-primario sm:inline-flex">
       Ver producto
       <Icono nombre="flecha-derecha" className="h-4 w-4" />
     </span>

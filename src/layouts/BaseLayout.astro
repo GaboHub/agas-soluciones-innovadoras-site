@@ -16,7 +16,7 @@ interface Props {
   ogImage?: ImageMetadata;
   jsonLd: object[];
   noindex?: boolean;
-  mercadoLibre?: { href: string; etiqueta: string };
+  mercadoLibre?: { href: string; etiqueta: string; barra?: { precioTexto: string; leyenda: string } };
 }
 
 const {
@@ -44,7 +44,7 @@ const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
 ---
 
 <!doctype html>
-<html lang="es-CL">
+<html lang="es-CL" class={mercadoLibre.barra ? 'max-md:scroll-pb-(--alto-barra-compra)' : undefined}>
   <head>
     <meta charset="utf-8" />
     {analiticaActiva && <Analitica ga4Id={ga4Id as string} />}
@@ -90,6 +90,6 @@ const analiticaActiva = import.meta.env.PROD && Boolean(ga4Id);
       <slot />
     </main>
     <Footer />
-    <BurbujaMercadoLibre href={mercadoLibre.href} etiqueta={mercadoLibre.etiqueta} />
+    <BurbujaMercadoLibre href={mercadoLibre.href} etiqueta={mercadoLibre.etiqueta} barra={mercadoLibre.barra} />
   </body>
 </html>

@@ -66,7 +66,7 @@ export default function GalleryLightbox({ fotos }: Props) {
       </button>
 
       {fotos.length > 1 && (
-        <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6">
+        <div className="flex snap-x snap-mandatory gap-2 overflow-x-auto p-1">
           {fotos.map((foto, indice) => (
             <button
               key={foto.thumbSrc}
@@ -74,7 +74,7 @@ export default function GalleryLightbox({ fotos }: Props) {
               onClick={() => setIndicePrincipal(indice)}
               aria-label={`Ver como foto principal: ${foto.alt}`}
               aria-pressed={indice === indicePrincipal}
-              className={`aspect-square overflow-hidden rounded-xl bg-white transition-shadow active:translate-y-[2px] ${
+              className={`size-16 shrink-0 snap-start overflow-hidden rounded-xl bg-white transition-shadow active:translate-y-[2px] ${
                 indice === indicePrincipal
                   ? 'ring-2 ring-primario'
                   : 'ring-1 ring-black/5 hover:ring-2 hover:ring-primario/40'
@@ -85,7 +85,7 @@ export default function GalleryLightbox({ fotos }: Props) {
                 width={foto.thumbWidth}
                 height={foto.thumbHeight}
                 srcSet={foto.thumbSrcSet}
-                sizes="84px"
+                sizes="64px"
                 alt={foto.alt}
                 loading="eager"
                 className="h-full w-full object-contain"

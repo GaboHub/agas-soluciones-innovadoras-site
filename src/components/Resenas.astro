@@ -7,39 +7,41 @@ const { mercadolibre, promedioGeneral, totalReviews, destacadas } = resenas;
 ---
 
 <section class="mx-auto max-w-6xl px-4 py-14" aria-labelledby="resenas-titulo">
-  <h2 id="resenas-titulo" class="text-center font-titulos text-3xl font-bold text-tinta md:text-4xl">
+  <h2 id="resenas-titulo" class="text-center font-titulos text-2xl font-bold text-tinta md:text-3xl">
     Lo que dicen nuestros compradores
   </h2>
   <p class="mx-auto mt-3 max-w-2xl text-center font-texto text-tinta/70">
     {promedioGeneral.toFixed(1)} de 5 estrellas con {totalReviews} reseñas de compra verificada en Mercado Libre.
   </p>
 
-  <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  <ul class="relative mt-10 flex list-none snap-x snap-mandatory gap-3 overflow-x-auto p-0 pb-3 [scrollbar-color:var(--color-primario-claro)_transparent] [scrollbar-width:thin] sm:snap-none sm:flex-wrap sm:justify-center sm:gap-5 sm:overflow-visible sm:pb-0">
     {
       destacadas.map((resena) => (
-        <figure class="flex flex-col gap-3 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-          <Estrellas promedio={resena.estrellas} />
-          <blockquote data-resena-cliente class="font-texto text-sm text-tinta/80">“{resena.texto}”</blockquote>
-          <figcaption class="mt-auto">
-            <a
-              href={`/productos/${resena.productoSlug}/`}
-              class="flex min-h-11 items-center font-titulos text-sm font-bold text-primario-oscuro hover:underline"
-            >
-              {resena.productoTitulo}
-            </a>
-            <p class="font-texto text-xs text-tinta/70">Compra verificada en Mercado Libre</p>
-          </figcaption>
-        </figure>
+        <li class="basis-[84%] shrink-0 snap-start sm:basis-[calc((100%-1.25rem)/2)] sm:shrink lg:basis-[calc((100%-3.75rem)/4)]">
+          <figure class="flex h-full flex-col gap-3 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-black/5">
+            <Estrellas promedio={resena.estrellas} />
+            <blockquote data-resena-cliente class="font-texto text-sm text-tinta/80">“{resena.texto}”</blockquote>
+            <figcaption class="mt-auto">
+              <a
+                href={`/productos/${resena.productoSlug}/`}
+                class="flex min-h-11 items-center font-titulos text-sm font-bold text-primario-oscuro hover:underline"
+              >
+                {resena.productoTitulo}
+              </a>
+              <p class="font-texto text-xs text-tinta/70">Compra verificada en Mercado Libre</p>
+            </figcaption>
+          </figure>
+        </li>
       ))
     }
-  </div>
+  </ul>
 
   <div class="mt-10 flex justify-center">
     <a
       href={mercadolibre.url}
       target="_blank"
       rel="noopener"
-      class="inline-flex items-center justify-center gap-2 rounded-xl bg-primario px-6 py-3 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
+      class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primario px-7 py-3 font-texto text-base font-bold text-white shadow-md motion-safe:transition-transform motion-safe:hover:scale-105 hover:bg-primario-oscuro active:translate-y-[2px]"
     >
       {site.ctaHeader}
     </a>

@@ -41,6 +41,21 @@ test.describe('[promociones] Página de promociones', () => {
     expect(nombres).toEqual(campanas.map((campana) => campana.nombre));
   });
 
+  test('Estado primero', async ({ page }) => {
+    await page.goto('/promociones/');
+    const idDelSiguiente = await page.locator('main h1').evaluate((titulo) => titulo.nextElementSibling?.id);
+    expect(['cupones', 'campanas', 'promo-fallback']).toContain(idDelSiguiente);
+    const estado = page.locator(`#${idDelSiguiente}`);
+    const explicacion = page.locator('main .contenido-md');
+    const preguntas = page.locator('main details').first();
+    await expect(explicacion).toBeVisible();
+    const [cajaEstado, cajaExplicacion, cajaPreguntas] = await Promise.all(
+      [estado, explicacion, preguntas].map((bloque) => bloque.boundingBox()),
+    );
+    expect(cajaEstado!.y).toBeLessThan(cajaExplicacion!.y);
+    expect(cajaExplicacion!.y).toBeLessThan(cajaPreguntas!.y);
+  });
+
   test('muestra la aclaración y cierra con las preguntas frecuentes de promociones', async ({ page }) => {
     await page.goto('/promociones/');
     await expect(page.getByText(promociones.aclaracion)).toBeVisible();

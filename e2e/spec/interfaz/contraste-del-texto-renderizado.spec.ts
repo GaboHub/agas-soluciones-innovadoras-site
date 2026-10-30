@@ -9,6 +9,7 @@ import {
   medirSobreDegradado,
   minimoRequerido,
   razonDePlaceholder,
+  razonSobreLaBarra,
   razonMinimaSobreDegradado,
 } from './_contraste';
 
@@ -31,6 +32,13 @@ test.describe('[interfaz] Contraste del texto renderizado', () => {
       for (const nodo of incomplete.flatMap((resultado) => resultado.nodes)) {
         const selector = nodo.target.join(' ');
         const motivo = String(nodo.any[0]?.data?.messageKey ?? nodo.any[0]?.message ?? 'sin motivo');
+        const enLaBarra = motivo === 'elmPartiallyObscuring' ? await razonSobreLaBarra(page, selector) : null;
+        if (enLaBarra) {
+          if (enLaBarra.razon < enLaBarra.minimo) {
+            bajoElMinimo.push(`${ruta}: ${selector} ${enLaBarra.razon.toFixed(2)}:1 < ${enLaBarra.minimo}:1`);
+          }
+          continue;
+        }
         if (motivo !== 'bgGradient' || nodo.target.length !== 1) {
           sinMedir.push(`${ruta}: ${selector} (${motivo})`);
           continue;

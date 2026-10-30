@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { construirGruposFicha, linkInicial, type ProductoFicha } from '../../src/lib/ficha';
+import { construirGruposFicha, indiceAlCambiarDeGrupo, linkInicial, type ProductoFicha } from '../../src/lib/ficha';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const productosDir = path.resolve(dirname, '../../content/productos');
@@ -244,6 +244,52 @@ describe('construirGruposFicha — variantes', () => {
 
   it('linkInicial devuelve el link de la primera variante', () => {
     expect(linkInicial(resultado.gruposFicha)).toBe('https://articulo.mercadolibre.cl/MLC-1-base-_JM?variation=1');
+  });
+});
+
+describe('construirGruposFicha — orden único de opciones', () => {
+  const colores = (nombres: string[], prefijo: string) =>
+    nombres.map((color) => ({ color, link: `https://articulo.mercadolibre.cl/MLC-${prefijo}-${color}`, imagenes: [`${prefijo}-${color}.jpg`] }));
+  const data: ProductoFicha = {
+    titulo: 'Kit',
+    permalink: 'https://articulo.mercadolibre.cl/MLC-kit',
+    precioReferencial: 5000,
+    imagenes: ['kit.jpg'],
+    grupos: [
+      { diseno: 'Negro', colores: colores(['Rojo', 'Rosa', 'Morado'], 'negro') },
+      { diseno: 'Blanco', colores: colores(['Morado', 'Extra', 'Rojo', 'Rosa'], 'blanco') },
+      { diseno: 'Violeta', colores: colores(['Nuevo', 'Extra', 'Rosa'], 'violeta') },
+    ],
+  };
+  const nombres = (indice: number) => construirGruposFicha(data).gruposFicha[indice].opciones.map((opcion) => opcion.nombre);
+
+  it('el primer grupo conserva su orden', () => {
+    expect(nombres(0)).toEqual(['Rojo', 'Rosa', 'Morado']);
+  });
+
+  it('los demás grupos siguen el orden del primero, y las que le faltan van en orden de aparición', () => {
+    expect(nombres(1)).toEqual(['Rojo', 'Rosa', 'Morado', 'Extra']);
+    expect(nombres(2)).toEqual(['Rosa', 'Extra', 'Nuevo']);
+  });
+
+  it('cada opción conserva su link, sus fotos y su alt', () => {
+    const blanco = construirGruposFicha(data).gruposFicha[1];
+    const rojo = blanco.opciones[0];
+    expect(rojo.link).toBe('https://articulo.mercadolibre.cl/MLC-blanco-Rojo');
+    expect(rojo.rutasImagenes).toEqual(['blanco-Rojo.jpg']);
+    expect(rojo.altFotos).toBe('Kit (Blanco, Rojo)');
+  });
+});
+
+describe('indiceAlCambiarDeGrupo', () => {
+  const opciones = [{ nombre: 'Rojo' }, { nombre: 'Rosa' }, { nombre: 'Morado' }];
+
+  it('conserva la opción activa si el grupo nuevo tiene una del mismo nombre', () => {
+    expect(indiceAlCambiarDeGrupo(opciones, 'Morado')).toBe(2);
+  });
+
+  it('vuelve a la primera si el grupo nuevo no tiene una del mismo nombre', () => {
+    expect(indiceAlCambiarDeGrupo(opciones, 'Verde')).toBe(0);
   });
 });
 

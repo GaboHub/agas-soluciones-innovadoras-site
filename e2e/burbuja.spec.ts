@@ -15,8 +15,9 @@ test.describe('burbuja flotante de Mercado Libre', () => {
 
   test('en una página de producto apunta al permalink de la publicación', async ({ page }) => {
     await page.goto('/productos/lamina-vidrio-nintendo-switch/');
-    const burbuja = page.getByRole('link', { name: 'Ver esta publicación en Mercado Libre' });
+    const burbuja = page.locator('#burbuja-mercadolibre');
     await expect(burbuja).toBeVisible();
+    await expect(burbuja).toHaveAccessibleName('Ver en Mercado Libre');
     await expect(burbuja).toHaveAttribute('target', '_blank');
     const href = await burbuja.getAttribute('href');
     expect(href).toMatch(/mercadolibre\.cl/);
@@ -27,7 +28,7 @@ test.describe('burbuja flotante de Mercado Libre', () => {
     await page.goto('/productos/fundas-silicona-grips-control-ps5/');
     await esperarHidratacion(page);
 
-    const burbuja = page.getByRole('link', { name: 'Ver esta publicación en Mercado Libre' });
+    const burbuja = page.locator('#burbuja-mercadolibre');
     const cta = page.locator('[data-cta="ver-en-mercado-libre"]');
 
     const hrefInicialBurbuja = await burbuja.getAttribute('href');

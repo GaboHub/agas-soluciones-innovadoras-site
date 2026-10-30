@@ -53,10 +53,10 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
   </section>
 
   <section class="mx-auto max-w-6xl px-4 pb-12">
-    <h2 class="font-titulos text-2xl font-bold text-tinta">
+    <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">
       {productos.length} productos de {categoria.nombre}
     </h2>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
       {
         productos.map((producto, indice) => (
           <ProductCard
@@ -74,13 +74,13 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
   </section>
 
   <section class="mx-auto max-w-6xl px-4 pb-16">
-    <h2 class="font-titulos text-2xl font-bold text-tinta">Otras categorías</h2>
+    <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">Otras categorías</h2>
     <div class="mt-4 flex flex-wrap gap-3">
       {
         otrasCategorias.map((otra) => (
           <a
             href={`/categorias/${otra.slug}/`}
-            class="inline-flex items-center gap-2 rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
+            class="inline-flex min-h-11 items-center gap-2 rounded-full bg-primario-claro px-5 py-2 font-texto font-bold text-primario-oscuro transition-colors hover:bg-primario hover:text-white"
           >
             <GlifoCategoria slug={otra.slug} class="h-5 w-5" />
             {otra.nombre}

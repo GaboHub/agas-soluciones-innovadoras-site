@@ -84,8 +84,8 @@ export const razonDePlaceholder = ({ color, opacidad, fondos }: MedidaDePlacehol
   return razonDeContraste([color[0], color[1], color[2], color[3] * opacidad], fondo);
 };
 
-export const medirSobreDegradado = (page: Page, selector: string) =>
-  page.evaluate((objetivo) => {
+export const medirSobreDegradado = (page: Page, selector: string, propiedad: 'color' | 'outlineColor' = 'color') =>
+  page.evaluate(([objetivo, propiedadDeTexto]) => {
     const elemento = document.querySelector(objetivo)!;
     const conGradiente = (inicio: Element) => {
       for (let actual: Element | null = inicio; actual; actual = actual.parentElement) {
@@ -111,7 +111,7 @@ export const medirSobreDegradado = (page: Page, selector: string) =>
     }
     return {
       existe: pintor !== null,
-      texto: estilo.color,
+      texto: estilo[propiedadDeTexto as 'color' | 'outlineColor'],
       tamano: parseFloat(estilo.fontSize),
       peso: Number(estilo.fontWeight),
       capas: capas.filter((capa) => capa.texto).map((capa) => ({
@@ -119,7 +119,24 @@ export const medirSobreDegradado = (page: Page, selector: string) =>
         stops: capa.texto.match(/rgba?\([^)]*\)|color\([^)]*\)|oklab\([^)]*\)/g) ?? [],
       })),
     };
-  }, selector);
+  }, [selector, propiedad]);
+
+export const razonSobreLaBarra = (page: Page, selector: string) =>
+  page.locator(selector).first().evaluate((nodo) => {
+    const barra = nodo.closest('#barra-compra');
+    if (!barra) return null;
+    const fondos: string[] = [];
+    for (let actual: Element | null = nodo; actual; actual = actual.parentElement) {
+      fondos.unshift(getComputedStyle(actual).backgroundColor);
+      if (actual === barra) break;
+    }
+    const estilo = getComputedStyle(nodo);
+    return { texto: estilo.color, fondos, tamano: parseFloat(estilo.fontSize), peso: Number(estilo.fontWeight) };
+  }).then((crudo) => {
+    if (!crudo) return null;
+    const fondo = crudo.fondos.map(parsearColor).reduce<Rgba>((debajo, capa) => componer(capa, debajo), [255, 255, 255, 1]);
+    return { razon: razonDeContraste(parsearColor(crudo.texto), fondo), minimo: minimoRequerido(crudo.tamano, crudo.peso) };
+  });
 
 export const medirPlaceholder = (page: Page, selector: string) =>
   page.evaluate((objetivo) => {

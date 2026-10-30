@@ -7,6 +7,10 @@ export function formatearFecha(fechaIso: string): string {
   return `${dia}-${mes}-${anio}`;
 }
 
+export function rotuloPrecio(fechaIso: string): string {
+  return `Precio referencial al ${formatearFecha(fechaIso)}`;
+}
+
 export function leyendaPrecio(fechaIso: string): string {
-  return `Precio referencial al ${formatearFecha(fechaIso)} — ver precio vigente en Mercado Libre`;
+  return `${rotuloPrecio(fechaIso)} — ver precio vigente en Mercado Libre`;
 }

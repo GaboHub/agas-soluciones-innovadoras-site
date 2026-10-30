@@ -11,8 +11,9 @@ import { site, getCategoria } from '../../../lib/site';
 import { resolveImagen, resolveLogo, optimizedAbsoluteUrl } from '../../../lib/images';
 import { fotosDesdeRutas } from '../../../lib/galeria';
 import { construirGruposFicha, linkInicial } from '../../../lib/ficha';
+import { separarRotulo } from '../../../lib/caracteristicas';
 import { buildOrganization, buildProduct, buildProductGroup, buildFaqPage, buildBreadcrumbList } from '../../../lib/seo';
-import { formatearPrecioCLP, leyendaPrecio } from '../../../lib/formato';
+import { formatearPrecioCLP, leyendaPrecio, rotuloPrecio } from '../../../lib/formato';
 import { getTextoProducto } from '../../../lib/textos';
 import { getGuiasPorProducto } from '../../../lib/guias';
 
@@ -45,6 +46,8 @@ const gruposFicha: GrupoFicha[] = await Promise.all(
     ),
   })),
 );
+
+const caracteristicas = (data.caracteristicas ?? []).map((item) => ({ item, partes: separarRotulo(item) }));
 
 const imagenPrincipal = resolveImagen(data.imagenes[0]);
 
@@ -99,19 +102,23 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
   path={`/productos/${data.slug}/`}
   ogImage={imagenPrincipal}
   jsonLd={jsonLd}
-  mercadoLibre={{ href: linkInicial(gruposBase), etiqueta: site.ctaBurbujaProducto }}
+  mercadoLibre={{
+    href: linkInicial(gruposBase),
+    etiqueta: site.ctaFicha,
+    barra: { precioTexto: gruposBase[0].opciones[0].precioTexto, leyenda: rotuloPrecio(data.fechaPrecio) },
+  }}
 >
   <nav aria-label="Ruta de navegación" class="mx-auto max-w-6xl px-4 pt-6">
-    <ol class="flex list-none flex-wrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
-      <li><a href="/" class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">Inicio</a></li>
-      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
-      <li>
+    <ol class="flex list-none flex-nowrap items-center gap-2 p-0 font-texto text-sm text-tinta/70">
+      <li class="shrink-0"><a href="/" class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">Inicio</a></li>
+      <li aria-hidden="true" class="shrink-0"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
+      <li class="shrink-0">
         <a href={`/categorias/${categoria.slug}/`} class="inline-flex min-h-11 min-w-11 items-center justify-center hover:text-primario hover:underline">
           {categoria.nombre}
         </a>
       </li>
-      <li aria-hidden="true"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
-      <li aria-current="page" class="text-tinta">{data.titulo}</li>
+      <li aria-hidden="true" class="shrink-0"><Icono nombre="chevron-derecha" className="h-4 w-4" /></li>
+      <li aria-current="page" class="min-w-0 truncate text-tinta">{data.titulo}</li>
     </ol>
   </nav>
 
@@ -150,15 +157,23 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
   </section>
 
   {
-    data.caracteristicas && data.caracteristicas.length > 0 && (
+    caracteristicas.length > 0 && (
       <section class="mx-auto max-w-6xl px-4 pb-8">
         <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 md:p-8">
-          <h2 class="font-titulos text-2xl font-bold text-tinta">Características</h2>
+          <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">Características</h2>
           <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
-            {data.caracteristicas.map((item) => (
+            {caracteristicas.map(({ item, partes }) => (
               <li class="flex items-start gap-2 font-texto text-tinta">
                 <Icono nombre="check" className="mt-1 h-4 w-4 text-acento-oscuro" />
-                <span>{item}</span>
+                <span>
+                  {partes ? (
+                    <>
+                      <strong class="font-bold text-tinta">{partes.rotulo}</strong>{partes.resto}
+                    </>
+                  ) : (
+                    item
+                  )}
+                </span>
               </li>
             ))}
           </ul>
@@ -171,7 +186,7 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
     data.incluye && data.incluye.length > 0 && (
       <section class="mx-auto max-w-6xl px-4 pb-8">
         <div class="rounded-3xl bg-primario-claro p-6 md:p-8">
-          <h2 class="font-titulos text-2xl font-bold text-tinta">Qué incluye</h2>
+          <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">Qué incluye</h2>
           <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
             {data.incluye.map((item) => (
               <li class="flex items-start gap-2 font-texto text-tinta">
@@ -199,7 +214,7 @@ import GlifoCategoria from '../../../components/GlifoCategoria.astro';
     guiasRelacionadas.length > 0 && (
       <section class="mx-auto max-w-6xl px-4 pb-8">
         <div class="rounded-3xl bg-primario-claro p-6 md:p-8">
-          <h2 class="font-titulos text-2xl font-bold text-tinta">Guías que te pueden servir</h2>
+          <h2 class="font-titulos text-2xl font-bold text-tinta md:text-3xl">Guías que te pueden servir</h2>
           <ul class="mt-5 grid list-none gap-2 p-0 sm:grid-cols-2">
             {guiasRelacionadas.map((guia) => (
               <li>
