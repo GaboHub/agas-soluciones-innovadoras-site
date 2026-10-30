@@ -9,6 +9,8 @@ del README.
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-10-30
+
 ### Agregado
 
 - Fichas `carcasa-acrilica-nintendo-switch-2`,
@@ -602,7 +604,8 @@ Primera versión estable del sitio en producción (agassoluciones.cl).
   (e2e desktop y mobile).
 - Deploy en Cloudflare (Workers & Pages) con Wrangler y assets estáticos.
 
-[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.2...HEAD
+[Unreleased]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.2...v1.7.0
 [1.6.2]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/GaboHub/agas-soluciones-innovadoras-site/compare/v1.5.1...v1.6.0
